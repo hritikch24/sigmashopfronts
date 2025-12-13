@@ -356,7 +356,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(120deg, rgba(12, 47, 74, 0.92), rgba(10, 79, 117, 0.85)), url('assets/sigma-hero-1.jpeg') center/cover no-repeat;
+            background: radial-gradient(circle at 15% 20%, rgba(244, 192, 69, 0.18), transparent 30%), linear-gradient(120deg, #0c2f4a 0%, #0a4f75 70%, #0c2f4a 100%);
             color: white;
             padding: 140px 0;
             position: relative;
@@ -382,17 +382,41 @@
             z-index: 1;
         }
 
+        .hero-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            align-items: center;
+        }
+
         .hero h1 {
-            font-size: 48px;
+            font-size: 50px;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button {
@@ -401,17 +425,91 @@
             color: var(--primary-color);
             padding: 15px 40px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 700;
             font-size: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
             animation: fadeInUp 0.8s ease 0.4s both;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
             background: #f0f0f0;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 420px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: scale(1.02);
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(12,47,74,0.1));
+        }
+
+        .hero-caption {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            background: rgba(12, 47, 74, 0.75);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-dots {
+            position: absolute;
+            right: 16px;
+            bottom: 18px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .hero-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.2);
         }
 
         /* About Section */
@@ -1218,6 +1316,14 @@
                 font-size: 16px;
             }
 
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 300px;
+            }
+
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
@@ -1289,9 +1395,42 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Signature Shopfronts, Shutters & Doors</h1>
-            <p>Design, fabrication and installation delivered with rapid nationwide response and 24/7 emergency cover.</p>
-            <a href="#contact" class="cta-button">Book a Free Site Survey</a>
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <h1>Signature Shopfronts, Shutters & Doors</h1>
+                    <p>Design, fabrication and installation delivered with rapid nationwide response and 24/7 emergency cover.</p>
+                    <div class="hero-pills">
+                        <span class="hero-pill">Fast lead times</span>
+                        <span class="hero-pill">Nationwide teams</span>
+                        <span class="hero-pill">24/7 callouts</span>
+                    </div>
+                    <a href="#contact" class="cta-button">Book a Free Site Survey</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-slide active">
+                        <img src="assets/sigma-hero-1.jpeg" alt="Flagship glass frontage by Sigma">
+                        <div class="hero-caption">Flagship glass frontage</div>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="assets/sigma-roller-front.jpeg" alt="Roller shutter fascia install">
+                        <div class="hero-caption">Roller shutter fascia</div>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="assets/sigma-modern-front.jpeg" alt="Frameless entrance install">
+                        <div class="hero-caption">Frameless entrance</div>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="assets/sigma-mall-front.jpeg" alt="Retail mall frontage by Sigma">
+                        <div class="hero-caption">Retail mall frontage</div>
+                    </div>
+                    <div class="hero-dots" aria-label="Hero slider navigation">
+                        <button class="hero-dot active" aria-label="Slide 1"></button>
+                        <button class="hero-dot" aria-label="Slide 2"></button>
+                        <button class="hero-dot" aria-label="Slide 3"></button>
+                        <button class="hero-dot" aria-label="Slide 4"></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1781,6 +1920,46 @@
             navMenu.style.padding = '20px';
             navMenu.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
         });
+
+        // Hero slider logic
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        let heroIndex = 0;
+        let heroTimer;
+
+        function setHeroSlide(index) {
+            heroSlides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === index);
+            });
+            heroDots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === index);
+            });
+            heroIndex = index;
+        }
+
+        function nextHeroSlide() {
+            if (!heroSlides.length) return;
+            const next = (heroIndex + 1) % heroSlides.length;
+            setHeroSlide(next);
+        }
+
+        function startHeroTimer() {
+            heroTimer = setInterval(nextHeroSlide, 4500);
+        }
+
+        function resetHeroTimer(index) {
+            clearInterval(heroTimer);
+            setHeroSlide(index);
+            startHeroTimer();
+        }
+
+        heroDots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => resetHeroTimer(idx));
+        });
+
+        if (heroSlides.length) {
+            startHeroTimer();
+        }
 
 
         // Add scroll effect to header
