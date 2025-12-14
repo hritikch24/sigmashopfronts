@@ -46,6 +46,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/sigma-hero-1.jpeg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -223,6 +224,24 @@
             "logo": "https://sigmashopfronts.com/favicon.svg",
             "url": "https://sigmashopfronts.com/"
         }
+    }
+    </script>
+
+    <!-- Services Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Sigma Shop Fronts Services",
+        "itemListOrder": "http://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+            {"@type": "Service", "name": "Glass & Aluminium Shopfronts", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}},
+            {"@type": "Service", "name": "Roller & Security Shutters", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}},
+            {"@type": "Service", "name": "Frameless & Bi-Fold Entrances", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}},
+            {"@type": "Service", "name": "Security & Fire Doors", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}},
+            {"@type": "Service", "name": "Automatic Sliding Doors", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}},
+            {"@type": "Service", "name": "Maintenance & 24/7 Callouts", "provider": {"@type": "Organization", "name": "Sigma Shop Fronts"}}
+        ]
     }
     </script>
 
@@ -787,6 +806,104 @@
             margin-bottom: 15px;
         }
 
+        /* CTA Highlight */
+        .cta-highlight {
+            background: radial-gradient(circle at 15% 20%, rgba(244, 192, 69, 0.18), transparent 32%), linear-gradient(135deg, #0c2f4a 0%, #0a4f75 60%, #0c2f4a 100%);
+            color: white;
+            padding: 70px 0;
+        }
+
+        .cta-highlight .cta-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.28);
+        }
+
+        .cta-highlight h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .cta-highlight p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .cta-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 999px;
+            padding: 10px 16px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .cta-chip:hover {
+            transform: translateY(-1px);
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .process-card {
+            background: white;
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .process-step {
+            position: absolute;
+            top: -12px;
+            left: 16px;
+            background: var(--accent-color);
+            color: #0c2f4a;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 999px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .process-card h3 {
+            margin-top: 16px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .process-card p {
+            color: var(--text-light);
+        }
+
         /* Credentials Section */
         .credentials {
             padding: 80px 0;
@@ -838,6 +955,42 @@
             height: auto;
             display: block;
             border-radius: 10px;
+        }
+
+        /* Mobile contact bar */
+        .contact-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            background: rgba(12, 47, 74, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -8px 30px rgba(0,0,0,0.2);
+            z-index: 9998;
+        }
+
+        .contact-bar ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .contact-bar a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
         }
 
         /* Emergency Banner */
@@ -1427,7 +1580,7 @@
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                bottom: 20px;
+                bottom: 80px;
                 right: 20px;
             }
 
@@ -1438,6 +1591,10 @@
 
             .whatsapp-float::before {
                 display: none;
+            }
+
+            .contact-bar {
+                display: block;
             }
         }
     </style>
@@ -1600,6 +1757,32 @@
         </div>
     </section>
 
+    <!-- CTA Highlight -->
+    <section class="cta-highlight">
+        <div class="container">
+            <div class="cta-card">
+                <div>
+                    <h3>Need a quick site survey or emergency callout?</h3>
+                    <p>Same-week installs, 24/7 response, and clean fabrication from Sigma’s nationwide team.</p>
+                    <div class="cta-actions">
+                        <a class="cta-chip" href="tel:+447414779594">📞 Call 07414 779594</a>
+                        <a class="cta-chip" href="tel:+447397066538">📱 Call 07397 066538</a>
+                        <a class="cta-chip" href="https://wa.me/447397225530?text=Hi,%20I%20need%20a%20site%20survey%20for%20my%20shopfront" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+                        <a class="cta-chip" href="#contact">✉️ Book a Survey</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="hero-pills">
+                        <span class="hero-pill">Free surveys</span>
+                        <span class="hero-pill">Nationwide</span>
+                        <span class="hero-pill">DDA compliant</span>
+                        <span class="hero-pill">Fire & security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Clients Section -->
     <section class="clients">
         <div class="container">
@@ -1612,6 +1795,36 @@
                 <div class="client-logo">Health & Beauty</div>
                 <div class="client-logo">Automotive & Forecourts</div>
                 <div class="client-logo">Workspace & Offices</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">How We Deliver</h2>
+            <p class="section-subtitle">Clear steps from first call to finished frontage.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-step">Step 1</div>
+                    <h3>Brief & Survey</h3>
+                    <p>We capture your requirements on-site or virtually and measure everything needed for fabrication.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 2</div>
+                    <h3>Design & Spec</h3>
+                    <p>Glazing lines, fascia details, hardware and access needs are set out with clear lead times.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 3</div>
+                    <h3>Fabrication</h3>
+                    <p>In-house fabrication and finishing to keep quality tight and timelines short.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step">Step 4</div>
+                    <h3>Installation & Aftercare</h3>
+                    <p>Clean installs, handover, and 24/7 maintenance support to keep your frontage trading.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1958,6 +2171,14 @@
             <p>&copy; 2025 Sigma Shop Fronts. All rights reserved. | Shopfronts, shutters, doors & 24/7 response | Company Registration: England & Wales</p>
         </div>
     </footer>
+
+    <!-- Mobile contact bar -->
+    <div class="contact-bar" aria-label="Quick contact bar">
+        <ul>
+            <li><a href="tel:+447414779594">📞 Call Office</a></li>
+            <li><a href="https://wa.me/447397225530?text=Hi,%20I%20need%20help%20with%20shopfronts" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a></li>
+        </ul>
+    </div>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/447397225530?text=Hi,%20I%20would%20like%20to%20inquire%20about%20your%20services"
