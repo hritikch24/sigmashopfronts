@@ -86,6 +86,7 @@ export default function ChatWidget() {
         body: JSON.stringify({ messages: newMessages }),
       });
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Request failed');
       const assistantMsg: Message = {
         role: 'assistant',
         content: data.message || 'Sorry, I couldn\'t get a response. Please call us on 07414 779594.',

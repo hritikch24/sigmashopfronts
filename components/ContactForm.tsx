@@ -100,8 +100,13 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...form,
+          name: form.fullName,
+          email: form.email,
+          phone: form.phone,
           location: form.location === 'Other' ? form.locationOther : form.location,
+          service: form.service,
+          message: form.message || undefined,
+          source: form.hearAbout || undefined,
         }),
       });
       if (!res.ok) throw new Error('Server error');
