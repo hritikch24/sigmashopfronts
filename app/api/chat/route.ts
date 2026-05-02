@@ -44,14 +44,14 @@ function getClientIp(request: NextRequest): string {
   return "unknown";
 }
 
-function getXaiClient() {
-  const apiKey = process.env.XAI_API_KEY;
+function getGroqClient() {
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    throw new Error("XAI_API_KEY is not configured");
+    throw new Error("GROQ_API_KEY is not configured");
   }
   return new OpenAI({
     apiKey,
-    baseURL: "https://api.x.ai/v1",
+    baseURL: "https://api.groq.com/openai/v1",
   });
 }
 
@@ -118,10 +118,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    const xai = getXaiClient();
+    const groq = getGroqClient();
 
-    const response = await xai.chat.completions.create({
-      model: "grok-3-mini-fast",
+    const response = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
       max_tokens: 300,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ message: responseText });
   } catch (err) {
-    console.error("[chat] xAI API error:", err);
+    console.error("[chat] Groq API error:", err);
     return NextResponse.json(
       {
         error:
