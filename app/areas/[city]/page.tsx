@@ -1,0 +1,326 @@
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { cities } from '@/data/cities';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FAQSection from '@/components/FAQSection';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import ContactForm from '@/components/ContactForm';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
+
+const allServices = [
+  { name: 'Aluminium Shopfronts', slug: 'aluminium-shopfronts', image: 'aluminium-shopfront-1.jpeg' },
+  { name: 'Roller Shutters', slug: 'roller-shutters', image: 'roller-shutter-1.jpeg' },
+  { name: 'Security Doors', slug: 'security-doors', image: 'sigma-security-door.jpeg' },
+  { name: 'Automatic Doors', slug: 'automatic-doors', image: 'automatic-door-1.jpeg' },
+  { name: 'Bi-Fold Doors', slug: 'bi-fold-doors', image: 'bifolding-door-1.jpeg' },
+  { name: 'Fire Doors', slug: 'fire-doors', image: 'fire-door.jpeg' },
+  { name: 'Shopfront Repairs', slug: 'shopfront-repairs', image: 'shopfront-3.jpeg' },
+  { name: 'Emergency Callout', slug: 'emergency-callout', image: 'sigma-front-variant.jpeg' },
+];
+
+interface PageProps {
+  params: Promise<{ city: string }>;
+}
+
+export async function generateStaticParams() {
+  return cities.map((c) => ({ city: c.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { city: citySlug } = await params;
+  const city = cities.find((c) => c.slug === citySlug);
+  if (!city) return {};
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sigmashopfronts.com';
+
+  return {
+    title: city.metaTitle,
+    description: city.metaDescription,
+    alternates: { canonical: `${siteUrl}/areas/${citySlug}` },
+    openGraph: {
+      title: city.metaTitle,
+      description: city.metaDescription,
+      url: `${siteUrl}/areas/${citySlug}`,
+      type: 'website',
+      images: [{ url: '/assets/sigma-hero-1.jpeg', width: 1200, height: 630 }],
+    },
+  };
+}
+
+export default async function CityPage({ params }: PageProps) {
+  const { city: citySlug } = await params;
+  const city = cities.find((c) => c.slug === citySlug);
+  if (!city) notFound();
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sigmashopfronts.com';
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Sigma Shop Fronts',
+    description: `Professional shopfront installation, roller shutters, and security doors in ${city.name}`,
+    url: `${siteUrl}/areas/${citySlug}`,
+    telephone: '+447414779594',
+    email: 'sales@sigmashopfronts.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'West Midlands',
+      addressCountry: 'GB',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+    },
+    openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-16:00'],
+    priceRange: '££',
+  };
+
+  return (
+    <>
+      <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+
+      <section className="relative min-h-[45vh] flex items-end bg-navy">
+        <Image
+          src="/assets/sigma-front-wide.jpeg"
+          alt={`Shopfront installation in ${city.name} by Sigma Shop Fronts`}
+          fill
+          className="object-cover opacity-30"
+          priority
+          sizes="100vw"
+        />
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-32">
+            <Breadcrumbs
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Areas', href: '/#areas' },
+                { label: city.name },
+              ]}
+            />
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mt-4">
+              Shopfront Installation in {city.name}
+            </h1>
+            <p className="text-grey-300 text-lg mt-3 max-w-2xl">
+              Professional shopfronts, roller shutters, and security doors across {city.name} and {city.region}.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <Link href="/contact" className="btn-gold">
+                Get a Free Quote
+              </Link>
+              <a href="tel:07414779594" className="btn-outline">
+                Call 07414 779594
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-max">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <div className="prose prose-lg max-w-none text-charcoal leading-relaxed">
+                {city.description.split('\n\n').map((paragraph, i) => {
+                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                    return (
+                      <h2 key={i} className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                        {paragraph.replace(/\*\*/g, '')}
+                      </h2>
+                    );
+                  }
+                  if (paragraph.startsWith('**')) {
+                    const parts = paragraph.split('**');
+                    return (
+                      <div key={i}>
+                        <h2 className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                          {parts[1]}
+                        </h2>
+                        {parts[2] && <p className="mb-4">{parts[2]}</p>}
+                      </div>
+                    );
+                  }
+                  return <p key={i} className="mb-4">{paragraph}</p>;
+                })}
+              </div>
+
+              <div className="mt-8 p-6 bg-grey-50 rounded-xl">
+                <h3 className="font-heading font-bold text-navy text-lg mb-3">
+                  Areas We Cover in {city.name}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {city.areas.map((area) => (
+                    <span
+                      key={area}
+                      className="px-3 py-1.5 bg-white rounded-full text-sm text-charcoal border border-grey-200"
+                    >
+                      {area}
+                    </span>
+                  ))}
+                </div>
+                {city.postcodeAreas.length > 0 && (
+                  <p className="text-grey-500 text-sm mt-3">
+                    Postcode areas: {city.postcodeAreas.join(', ')}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <aside className="lg:col-span-1">
+              <div className="sticky top-24 space-y-6">
+                <div className="card-surface p-6 bg-navy text-white">
+                  <h3 className="font-heading font-bold text-gold text-lg mb-2">
+                    {city.name} Enquiry
+                  </h3>
+                  <p className="text-grey-300 text-sm mb-4">
+                    Get a free site survey in {city.name} — usually within 48 hours.
+                  </p>
+                  <Link href="/contact" className="btn-gold w-full text-center block mb-3">
+                    Request a Quote
+                  </Link>
+                  <a
+                    href="tel:07414779594"
+                    className="block text-center text-gold-light hover:text-gold text-sm font-medium transition-colors"
+                  >
+                    Or call 07414 779594
+                  </a>
+                </div>
+
+                <div className="card-surface p-6">
+                  <h3 className="font-heading font-bold text-navy text-lg mb-2">
+                    Why Sigma in {city.name}?
+                  </h3>
+                  <ul className="space-y-3">
+                    {[
+                      'Local teams with national backing',
+                      'Free no-obligation site surveys',
+                      'Fast lead times on all projects',
+                      'Companies House registered',
+                      '24/7 emergency callout available',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-charcoal">
+                        <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6L9 17l-5-5" stroke="#d4a843" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-grey-50">
+        <div className="container-max">
+          <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            Our {city.name} Services
+          </h2>
+          <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
+            We provide the full range of commercial shopfront and security solutions across {city.name} and the surrounding {city.region} area.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {allServices.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="group card-surface overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={`/assets/${service.image}`}
+                    alt={`${service.name} in ${city.name}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-heading font-bold text-navy text-sm group-hover:text-gold transition-colors">
+                    {service.name}
+                  </h3>
+                  <span className="text-gold text-xs font-medium mt-1 inline-flex items-center gap-1">
+                    Learn more
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {city.testimonials.length > 0 && (
+        <section className="section-padding">
+          <div className="container-max max-w-3xl">
+            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-8">
+              What Our {city.name} Clients Say
+            </h2>
+            <TestimonialCarousel testimonials={city.testimonials} />
+          </div>
+        </section>
+      )}
+
+      {city.faqs.length > 0 && (
+        <section className="section-padding bg-grey-50">
+          <div className="container-max max-w-3xl">
+            <FAQSection
+              faqs={city.faqs}
+              title={`Shopfront Installation in ${city.name} — FAQ`}
+            />
+          </div>
+        </section>
+      )}
+
+      <section className="section-padding bg-gradient-dark">
+        <div className="container-max">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-heading font-bold text-white mb-4">
+                Get Your Free Quote in {city.name}
+              </h2>
+              <p className="text-grey-300 text-lg mb-6">
+                Whether you need a new shopfront, roller shutters, or emergency repairs in {city.name},
+                our team is ready to help. Fill in the form and we will arrange a free site survey.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  `Serving all ${city.name} postcodes`,
+                  'Free site survey within 48 hours',
+                  'Competitive written quotations',
+                  '24/7 emergency callout available',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-grey-200">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M20 6L9 17l-5-5" stroke="#d4a843" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <a href="tel:07414779594" className="btn-gold">
+                  Call 07414 779594
+                </a>
+                <a
+                  href="https://wa.me/447397225530"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
+            </div>
+            <ContactForm defaultCity={city.name} />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

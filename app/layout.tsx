@@ -1,0 +1,142 @@
+import type { Metadata, Viewport } from 'next';
+import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
+import './globals.css';
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
+import MobileStickyBar from '@/components/MobileStickyBar';
+import StickyDesktopCTA from '@/components/StickyDesktopCTA';
+import Analytics from '@/components/Analytics';
+import SiteChrome from '@/components/SiteChrome';
+import { Suspense } from 'react';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+});
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sigmashopfronts.com';
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Sigma Shop Fronts',
+    default: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+  },
+  description:
+    'Leading UK shopfront specialists — aluminium shopfronts, roller shutters, security & automatic doors. Nationwide installation, 24/7 emergency callout, free site surveys. Companies House registered.',
+  keywords: [
+    'shopfront installation UK',
+    'aluminium shopfronts',
+    'roller shutters',
+    'security doors',
+    'automatic doors',
+    'bi-fold doors',
+    'fire doors',
+    'shopfront repairs',
+    'emergency shopfront callout',
+    'shop front company UK',
+    'Sigma Shop Fronts',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: siteUrl,
+    siteName: 'Sigma Shop Fronts',
+    title: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+    description:
+      'Leading UK shopfront specialists — aluminium shopfronts, roller shutters, security & automatic doors. Nationwide installation, 24/7 emergency callout, free site surveys.',
+    images: [
+      {
+        url: `${siteUrl}/assets/sigma-hero-1.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: 'Sigma Shop Fronts — Professional Shopfront Installation',
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  metadataBase: new URL(siteUrl),
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#1a1a2e',
+};
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en-GB"
+      className={`${plusJakartaSans.variable} ${outfit.variable} h-full scroll-smooth antialiased`}
+    >
+      <head>
+        {gtmId && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`,
+            }}
+          />
+        )}
+      </head>
+      <body className="min-h-full flex flex-col font-body bg-white text-charcoal">
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
+        <SiteChrome>
+          <Header />
+        </SiteChrome>
+        <main className="flex-1">{children}</main>
+        <SiteChrome>
+          <Footer />
+          <ChatWidget />
+          <MobileStickyBar />
+          <StickyDesktopCTA />
+        </SiteChrome>
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
+      </body>
+    </html>
+  );
+}

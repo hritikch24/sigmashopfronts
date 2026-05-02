@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* ─── Custom Theme ──────────────────────────────────────────────────────── */
+@theme inline {
+  /* Brand colours */
+  --color-navy:        #1a1a2e;
+  --color-navy-light:  #2d2d4a;
+  --color-charcoal:    #2c2c3a;
+  --color-gold:        #d4a843;
+  --color-gold-light:  #e8c876;
+
+  /* Neutrals */
+  --color-white:       #ffffff;
+  --color-grey-50:     #f9fafb;
+  --color-grey-100:    #f3f4f6;
+  --color-grey-200:    #e5e7eb;
+  --color-grey-300:    #d1d5db;
+  --color-grey-400:    #9ca3af;
+  --color-grey-500:    #6b7280;
+  --color-grey-600:    #4b5563;
+  --color-grey-700:    #374151;
+  --color-grey-800:    #1f2937;
+  --color-grey-900:    #111827;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+}
+
+/* ─── Base Styles ───────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-white);
+    color: var(--color-charcoal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ─── Custom Utilities ──────────────────────────────────────────────────── */
+@layer utilities {
+  /* Section padding shorthand */
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Constrained container */
+  .container-max {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  /* Gold gradient text */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Navy-to-charcoal gradient background */
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-charcoal) 100%);
+  }
+
+  /* Card surface */
+  .card-surface {
+    background-color: var(--color-white);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    border: 1px solid var(--color-grey-200);
+  }
+
+  /* Gold CTA button base */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    transition: background-color 150ms ease, transform 150ms ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-gold:hover {
+    background-color: var(--color-gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    transition: background-color 150ms ease, color 150ms ease;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+}
