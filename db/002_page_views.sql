@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS "page_views" (
   "device" TEXT,
   "browser" TEXT,
   "country" TEXT,
+  "ip" TEXT,
   "session_id" TEXT NOT NULL,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "page_views_pkey" PRIMARY KEY ("id")

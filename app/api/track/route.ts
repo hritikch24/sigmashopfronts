@@ -12,6 +12,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const geo = request.headers.get('x-vercel-ip-country') || null;
+    const forwarded = request.headers.get('x-forwarded-for');
+    const ip = forwarded ? forwarded.split(',')[0].trim() : null;
 
     await prisma.pageView.create({
       data: {
@@ -23,6 +25,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         device: device ? String(device).slice(0, 50) : null,
         browser: browser ? String(browser).slice(0, 50) : null,
         country: geo,
+        ip: ip ? String(ip).slice(0, 45) : null,
         sessionId: String(sessionId).slice(0, 100),
       },
     });

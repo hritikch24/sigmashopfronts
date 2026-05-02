@@ -17,6 +17,7 @@ model PageView {
   device    String?
   browser   String?
   country   String?
+  ip        String?
   sessionId String   @map("session_id")
   createdAt DateTime @default(now())
 
