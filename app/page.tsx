@@ -8,11 +8,11 @@ import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+  title: 'Aluminium Shopfronts & Roller Shutters UK | Sigma Shop Fronts',
   description:
     'UK-wide shopfront specialists. Aluminium shopfronts, roller shutters, security doors, automatic doors & 24/7 emergency callout. Free site surveys. Companies House registered.',
   alternates: {
-    canonical: 'https://sigmashopfronts.com',
+    canonical: 'https://www.sigmashopfronts.com',
   },
 };
 
@@ -217,6 +217,7 @@ const serviceAreas = [
   { city: 'Edinburgh', slug: 'edinburgh' },
   { city: 'Southampton', slug: 'southampton' },
   { city: 'Brighton', slug: 'brighton' },
+  { city: 'Coventry', slug: 'coventry' },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────────────── */
@@ -249,7 +250,8 @@ export default function HomePage() {
 
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
               Signature Shopfronts,{' '}
-              <span className="text-gradient-gold">Shutters &amp; Doors</span>
+              <span className="text-gradient-gold">Shutters &amp; Doors</span>{' '}
+              Across the UK
             </h1>
 
             <p className="text-grey-200 text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-10 font-light">
@@ -309,7 +311,7 @@ export default function HomePage() {
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">What We Do</p>
             <h2 id="services-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
-              Our Services
+              Our Commercial Shopfront &amp; Security Services
             </h2>
             <p className="text-grey-600 text-lg max-w-2xl mx-auto leading-relaxed">
               From bespoke aluminium shopfronts to rapid emergency callouts — we cover the full spectrum of commercial entrance solutions.
@@ -342,7 +344,7 @@ export default function HomePage() {
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Why Sigma</p>
             <h2 id="why-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
-              Why Choose Sigma
+              Why Choose Sigma for Aluminium Shopfront Installation
             </h2>
             <p className="text-grey-600 text-lg max-w-xl mx-auto">
               We combine national reach with local accountability — every job, every time.
@@ -374,7 +376,7 @@ export default function HomePage() {
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Our Approach</p>
             <h2 id="process-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              How We Work
+              How Our Shopfront Installation Process Works
             </h2>
             <p className="text-grey-400 text-lg max-w-xl mx-auto">
               A streamlined four-step process designed to deliver your project on time, on spec, first time.
@@ -407,7 +409,7 @@ export default function HomePage() {
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Portfolio</p>
             <h2 id="gallery-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
-              Recent Projects
+              Recent Shopfront &amp; Roller Shutter Projects
             </h2>
             <p className="text-grey-600 text-lg max-w-xl mx-auto">
               A snapshot of our latest commercial shopfront and shutter installations across the UK.
@@ -485,7 +487,7 @@ export default function HomePage() {
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Coverage</p>
             <h2 id="areas-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
-              We Cover the Whole UK
+              Shopfront Installation Across the Whole UK
             </h2>
             <p className="text-grey-600 text-lg max-w-xl mx-auto">
               Permanent installation teams in major cities with rapid-response nationwide coverage.
@@ -614,7 +616,7 @@ export default function HomePage() {
             <div className="lg:pt-4">
               <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Get Started</p>
               <h2 id="cta-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-                Get Your Free Quote
+                Get a Free Shopfront Installation Quote
               </h2>
               <p className="text-grey-300 text-lg leading-relaxed mb-8">
                 Tell us about your project and we will provide a detailed, transparent quotation — no obligations, no hidden costs.

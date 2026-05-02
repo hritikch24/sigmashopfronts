@@ -30,6 +30,17 @@ const nextConfig: NextConfig = {
     },
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'sigmashopfronts.com' }],
+        destination: 'https://www.sigmashopfronts.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers applied to every route
   async headers() {
     return [

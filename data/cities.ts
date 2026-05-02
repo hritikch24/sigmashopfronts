@@ -44,7 +44,7 @@ export const cities: City[] = [
     ],
     postcodeAreas: ['E1', 'E14', 'EC1', 'EC2', 'N1', 'SE1', 'SE15', 'SW1', 'W1', 'WC2', 'CR0', 'E15'],
     primaryKeyword: 'shopfronts London',
-    metaTitle: 'Shopfront Installation London | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in London',
     metaDescription:
       'Expert shopfront installation across London. Aluminium shopfronts, roller shutters, automatic doors. From Shoreditch to Canary Wharf. Free survey.',
     description: `London's commercial property market is unlike anywhere else in the UK. The density of retail and hospitality premises, the diversity of building stock — Victorian terraces sitting beside 1960s concrete blocks and gleaming post-millennium glass towers — and the sheer variety of planning and conservation constraints create a shopfront environment that demands real experience and adaptability.
@@ -120,7 +120,7 @@ Planning requirements in London are layered and sometimes unpredictable. The Cit
     ],
     postcodeAreas: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B11', 'B13', 'B15', 'B72', 'B91'],
     primaryKeyword: 'shopfronts Birmingham',
-    metaTitle: 'Shopfront Installation Birmingham | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Birmingham',
     metaDescription:
       'Shopfront installation across Birmingham. Aluminium shopfronts, roller shutters & security doors from the Jewellery Quarter to Digbeth. Free survey.',
     description: `Birmingham is in the middle of one of the most sustained periods of commercial regeneration of any city in the UK. From the ongoing expansion of the Jewellery Quarter as a destination for independent retail and hospitality, to the transformation of Digbeth into a creative and cultural hub, to the international profile boost delivered by the 2022 Commonwealth Games, the city's commercial environment is evolving rapidly, and the demand for high-quality shopfronts has grown with it.
@@ -194,7 +194,7 @@ Across the wider city — in Erdington, Handsworth, Harborne, and the Sutton Col
     ],
     postcodeAreas: ['M1', 'M2', 'M3', 'M4', 'M5', 'M12', 'M14', 'M15', 'M16', 'M21'],
     primaryKeyword: 'shopfronts Manchester',
-    metaTitle: 'Shopfront Installation Manchester | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Manchester',
     metaDescription:
       'Shopfront installation across Manchester. From Northern Quarter independents to Spinningfields commercial. Aluminium, shutters, automatic doors. Free survey.',
     description: `Manchester's commercial landscape is one of the most dynamic in the north of England, and its appetite for new retail, hospitality, and workspace is reflected in a continuous flow of refurbishment and new-build projects across the city centre and its inner neighbourhoods.
@@ -268,7 +268,7 @@ In the residential suburbs — Didsbury, Chorlton, Withington — the independen
     ],
     postcodeAreas: ['LS1', 'LS2', 'LS3', 'LS6', 'LS7', 'LS8', 'LS10', 'LS11', 'LS13', 'LS26', 'LS27'],
     primaryKeyword: 'shopfronts Leeds',
-    metaTitle: 'Shopfront Installation Leeds | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Leeds',
     metaDescription:
       'Shopfront installation across Leeds. Aluminium shopfronts, roller shutters, security doors for city centre, Headingley and beyond. Free survey.',
     description: `Leeds has grown into one of the most commercially active cities in Yorkshire, with a retail and hospitality sector that punches well above its weight for a regional centre. The city centre's investment in the Victoria Gate shopping quarter, the continued strength of Briggate and the surrounding commercial core, and the rapid evolution of Holbeck Urban Village as a creative and technology hub have all contributed to a sustained demand for shopfront installation and refurbishment.
@@ -342,7 +342,7 @@ Chapel Allerton's thriving independent village and the suburban retail strips of
     ],
     postcodeAreas: ['L1', 'L2', 'L3', 'L4', 'L6', 'L7', 'L8', 'L15', 'L18', 'L20', 'L22', 'L32'],
     primaryKeyword: 'shopfronts Liverpool',
-    metaTitle: 'Shopfront Installation Liverpool | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Liverpool',
     metaDescription:
       'Shopfront installation across Liverpool. From Bold Street to the Baltic Triangle. Aluminium shopfronts, shutters, automatic doors. Free survey.',
     description: `Liverpool's commercial property landscape carries the imprint of its extraordinary architectural heritage alongside the energy of a city that has reinvented its economy dramatically over the past two decades. The UNESCO World Heritage Site designation of the waterfront — and the subsequent battles over planning around the Pier Head — is perhaps the most visible expression of how seriously Liverpool takes the relationship between its built environment and its identity.
@@ -416,7 +416,7 @@ Across the north Liverpool suburbs — Kirkby, Bootle, Crosby, and Seaforth — 
     ],
     postcodeAreas: ['BS1', 'BS2', 'BS3', 'BS4', 'BS6', 'BS7', 'BS8', 'BS9', 'BS13', 'BS15', 'BS30'],
     primaryKeyword: 'shopfronts Bristol',
-    metaTitle: 'Shopfront Installation Bristol | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Bristol',
     metaDescription:
       'Shopfront installation across Bristol. Clifton, Stokes Croft, Broadmead and beyond. Aluminium shopfronts, shutters, fire doors. Free survey.',
     description: `Bristol is arguably the south-west's most vibrant commercial city, and its approach to its built environment is distinctive. The city has a genuine pride in its architectural heritage — from the Georgian terraces of Clifton to the Victorian commercial buildings of Broadmead — and planning officers across Bristol City Council are active in applying the guidance in the council's shopfront design guide.
@@ -490,7 +490,7 @@ The suburban retail centres — Westbury-on-Trym, Fishponds, Keynsham — serve 
     ],
     postcodeAreas: ['S1', 'S2', 'S3', 'S5', 'S6', 'S7', 'S8', 'S10', 'S11', 'S13', 'S35'],
     primaryKeyword: 'shopfronts Sheffield',
-    metaTitle: 'Shopfront Installation Sheffield | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Sheffield',
     metaDescription:
       'Shopfront installation across Sheffield. From Ecclesall Road independents to Kelham Island creative district. Aluminium, shutters, automatic doors. Free survey.',
     description: `Sheffield's commercial identity has been reshaped profoundly over the past thirty years — from a city defined by steel manufacturing to one with a diverse, growing service economy anchored by two major universities, a strong hospitality sector, and a creative industry cluster in Kelham Island that has drawn national attention.
@@ -564,7 +564,7 @@ Hillsborough, Chapeltown, and Woodseats serve their local communities with neigh
     ],
     postcodeAreas: ['G1', 'G2', 'G3', 'G4', 'G11', 'G12', 'G41', 'G42', 'G43', 'G51', 'G69'],
     primaryKeyword: 'shopfronts Glasgow',
-    metaTitle: 'Shopfront Installation Glasgow | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Glasgow',
     metaDescription:
       'Shopfront installation across Glasgow. From Buchanan Street to Finnieston. Aluminium shopfronts, roller shutters, automatic doors. Free survey.',
     description: `Glasgow is the commercial heart of Scotland and its largest city, with a retail and hospitality offer that rivals many larger European cities. The diversity of its commercial districts — from the polished luxury end of Buchanan Street and Princes Square to the creative, independent cluster of Finnieston's Argyle Street — creates a range of shopfront requirements that demands both technical breadth and contextual sensitivity.
@@ -638,7 +638,7 @@ Shawlands, Partick, Govan, and Springburn all have neighbourhood commercial cent
     ],
     postcodeAreas: ['CF10', 'CF11', 'CF14', 'CF15', 'CF23', 'CF24', 'CF5', 'CF3', 'CF64'],
     primaryKeyword: 'shopfronts Cardiff',
-    metaTitle: 'Shopfront Installation Cardiff | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Cardiff',
     metaDescription:
       'Shopfront installation across Cardiff. From Cardiff Bay to Canton. Aluminium shopfronts, roller shutters, automatic doors. Free survey in Wales.',
     description: `Cardiff has grown rapidly as a commercial centre since its designation as the capital of Wales and the subsequent investment in the civic and commercial infrastructure of the city. The development of Cardiff Bay — transforming the former coal export docks into a government, cultural, and leisure quarter — and the sustained investment in the city centre around St Mary Street, the Principality Stadium hinterland, and the Cardiff Central retail zone have all contributed to a buoyant commercial property market.
@@ -712,7 +712,7 @@ Penarth, Whitchurch, and the wider Vale of Glamorgan area have active neighbourh
     ],
     postcodeAreas: ['NE1', 'NE2', 'NE3', 'NE4', 'NE6', 'NE7', 'NE8', 'NE10', 'NE12', 'NE28'],
     primaryKeyword: 'shopfronts Newcastle',
-    metaTitle: 'Shopfront Installation Newcastle | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Newcastle',
     metaDescription:
       'Shopfront installation across Newcastle and Gateshead. Grainger Town to Ouseburn. Aluminium shopfronts, shutters, automatic doors. Free survey.',
     description: `Newcastle upon Tyne is a city that wears its architectural heritage with justifiable pride. Grainger Town — the neoclassical commercial district laid out by Richard Grainger and John Dobson in the 1830s — is one of the most complete examples of planned urban commercial architecture in Europe. The consistency of the sandstone façades, the regular rhythm of the windows, and the colonnaded ground floors of Grey Street and Grainger Street create a shopfront context in which careful specification is not optional but essential.
@@ -786,7 +786,7 @@ In the wider Tyne and Wear area — Wallsend, Byker, Fenham, and Gosforth — we
     ],
     postcodeAreas: ['NG1', 'NG2', 'NG3', 'NG5', 'NG6', 'NG7', 'NG8', 'NG9', 'NG10', 'NG17'],
     primaryKeyword: 'shopfronts Nottingham',
-    metaTitle: 'Shopfront Installation Nottingham | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Nottingham',
     metaDescription:
       'Shopfront installation across Nottingham. Lace Market, Hockley, West Bridgford and beyond. Aluminium shopfronts, shutters, security doors. Free survey.',
     description: `Nottingham is a compact, vibrant commercial city with a retail and leisure offer that draws shoppers from across the East Midlands. The city's commercial character is shaped by its unusual combination of Victorian and Georgian architecture in the Lace Market and surrounding streets, the significant investment in the Victoria Centre and intu Broadmarsh renewal, and the growing independent retail scene centred on Hockley.
@@ -860,7 +860,7 @@ Across the wider city — Arnold, Carlton, Bulwell, and Long Eaton — we serve 
     ],
     postcodeAreas: ['LE1', 'LE2', 'LE3', 'LE4', 'LE5', 'LE7', 'LE8', 'LE10', 'LE18', 'LE19'],
     primaryKeyword: 'shopfronts Leicester',
-    metaTitle: 'Shopfront Installation Leicester | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Leicester',
     metaDescription:
       'Shopfront installation across Leicester. The Golden Mile, Highcross, Belgrave and beyond. Aluminium shopfronts, shutters, security doors. Free survey.',
     description: `Leicester is one of the UK's most culturally diverse cities, and this diversity is visible in its commercial landscape in ways that are unique among UK cities. The Golden Mile — Belgrave Road and its continuation through Belgrave — is one of the most concentrated and vibrant South Asian retail and hospitality districts in Europe, and the shopfronts along this stretch carry the characteristic visual intensity of a street where jewellery shops, fabric retailers, sweet shops, and restaurants compete for attention.
@@ -934,7 +934,7 @@ Oadby, Wigston, and Birstall serve the prosperous southern and eastern suburbs o
     ],
     postcodeAreas: ['EH1', 'EH2', 'EH3', 'EH4', 'EH6', 'EH7', 'EH9', 'EH10', 'EH11', 'EH15', 'EH12'],
     primaryKeyword: 'shopfronts Edinburgh',
-    metaTitle: 'Shopfront Installation Edinburgh | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Edinburgh',
     metaDescription:
       'Shopfront installation across Edinburgh. Old Town, New Town, Leith and beyond. Aluminium, shutters, automatic doors. Listed building specialists. Free survey.',
     description: `Edinburgh presents perhaps the most demanding planning context for commercial shopfront installation of any city in the UK. The city centre — the Old Town and New Town together — is inscribed as a UNESCO World Heritage Site, and the planning protections that flow from this designation are considerable. Virtually every building on the Royal Mile, Princes Street, George Street, and the surrounding Georgian grid is either listed or sits within a conservation area, and the planning authority (now the City of Edinburgh Council) applies a rigorous assessment to any external alteration to these buildings.
@@ -1008,7 +1008,7 @@ The building warrant requirements in Scotland, as noted in our Glasgow entry, ap
     ],
     postcodeAreas: ['SO14', 'SO15', 'SO16', 'SO17', 'SO18', 'SO19', 'SO30', 'SO50', 'SO40'],
     primaryKeyword: 'shopfronts Southampton',
-    metaTitle: 'Shopfront Installation Southampton | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Southampton',
     metaDescription:
       'Shopfront installation across Southampton. Westquay, Above Bar, Shirley and beyond. Aluminium shopfronts, shutters, automatic doors. Free survey.',
     description: `Southampton is a major commercial centre with a retail environment anchored by the Westquay shopping centre — one of the largest in southern England — and the wider city-centre retail and leisure offer along Above Bar Street and the surrounding pedestrianised core.
@@ -1084,7 +1084,7 @@ Eastleigh, Hedge End, and Totton are the key satellite commercial centres in the
     ],
     postcodeAreas: ['BN1', 'BN2', 'BN3', 'BN41', 'BN42', 'BN43'],
     primaryKeyword: 'shopfronts Brighton',
-    metaTitle: 'Shopfront Installation Brighton | Sigma Shop Fronts',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Brighton',
     metaDescription:
       'Shopfront installation across Brighton & Hove. The Lanes, North Laine, Kemptown and Hove. Aluminium shopfronts, shutters, automatic doors. Free survey.',
     description: `Brighton & Hove is a city with a genuinely distinctive commercial identity — creative, independent, and resistant to the homogenisation that has affected many UK high streets. The North Laine, The Lanes, and Kemptown each have a character that is carefully protected by the local community and by Brighton & Hove City Council's planning policies, and shopfront installation here requires real contextual sensitivity.
@@ -1136,6 +1136,65 @@ Brighton's coastal exposure is a significant factor in shopfront specification. 
         question: 'What specific corrosion protection do you use for Brighton seafront installations?',
         answer:
           'For all installations within approximately one kilometre of the Brighton seafront — and this applies broadly to most of central Brighton — we specify marine-grade aluminium sections, grade 316 stainless steel fixings throughout, and a powder-coat finish applied over a chromate conversion primer for maximum adhesion to the aluminium substrate and maximum resistance to the salt-air environment. We also include a specific recommendation for annual cleaning of the aluminium sections with a proprietary aluminium cleaner to remove salt deposits before they penetrate the coating.',
+      },
+    ],
+  },
+  {
+    slug: 'coventry',
+    name: 'Coventry',
+    region: 'West Midlands',
+    areas: [
+      'City Centre',
+      'Earlsdon',
+      'Tile Hill',
+      'Canley',
+      'Cheylesmore',
+      'Stoke',
+      'Foleshill',
+      'Binley',
+      'Walsgrave',
+      'Coundon',
+    ],
+    postcodeAreas: ['CV1', 'CV2', 'CV3', 'CV4', 'CV5', 'CV6'],
+    primaryKeyword: 'shopfronts Coventry',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Coventry',
+    metaDescription:
+      'Professional shopfront installation across Coventry. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Coventry is a city defined by post-war reconstruction and ongoing regeneration, and its commercial property stock reflects that history. The city centre was comprehensively rebuilt following the devastation of the Blitz, and the 1950s and 1960s precinct architecture — including the Upper Precinct, Lower Precinct, and the distinctive circular market — created a commercial environment quite different from the medieval street patterns of most English cities. Shopfront installation in these precinct environments requires an understanding of the modular structural bays, the relationship between individual units and the wider architectural composition, and the specific detailing conventions of mid-century commercial architecture.
+
+The Cathedral Quarter and FarGo Village represent Coventry's creative and independent retail sectors. FarGo Village, a repurposed industrial site, houses independent retailers, makers, and food vendors in shipping containers and converted warehouse units. Shopfront requirements here are different from the city centre: bold, expressive, and often working with unusual structural openings.
+
+Coventry's City of Culture legacy has accelerated investment in the public realm and in commercial premises across the city centre. New developments around the railway station and in the Friargate business district are creating demand for high-specification aluminium shopfronts, automatic entrance systems, and integrated security solutions.
+
+The Foleshill Road corridor north of the city centre is one of the most vibrant and diverse commercial streets in the West Midlands, with a dense concentration of independent retail, food, and service businesses. Shopfront work here is steady and varied, ranging from new aluminium installations to roller shutter replacements and emergency glazing repairs.
+
+We operate across the full Coventry area, including Earlsdon, Tile Hill, Canley, Cheylesmore, Stoke, and the surrounding towns of Bedworth, Nuneaton, and Rugby. Our West Midlands teams are well placed to provide rapid response across the CV postcode area.`,
+    testimonials: [
+      {
+        name: 'Raj Patel',
+        business: 'Patel Convenience',
+        location: 'Foleshill Road',
+        rating: 5,
+        text: 'Sigma replaced our old shopfront and fitted a new roller shutter in a single day. The team arrived on time, worked cleanly, and the finish is excellent. Very competitive price compared to other quotes we received.',
+      },
+      {
+        name: 'Claire Dunn',
+        business: 'Earlsdon Dental Practice',
+        location: 'Earlsdon',
+        rating: 5,
+        text: 'We needed a new automatic entrance door for DDA compliance. Sigma surveyed quickly, provided a clear quote, and installed within the week. The door works perfectly and the patients have noticed the improvement.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Coventry area including Bedworth and Nuneaton?',
+        answer:
+          'Yes. We cover the full CV postcode area, including Bedworth, Nuneaton, Rugby, Kenilworth, and Leamington Spa. Our West Midlands teams are based locally and can respond quickly across the region.',
+      },
+      {
+        question: 'Can you work on shopfronts in Coventry city centre precinct buildings?',
+        answer:
+          'Yes. We have experience working within the Upper and Lower Precinct environments, where the modular bay structure and the relationship between individual units and the wider architectural composition require careful detailing. We work within the specific constraints of these mid-century commercial buildings.',
       },
     ],
   },
