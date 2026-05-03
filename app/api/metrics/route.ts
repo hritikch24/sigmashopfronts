@@ -23,8 +23,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   }
 
   const { searchParams } = new URL(request.url);
-  const daysParam = parseInt(searchParams.get('days') || '30', 10);
-  const days = Math.min(Math.max(1, daysParam), 365);
+  const hoursParam = searchParams.get('hours');
+  const daysParam = parseFloat(searchParams.get('days') || '30');
+  const hours = hoursParam ? Math.min(Math.max(1, parseInt(hoursParam, 10)), 8760) : null;
+  const days = hours ? hours / 24 : Math.min(Math.max(1, daysParam), 365);
 
   const since = new Date();
   since.setDate(since.getDate() - days);
@@ -38,6 +40,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       deviceBreakdown,
       browserBreakdown,
       countryBreakdown,
+      ipBreakdown,
       utmSources,
       dailyViews,
       totalLeads,
@@ -78,6 +81,11 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
       prisma.$queryRawUnsafe<{ country: string; count: bigint }[]>(
         `SELECT COALESCE(country, 'unknown') as country, COUNT(*)::bigint as count FROM page_views WHERE "createdAt" >= $1 GROUP BY country ORDER BY count DESC LIMIT 15`,
+        since
+      ),
+
+      prisma.$queryRawUnsafe<{ ip: string; count: bigint }[]>(
+        `SELECT COALESCE(ip, 'unknown') as ip, COUNT(*)::bigint as count FROM page_views WHERE "createdAt" >= $1 GROUP BY ip ORDER BY count DESC LIMIT 20`,
         since
       ),
 
@@ -145,6 +153,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         devices: serialize(deviceBreakdown),
         browsers: serialize(browserBreakdown),
         countries: serialize(countryBreakdown),
+        ips: serialize(ipBreakdown),
         utmSources: serialize(utmSources),
         daily: serialize(dailyViews),
       },

@@ -12,6 +12,7 @@ interface MetricsData {
     devices: { device: string; count: number }[];
     browsers: { browser: string; count: number }[];
     countries: { country: string; count: number }[];
+    ips: { ip: string; count: number }[];
     utmSources: { utm_source: string; count: number }[];
     daily: { date: string; views: number }[];
   };
@@ -162,7 +163,7 @@ export default function MetricsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState<MetricsData | null>(null);
-  const [days, setDays] = useState(30);
+  const [period, setPeriod] = useState('30d');
 
   useEffect(() => {
     const saved = sessionStorage.getItem('_sigma_metrics_key');
@@ -172,11 +173,12 @@ export default function MetricsPage() {
     }
   }, []);
 
-  const fetchMetrics = useCallback(async (key: string, period: number) => {
+  const fetchMetrics = useCallback(async (key: string, p: string) => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`/api/metrics?days=${period}&key=${encodeURIComponent(key)}`);
+      const param = p.endsWith('h') ? `hours=${p.slice(0, -1)}` : `days=${p.slice(0, -1)}`;
+      const res = await fetch(`/api/metrics?${param}&key=${encodeURIComponent(key)}`);
       if (res.status === 401) {
         setError('Invalid API key');
         setAuthenticated(false);
@@ -197,14 +199,14 @@ export default function MetricsPage() {
 
   useEffect(() => {
     if (authenticated && apiKey) {
-      fetchMetrics(apiKey, days);
+      fetchMetrics(apiKey, period);
     }
-  }, [authenticated, apiKey, days, fetchMetrics]);
+  }, [authenticated, apiKey, period, fetchMetrics]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (apiKey.trim()) {
-      fetchMetrics(apiKey.trim(), days);
+      fetchMetrics(apiKey.trim(), period);
     }
   };
 
@@ -297,18 +299,21 @@ export default function MetricsPage() {
           </div>
           <div className="flex items-center gap-3">
             <select
-              value={days}
-              onChange={(e) => setDays(Number(e.target.value))}
+              value={period}
+              onChange={(e) => setPeriod(e.target.value)}
               className="bg-navy-light text-white text-sm border border-navy-light rounded-lg px-3 py-1.5 focus:ring-gold focus:ring-2 focus:outline-none"
             >
-              <option value={7}>Last 7 days</option>
-              <option value={14}>Last 14 days</option>
-              <option value={30}>Last 30 days</option>
-              <option value={90}>Last 90 days</option>
-              <option value={365}>Last year</option>
+              <option value="1h">Last 1 hour</option>
+              <option value="6h">Last 6 hours</option>
+              <option value="24h">Last 24 hours</option>
+              <option value="7d">Last 7 days</option>
+              <option value="14d">Last 14 days</option>
+              <option value="30d">Last 30 days</option>
+              <option value="90d">Last 90 days</option>
+              <option value="365d">Last year</option>
             </select>
             <button
-              onClick={() => fetchMetrics(apiKey, days)}
+              onClick={() => fetchMetrics(apiKey, period)}
               className="text-gold hover:text-gold-light text-sm font-medium transition-colors"
             >
               Refresh
@@ -331,10 +336,10 @@ export default function MetricsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Top stats */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          <StatCard label="Page Views" value={data.traffic.totalViews.toLocaleString()} sub={`${days}d period`} />
+          <StatCard label="Page Views" value={data.traffic.totalViews.toLocaleString()} sub={`${period} period`} />
           <StatCard label="Unique Sessions" value={data.traffic.uniqueSessions.toLocaleString()} />
           <StatCard label="Pages / Session" value={pagesPerSession} />
-          <StatCard label="Total Leads" value={data.leads.total} sub={`${days}d period`} />
+          <StatCard label="Total Leads" value={data.leads.total} sub={`${period} period`} />
           <StatCard label="Conversion Rate" value={`${conversionRate}%`} sub="Leads / Sessions" />
           <StatCard
             label="New Leads"
@@ -371,8 +376,8 @@ export default function MetricsPage() {
           </div>
         </div>
 
-        {/* Device / Browser / Country */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Device / Browser / Country / IP */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white rounded-xl border border-grey-200 p-5">
             <h2 className="font-heading font-bold text-navy text-sm mb-4">Devices</h2>
             <BarChart data={data.traffic.devices} labelKey="device" valueKey="count" />
@@ -384,6 +389,10 @@ export default function MetricsPage() {
           <div className="bg-white rounded-xl border border-grey-200 p-5">
             <h2 className="font-heading font-bold text-navy text-sm mb-4">Countries</h2>
             <BarChart data={data.traffic.countries} labelKey="country" valueKey="count" color="bg-blue-500" />
+          </div>
+          <div className="bg-white rounded-xl border border-grey-200 p-5">
+            <h2 className="font-heading font-bold text-navy text-sm mb-4">Top IPs</h2>
+            <BarChart data={data.traffic.ips} labelKey="ip" valueKey="count" color="bg-purple-500" />
           </div>
         </div>
 
