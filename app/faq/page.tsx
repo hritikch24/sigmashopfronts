@@ -74,6 +74,11 @@ const faqs = [
     answer:
       'We install a full range of roller shutters including solid steel (galvanised or powder-coated), perforated steel (for ventilation and partial visibility), polycarbonate (for maximum light transmission), and aluminium lath. Shutters can be operated manually (spring-balanced or hand-crank), electrically (via push-button, key switch, or remote control), or with battery backup systems. We can also retrofit electric operators to existing manual shutters.',
   },
+  {
+    question: 'Sigma is a relatively new company — how can I trust the quality of your work?',
+    answer:
+      'While Sigma Shopfronts and Shutter Limited was incorporated recently, our installation teams collectively bring over 10 years of hands-on experience in the commercial shopfront and security industry. Our fitters, estimators, and project managers have worked on hundreds of projects across the UK before joining Sigma — from high-street retail chains to independent businesses. We are Companies House registered (No. 16794487), fully insured, and every installation is backed by our workmanship guarantee. We are happy to provide references and examples of completed work on request.',
+  },
 ];
 
 const schemaData = {

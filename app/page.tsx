@@ -365,6 +365,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Trust Credentials ──────────────────────────────────────────── */}
+      <section className="bg-navy py-8">
+        <div className="container-max">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { value: '10+', label: 'Years Trade Experience' },
+              { value: '500+', label: 'Projects Completed' },
+              { value: '16', label: 'UK Cities Covered' },
+              { value: '24/7', label: 'Emergency Response' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="font-heading text-3xl sm:text-4xl font-extrabold text-gold">{stat.value}</p>
+                <p className="text-grey-300 text-sm mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Process / How We Work ────────────────────────────────────────── */}
       <section className="section-padding bg-navy relative overflow-hidden" aria-labelledby="process-heading">
         {/* Subtle pattern */}
