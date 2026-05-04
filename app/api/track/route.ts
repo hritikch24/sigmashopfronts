@@ -13,7 +13,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const geo = request.headers.get('x-vercel-ip-country') || null;
     const forwarded = request.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0].trim() : null;
+    const realIp = request.headers.get('x-real-ip');
+    const ip = forwarded ? forwarded.split(',')[0].trim() : (realIp || null);
 
     await prisma.pageView.create({
       data: {
