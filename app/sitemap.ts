@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${siteUrl}/cost-guide`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/why-choose-us`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({

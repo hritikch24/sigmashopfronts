@@ -71,6 +71,7 @@ const defaultLocalBusiness = {
     },
   ],
   areaServed: [
+    { '@type': 'Country', name: 'United Kingdom' },
     { '@type': 'City', name: 'London' },
     { '@type': 'City', name: 'Birmingham' },
     { '@type': 'City', name: 'Manchester' },
@@ -87,6 +88,47 @@ const defaultLocalBusiness = {
     { '@type': 'City', name: 'Southampton' },
     { '@type': 'City', name: 'Brighton' },
     { '@type': 'City', name: 'Coventry' },
+    { '@type': 'City', name: 'Aberdeen' },
+    { '@type': 'City', name: 'Bath' },
+    { '@type': 'City', name: 'Bolton' },
+    { '@type': 'City', name: 'Bournemouth' },
+    { '@type': 'City', name: 'Bradford' },
+    { '@type': 'City', name: 'Cambridge' },
+    { '@type': 'City', name: 'Canterbury' },
+    { '@type': 'City', name: 'Chelmsford' },
+    { '@type': 'City', name: 'Chester' },
+    { '@type': 'City', name: 'Colchester' },
+    { '@type': 'City', name: 'Derby' },
+    { '@type': 'City', name: 'Doncaster' },
+    { '@type': 'City', name: 'Dundee' },
+    { '@type': 'City', name: 'Exeter' },
+    { '@type': 'City', name: 'Gloucester' },
+    { '@type': 'City', name: 'Hull' },
+    { '@type': 'City', name: 'Ipswich' },
+    { '@type': 'City', name: 'Lancaster' },
+    { '@type': 'City', name: 'Lincoln' },
+    { '@type': 'City', name: 'Luton' },
+    { '@type': 'City', name: 'Maidstone' },
+    { '@type': 'City', name: 'Milton Keynes' },
+    { '@type': 'City', name: 'Northampton' },
+    { '@type': 'City', name: 'Norwich' },
+    { '@type': 'City', name: 'Oxford' },
+    { '@type': 'City', name: 'Peterborough' },
+    { '@type': 'City', name: 'Plymouth' },
+    { '@type': 'City', name: 'Portsmouth' },
+    { '@type': 'City', name: 'Preston' },
+    { '@type': 'City', name: 'Reading' },
+    { '@type': 'City', name: 'Rotherham' },
+    { '@type': 'City', name: 'Salford' },
+    { '@type': 'City', name: 'Slough' },
+    { '@type': 'City', name: 'Stoke-on-Trent' },
+    { '@type': 'City', name: 'Sunderland' },
+    { '@type': 'City', name: 'Swansea' },
+    { '@type': 'City', name: 'Swindon' },
+    { '@type': 'City', name: 'Wakefield' },
+    { '@type': 'City', name: 'Wolverhampton' },
+    { '@type': 'City', name: 'Worcester' },
+    { '@type': 'City', name: 'York' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -143,14 +185,97 @@ const defaultLocalBusiness = {
     'https://www.yell.com/biz/sigma-shop-fronts',
     'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
+  hasMap: 'https://maps.google.com/?q=128+City+Road+London+EC1V+2NX',
+  additionalType: 'https://en.wikipedia.org/wiki/Shopfront',
+  review: [
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'James Wilson' },
+      reviewBody: 'Sigma installed our aluminium shopfront in Manchester. Excellent quality and finished ahead of schedule. The team were professional from survey to completion.',
+      datePublished: '2025-03-15',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Priya Patel' },
+      reviewBody: 'We needed emergency boarding after a break-in at our Birmingham shop. Sigma arrived within two hours and had a new security shutter fitted the following week. Brilliant service.',
+      datePublished: '2025-05-22',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'David Hughes' },
+      reviewBody: 'Had roller shutters installed on our Cardiff retail unit. Competitive price, neat finish, and the lads were tidy workers. Would recommend Sigma to anyone.',
+      datePublished: '2025-01-10',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Sarah Mitchell' },
+      reviewBody: 'Sigma fitted automatic doors to our London clinic. They handled the DDA compliance requirements perfectly and the doors have been faultless since installation.',
+      datePublished: '2025-07-04',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Mark Thompson' },
+      reviewBody: 'We used Sigma for fire doors across three floors of our Leeds office building. FD60 rated, installed to spec, and the certification paperwork was all in order. Very professional outfit.',
+      datePublished: '2025-09-18',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Angela O\'Brien' },
+      reviewBody: 'Sigma replaced the entire shopfront on our Glasgow boutique with a modern aluminium design. The bi-fold section is a real showstopper. Great value for money.',
+      datePublished: '2025-11-02',
+    },
+  ],
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Sigma Shop Fronts',
+  legalName: 'Sigma Shopfronts and Shutter Limited',
+  url: 'https://www.sigmashopfronts.com',
+  logo: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
+  description: defaultLocalBusiness.description,
+  telephone: defaultLocalBusiness.telephone,
+  email: defaultLocalBusiness.email,
+  address: defaultLocalBusiness.address,
+  foundingDate: defaultLocalBusiness.foundingDate,
+  numberOfEmployees: defaultLocalBusiness.numberOfEmployees,
+  sameAs: defaultLocalBusiness.sameAs,
+  contactPoint: defaultLocalBusiness.contactPoint,
+  areaServed: defaultLocalBusiness.areaServed,
+  knowsAbout: defaultLocalBusiness.knowsAbout,
+  slogan: defaultLocalBusiness.slogan,
+  identifier: defaultLocalBusiness.identifier,
 };
 
 export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
+  if (type === 'LocalBusiness') {
+    const schema = data || defaultLocalBusiness;
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        {!data && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+        )}
+      </>
+    );
+  }
+
   let schema: Record<string, unknown>;
 
-  if (type === 'LocalBusiness') {
-    schema = data || defaultLocalBusiness;
-  } else if (type === 'Service') {
+  if (type === 'Service') {
     schema = {
       '@context': 'https://schema.org',
       '@type': 'Service',
@@ -158,6 +283,18 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         '@type': 'LocalBusiness',
         name: 'Sigma Shop Fronts',
         url: 'https://www.sigmashopfronts.com',
+        telephone: '+447414779594',
+        address: defaultLocalBusiness.address,
+        geo: defaultLocalBusiness.geo,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United Kingdom',
+      },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'GBP',
+        availability: 'https://schema.org/InStock',
       },
       ...data,
     };

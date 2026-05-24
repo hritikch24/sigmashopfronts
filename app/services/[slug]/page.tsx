@@ -55,10 +55,28 @@ export default async function ServicePage({ params }: PageProps) {
       name: 'Sigma Shop Fronts',
       telephone: '+447414779594',
       url: siteUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '128 City Road',
+        addressLocality: 'London',
+        postalCode: 'EC1V 2NX',
+        addressCountry: 'GB',
+        addressRegion: 'England',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 51.5267,
+        longitude: -0.0888,
+      },
     },
     areaServed: {
       '@type': 'Country',
       name: 'United Kingdom',
+    },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      availability: 'https://schema.org/InStock',
     },
     url: `${siteUrl}/services/${slug}`,
   };
