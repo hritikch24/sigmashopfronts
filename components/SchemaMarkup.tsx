@@ -24,16 +24,16 @@ const defaultLocalBusiness = {
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '128 City Road',
-    addressLocality: 'London',
-    postalCode: 'EC1V 2NX',
+    streetAddress: '4 Thornwood Close',
+    addressLocality: 'Oldbury',
+    addressRegion: 'West Midlands',
+    postalCode: 'B68 9LX',
     addressCountry: 'GB',
-    addressRegion: 'England',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 51.5267,
-    longitude: -0.0888,
+    latitude: 52.4912,
+    longitude: -2.0150,
   },
   openingHoursSpecification: [
     {
@@ -185,7 +185,7 @@ const defaultLocalBusiness = {
     'https://www.yell.com/biz/sigma-shop-fronts',
     'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
-  hasMap: 'https://maps.google.com/?q=128+City+Road+London+EC1V+2NX',
+  hasMap: 'https://maps.google.com/?q=4+Thornwood+Close+Oldbury+B68+9LX',
   additionalType: 'https://en.wikipedia.org/wiki/Shopfront',
   review: [
     {

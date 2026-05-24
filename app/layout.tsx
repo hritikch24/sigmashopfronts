@@ -154,9 +154,9 @@ function gtag_report_conversion(url) {
           }}
         />
         <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="London, United Kingdom" />
-        <meta name="geo.position" content="51.5267;-0.0888" />
-        <meta name="ICBM" content="51.5267, -0.0888" />
+        <meta name="geo.placename" content="Oldbury, West Midlands, United Kingdom" />
+        <meta name="geo.position" content="52.4912;-2.0150" />
+        <meta name="ICBM" content="52.4912, -2.0150" />
         <link rel="alternate" hrefLang="en-gb" href="https://www.sigmashopfronts.com" />
       </head>
       <body className="min-h-full flex flex-col font-body bg-white text-charcoal">

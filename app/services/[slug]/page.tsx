@@ -57,16 +57,16 @@ export default async function ServicePage({ params }: PageProps) {
       url: siteUrl,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '128 City Road',
-        addressLocality: 'London',
-        postalCode: 'EC1V 2NX',
+        streetAddress: '4 Thornwood Close',
+        addressLocality: 'Oldbury',
+        addressRegion: 'West Midlands',
+        postalCode: 'B68 9LX',
         addressCountry: 'GB',
-        addressRegion: 'England',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 51.5267,
-        longitude: -0.0888,
+        latitude: 52.4912,
+        longitude: -2.0150,
       },
     },
     areaServed: {
