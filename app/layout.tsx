@@ -154,7 +154,9 @@ function gtag_report_conversion(url) {
           }}
         />
         <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="United Kingdom" />
+        <meta name="geo.placename" content="London, United Kingdom" />
+        <meta name="geo.position" content="51.5267;-0.0888" />
+        <meta name="ICBM" content="51.5267, -0.0888" />
         <link rel="alternate" hrefLang="en-gb" href="https://www.sigmashopfronts.com" />
       </head>
       <body className="min-h-full flex flex-col font-body bg-white text-charcoal">
