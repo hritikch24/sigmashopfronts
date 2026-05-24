@@ -110,6 +110,9 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
         }),
       });
       if (!res.ok) throw new Error('Server error');
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', { send_to: 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-' });
+      }
       setStatus('success');
     } catch {
       setStatus('error');

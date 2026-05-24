@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const city = cities.find((c) => c.slug === citySlug);
   if (!city) return {};
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sigmashopfronts.com';
+  const siteUrl = 'https://www.sigmashopfronts.com';
 
   return {
     title: city.metaTitle,
@@ -331,7 +331,7 @@ export default async function CityPage({ params }: PageProps) {
                   Call 07414 779594
                 </a>
                 <a
-                  href="https://wa.me/447397225530"
+                  href="https://wa.me/447397066538"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline"

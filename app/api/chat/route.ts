@@ -62,7 +62,7 @@ Company Info:
 - Based in West Midlands, serving nationwide UK
 - Services: Aluminium shopfronts, roller shutters, bi-fold doors, security doors, automatic doors, fire doors, repairs, 24/7 emergency
 - Free site surveys available
-- Phone: 07414 779594 | WhatsApp: +44 7397 225530
+- Phone: 07414 779594 | WhatsApp: +44 7397 066538
 - Email: sales@sigmashopfronts.com
 - Hours: Mon-Fri 8-6, Sat 9-4, 24/7 emergency
 

@@ -11,6 +11,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ ok: false }, { status: 400 });
     }
 
+    // Silently skip internal paths
+    if (String(path).startsWith('/metrics') || String(path).startsWith('/api/')) {
+      return NextResponse.json({ ok: true });
+    }
+
     const geo = request.headers.get('x-vercel-ip-country') || null;
     const forwarded = request.headers.get('x-forwarded-for');
     const realIp = request.headers.get('x-real-ip');

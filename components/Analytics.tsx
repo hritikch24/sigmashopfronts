@@ -35,6 +35,8 @@ export default function Analytics() {
   const lastTracked = useRef('');
 
   useEffect(() => {
+    if (pathname.startsWith('/metrics')) return;
+
     const fullPath = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : '');
     if (fullPath === lastTracked.current) return;
     lastTracked.current = fullPath;

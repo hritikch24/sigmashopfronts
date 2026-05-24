@@ -45,7 +45,7 @@ export default function MobileStickyBar() {
           Call Now
         </a>
         <a
-          href="https://wa.me/447397225530"
+          href="https://wa.me/447397066538"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 py-4 px-4 text-gold font-heading font-bold text-sm hover:bg-navy-light transition-colors"

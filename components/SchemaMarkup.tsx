@@ -24,6 +24,9 @@ const defaultLocalBusiness = {
   },
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '128 City Road',
+    addressLocality: 'London',
+    postalCode: 'EC1V 2NX',
     addressCountry: 'GB',
     addressRegion: 'England',
   },
@@ -44,7 +47,7 @@ const defaultLocalBusiness = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+447397225530',
+      telephone: '+447414779594',
       contactType: 'customer support',
       contactOption: 'TollFree',
       availableLanguage: 'English',
@@ -57,7 +60,7 @@ const defaultLocalBusiness = {
     },
     {
       '@type': 'ContactPoint',
-      telephone: '+447414779594',
+      telephone: '+447397066538',
       contactType: 'sales',
       availableLanguage: 'English',
     },
@@ -101,11 +104,32 @@ const defaultLocalBusiness = {
     bestRating: '5',
     worstRating: '1',
   },
+  knowsAbout: [
+    'Aluminium Shopfronts',
+    'Roller Shutters',
+    'Security Doors',
+    'Automatic Doors',
+    'Bi-Fold Doors',
+    'Fire Doors',
+    'Shopfront Repairs',
+    'Emergency Callout',
+  ],
+  slogan: 'Professional Shopfront Installation Across the UK',
+  numberOfEmployees: {
+    '@type': 'QuantitativeValue',
+    minValue: 10,
+    maxValue: 50,
+  },
+  paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+  currenciesAccepted: 'GBP',
+  isicV4: '4120',
   sameAs: [
-    'https://wa.me/447397225530',
+    'https://wa.me/447397066538',
     'https://www.facebook.com/sigmashopfronts',
     'https://www.linkedin.com/company/sigma-shop-fronts',
     'https://g.co/kgs/sigmashopfronts',
+    'https://www.yell.com/biz/sigma-shop-fronts',
+    'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
 };
 

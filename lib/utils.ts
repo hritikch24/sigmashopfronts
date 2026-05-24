@@ -11,8 +11,8 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
  * Handles both 07xxx and +447xxx formats.
  *
  * @example
- *   formatPhoneForDisplay("07397225530")  // "07397 225 530"
- *   formatPhoneForDisplay("+447397225530") // "07397 225 530"
+ *   formatPhoneForDisplay("07397066538")  // "07397 066 538"
+ *   formatPhoneForDisplay("+447397066538") // "07397 066 538"
  */
 export function formatPhoneForDisplay(phone: string): string {
   // Strip whitespace and dashes
@@ -37,7 +37,7 @@ export function formatPhoneForDisplay(phone: string): string {
   return phone;
 }
 
-const WHATSAPP_NUMBER = "447397225530";
+const WHATSAPP_NUMBER = "447397066538";
 
 /**
  * Returns a wa.me deep-link for the SigmaShopfronts WhatsApp number.

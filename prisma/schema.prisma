@@ -42,3 +42,24 @@ model Lead {
 
   @@map("leads")
 }
+
+model CallClick {
+  id          String   @id @default(cuid())
+  phone       String
+  page        String
+  referrer    String?
+  utmSource   String?  @map("utm_source")
+  utmMedium   String?  @map("utm_medium")
+  utmCampaign String?  @map("utm_campaign")
+  device      String?
+  browser     String?
+  country     String?
+  ip          String?
+  sessionId   String   @map("session_id")
+  createdAt   DateTime @default(now())
+
+  @@index([phone])
+  @@index([createdAt])
+  @@index([sessionId])
+  @@map("call_clicks")
+}

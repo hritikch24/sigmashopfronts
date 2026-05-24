@@ -38,6 +38,8 @@ const blogSlugs = [
   'fd30-vs-fd60-fire-door-commercial-premises',
   'what-is-lps-1175-security-rating',
   'emergency-shopfront-boarding-what-to-do',
+  'shopfront-installation-cost-uk-2025',
+  'best-shopfront-company-uk-how-to-choose',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -53,6 +55,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/areas`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${siteUrl}/cost-guide`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${siteUrl}/why-choose-us`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({

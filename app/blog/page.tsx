@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.sigmashopfronts.com/blog',
   },
+  openGraph: {
+    title: 'Shopfront Installation Guides & Articles | Sigma Shop Fronts',
+    description:
+      'Expert guides on shopfront maintenance, planning permission, fire doors, security ratings, and emergency boarding from Sigma Shop Fronts.',
+    url: 'https://www.sigmashopfronts.com/blog',
+  },
 };
 
 const posts = [
@@ -41,6 +47,18 @@ const posts = [
     title: 'Emergency Shopfront Boarding: What to Do When Your Shop Is Broken Into',
     description:
       'Step-by-step advice on securing your premises after a break-in, dealing with insurers, and arranging permanent repairs quickly.',
+  },
+  {
+    slug: 'shopfront-installation-cost-uk-2025',
+    title: 'Shopfront Installation Costs in the UK (2025): What to Expect',
+    description:
+      'A detailed breakdown of shopfront installation costs across the UK in 2025, covering aluminium shopfronts, roller shutters, security doors, and what factors affect pricing.',
+  },
+  {
+    slug: 'best-shopfront-company-uk-how-to-choose',
+    title: 'How to Choose the Best Shopfront Company in the UK',
+    description:
+      'A practical checklist for finding a reliable, professional shopfront installation company in the UK. What to look for, red flags to avoid, and questions to ask before signing.',
   },
 ];
 

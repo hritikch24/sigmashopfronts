@@ -79,6 +79,96 @@ const faqs = [
     answer:
       'While Sigma Shopfronts and Shutter Limited was incorporated recently, our installation teams collectively bring over 10 years of hands-on experience in the commercial shopfront and security industry. Our fitters, estimators, and project managers have worked on hundreds of projects across the UK before joining Sigma — from high-street retail chains to independent businesses. We are Companies House registered (No. 16794487), fully insured, and every installation is backed by our workmanship guarantee. We are happy to provide references and examples of completed work on request.',
   },
+  {
+    question: 'How much does a roller shutter cost in the UK?',
+    answer:
+      'A manual roller shutter for a standard single-bay shopfront typically costs between £800 and £1,500 installed. Electric roller shutters range from £1,200 to £2,500 depending on the opening width and motor specification. Fire-rated shutters start from around £2,000 and LPS 1175 security-rated shutters from £2,500 to £5,000. We provide a fixed written quote after a free site survey so you know exactly what to budget.',
+  },
+  {
+    question: 'What is the best shopfront material — aluminium, timber, or UPVC?',
+    answer:
+      'For commercial premises, aluminium is the industry standard and the material we recommend. It offers the best combination of strength, durability, weather resistance, and design flexibility. Unlike timber, aluminium does not rot, warp, or require regular repainting. Unlike UPVC, aluminium supports slimline sightlines and large glass areas without structural compromise. A well-installed aluminium shopfront typically lasts 25 to 30 years with minimal maintenance. We use thermally broken aluminium profiles that comply with Building Regulations Part L for energy performance.',
+  },
+  {
+    question: 'Do you install shopfronts in London?',
+    answer:
+      'Yes. We cover all 32 London boroughs and the City of London. We have extensive experience working in conservation areas including Shoreditch, Islington, and Camden, and we manage planning applications, out-of-hours installation, and the logistical challenges of central London sites including crane permits, footway licences, and congestion zone coordination. Our London projects range from single independent retailers to multi-unit commercial developments.',
+  },
+  {
+    question: 'How do I find the best shopfront company near me?',
+    answer:
+      'Look for a company that is Companies House registered, carries public liability insurance, provides written quotations with clear terms, and can show examples of completed work. Ask whether their installers hold CSCS cards and whether they provide written warranties. Be cautious of companies that quote without visiting the site, demand large deposits, or cannot provide insurance certificates. Sigma Shop Fronts ticks all of these boxes — we are happy to share references, insurance documents, and photos of completed projects before you commit.',
+  },
+  {
+    question: 'What is the difference between a shopfront and a curtain wall?',
+    answer:
+      'A shopfront is a ground-floor entrance and display system fitted within a structural opening, typically consisting of aluminium frames, glazed panels, and one or more entrance doors. A curtain wall is a non-structural external cladding system that spans multiple storeys and is hung from the building structure rather than sitting within a masonry opening. For most retail, hospitality, and commercial premises at ground level, a shopfront system is the appropriate specification. We specialise in shopfront systems but can advise on when a curtain wall approach may be more suitable.',
+  },
+  {
+    question: 'Can you install a shopfront for a restaurant or cafe?',
+    answer:
+      'Absolutely. Restaurants and cafes are one of our most common client types. We install aluminium shopfronts with bi-fold door sections that open the entire frontage in summer, automatic sliding doors for busy entrances, and thermally efficient glazed systems that keep heating costs down in winter. We also handle the specific requirements of food premises including ventilation provisions, grease-trap access panels, and extraction system integration where the shopfront design needs to accommodate ducting.',
+  },
+  {
+    question: 'What happens if my shopfront is damaged in a break-in?',
+    answer:
+      'Call our 24/7 emergency line on 07414 779594 immediately. We will dispatch an engineer to board up and secure the premises, typically within two to four hours. We photograph all damage before beginning temporary works, providing insurance-ready documentation. Once the premises is secure, we assess the permanent repair or replacement required and provide a quotation. Most commercial property insurance policies cover emergency boarding and permanent repair costs. We work directly with loss adjusters to facilitate claims.',
+  },
+  {
+    question: 'Do you offer shopfront maintenance contracts?',
+    answer:
+      'Yes. We offer annual and bi-annual maintenance contracts covering shopfronts, roller shutters, automatic doors, and fire doors. A typical maintenance visit includes inspection of all frames, seals, and hardware; lubrication of moving parts; safety testing of automatic doors to BS EN 16005; and a written report. Regular maintenance extends the life of your installation, maintains insurance compliance, and catches small problems before they become expensive repairs.',
+  },
+  {
+    question: 'How long does it take from enquiry to completed installation?',
+    answer:
+      'For a standard shopfront replacement, the typical timeline is: survey within one week of enquiry, quotation within 48 hours of survey, fabrication two to three weeks from confirmed order, and installation one to two days. The total from first contact to completion is usually four to six weeks. Projects requiring planning permission, structural work, or bespoke specifications may take longer, and we provide a detailed programme at the quotation stage.',
+  },
+  {
+    question: 'Can you match my existing shopfront colour or profile?',
+    answer:
+      'In most cases, yes. We can powder-coat aluminium to any RAL, NCS, or BS 4800 colour reference. If you have an existing colour that you need to match, we can work from a physical sample or a Pantone reference. For profiles, we work with multiple European fabricators and can usually identify or closely approximate the existing profile system. Where an exact match is not available for an obsolete profile, we will advise on the closest equivalent and show you a sample before proceeding.',
+  },
+  {
+    question: 'Are your shopfronts energy efficient?',
+    answer:
+      'Yes. All our standard shopfront installations use thermally broken aluminium profiles that comply with Building Regulations Part L (Conservation of Fuel and Power). The polyamide thermal break within the aluminium section prevents heat transfer through the frame, and our double-glazed units typically achieve centre-pane U-values between 1.0 and 1.4 W/m2K. For premises seeking enhanced energy performance, we can specify triple glazing, low-emissivity coatings, and argon-filled cavities.',
+  },
+  {
+    question: 'What is PAS 24 and do I need it for my shopfront?',
+    answer:
+      'PAS 24:2022 is a British security standard for doors and windows that tests resistance to physical attack. Many landlords, developers, and insurers now require PAS 24 certification for new commercial glazing. If your lease, insurance policy, or building specification requires enhanced security glazing, we can supply and install PAS 24 certified door sets and glazing systems with the appropriate certification documentation.',
+  },
+  {
+    question: 'Do you install shopfronts in Birmingham and the West Midlands?',
+    answer:
+      'Yes — Birmingham and the West Midlands is our home region. We work across the city from the Jewellery Quarter to Digbeth, Erdington to Solihull. We have particular experience with conservation area shopfronts in the Jewellery Quarter and with managed retail centres including the Bullring. We also cover Coventry, Wolverhampton, Walsall, Dudley, and the wider Black Country.',
+  },
+  {
+    question: 'What is the difference between FD30 and FD60 fire doors?',
+    answer:
+      'FD30 fire doors provide 30 minutes of fire resistance and are the most common requirement for corridor and compartment doors in commercial buildings. FD60 doors provide 60 minutes and are required for higher-risk locations such as stairway enclosures in taller buildings, plant rooms, and storage areas containing hazardous materials. The correct rating depends on your building\'s fire strategy and risk assessment. We can advise on the appropriate specification for your premises and supply certified door sets from accredited manufacturers.',
+  },
+  {
+    question: 'Can you install automatic doors for wheelchair access?',
+    answer:
+      'Yes. Automatic doors are one of the most effective ways to comply with the Equality Act 2010, which requires businesses to make reasonable adjustments for disabled customers and staff. We install automatic sliding and swing door systems that meet BS EN 16005 safety requirements and BS 8300 accessibility guidance. Every installation includes a full safety test record and handover documentation. We also offer annual maintenance contracts to ensure ongoing compliance.',
+  },
+  {
+    question: 'Do you work on listed buildings?',
+    answer:
+      'Yes. We have completed shopfront installations on Grade I and Grade II listed buildings across the UK, including in Edinburgh\'s World Heritage Site, London\'s conservation areas, and Manchester\'s Ancoats conservation area. Listed building consent is required for any works affecting the character of a listed structure, and we manage the consent application process including preparation of heritage impact assessments, liaison with conservation officers, and specification of heritage-appropriate profiles and finishes.',
+  },
+  {
+    question: 'What areas of Manchester do you cover for shopfront installation?',
+    answer:
+      'We cover the full Greater Manchester area including the city centre (Northern Quarter, Deansgate, Spinningfields), the inner suburbs (Ancoats, Chorlton, Didsbury), and the wider combined authority area (Salford, Trafford, Stockport, Tameside, Rochdale, Bury, Bolton, Wigan, Oldham). We have particular experience with listed buildings in Ancoats and the Northern Quarter, and with managed retail environments including the Trafford Centre.',
+  },
+  {
+    question: 'How do I get a quote for a new shopfront?',
+    answer:
+      'Contact us by phone on 07414 779594, by email at sales@sigmashopfronts.com, via WhatsApp, or through the contact form on our website. We will arrange a free site survey at a time that suits you. Our surveyor will visit your premises, take precise measurements, discuss your requirements, and assess any structural or planning considerations. You will receive a detailed written quotation — usually within 48 hours of the survey — with no obligation to proceed.',
+  },
 ];
 
 const schemaData = {

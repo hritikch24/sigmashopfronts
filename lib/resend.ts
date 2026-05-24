@@ -91,7 +91,7 @@ export async function sendLeadNotification(lead: LeadData): Promise<void> {
         </table>
 
         <div style="margin-top: 24px; text-align: center;">
-          <a href="https://wa.me/447397225530?text=Hi%20${encodeURIComponent(lead.name)}%2C%20thank%20you%20for%20your%20enquiry"
+          <a href="https://wa.me/447397066538?text=Hi%20${encodeURIComponent(lead.name)}%2C%20thank%20you%20for%20your%20enquiry"
              style="display: inline-block; background: #25d366; color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
             Reply via WhatsApp
           </a>
@@ -143,10 +143,10 @@ export async function sendAutoReply(
 
         <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
           <p style="margin: 0 0 12px; font-size: 14px; color: #374151;">
-            📞 <a href="tel:+447397225530" style="color: #1a1a2e; font-weight: 600;">07397 225 530</a>
+            📞 <a href="tel:+447397066538" style="color: #1a1a2e; font-weight: 600;">07397 066 538</a>
           </p>
           <p style="margin: 0 0 12px; font-size: 14px; color: #374151;">
-            💬 <a href="https://wa.me/447397225530" style="color: #1a1a2e; font-weight: 600;">WhatsApp us</a>
+            💬 <a href="https://wa.me/447397066538" style="color: #1a1a2e; font-weight: 600;">WhatsApp us</a>
           </p>
           <p style="margin: 0; font-size: 14px; color: #374151;">
             📧 <a href="mailto:sales@sigmashopfronts.com" style="color: #1a1a2e; font-weight: 600;">sales@sigmashopfronts.com</a>

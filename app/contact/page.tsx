@@ -7,7 +7,7 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact Sigma Shop Fronts for a free site survey and quotation. Call 07414 779594, WhatsApp +44 7397 225530, or email sales@sigmashopfronts.com. West Midlands, UK.',
+    'Contact Sigma Shop Fronts for a free site survey and quotation. Call 07414 779594, WhatsApp +44 7397 066538, or email sales@sigmashopfronts.com. West Midlands, UK.',
   alternates: {
     canonical: '/contact',
   },
@@ -32,8 +32,8 @@ const contactDetails = [
       </svg>
     ),
     label: 'WhatsApp',
-    value: '+44 7397 225530',
-    href: 'https://wa.me/447397225530',
+    value: '+44 7397 066538',
+    href: 'https://wa.me/447397066538',
   },
   {
     icon: (
@@ -147,7 +147,7 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/447397225530"
+                href="https://wa.me/447397066538"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 w-full p-4 rounded-xl bg-[#25D366] text-white font-heading font-bold hover:bg-[#20ba5a] transition-colors"

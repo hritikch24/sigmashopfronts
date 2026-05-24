@@ -8,6 +8,7 @@ import ChatWidget from '@/components/ChatWidget';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import StickyDesktopCTA from '@/components/StickyDesktopCTA';
 import Analytics from '@/components/Analytics';
+import CallTracker from '@/components/CallTracker';
 import SiteChrome from '@/components/SiteChrome';
 import { Suspense } from 'react';
 
@@ -25,7 +26,7 @@ const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700'],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sigmashopfronts.com';
+const siteUrl = 'https://www.sigmashopfronts.com';
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +65,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+  },
   robots: {
     index: true,
     follow: true,
@@ -77,6 +81,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    languages: {
+      'en-GB': siteUrl,
+    },
   },
   metadataBase: new URL(siteUrl),
 };
@@ -111,6 +118,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }}
           />
         )}
+        {/* Google Ads gtag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16801337867" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-16801337867');
+
+function gtagSendEvent(url) {
+  var callback = function () {
+    if (typeof url === 'string') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16801337867',
+    'event_callback': callback,
+  });
+  return false;
+}
+
+function gtag_report_conversion(url) {
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16801337867/conversion',
+    'event_callback': function() {
+      if (typeof url !== 'undefined') {
+        window.location = url;
+      }
+    }
+  });
+  return false;
+}`,
+          }}
+        />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-gb" href="https://www.sigmashopfronts.com" />
       </head>
       <body className="min-h-full flex flex-col font-body bg-white text-charcoal">
         {gtmId && (
@@ -135,6 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </SiteChrome>
         <Suspense fallback={null}>
           <Analytics />
+          <CallTracker />
         </Suspense>
       </body>
     </html>

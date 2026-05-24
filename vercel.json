@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "sigmashopfronts.com" }],
+      "destination": "https://www.sigmashopfronts.com/:path",
+      "permanent": true
+    }
+  ]
+}
