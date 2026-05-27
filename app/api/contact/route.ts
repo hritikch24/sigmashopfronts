@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendLeadNotification, sendAutoReply } from "@/lib/resend";
+import { sendTelegramLeadNotification } from "@/lib/telegram";
 
 // ---------------------------------------------------------------------------
 // In-memory rate limiter: max 3 submissions per IP per hour
@@ -157,6 +158,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await sendAutoReply(lead.email, lead.name);
   } catch (err) {
     console.error("[contact] Failed to send auto-reply email:", err);
+  }
+
+  try {
+    await sendTelegramLeadNotification(lead);
+  } catch (err) {
+    console.error("[contact] Failed to send Telegram notification:", err);
   }
 
   return NextResponse.json(
