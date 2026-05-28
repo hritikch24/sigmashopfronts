@@ -51,6 +51,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       leadsBySource,
       recentLeads,
       dailyLeads,
+      totalCallClicks,
+      callClicksByPage,
+      dailyCallClicks,
+      recentCallClicks,
     ] = await Promise.all([
       // Traffic
       prisma.pageView.count({ where: { createdAt: { gte: since } } }),
@@ -133,6 +137,24 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         `SELECT TO_CHAR("createdAt", 'YYYY-MM-DD') as date, COUNT(*)::bigint as count FROM leads WHERE "createdAt" >= $1 GROUP BY date ORDER BY date ASC`,
         since
       ),
+
+      // Call clicks
+      prisma.callClick.count({ where: { createdAt: { gte: since } } }).catch(() => 0),
+
+      prisma.$queryRawUnsafe<{ page: string; count: bigint }[]>(
+        `SELECT page, COUNT(*)::bigint as count FROM call_clicks WHERE "createdAt" >= $1 GROUP BY page ORDER BY count DESC LIMIT 15`,
+        since
+      ).catch(() => []),
+
+      prisma.$queryRawUnsafe<{ date: string; count: bigint }[]>(
+        `SELECT TO_CHAR("createdAt", 'YYYY-MM-DD') as date, COUNT(*)::bigint as count FROM call_clicks WHERE "createdAt" >= $1 GROUP BY date ORDER BY date ASC`,
+        since
+      ).catch(() => []),
+
+      prisma.$queryRawUnsafe<{ session_id: string; phone: string; page: string; device: string; browser: string; ip: string; country: string; created_at: string }[]>(
+        `SELECT session_id, phone, page, COALESCE(device,'') as device, COALESCE(browser,'') as browser, COALESCE(ip,'') as ip, COALESCE(country,'') as country, "createdAt" as created_at FROM call_clicks WHERE "createdAt" >= $1 ORDER BY "createdAt" DESC LIMIT 50`,
+        since
+      ).catch(() => []),
     ]);
 
     const serialize = <T extends Record<string, unknown>>(arr: T[]) =>
@@ -166,6 +188,12 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         bySource: serialize(leadsBySource),
         daily: serialize(dailyLeads),
         recent: recentLeads,
+      },
+      callClicks: {
+        total: totalCallClicks as number,
+        byPage: serialize(callClicksByPage as Record<string, unknown>[]),
+        daily: serialize(dailyCallClicks as Record<string, unknown>[]),
+        recent: recentCallClicks,
       },
     });
   } catch (err) {
