@@ -4,13 +4,13 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'How Much Does a Shopfront Cost in 2025? UK Price Guide',
+  title: 'How Much Does a Shopfront Cost in 2026? UK Price Guide',
   description:
-    'Transparent UK shopfront installation prices for 2025. Aluminium shopfronts from £2,000, roller shutters from £800, security doors, automatic doors, bi-fold doors, and fire doors. Free quotes nationwide.',
+    'Transparent UK shopfront installation prices for 2026. Aluminium shopfronts from £2,000, roller shutters from £800, security doors, automatic doors, bi-fold doors, and fire doors. Free quotes nationwide.',
   alternates: { canonical: 'https://www.sigmashopfronts.com/cost-guide' },
   openGraph: {
-    title: 'How Much Does a Shopfront Cost in 2025? UK Price Guide',
-    description: 'Detailed UK shopfront cost breakdown — aluminium fronts, roller shutters, security doors, automatic doors, bi-folds, and fire doors. Realistic 2025 prices from Sigma Shop Fronts.',
+    title: 'How Much Does a Shopfront Cost in 2026? UK Price Guide',
+    description: 'Detailed UK shopfront cost breakdown — aluminium fronts, roller shutters, security doors, automatic doors, bi-folds, and fire doors. Realistic 2026 prices from Sigma Shop Fronts.',
     url: 'https://www.sigmashopfronts.com/cost-guide',
   },
 };
@@ -37,9 +37,9 @@ const schemaData = {
 const blogPosting = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: 'How Much Does a Shopfront Cost in 2025? UK Price Guide',
-  datePublished: '2025-05-01',
-  dateModified: '2025-05-01',
+  headline: 'How Much Does a Shopfront Cost in 2026? UK Price Guide',
+  datePublished: '2026-06-14',
+  dateModified: '2026-06-14',
   author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
   publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
   mainEntityOfPage: 'https://www.sigmashopfronts.com/cost-guide',
@@ -66,10 +66,10 @@ export default function CostGuidePage() {
         <div className="container-max">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Cost Guide' }]} />
           <h1 className="mt-6 text-4xl md:text-5xl font-heading font-bold text-white leading-tight">
-            How Much Does a Shopfront Cost in <span className="text-gradient-gold">2025</span>?
+            How Much Does a Shopfront Cost in <span className="text-gradient-gold">2026</span>?
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-grey-300 leading-relaxed">
-            A transparent, no-nonsense guide to UK shopfront installation prices. All figures are realistic 2025 supply-and-install estimates including VAT where applicable.
+            A transparent, no-nonsense guide to UK shopfront installation prices. All figures are realistic 2026 supply-and-install estimates including VAT where applicable.
           </p>
         </div>
       </section>

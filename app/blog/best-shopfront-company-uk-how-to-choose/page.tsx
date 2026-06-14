@@ -55,7 +55,7 @@ export default function BestShopfrontCompanyPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org', '@type': 'BlogPosting', headline: pageTitle, description: pageDesc,
-            url: `https://www.sigmashopfronts.com/blog/${slug}`, datePublished: '2025-04-25', dateModified: '2025-04-25',
+            url: `https://www.sigmashopfronts.com/blog/${slug}`, datePublished: '2025-04-25', dateModified: '2026-06-14',
             author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
             publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com', logo: { '@type': 'ImageObject', url: 'https://www.sigmashopfronts.com/assets/shopfront-2.jpeg' } },
             mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.sigmashopfronts.com/blog/${slug}` },

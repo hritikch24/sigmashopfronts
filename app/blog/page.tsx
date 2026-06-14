@@ -49,10 +49,10 @@ const posts = [
       'Step-by-step advice on securing your premises after a break-in, dealing with insurers, and arranging permanent repairs quickly.',
   },
   {
-    slug: 'shopfront-installation-cost-uk-2025',
-    title: 'Shopfront Installation Costs in the UK (2025): What to Expect',
+    slug: 'shopfront-installation-cost-uk-2026',
+    title: 'Shopfront Installation Costs in the UK (2026): What to Expect',
     description:
-      'A detailed breakdown of shopfront installation costs across the UK in 2025, covering aluminium shopfronts, roller shutters, security doors, and what factors affect pricing.',
+      'A detailed breakdown of shopfront installation costs across the UK in 2026, covering aluminium shopfronts, roller shutters, security doors, and what factors affect pricing.',
   },
   {
     slug: 'best-shopfront-company-uk-how-to-choose',
@@ -60,11 +60,30 @@ const posts = [
     description:
       'A practical checklist for finding a reliable, professional shopfront installation company in the UK. What to look for, red flags to avoid, and questions to ask before signing.',
   },
+  {
+    slug: 'shopfront-design-trends-uk-2026',
+    title: 'Shopfront Design Trends in the UK (2026)',
+    description:
+      'The latest shopfront design trends shaping UK high streets in 2026 — from slim-profile aluminium to smart glass and sustainable materials.',
+  },
+  {
+    slug: 'commercial-security-shutters-guide-uk',
+    title: 'Commercial Security Shutters: The Complete UK Guide',
+    description:
+      'Everything you need to know about commercial security shutters in the UK — types, ratings, insurance requirements, and choosing the right system for your premises.',
+  },
+  {
+    slug: 'shopfront-regulations-building-standards-uk-2026',
+    title: 'Shopfront Regulations & Building Standards UK (2026)',
+    description:
+      'A comprehensive guide to UK shopfront regulations and building standards in 2026 — planning permission, Building Regs Parts B, L & M, DDA compliance, and conservation area rules.',
+  },
 ];
 
 export default function BlogIndex() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.sigmashopfronts.com/blog' }] }) }} />
       <section className="section-padding bg-white">
         <div className="container-max">
           <Breadcrumbs

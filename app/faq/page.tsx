@@ -185,6 +185,7 @@ const schemaData = {
 export default function FAQPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://www.sigmashopfronts.com/faq' }] }) }} />
       <SchemaMarkup type="FAQPage" data={schemaData} />
 
       {/* Hero */}

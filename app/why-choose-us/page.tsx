@@ -62,6 +62,7 @@ export default function WhyChooseUsPage() {
   return (
     <>
       <SchemaMarkup type="LocalBusiness" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Why Choose Us', item: 'https://www.sigmashopfronts.com/why-choose-us' }] }) }} />
 
       {/* Hero */}
       <section className="section-padding bg-gradient-dark">

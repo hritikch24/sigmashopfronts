@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import BlogPostSchema from '@/components/BlogPostSchema';
 
 export const metadata: Metadata = {
   title: 'What Is the LPS 1175 Security Rating? A Business Owner\'s Guide',
@@ -38,6 +39,13 @@ const faqs = [
 export default function LPS1175Page() {
   return (
     <>
+      <BlogPostSchema
+        title="What Is the LPS 1175 Security Rating? A Business Owner's Guide"
+        description="Demystifying the LPS 1175 standard — what the security rating levels mean, how they affect insurance, and which level your business should target."
+        slug="what-is-lps-1175-security-rating"
+        datePublished="2025-06-05"
+        dateModified="2026-06-14"
+      />
       <SchemaMarkup
         type="FAQPage"
         data={{

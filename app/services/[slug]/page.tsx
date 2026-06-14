@@ -48,10 +48,12 @@ export default async function ServicePage({ params }: PageProps) {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${siteUrl}/services/${slug}/#service`,
     name: service.name,
     description: service.shortDescription,
     provider: {
       '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#localbusiness`,
       name: 'Sigma Shop Fronts',
       telephone: '+447414779594',
       url: siteUrl,
@@ -69,10 +71,21 @@ export default async function ServicePage({ params }: PageProps) {
         longitude: -2.0150,
       },
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'United Kingdom',
-    },
+    areaServed: [
+      { '@type': 'Country', name: 'United Kingdom' },
+      { '@type': 'City', name: 'London' },
+      { '@type': 'City', name: 'Birmingham' },
+      { '@type': 'City', name: 'Manchester' },
+      { '@type': 'City', name: 'Leeds' },
+      { '@type': 'City', name: 'Liverpool' },
+      { '@type': 'City', name: 'Bristol' },
+      { '@type': 'City', name: 'Sheffield' },
+      { '@type': 'City', name: 'Glasgow' },
+      { '@type': 'City', name: 'Cardiff' },
+      { '@type': 'City', name: 'Newcastle upon Tyne' },
+      { '@type': 'City', name: 'Nottingham' },
+      { '@type': 'City', name: 'Leicester' },
+    ],
     offers: {
       '@type': 'Offer',
       priceCurrency: 'GBP',
@@ -81,9 +94,20 @@ export default async function ServicePage({ params }: PageProps) {
     url: `${siteUrl}/services/${slug}`,
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
+      { '@type': 'ListItem', position: 3, name: service.name, item: `${siteUrl}/services/${slug}` },
+    ],
+  };
+
   return (
     <>
       <SchemaMarkup type="Service" data={serviceSchema} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="relative min-h-[50vh] flex items-end bg-navy">
         <Image

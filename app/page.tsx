@@ -623,6 +623,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Expert Shopfront Guides ─────────────────────────────────────── */}
+      <section className="section-padding bg-grey-50">
+        <div className="container-max">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy text-center mb-3">
+            Expert Shopfront Guides
+          </h2>
+          <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
+            Practical advice from our installation team — covering costs, regulations, design trends, and security standards.
+          </p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <a href="/blog/shopfront-installation-cost-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
+              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Installation Costs (2026)</h3>
+              <p className="text-charcoal text-sm leading-relaxed flex-1">A detailed breakdown of shopfront installation costs across the UK — aluminium shopfronts, roller shutters, security doors, and what affects pricing.</p>
+              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
+            </a>
+            <a href="/blog/shopfront-design-trends-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
+              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Design Trends (2026)</h3>
+              <p className="text-charcoal text-sm leading-relaxed flex-1">The latest shopfront design trends shaping UK high streets — from slim-profile aluminium to smart glass and sustainable materials.</p>
+              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
+            </a>
+            <a href="/blog/shopfront-regulations-building-standards-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
+              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Regulations &amp; Standards</h3>
+              <p className="text-charcoal text-sm leading-relaxed flex-1">A comprehensive guide to UK shopfront regulations — planning permission, Building Regs Parts B, L &amp; M, DDA compliance, and conservation area rules.</p>
+              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA / Contact Form ───────────────────────────────────────────── */}
       <section className="section-padding bg-gradient-dark relative overflow-hidden" id="quote" aria-labelledby="cta-heading">
         {/* Decorative radial */}

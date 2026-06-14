@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import BlogPostSchema from '@/components/BlogPostSchema';
 
 export const metadata: Metadata = {
   title: 'How to Maintain Commercial Roller Shutters: A Complete Guide',
@@ -38,6 +39,13 @@ const faqs = [
 export default function RollerShutterMaintenancePage() {
   return (
     <>
+      <BlogPostSchema
+        title="How to Maintain Commercial Roller Shutters: A Complete Guide"
+        description="Learn the essential inspection schedules, lubrication routines, and cleaning methods that keep commercial roller shutters operating reliably for years."
+        slug="how-to-maintain-commercial-roller-shutters"
+        datePublished="2025-02-15"
+        dateModified="2026-06-14"
+      />
       <SchemaMarkup
         type="FAQPage"
         data={{

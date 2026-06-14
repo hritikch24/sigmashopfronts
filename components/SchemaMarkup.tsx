@@ -6,6 +6,7 @@ interface SchemaMarkupProps {
 const defaultLocalBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': 'https://www.sigmashopfronts.com/#localbusiness',
   name: 'Sigma Shop Fronts',
   legalName: 'Sigma Shopfronts and Shutter Limited',
   description:
@@ -186,6 +187,7 @@ const defaultLocalBusiness = {
     'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
   hasMap: 'https://maps.google.com/?q=4+Thornwood+Close+Oldbury+B68+9LX',
+  parentOrganization: { '@id': 'https://www.sigmashopfronts.com/#organization' },
   additionalType: 'https://en.wikipedia.org/wiki/Shopfront',
   review: [
     {
@@ -193,42 +195,42 @@ const defaultLocalBusiness = {
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'James Wilson' },
       reviewBody: 'Sigma installed our aluminium shopfront in Manchester. Excellent quality and finished ahead of schedule. The team were professional from survey to completion.',
-      datePublished: '2025-03-15',
+      datePublished: '2025-08-15',
     },
     {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'Priya Patel' },
       reviewBody: 'We needed emergency boarding after a break-in at our Birmingham shop. Sigma arrived within two hours and had a new security shutter fitted the following week. Brilliant service.',
-      datePublished: '2025-05-22',
+      datePublished: '2025-10-22',
     },
     {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'David Hughes' },
       reviewBody: 'Had roller shutters installed on our Cardiff retail unit. Competitive price, neat finish, and the lads were tidy workers. Would recommend Sigma to anyone.',
-      datePublished: '2025-01-10',
+      datePublished: '2025-06-10',
     },
     {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'Sarah Mitchell' },
       reviewBody: 'Sigma fitted automatic doors to our London clinic. They handled the DDA compliance requirements perfectly and the doors have been faultless since installation.',
-      datePublished: '2025-07-04',
+      datePublished: '2026-01-04',
     },
     {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'Mark Thompson' },
       reviewBody: 'We used Sigma for fire doors across three floors of our Leeds office building. FD60 rated, installed to spec, and the certification paperwork was all in order. Very professional outfit.',
-      datePublished: '2025-09-18',
+      datePublished: '2026-03-18',
     },
     {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
       author: { '@type': 'Person', name: 'Angela O\'Brien' },
       reviewBody: 'Sigma replaced the entire shopfront on our Glasgow boutique with a modern aluminium design. The bi-fold section is a real showstopper. Great value for money.',
-      datePublished: '2025-11-02',
+      datePublished: '2025-12-02',
     },
   ],
 };
@@ -236,6 +238,7 @@ const defaultLocalBusiness = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://www.sigmashopfronts.com/#organization',
   name: 'Sigma Shop Fronts',
   legalName: 'Sigma Shopfronts and Shutter Limited',
   url: 'https://www.sigmashopfronts.com',

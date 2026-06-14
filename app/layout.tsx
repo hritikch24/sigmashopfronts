@@ -107,6 +107,30 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${outfit.variable} h-full scroll-smooth antialiased`}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://www.sigmashopfronts.com/#website",
+              "name": "Sigma Shop Fronts",
+              "url": "https://www.sigmashopfronts.com",
+              "publisher": {"@id": "https://www.sigmashopfronts.com/#organization"},
+              "inLanguage": "en-GB",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {"@type": "EntryPoint", "urlTemplate": "https://www.sigmashopfronts.com/services?q={search_term_string}"},
+                "query-input": "required name=search_term_string"
+              }
+            }),
+          }}
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/assets/sigma-hero-1.jpeg" />
+        <link rel="apple-touch-icon" href="/assets/sigma-hero-1.jpeg" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {gtmId && (
           <script
             dangerouslySetInnerHTML={{

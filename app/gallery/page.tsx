@@ -112,11 +112,12 @@ export default function GalleryPage() {
   return (
     <>
       <SchemaMarkup type="LocalBusiness" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Gallery', item: 'https://www.sigmashopfronts.com/gallery' }] }) }} />
 
       {/* Hero */}
       <section className="bg-gradient-dark section-padding">
         <div className="container-max">
-          <Breadcrumbs items={[{ label: 'Gallery' }]} />
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Gallery' }]} />
           <h1 className="mt-6 text-4xl md:text-5xl font-heading font-bold text-white leading-tight">
             Our Recent <span className="text-gradient-gold">Projects</span>
           </h1>

@@ -38,8 +38,11 @@ const blogSlugs = [
   'fd30-vs-fd60-fire-door-commercial-premises',
   'what-is-lps-1175-security-rating',
   'emergency-shopfront-boarding-what-to-do',
-  'shopfront-installation-cost-uk-2025',
+  'shopfront-installation-cost-uk-2026',
   'best-shopfront-company-uk-how-to-choose',
+  'shopfront-design-trends-uk-2026',
+  'commercial-security-shutters-guide-uk',
+  'shopfront-regulations-building-standards-uk-2026',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

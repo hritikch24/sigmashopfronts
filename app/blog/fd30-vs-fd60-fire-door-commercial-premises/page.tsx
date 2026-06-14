@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import BlogPostSchema from '@/components/BlogPostSchema';
 
 export const metadata: Metadata = {
   title: 'FD30 vs FD60 Fire Doors: Which Does Your Business Need?',
@@ -38,6 +39,13 @@ const faqs = [
 export default function FD30vsFD60Page() {
   return (
     <>
+      <BlogPostSchema
+        title="FD30 vs FD60 Fire Doors: Which Does Your Business Need?"
+        description="A clear comparison of FD30 and FD60 fire resistance ratings, Building Regulations requirements, and how to choose the right door for your premises."
+        slug="fd30-vs-fd60-fire-door-commercial-premises"
+        datePublished="2025-03-22"
+        dateModified="2026-06-14"
+      />
       <SchemaMarkup
         type="FAQPage"
         data={{

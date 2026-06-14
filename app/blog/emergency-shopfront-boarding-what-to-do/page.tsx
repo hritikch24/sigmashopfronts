@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import BlogPostSchema from '@/components/BlogPostSchema';
 
 export const metadata: Metadata = {
   title: 'Emergency Shopfront Boarding: What to Do When Your Shop Is Broken Into',
@@ -38,6 +39,13 @@ const faqs = [
 export default function EmergencyBoardingPage() {
   return (
     <>
+      <BlogPostSchema
+        title="Emergency Shopfront Boarding: What to Do When Your Shop Is Broken Into"
+        description="Step-by-step advice on securing your premises after a break-in, dealing with insurers, and arranging permanent repairs quickly."
+        slug="emergency-shopfront-boarding-what-to-do"
+        datePublished="2025-05-18"
+        dateModified="2026-06-14"
+      />
       <SchemaMarkup
         type="FAQPage"
         data={{

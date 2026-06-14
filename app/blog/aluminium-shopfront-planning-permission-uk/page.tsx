@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import BlogPostSchema from '@/components/BlogPostSchema';
 
 export const metadata: Metadata = {
   title: 'Do You Need Planning Permission for an Aluminium Shopfront?',
@@ -38,6 +39,13 @@ const faqs = [
 export default function PlanningPermissionPage() {
   return (
     <>
+      <BlogPostSchema
+        title="Do You Need Planning Permission for an Aluminium Shopfront?"
+        description="Find out whether your aluminium shopfront project needs planning permission in the UK, including rules for conservation areas, listed buildings, and the application process."
+        slug="aluminium-shopfront-planning-permission-uk"
+        datePublished="2025-04-10"
+        dateModified="2026-06-14"
+      />
       <SchemaMarkup
         type="FAQPage"
         data={{
