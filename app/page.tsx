@@ -6,6 +6,7 @@ import ServiceCard from '@/components/ServiceCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import QuoteCalculator from '@/components/QuoteCalculator';
 
 export const metadata: Metadata = {
   title: 'Aluminium Shopfronts & Roller Shutters UK | Sigma Shop Fronts',
@@ -622,6 +623,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Quote Calculator ──────────────────────────────────────────── */}
+      <QuoteCalculator />
 
       {/* ── Expert Shopfront Guides ─────────────────────────────────────── */}
       <section className="section-padding bg-grey-50">
