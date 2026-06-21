@@ -45,6 +45,7 @@ model Lead {
 
 model CallClick {
   id          String   @id @default(cuid())
+  action      String   @default("call_click")
   phone       String
   page        String
   referrer    String?

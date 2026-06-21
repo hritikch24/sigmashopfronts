@@ -55,6 +55,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       callClicksByPage,
       dailyCallClicks,
       recentCallClicks,
+      callClicksByAction,
     ] = await Promise.all([
       // Traffic
       prisma.pageView.count({ where: { createdAt: { gte: since } } }),
@@ -151,8 +152,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         since
       ).catch(() => []),
 
-      prisma.$queryRawUnsafe<{ session_id: string; phone: string; page: string; device: string; browser: string; ip: string; country: string; created_at: string }[]>(
-        `SELECT session_id, phone, page, COALESCE(device,'') as device, COALESCE(browser,'') as browser, COALESCE(ip,'') as ip, COALESCE(country,'') as country, "createdAt" as created_at FROM call_clicks WHERE "createdAt" >= $1 ORDER BY "createdAt" DESC LIMIT 50`,
+      prisma.$queryRawUnsafe<{ action: string; session_id: string; phone: string; page: string; device: string; browser: string; ip: string; country: string; created_at: string }[]>(
+        `SELECT COALESCE(action,'call_click') as action, session_id, phone, page, COALESCE(device,'') as device, COALESCE(browser,'') as browser, COALESCE(ip,'') as ip, COALESCE(country,'') as country, "createdAt" as created_at FROM call_clicks WHERE "createdAt" >= $1 ORDER BY "createdAt" DESC LIMIT 50`,
+        since
+      ).catch(() => []),
+
+      // Call clicks by action type
+      prisma.$queryRawUnsafe<{ action: string; count: bigint }[]>(
+        `SELECT COALESCE(action,'call_click') as action, COUNT(*)::bigint as count FROM call_clicks WHERE "createdAt" >= $1 GROUP BY action ORDER BY count DESC`,
         since
       ).catch(() => []),
     ]);
@@ -192,6 +199,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       callClicks: {
         total: totalCallClicks as number,
         byPage: serialize(callClicksByPage as Record<string, unknown>[]),
+        byAction: serialize(callClicksByAction as Record<string, unknown>[]),
         daily: serialize(dailyCallClicks as Record<string, unknown>[]),
         recent: recentCallClicks,
       },

@@ -39,8 +39,10 @@ interface MetricsData {
   callClicks: {
     total: number;
     byPage: { page: string; count: number }[];
+    byAction: { action: string; count: number }[];
     daily: { date: string; count: number }[];
     recent: {
+      action: string;
       session_id: string;
       phone: string;
       page: string;
@@ -785,24 +787,31 @@ export default function MetricsPage() {
               <SectionCard title="Daily Call Clicks">
                 <MiniChart data={data.callClicks.daily} valueKey="count" height={120} />
               </SectionCard>
-              <SectionCard title="Calls by Page">
+              <SectionCard title="By Action Type">
+                <BarChart data={(data.callClicks.byAction || []).map(a => ({ ...a, action: a.action === 'whatsapp_click' ? 'WhatsApp' : a.action === 'phone_copy' ? 'Phone Copy' : 'Call Click' }))} labelKey="action" valueKey="count" color="bg-orange-500" />
+              </SectionCard>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <SectionCard title="By Page">
                 <BarChart data={data.callClicks.byPage} labelKey="page" valueKey="count" color="bg-orange-500" />
               </SectionCard>
+              <div />
             </div>
 
             {/* Recent call clicks table */}
             <div className="bg-white rounded-2xl border border-grey-200/60 overflow-hidden">
               <div className="px-6 py-5 border-b border-grey-100">
-                <h2 className="font-heading font-bold text-navy">Recent Call Clicks</h2>
+                <h2 className="font-heading font-bold text-navy">Recent Contact Events</h2>
                 <p className="text-xs text-grey-400 mt-0.5">
-                  {data.callClicks.recent.length} shown &middot; Each row = someone tapped/clicked a phone number
+                  {data.callClicks.recent.length} shown &middot; Calls, WhatsApp clicks &amp; phone number copies
                 </p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="bg-grey-50/80">
-                      <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Phone Clicked</th>
+                      <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Action</th>
+                      <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Phone</th>
                       <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Page</th>
                       <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Device</th>
                       <th className="py-3 px-4 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Browser</th>
@@ -817,12 +826,17 @@ export default function MetricsPage() {
                       return (
                         <tr key={i} className="border-b border-grey-100/60 hover:bg-grey-50/50 transition-colors">
                           <td className="py-3 px-4">
-                            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-navy">
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-emerald-500 flex-shrink-0">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                              </svg>
-                              {click.phone}
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ${
+                              click.action === 'whatsapp_click' ? 'bg-green-100 text-green-700' :
+                              click.action === 'phone_copy' ? 'bg-amber-100 text-amber-700' :
+                              'bg-blue-100 text-blue-700'
+                            }`}>
+                              {click.action === 'whatsapp_click' ? 'WhatsApp' :
+                               click.action === 'phone_copy' ? 'Copied' : 'Called'}
                             </span>
+                          </td>
+                          <td className="py-3 px-4">
+                            <span className="text-sm font-medium text-navy">{click.phone}</span>
                           </td>
                           <td className="py-3 px-4 text-sm text-charcoal max-w-[200px] truncate">{click.page}</td>
                           <td className="py-3 px-4">
@@ -847,8 +861,8 @@ export default function MetricsPage() {
                               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                             </svg>
                           </div>
-                          <p className="text-grey-400 text-sm">No call clicks recorded yet</p>
-                          <p className="text-grey-300 text-xs mt-1">Clicks will appear here when visitors tap a phone number</p>
+                          <p className="text-grey-400 text-sm">No contact events recorded yet</p>
+                          <p className="text-grey-300 text-xs mt-1">Events appear when visitors call, copy a number, or click WhatsApp</p>
                         </td>
                       </tr>
                     )}

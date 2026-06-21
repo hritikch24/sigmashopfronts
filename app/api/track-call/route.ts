@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const body = await request.json();
-    const { phone, page, referrer, utmSource, utmMedium, utmCampaign, device, browser, sessionId } = body;
+    const { action, phone, page, referrer, utmSource, utmMedium, utmCampaign, device, browser, sessionId } = body;
 
     if (!phone || !page || !sessionId) {
       return NextResponse.json({ ok: false }, { status: 400 });
@@ -17,6 +17,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     await prisma.callClick.create({
       data: {
+        action: action ? String(action).slice(0, 30) : 'call_click',
         phone: String(phone).slice(0, 20),
         page: String(page).slice(0, 500),
         referrer: referrer ? String(referrer).slice(0, 1000) : null,
