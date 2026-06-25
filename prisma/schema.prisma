@@ -64,3 +64,26 @@ model CallClick {
   @@index([sessionId])
   @@map("call_clicks")
 }
+
+model Customer {
+  id          String    @id @default(cuid())
+  name        String
+  phone       String
+  email       String?
+  location    String
+  service     String
+  jobType     String    @default("installation") @map("job_type")
+  status      String    @default("enquiry")
+  price       Float?
+  notes       String?
+  source      String?
+  completedAt DateTime? @map("completed_at")
+  lastContact DateTime? @map("last_contact")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([phone])
+  @@map("customers")
+}
