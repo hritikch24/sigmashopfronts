@@ -179,6 +179,7 @@ export default function AdminPage() {
   }
 
   function openWhatsApp(c: Customer, type: string) {
+    if (!c.phone) { alert('No phone number for this customer'); return; }
     const msg = waMessage(type, c.name, c.service);
     const phone = c.phone.replace(/[\s\-()]/g, '').replace(/^0/, '44');
     window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
@@ -318,10 +319,12 @@ export default function AdminPage() {
                               className="p-1.5 rounded hover:bg-grey-100 text-grey-400 hover:text-navy transition-colors">
                               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>
                             </button>
-                            <button onClick={() => setMsgCustomer(c)} title="Send Message"
-                              className="p-1.5 rounded hover:bg-green-50 text-grey-400 hover:text-green-600 transition-colors">
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
-                            </button>
+                            {(c.phone || c.email) && (
+                              <button onClick={() => setMsgCustomer(c)} title="Send Message"
+                                className="p-1.5 rounded hover:bg-green-50 text-grey-400 hover:text-green-600 transition-colors">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+                              </button>
+                            )}
                             <button onClick={() => deleteCustomer(c.id)} title="Remove"
                               className="p-1.5 rounded hover:bg-red-50 text-grey-400 hover:text-red-500 transition-colors">
                               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
@@ -354,8 +357,8 @@ export default function AdminPage() {
                   className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
               </div>
               <div className="col-span-2 sm:col-span-1">
-                <label className="block text-xs font-medium text-grey-500 mb-1">Phone *</label>
-                <input required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                <label className="block text-xs font-medium text-grey-500 mb-1">Phone</label>
+                <input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
               </div>
               <div className="col-span-2 sm:col-span-1">
@@ -436,10 +439,12 @@ export default function AdminPage() {
               <div className="border border-grey-200 rounded-xl p-4">
                 <p className="text-sm font-semibold text-navy mb-3">Ask for Feedback</p>
                 <div className="flex gap-2">
-                  <button onClick={() => { openWhatsApp(msgCustomer, 'feedback'); setMsgCustomer(null); }}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
-                    WhatsApp
-                  </button>
+                  {msgCustomer.phone && (
+                    <button onClick={() => { openWhatsApp(msgCustomer, 'feedback'); setMsgCustomer(null); }}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
+                      WhatsApp
+                    </button>
+                  )}
                   {msgCustomer.email && (
                     <button onClick={() => { openEmail(msgCustomer!, 'feedback'); setMsgCustomer(null); }}
                       className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors">
@@ -453,10 +458,12 @@ export default function AdminPage() {
               <div className="border border-grey-200 rounded-xl p-4">
                 <p className="text-sm font-semibold text-navy mb-3">Check for New Work</p>
                 <div className="flex gap-2">
-                  <button onClick={() => { openWhatsApp(msgCustomer, 'new_work'); setMsgCustomer(null); }}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
-                    WhatsApp
-                  </button>
+                  {msgCustomer.phone && (
+                    <button onClick={() => { openWhatsApp(msgCustomer, 'new_work'); setMsgCustomer(null); }}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
+                      WhatsApp
+                    </button>
+                  )}
                   {msgCustomer.email && (
                     <button onClick={() => { openEmail(msgCustomer!, 'new_work'); setMsgCustomer(null); }}
                       className="flex-1 flex items-center justify-center gap-2 py-2 px-3 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors">
@@ -467,17 +474,19 @@ export default function AdminPage() {
               </div>
 
               {/* Custom WhatsApp */}
-              <div className="border border-grey-200 rounded-xl p-4">
-                <p className="text-sm font-semibold text-navy mb-3">Custom Message</p>
-                <button onClick={() => {
-                  const phone = msgCustomer!.phone.replace(/[\s\-()]/g, '').replace(/^0/, '44');
-                  window.open('https://wa.me/' + phone, '_blank');
-                  markContacted(msgCustomer!.id);
-                  setMsgCustomer(null);
-                }} className="w-full flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
-                  Open WhatsApp Chat
-                </button>
-              </div>
+              {msgCustomer.phone && (
+                <div className="border border-grey-200 rounded-xl p-4">
+                  <p className="text-sm font-semibold text-navy mb-3">Custom Message</p>
+                  <button onClick={() => {
+                    const phone = msgCustomer!.phone.replace(/[\s\-()]/g, '').replace(/^0/, '44');
+                    window.open('https://wa.me/' + phone, '_blank');
+                    markContacted(msgCustomer!.id);
+                    setMsgCustomer(null);
+                  }} className="w-full flex items-center justify-center gap-2 py-2 px-3 bg-[#25D366] text-white text-sm font-semibold rounded-lg hover:bg-[#20ba5a] transition-colors">
+                    Open WhatsApp Chat
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

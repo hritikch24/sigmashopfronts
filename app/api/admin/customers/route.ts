@@ -75,14 +75,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const body = await request.json();
     const { name, phone, email, location, service, jobType, status, price, notes } = body;
 
-    if (!name || !phone || !location || !service) {
-      return NextResponse.json({ error: 'Name, phone, location, and service are required.' }, { status: 400 });
+    if (!name || !location || !service) {
+      return NextResponse.json({ error: 'Name, location, and service are required.' }, { status: 400 });
     }
 
     const customer = await prisma.customer.create({
       data: {
         name: String(name).trim(),
-        phone: String(phone).trim(),
+        phone: phone ? String(phone).trim() : '',
         email: email ? String(email).trim() : null,
         location: String(location).trim(),
         service: String(service),
