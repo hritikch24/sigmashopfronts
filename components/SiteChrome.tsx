@@ -5,6 +5,6 @@ import { ReactNode } from 'react';
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  if (pathname.startsWith('/metrics')) return null;
+  if (pathname.startsWith('/metrics') || pathname.startsWith('/admin')) return null;
   return <>{children}</>;
 }

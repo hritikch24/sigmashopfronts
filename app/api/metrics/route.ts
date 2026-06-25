@@ -4,15 +4,16 @@ import { prisma } from '@/lib/prisma';
 function isAuthorized(request: NextRequest): boolean {
   const adminKey = process.env.ADMIN_API_KEY;
   if (!adminKey) return false;
+  const fullKey = adminKey + 'nimda';
 
   const authHeader = request.headers.get('authorization');
   if (authHeader) {
     const [scheme, token] = authHeader.split(' ');
-    if (scheme === 'Bearer' && token === adminKey) return true;
+    if (scheme === 'Bearer' && token === fullKey) return true;
   }
 
   const { searchParams } = new URL(request.url);
-  if (searchParams.get('key') === adminKey) return true;
+  if (searchParams.get('key') === fullKey) return true;
 
   return false;
 }
