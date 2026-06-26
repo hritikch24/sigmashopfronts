@@ -56,6 +56,19 @@ export default function EmergencyBoardingPage() {
           })),
         }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'What to Do When Your Shop Is Broken Into',
+        description: 'Step-by-step guide on securing your premises after a break-in, from immediate safety to insurance claims and permanent repairs.',
+        step: [
+          { '@type': 'HowToStep', name: 'Ensure Personal Safety', text: 'Do not enter the premises if you suspect the intruder may still be inside. Call 999 and wait for police to confirm the site is safe before entering.' },
+          { '@type': 'HowToStep', name: 'Document the Damage', text: 'Take photographs and video of all damage before anything is moved or cleaned up. This evidence is essential for your insurance claim and police report.' },
+          { '@type': 'HowToStep', name: 'Call an Emergency Boarding Service', text: 'Contact a 24/7 emergency shopfront boarding company to secure the opening with plywood or polycarbonate sheet. This prevents further theft and weather damage.' },
+          { '@type': 'HowToStep', name: 'Notify Your Insurer', text: 'Report the incident to your insurance company as soon as possible. Provide the crime reference number from the police and the photographic evidence you collected.' },
+          { '@type': 'HowToStep', name: 'Arrange Permanent Repairs', text: 'Get a detailed repair quote from your boarding company or shopfront installer. Provide this to your insurer for authorisation. Most glazing replacements can be completed within 3-5 working days.' },
+        ],
+      }) }} />
 
       <article className="section-padding bg-white">
         <div className="container-max max-w-3xl">

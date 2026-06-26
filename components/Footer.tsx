@@ -27,6 +27,7 @@ const areas = [
   { label: 'Edinburgh', href: '/areas/edinburgh' },
   { label: 'Glasgow', href: '/areas/glasgow' },
   { label: 'Southampton', href: '/areas/southampton' },
+  { label: 'Brighton', href: '/areas/brighton' },
 ];
 
 function PhoneIcon() {
@@ -178,6 +179,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Sigma Shop Fronts Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
+            <Link href="/reviews" className="text-grey-500 hover:text-gold text-sm transition-colors">
+              Reviews
+            </Link>
             <Link href="/cost-guide" className="text-grey-500 hover:text-gold text-sm transition-colors">
               Cost Guide
             </Link>

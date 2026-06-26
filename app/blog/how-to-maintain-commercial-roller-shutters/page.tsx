@@ -56,6 +56,19 @@ export default function RollerShutterMaintenancePage() {
           })),
         }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Maintain Commercial Roller Shutters',
+        description: 'A step-by-step guide to maintaining commercial roller shutters, covering monthly inspections, lubrication, cleaning, and when to call a professional.',
+        step: [
+          { '@type': 'HowToStep', name: 'Monthly Visual Inspection', text: 'Check the curtain for dented, bent, or misaligned laths. Inspect the bottom rubber seal for splits or cracks. Listen for unusual grinding or scraping during operation. Look at the side guides for debris or damage.' },
+          { '@type': 'HowToStep', name: 'Lubricate Moving Parts', text: 'Apply a light machine oil or silicone-based lubricant to the side guide channels, barrel bearings, and any exposed pivot points. Avoid WD-40 as a long-term lubricant — it evaporates quickly and attracts dust.' },
+          { '@type': 'HowToStep', name: 'Clean the Shutter Curtain and Guides', text: 'Wash the curtain face with warm soapy water and a soft brush. Clear debris from the side guide channels. Rinse with clean water and allow to dry before operating.' },
+          { '@type': 'HowToStep', name: 'Test Safety Features', text: 'For electric shutters, test the safety edge by placing an obstruction in the closing path. The shutter should stop and reverse. Test the manual override mechanism to ensure it operates freely in case of power failure.' },
+          { '@type': 'HowToStep', name: 'Book Annual Professional Service', text: 'Arrange an annual inspection by a qualified engineer covering spring tension, motor condition, electrical connections, and overall structural integrity. This is recommended by the Door and Hardware Federation (DHF).' },
+        ],
+      }) }} />
 
       <article className="section-padding bg-white">
         <div className="container-max max-w-3xl">
