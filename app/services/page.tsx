@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 const services = [
   { name: 'Aluminium Shopfronts', slug: 'aluminium-shopfronts', image: 'aluminium-shopfront-1.jpeg', desc: 'Bespoke aluminium shopfront systems designed, fabricated, and installed to your specification. Thermally broken profiles for energy efficiency.' },
   { name: 'Roller Shutters', slug: 'roller-shutters', image: 'roller-shutter-1.jpeg', desc: 'Commercial-grade steel and aluminium roller shutters. Manual or electric operation, built for heavy daily use.' },
-  { name: 'Security Doors', slug: 'security-doors', image: 'sigma-security-door.jpeg', desc: 'High-security steel and composite doors with multi-point locking. LPS 1175 rated options available.' },
-  { name: 'Automatic Doors', slug: 'automatic-doors', image: 'automatic-door-1.jpeg', desc: 'Sliding, swing, and revolving automatic door systems. Full installation, commissioning, and maintenance.' },
-  { name: 'Bi-Fold Doors', slug: 'bi-fold-doors', image: 'bifolding-door-1.jpeg', desc: 'Aluminium bi-folding door systems that fully open your facade to the street. Thermally broken profiles.' },
+  { name: 'Security Doors', slug: 'security-doors', image: 'security door.jpeg', desc: 'High-security steel and composite doors with multi-point locking. LPS 1175 rated options available.' },
+  { name: 'Automatic Doors', slug: 'automatic-doors', image: 'automatic-door-sigma.jpeg', desc: 'Sliding, swing, and revolving automatic door systems. Full installation, commissioning, and maintenance.' },
+  { name: 'Bi-Fold Doors', slug: 'bi-fold-doors', image: 'bi-fold door.jpeg', desc: 'Aluminium bi-folding door systems that fully open your facade to the street. Thermally broken profiles.' },
   { name: 'Fire Doors', slug: 'fire-doors', image: 'fire-door.jpeg', desc: 'FD30 and FD60 certified fire doors for commercial premises. Fully compliant with UK Building Regulations.' },
   { name: 'Shopfront Repairs', slug: 'shopfront-repairs', image: 'shopfront-3.jpeg', desc: 'Fast, affordable repairs to broken glass, damaged frames, faulty locks, and failed mechanisms.' },
   { name: 'Emergency Callout', slug: 'emergency-callout', image: 'sigma-front-variant.jpeg', desc: '24/7 emergency boarding, glazing, and shutter repairs. Rapid-response teams mobilised across the UK.' },

@@ -39,7 +39,7 @@ const images = [
     alt: 'Bespoke retail shopfront with powder-coated aluminium frame',
   },
   {
-    src: '/assets/sigma-security-door.jpeg',
+    src: '/assets/security door.jpeg',
     alt: 'Heavy-duty security door fitted to commercial premises',
   },
   {
@@ -63,11 +63,11 @@ const images = [
     alt: 'Steel security grille protecting retail shopfront overnight',
   },
   {
-    src: '/assets/bifolding-door-1.jpeg',
+    src: '/assets/bi-fold door.jpeg',
     alt: 'Aluminium bi-fold door system opening to outdoor seating area',
   },
   {
-    src: '/assets/automatic-door-1.jpeg',
+    src: '/assets/automatic-door-sigma.jpeg',
     alt: 'Automatic sliding door installation at commercial entrance',
   },
   {

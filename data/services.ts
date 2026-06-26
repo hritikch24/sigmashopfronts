@@ -206,7 +206,7 @@ All shutters are installed with a weather seal along both side guides and at the
     name: 'Security Doors',
     shortDescription:
       'Steel and composite security doors for commercial premises, rated to STS 202 and LPS 1175 standards. Single and double leaf configurations with multi-point locking.',
-    heroImage: 'sigma-security-door.jpeg',
+    heroImage: 'security door.jpeg',
     primaryKeyword: 'commercial security doors',
     metaTitle: 'Commercial Security Doors | Steel & Composite',
     metaDescription:
@@ -294,7 +294,7 @@ Security doors can be supplied with integrated access control provisions — ele
     name: 'Automatic Doors',
     shortDescription:
       'Sliding and swing automatic door systems for retail and commercial premises. BS EN 16005 compliant, with full sensor packages and service plans available.',
-    heroImage: 'automatic-door-1.jpeg',
+    heroImage: 'automatic-door-sigma.jpeg',
     primaryKeyword: 'automatic doors commercial',
     metaTitle: 'Automatic Doors | Commercial Installation',
     metaDescription:
@@ -382,7 +382,7 @@ Automatic doors can be integrated with access control readers for out-of-hours s
     name: 'Bi-Fold Doors',
     shortDescription:
       'Commercial aluminium bi-fold door systems for retail, hospitality, and leisure premises. Open up your frontage completely with thermally broken, weather-rated folding configurations.',
-    heroImage: 'bifolding-door-1.jpeg',
+    heroImage: 'bi-fold door.jpeg',
     primaryKeyword: 'commercial bi-fold doors',
     metaTitle: 'Commercial Bi-Fold Doors | Aluminium Folding',
     metaDescription:

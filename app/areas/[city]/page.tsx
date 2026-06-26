@@ -12,9 +12,9 @@ import TestimonialCarousel from '@/components/TestimonialCarousel';
 const allServices = [
   { name: 'Aluminium Shopfronts', slug: 'aluminium-shopfronts', image: 'aluminium-shopfront-1.jpeg' },
   { name: 'Roller Shutters', slug: 'roller-shutters', image: 'roller-shutter-1.jpeg' },
-  { name: 'Security Doors', slug: 'security-doors', image: 'sigma-security-door.jpeg' },
-  { name: 'Automatic Doors', slug: 'automatic-doors', image: 'automatic-door-1.jpeg' },
-  { name: 'Bi-Fold Doors', slug: 'bi-fold-doors', image: 'bifolding-door-1.jpeg' },
+  { name: 'Security Doors', slug: 'security-doors', image: 'security door.jpeg' },
+  { name: 'Automatic Doors', slug: 'automatic-doors', image: 'automatic-door-sigma.jpeg' },
+  { name: 'Bi-Fold Doors', slug: 'bi-fold-doors', image: 'bi-fold door.jpeg' },
   { name: 'Fire Doors', slug: 'fire-doors', image: 'fire-door.jpeg' },
   { name: 'Shopfront Repairs', slug: 'shopfront-repairs', image: 'shopfront-3.jpeg' },
   { name: 'Emergency Callout', slug: 'emergency-callout', image: 'sigma-front-variant.jpeg' },

@@ -38,21 +38,21 @@ const services = [
     title: 'Security Doors',
     description:
       'High-security steel and composite doors with multi-point locking, graded to LPS 1175 standards. Ideal for rear access, plant rooms and retail.',
-    image: '/assets/sigma-security-door.jpeg',
+    image: '/assets/security door.jpeg',
     href: '/services/security-doors',
   },
   {
     title: 'Automatic Doors',
     description:
       'Sliding, swing and revolving automatic door systems from leading manufacturers. Full installation, commissioning and ongoing maintenance contracts available.',
-    image: '/assets/automatic-door-1.jpeg',
+    image: '/assets/automatic-door-sigma.jpeg',
     href: '/services/automatic-doors',
   },
   {
     title: 'Bi-Fold Doors',
     description:
       'Space-efficient bi-folding door systems that open your façade fully to the street. Available in aluminium and thermally broken profiles.',
-    image: '/assets/bifolding-door-1.jpeg',
+    image: '/assets/bi-fold door.jpeg',
     href: '/services/bi-fold-doors',
   },
   {
