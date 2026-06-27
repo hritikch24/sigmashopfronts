@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import SchemaMarkup from '@/components/SchemaMarkup';
+
 
 const COMPANY = 'Sigma Shop Fronts';
 const SITE = 'https://www.sigmashopfronts.com';
@@ -98,7 +98,6 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <SchemaMarkup />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       <section className="bg-navy pt-28 pb-16">
