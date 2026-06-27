@@ -101,6 +101,22 @@ export default async function ServicePage({ params }: PageProps) {
     url: `${siteUrl}/services/${slug}`,
   };
 
+  const videoSchema = slug === 'automatic-doors' ? {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Automatic Door Installation by Sigma Shop Fronts',
+    description: 'Watch our team install a commercial automatic sliding door system for a UK business premises.',
+    thumbnailUrl: `${siteUrl}/assets/automatic-door-sigma.jpeg`,
+    contentUrl: `${siteUrl}/assets/automatic-door-web.mp4`,
+    uploadDate: '2026-06-26',
+    duration: 'PT15S',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Sigma Shop Fronts',
+      url: siteUrl,
+    },
+  } : null;
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -115,6 +131,9 @@ export default async function ServicePage({ params }: PageProps) {
     <>
       <SchemaMarkup type="Service" data={serviceSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {videoSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
+      )}
 
       <section className="relative min-h-[50vh] flex items-end bg-navy">
         <Image
@@ -177,6 +196,28 @@ export default async function ServicePage({ params }: PageProps) {
                   return <p key={i} className="mb-4">{paragraph}</p>;
                 })}
               </div>
+
+              {slug === 'automatic-doors' && (
+                <div className="mt-10">
+                  <h2 className="text-2xl font-heading font-bold text-navy mb-4">
+                    Watch Our Automatic Door Installation
+                  </h2>
+                  <video
+                    className="w-full rounded-xl shadow-lg"
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster="/assets/automatic-door-sigma.jpeg"
+                  >
+                    <source src="/assets/automatic-door-web.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <p className="text-grey-500 text-sm mt-2">
+                    Commercial automatic sliding door installation by Sigma Shop Fronts
+                  </p>
+                </div>
+              )}
             </div>
 
             <aside className="lg:col-span-1">
