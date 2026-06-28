@@ -143,6 +143,8 @@ const defaultLocalBusiness = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fire Doors', url: 'https://www.sigmashopfronts.com/services/fire-doors' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shop Front Repairs', url: 'https://www.sigmashopfronts.com/services/shopfront-repairs' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Callout', url: 'https://www.sigmashopfronts.com/services/emergency-callout' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shutter Repair', url: 'https://www.sigmashopfronts.com/services/shutter-repair' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Replacement', url: 'https://www.sigmashopfronts.com/services/glass-replacement' } },
     ],
   },
   aggregateRating: {
@@ -168,6 +170,8 @@ const defaultLocalBusiness = {
     'DDA compliant entrances',
     'Thermally broken aluminium profiles',
     'Commercial entrance solutions UK',
+    'Roller shutter repair and spring replacement',
+    'Commercial glass replacement BS 6262',
   ],
   slogan: 'Professional Shopfront Installation, Built to Last',
   numberOfEmployees: {

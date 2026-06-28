@@ -10,6 +10,8 @@ const services = [
   { id: 'bi-fold-doors', name: 'Bi-Fold Doors', baseMin: 3000, baseMax: 7000 },
   { id: 'fire-doors', name: 'Fire Doors (per door)', baseMin: 450, baseMax: 1200 },
   { id: 'shopfront-repairs', name: 'Shopfront Repairs', baseMin: 300, baseMax: 2000 },
+  { id: 'shutter-repair', name: 'Shutter Repair', baseMin: 150, baseMax: 1200 },
+  { id: 'glass-replacement', name: 'Glass Replacement', baseMin: 250, baseMax: 2500 },
 ];
 
 const sizes = [

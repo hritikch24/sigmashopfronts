@@ -746,4 +746,232 @@ These upgrades can often be included within the permanent repair scope, and wher
     ],
     relatedServices: ['shopfront-repairs', 'roller-shutters', 'security-doors', 'aluminium-shopfronts'],
   },
+
+  {
+    slug: 'shutter-repair',
+    name: 'Shutter Repair',
+    shortDescription:
+      'Fast, professional roller shutter repairs across the UK. Jammed shutters, broken springs, motor failure, damaged laths, and bent guides diagnosed and fixed — often on the same day.',
+    heroImage: 'roller-shutter-1.jpeg',
+    primaryKeyword: 'roller shutter repair',
+    metaTitle: 'Roller Shutter Repair | Fast UK-Wide Service',
+    metaDescription:
+      'Expert roller shutter repair service across the UK. Spring replacement, motor repair, curtain damage, jammed mechanisms. Fast response, DHF-compliant work.',
+    description: `Roller shutters are built to withstand years of daily use, but like any mechanical assembly they are subject to wear, fatigue, and occasional failure. When a shutter jams, refuses to close, or operates erratically, the security of your premises is immediately compromised — and every hour of delay increases the risk of opportunistic theft, weather damage, or business disruption.
+
+Sigma Shop Fronts provides a dedicated roller shutter repair service covering the full spectrum of mechanical, electrical, and structural faults. Our engineers carry the most commonly needed parts — springs, motor components, replacement laths, guide rail sections, and locking hardware — to enable same-day repair in the majority of cases.
+
+**Common Shutter Failure Types**
+
+Roller shutter faults generally fall into one of five categories, and understanding which type of failure has occurred is the first step towards an efficient repair.
+
+*Spring failure* is the single most common mechanical fault on manually operated and spring-assisted shutters. The torsion spring that counterbalances the weight of the curtain is under constant tension and gradually loses its resilience through thousands of operating cycles. Eventually the spring fractures — usually with an audible snap — leaving the curtain extremely heavy to lift manually and, in some cases, causing it to drop uncontrollably. A broken spring is a safety hazard and must be addressed immediately.
+
+*Motor burnout* affects electrically operated shutters and is typically caused by overloading, repeated stalling against an obstruction, voltage irregularities, or simple age-related insulation breakdown. Symptoms include the motor humming but not turning, intermittent operation, a burning smell from the motor housing, or the thermal overload tripping repeatedly. In some cases the motor can be repaired by replacing the capacitor or brushes; in others, a complete motor replacement is the most cost-effective solution.
+
+*Damaged laths* — the interlocking horizontal slats that form the shutter curtain — are commonly caused by vehicle impact, attempted forced entry, or storm damage. A single bent or buckled lath can prevent the curtain from tracking smoothly in the guides, causing it to jam partway through its travel. If left unrepaired, a damaged lath transfers stress to adjacent laths during operation, accelerating wear across the entire curtain.
+
+*Bent or displaced guide rails* prevent the curtain from running freely between its side channels. Guide rail damage is usually the result of impact — a delivery vehicle reversing into the shutter face, for example — and manifests as the curtain binding, jumping out of the guides, or refusing to close fully on one side.
+
+*Jammed mechanisms* can result from a combination of factors: accumulated dirt and debris in the guides, corrosion of the barrel or end plates, a displaced curtain wrap on the barrel, or a failed limit switch on a motorised shutter that allows the curtain to over-travel and bind against the housing box.
+
+**Diagnostic Process**
+
+When our engineer arrives on site, the first step is a systematic diagnosis. We inspect the curtain for visible damage, check the guide rails for alignment, examine the barrel and spring assembly (where safely accessible), test the motor and control circuit on electric shutters, and operate the shutter through a full cycle to identify the point of failure. This structured approach avoids the common pitfall of treating symptoms rather than root causes — replacing a motor, for example, when the actual problem is a seized barrel bearing that caused the motor to overload and fail.
+
+We provide a clear verbal and written diagnosis before commencing any repair, including an explanation of what has failed, why, and what the repair involves. If the repair cost approaches or exceeds the replacement value of the shutter, we will advise you honestly and provide a comparative quotation.
+
+**Spring Replacement**
+
+Spring replacement is a specialist task that must not be attempted by unqualified personnel. Torsion springs store a significant amount of energy when wound, and an uncontrolled release during removal can cause serious injury. Our engineers use controlled decompression tools and follow the safety procedures recommended by the Door and Hardware Federation (DHF).
+
+We carry the most common spring sizes and configurations on our vehicles, covering the majority of commercial shutter makes encountered in the UK market. Where a non-standard spring is required, we can source and fit it within one to three working days. All replacement springs are rated to match or exceed the original specification, and we re-tension the new spring to the correct number of turns for the curtain weight, ensuring smooth and balanced operation.
+
+**Motor Repair vs Replacement**
+
+When a shutter motor fails, the decision between repair and replacement depends on the nature of the fault, the age of the motor, and the availability of spare parts. Minor electrical faults — a failed start capacitor, worn carbon brushes, or a tripped thermal overload — can often be repaired on site within an hour. Where the motor winding has burned out or the gearbox has failed, replacement is usually more cost-effective and provides the reassurance of a new manufacturer warranty.
+
+We fit replacement motors from established manufacturers including Somfy, Simu, and Came, and match the motor torque rating to the curtain weight and operating cycle requirements. All motor replacements include testing of the safety edge, limit switches, and manual override mechanism in accordance with the DHF Code of Practice for industrial and commercial doors.
+
+**Curtain Lath Replacement**
+
+Individual damaged laths can be removed and replaced without dismantling the entire curtain in most shutter designs. We identify the lath profile, source a matching replacement, and fit it on site. For steel curtains, lath replacement involves disconnecting the damaged section from its neighbours, sliding it out of the guide rails, and fitting the new lath into the same position. Aluminium curtain repairs follow a similar process.
+
+Where multiple laths are damaged or where the curtain profile is obsolete, it may be more practical and cost-effective to replace the entire curtain within the existing housing box and guide rails. We assess this on site and advise accordingly.
+
+**Guide Rail Straightening and Replacement**
+
+Bent guide rails can sometimes be straightened in situ using hydraulic pressing tools, restoring the channel to its correct profile without the need for full replacement. Where the deformation is severe or the guide rail has been pulled away from its fixings, replacement is necessary. We fabricate replacement guide rail sections to match the existing profile and finish, and fix them into the masonry or steelwork reveal using heavy-duty anchors.
+
+**Emergency Shutter Repair**
+
+A shutter stuck in the open position is a security emergency. Sigma Shop Fronts provides emergency shutter repair as part of our 24/7 callout service. Our engineers can attend at any hour to diagnose and, where possible, repair the fault on site. If the repair requires parts that are not immediately available, we will secure the shutter in the closed position using temporary clamps or padlocks and arrange the permanent repair at the earliest opportunity.
+
+**Preventive Maintenance**
+
+The DHF recommends that all power-operated doors, including roller shutters, are inspected and serviced at least annually by a competent person. Regular maintenance extends the service life of every component, reduces the likelihood of unexpected failures, and ensures that safety devices — limit switches, safety edges, photocells, and manual overrides — are functioning correctly.
+
+Our shutter maintenance programme includes lubrication of all moving parts, inspection and tensioning of springs, testing of motor current draw against the manufacturer's specification, verification of safety device function, and a written report recording the condition of each component. This report provides documented evidence that the shutter is being maintained in accordance with the DHF guidelines and the requirements of the Machinery Directive (retained in UK law as the Supply of Machinery (Safety) Regulations 2008).`,
+    benefits: [
+      {
+        title: 'Same-Day Repair in Most Cases',
+        description:
+          'Our engineers carry common springs, motor components, and replacement laths on their vehicles. The majority of roller shutter faults are diagnosed and repaired during a single visit, minimising downtime and restoring security to your premises the same day.',
+      },
+      {
+        title: 'DHF-Compliant Workmanship',
+        description:
+          'All repair work is carried out in accordance with the Door and Hardware Federation Code of Practice. Safety edges, limit switches, and manual overrides are tested after every repair, and a written completion record is provided for your maintenance file.',
+      },
+      {
+        title: 'Transparent Diagnosis Before Repair',
+        description:
+          'We explain what has failed and why before any work begins, and provide a clear cost estimate. If the repair cost approaches the replacement value of the shutter, we advise you honestly and offer a comparative quotation for a new installation.',
+      },
+      {
+        title: 'All Makes and Models Covered',
+        description:
+          'We repair roller shutters from all manufacturers, not just shutters we originally installed. Our engineers are experienced with the full range of commercial shutter systems encountered in the UK market, including older and discontinued models.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How quickly can you attend a shutter repair?',
+        answer:
+          'For emergency repairs — a shutter stuck open or a spring that has snapped — we aim to attend within two to four hours during normal working hours, and the same evening or early the next morning for out-of-hours calls. Non-urgent repairs are typically scheduled within two to three working days. Contact us on 07414 779594 for immediate assistance.',
+      },
+      {
+        question: 'Can you repair a shutter that was installed by a different company?',
+        answer:
+          'Yes. We repair roller shutters regardless of who originally supplied and installed them. Our engineers carry parts and tools covering the most common shutter makes and configurations in the UK market. For less common or older systems, we may need to source specific components, which can add one to two working days to the repair timeline.',
+      },
+      {
+        question: 'How do I know whether my shutter needs a spring replacement or a motor repair?',
+        answer:
+          'If your manually operated shutter has suddenly become very heavy to lift, or if it dropped unexpectedly, the most likely cause is a broken torsion spring. If your electric shutter hums but does not move, operates intermittently, or trips its circuit breaker, the motor or its control circuit is the probable cause. Our engineers carry out a full diagnostic on arrival and will explain the findings before starting any work.',
+      },
+      {
+        question: 'Is it worth repairing an old roller shutter or should I replace it?',
+        answer:
+          'This depends on the nature and extent of the damage, the age of the shutter, and the availability of replacement parts. As a general rule, if the housing box, barrel, and guide rails are structurally sound, repairing or replacing individual components (springs, motors, curtain laths) is more cost-effective than a full replacement. If the shutter has multiple faults, extensive corrosion, or uses an obsolete profile that cannot be matched, replacement is usually the better investment. We assess each case individually and provide honest advice.',
+      },
+    ],
+    relatedServices: ['roller-shutters', 'shopfront-repairs', 'emergency-callout', 'security-doors'],
+  },
+
+  {
+    slug: 'glass-replacement',
+    name: 'Glass Replacement',
+    shortDescription:
+      'Commercial glass replacement for shopfronts and commercial premises. Toughened safety glass, laminated security glass, double-glazed units, and specialist glazing — measured, specified, and installed to BS 6262.',
+    heroImage: 'aluminium-shopfront-1.jpeg',
+    primaryKeyword: 'commercial glass replacement',
+    metaTitle: 'Commercial Glass Replacement | Shopfront Glazing',
+    metaDescription:
+      'Commercial glass replacement for shopfronts and premises. Toughened safety glass, laminated, DGUs, PAS 24 security glazing. Fast turnaround. UK-wide service.',
+    description: `Glass is the defining element of any commercial shopfront. It provides visibility, natural light, and street presence — but it is also the most vulnerable component of the building envelope. Whether the damage is caused by vandalism, accidental impact, attempted burglary, storm debris, or the gradual failure of a sealed double-glazed unit, the result is the same: a compromised frontage that affects security, weather protection, energy performance, and the professional appearance of your premises.
+
+Sigma Shop Fronts provides a comprehensive commercial glass replacement service covering the full range of glazing types used in modern shopfront, curtain wall, and commercial entrance systems. We measure, specify, source, and install replacement glass to the correct standard — not simply the nearest available alternative — ensuring that the repaired installation performs exactly as the original was designed to.
+
+**Types of Commercial Glass**
+
+Commercial glazing is not a single product — it is a family of glass types, each engineered for a specific performance requirement. Understanding the differences is essential to specifying the correct replacement.
+
+*Toughened safety glass* (also called tempered glass) is the baseline specification for all commercial shopfront glazing. Manufactured by heating float glass to approximately 620°C and then rapidly cooling it, toughening increases the mechanical strength of the glass by a factor of four to five and changes its fracture behaviour: when broken, toughened glass fragments into small, relatively harmless granules rather than large dangerous shards. All toughened glass installed in commercial premises must comply with BS EN 12150-1 and carry the permanent etch mark identifying the manufacturer, standard, and thickness.
+
+*Laminated glass* consists of two or more layers of glass bonded together with a polyvinyl butyral (PVB) or ethylene-vinyl acetate (EVA) interlayer. When broken, the interlayer holds the fragments in place, maintaining a barrier even after fracture. Laminated glass is specified where post-breakage retention is important — anti-bandit glazing, overhead glazing where falling glass would be hazardous, and acoustic attenuation applications. Laminated safety glass is manufactured and tested to BS EN ISO 12543.
+
+*Double-glazed units (DGUs)*, also known as insulated glass units (IGUs), consist of two panes of glass separated by a sealed air or gas-filled cavity. The cavity — typically 12 mm to 20 mm wide and filled with argon or krypton for enhanced thermal performance — dramatically reduces heat transfer through the glazing. DGUs are essential for compliance with Building Regulations Part L (Conservation of Fuel and Power) in any new or replacement commercial glazing installation. Centre-pane U-values for standard argon-filled DGUs typically fall between 1.0 and 1.4 W/m²K depending on the glass specification and coating.
+
+*Security-rated glass* is specified where the glazing must resist physical attack. PAS 24:2022 is the standard most commonly referenced by commercial insurers and specifiers for enhanced security performance of windows and doors. Glazing that forms part of a PAS 24 assembly is typically laminated with a thicker interlayer (0.76 mm or 1.52 mm PVB) and is tested as a complete assembly — glass, frame, and hardware together — rather than as an individual component.
+
+**When Glass Replacement Is Needed**
+
+The most common triggers for commercial glass replacement are:
+
+*Vandalism and criminal damage* — deliberate breakage of shopfront glass remains one of the most frequent causes of emergency glazing work. Toughened glass shatters completely on impact, leaving an open aperture that must be boarded and then re-glazed. Laminated glass, by contrast, cracks but remains largely in the frame, which is one reason insurers increasingly recommend it for high-risk frontages.
+
+*Accidental impact* — delivery vehicles, shopping trolleys, construction debris, and storm-borne objects all cause accidental glass breakage in commercial environments. The extent of damage determines whether a single panel replacement or a more extensive repair is needed.
+
+*Failed seals on double-glazed units* — when the perimeter seal of a DGU fails, moisture-laden air enters the cavity and condenses on the inner glass surfaces. The resulting misting or fogging is irreversible without replacing the entire sealed unit. Failed DGUs also lose their thermal insulation performance, as the inert gas fill escapes and is replaced by air.
+
+*Misting DGUs* — a subset of seal failure, misting units are visually obvious and commercially damaging. A misted shopfront window looks neglected and undermines customer confidence. Replacement of the sealed unit — not just cleaning — is the only effective remedy.
+
+**Measurement and Specification Process**
+
+Correct measurement and specification are critical. Commercial glass panels are not interchangeable — each unit is manufactured to precise dimensions, and the glass type, thickness, make-up, coatings, and spacer bar specification must be correctly identified to produce a replacement that fits the existing frame and meets the required performance standard.
+
+Our process begins with a site visit to measure the glazed opening and identify the existing glass specification. For toughened glass, the BS EN 12150 etch mark on the original pane provides the manufacturer, thickness, and standard. For DGUs, we identify the spacer bar type and width, the glass make-up (e.g. 6 mm toughened outer / 16 mm argon cavity / 6.4 mm laminated inner), and any low-emissivity coatings. Where the original specification cannot be determined from markings — for example, if the glass has shattered completely — we refer to the original shopfront installer's records or specify a replacement based on the frame rebate depth and the applicable standards.
+
+**BS 6262 Compliance**
+
+All glass replacement work carried out by Sigma Shop Fronts complies with BS 6262, the British Standard code of practice for glazing in buildings. BS 6262 covers the selection of glass types appropriate to the location and use, the assessment of human impact risk (critical locations as defined in the standard), wind loading calculations for large panels, and the correct method of glazing into the frame system.
+
+For glazing in critical locations — defined in BS 6262 Part 4 as areas below 800 mm from floor level in doors and below 800 mm from floor level in side panels within 300 mm of a door — safety glass (toughened or laminated) is mandatory. We verify that all replacement glazing in critical locations meets this requirement.
+
+**Safety Glass Regulations**
+
+Two principal standards govern the safety performance of glass used in commercial buildings. BS EN 12150-1 specifies the requirements for thermally toughened soda-lime-silicate safety glass, including the fragmentation pattern test that determines whether the glass breaks safely. BS EN ISO 12543 covers laminated glass and laminated safety glass, specifying the interlayer type, thickness, and the performance requirements for impact resistance and post-breakage behaviour.
+
+The Building Regulations (Approved Document K in England and Wales, Section 4 in Scotland) require that glazing in critical locations — doors, side panels adjacent to doors, and low-level glazing — uses safety glass conforming to BS EN 12600, which classifies glass by its impact resistance performance. We ensure that all replacement glass in these locations is correctly classified and documented.
+
+**Emergency Boarding Before Replacement**
+
+When glass breakage leaves your premises unsecured, immediate boarding is essential. Sigma Shop Fronts provides emergency boarding as part of our 24/7 callout service. Our engineers attend with heavy-duty plywood or polycarbonate boarding material and secure the opening within the existing frame using screws or, where necessary, rawl-plugged fixings into the masonry reveal.
+
+The boarding is designed to be weather-resistant and visually acceptable for the period between the emergency and the permanent glass installation — typically 24 to 72 hours for standard toughened glass, and three to seven working days for DGUs, laminated, or specialist specifications.
+
+We photograph all damage before boarding begins, providing a timestamped record that supports insurance claims and demonstrates the condition of the premises at the time of our attendance.
+
+**Turnaround Times**
+
+Standard toughened glass panels in common thicknesses (6 mm, 8 mm, 10 mm, 12 mm) are typically available within 24 to 48 hours from our glazing supply network. Sealed double-glazed units require manufacturing to the specific dimensions and specification and are usually available within three to five working days. Laminated glass, specialist coated glass, and large-format panels (over 2.5 m in any dimension) may require five to ten working days depending on the specification and the manufacturer's production schedule.
+
+We communicate expected lead times clearly at the point of order and keep you informed of progress. Where a faster turnaround is critical — for example, a ground-floor retail unit with temporary boarding — we can request priority manufacturing from our supply partners, subject to a surcharge.`,
+    benefits: [
+      {
+        title: 'Correct Specification, Not Just the Nearest Fit',
+        description:
+          'We identify the exact glass type, thickness, make-up, and coatings of the original installation and specify a replacement to match. This ensures the repaired glazing meets the same thermal, safety, security, and acoustic performance as the original — not a lower standard.',
+      },
+      {
+        title: 'BS 6262 Compliant Installation',
+        description:
+          'All glass replacement work is carried out in accordance with BS 6262, the British Standard for glazing in buildings. We verify safety glass compliance in all critical locations and provide a works completion record documenting the glass specification installed.',
+      },
+      {
+        title: 'Emergency Boarding Within Hours',
+        description:
+          'If your glass is broken and your premises are exposed, we can attend the same day to install secure temporary boarding. This protects against further damage, theft, and weather ingress while the permanent replacement glass is manufactured and delivered.',
+      },
+      {
+        title: 'Insurance Documentation as Standard',
+        description:
+          'We provide timestamped photographs of all damage, a detailed specification of the replacement glass, and an itemised invoice formatted to meet the requirements of commercial property insurers and loss adjusters. This reduces your administrative burden and accelerates claims settlement.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How long does it take to replace a broken shopfront window?',
+        answer:
+          'For standard toughened glass in common thicknesses, we can typically source and install a replacement within 24 to 48 hours of measurement. Sealed double-glazed units require three to five working days for manufacture. Laminated, security-rated, or large-format glass may take five to ten working days. In all cases, we can install emergency boarding within hours to secure the premises until the permanent glass is ready.',
+      },
+      {
+        question: 'Can you replace just the glass without replacing the entire shopfront frame?',
+        answer:
+          'In most cases, yes. If the aluminium or steel frame is undamaged and structurally sound, we remove the broken glass, clean the frame rebates, and install the replacement pane with new gaskets and weather seals. This is significantly less expensive and disruptive than a full shopfront replacement. If we find frame damage during the glass removal, we will advise you before proceeding.',
+      },
+      {
+        question: 'My double-glazed unit is misted — can it be repaired without replacement?',
+        answer:
+          'Unfortunately not. Misting in a double-glazed unit indicates that the perimeter seal has failed, allowing moist air into the cavity. The moisture condenses on the inner glass surfaces and cannot be removed by cleaning. The only effective remedy is to replace the entire sealed unit with a new one manufactured to the correct specification. We measure and order the replacement DGU and install it with minimal disruption.',
+      },
+      {
+        question: 'Do I need safety glass in my shopfront?',
+        answer:
+          'Yes. Under the Building Regulations (Approved Document K) and BS 6262, all glazing in critical locations — which includes doors, side panels within 300 mm of a door, and any glazing below 800 mm from floor level — must use safety glass conforming to BS EN 12600. For most commercial shopfronts, toughened safety glass to BS EN 12150-1 is the minimum specification. We verify compliance for every panel we replace and can advise on whether an upgrade to laminated or security-rated glass is appropriate for your situation.',
+      },
+    ],
+    relatedServices: ['shopfront-repairs', 'aluminium-shopfronts', 'emergency-callout', 'automatic-doors'],
+  },
 ];

@@ -18,6 +18,8 @@ const allServices = [
   { name: 'Fire Doors', slug: 'fire-doors', image: 'fire-door.jpeg' },
   { name: 'Shopfront Repairs', slug: 'shopfront-repairs', image: 'shopfront-3.jpeg' },
   { name: 'Emergency Callout', slug: 'emergency-callout', image: 'sigma-front-variant.jpeg' },
+  { name: 'Shutter Repair', slug: 'shutter-repair', image: 'roller-shutter-1.jpeg' },
+  { name: 'Glass Replacement', slug: 'glass-replacement', image: 'aluminium-shopfront-1.jpeg' },
 ];
 
 const cityGeo: Record<string, { addressLocality: string; addressRegion: string; postalCode: string; latitude: number; longitude: number }> = {

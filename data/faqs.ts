@@ -52,4 +52,12 @@ export const generalFaqs: FAQ[] = [
     question: 'Do your shopfronts comply with DDA requirements?',
     answer: 'Yes. We design all entrance systems to comply with the Equality Act 2010 (which replaced the DDA) and the guidance in Approved Document M of the Building Regulations. This includes level or ramped thresholds, minimum clear opening widths of 1000 mm, colour-contrasted manifestation on glazing, and appropriate door furniture. Where automatic doors are specified, we ensure they meet BS EN 16005 for pedestrian safety.',
   },
+  {
+    question: 'Can you repair a roller shutter that was installed by another company?',
+    answer: 'Yes. We repair roller shutters from all manufacturers, not just shutters we originally installed. Common faults include broken springs, failed motors, damaged laths, and bent guide rails. Our engineers carry the most commonly needed parts and can complete the majority of repairs on the same day. Call us on 07414 779594 for fast assistance.',
+  },
+  {
+    question: 'How quickly can you replace broken shopfront glass?',
+    answer: 'For standard toughened glass, we can typically source and install a replacement within 24 to 48 hours. Double-glazed units require three to five working days for manufacture. In all cases, we provide emergency boarding within hours to secure your premises while the permanent replacement is arranged. All glass is installed to BS 6262 and we provide full documentation for insurance purposes.',
+  },
 ];

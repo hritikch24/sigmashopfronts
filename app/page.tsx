@@ -76,6 +76,20 @@ const services = [
     image: '/assets/sigma-front-variant.jpeg',
     href: '/services/emergency-callout',
   },
+  {
+    title: 'Shutter Repair',
+    description:
+      'Fast roller shutter repairs for jammed shutters, broken springs, motor failure and damaged laths. Same-day service available across the UK.',
+    image: '/assets/roller-shutter-1.jpeg',
+    href: '/services/shutter-repair',
+  },
+  {
+    title: 'Glass Replacement',
+    description:
+      'Commercial glass replacement — toughened, laminated, DGUs and security-rated glass. Measured, specified and installed to BS 6262.',
+    image: '/assets/aluminium-shopfront-1.jpeg',
+    href: '/services/glass-replacement',
+  },
 ];
 
 const usps = [

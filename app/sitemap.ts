@@ -11,6 +11,8 @@ const serviceSlugs = [
   'fire-doors',
   'shopfront-repairs',
   'emergency-callout',
+  'shutter-repair',
+  'glass-replacement',
 ];
 
 const citySlugs = [

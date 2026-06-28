@@ -9,6 +9,8 @@ const services = [
   { label: 'Fire Doors', href: '/services/fire-doors' },
   { label: 'Shop Front Repairs', href: '/services/shopfront-repairs' },
   { label: 'Emergency Callout', href: '/services/emergency-callout' },
+  { label: 'Shutter Repair', href: '/services/shutter-repair' },
+  { label: 'Glass Replacement', href: '/services/glass-replacement' },
 ];
 
 const areas = [
