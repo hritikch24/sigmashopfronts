@@ -1198,4 +1198,470 @@ We operate across the full Coventry area, including Earlsdon, Tile Hill, Canley,
       },
     ],
   },
+
+  {
+    slug: 'reading',
+    name: 'Reading',
+    region: 'Berkshire',
+    areas: [
+      'Town Centre',
+      'Caversham',
+      'Tilehurst',
+      'Woodley',
+      'Earley',
+      'Whitley',
+      'Calcot',
+      'Sonning',
+      'Pangbourne',
+      'Wokingham',
+    ],
+    postcodeAreas: ['RG1', 'RG2', 'RG4', 'RG5', 'RG6', 'RG30', 'RG31', 'RG40', 'RG41'],
+    primaryKeyword: 'shopfronts Reading',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Reading',
+    metaDescription:
+      'Professional shopfront installation across Reading and Berkshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Reading is one of the most economically productive towns in the south-east of England, with a commercial property market shaped by the town's position as a major employment hub between London and the M4 corridor technology belt. The town centre retail environment is anchored by The Oracle shopping centre and the Broad Street pedestrianised zone, while the surrounding neighbourhoods of Caversham, Tilehurst, and Earley maintain active independent high streets.
+
+Sigma Shop Fronts works across Reading and the wider Berkshire area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency callout services for retail, hospitality, and commercial premises. The Oracle's managed retail environment demands compliance with centre management contractor requirements, and our teams are experienced in working within these frameworks, programming installations outside of trading hours and coordinating with the centre's facilities management team.
+
+Broad Street and the surrounding city-centre streets house a mix of national retailers and independent businesses. The varied building stock — from Victorian commercial premises to post-war reconstruction and modern development — creates diverse shopfront requirements that we address with appropriately specified aluminium systems, thermally broken profiles, and security solutions tailored to each property.
+
+Caversham and Tilehurst serve their communities with neighbourhood retail strips where independent businesses value reliable, quality shopfront installation at competitive prices. We have completed numerous installations across these areas, building long-term relationships with local business owners who return for maintenance, repairs, and additional services as their premises evolve.`,
+    testimonials: [
+      {
+        name: 'David Hargreaves',
+        business: 'Hargreaves Pharmacy',
+        location: 'Caversham',
+        rating: 5,
+        text: 'Sigma replaced our old shopfront and fitted an automatic door in a single visit. The team was efficient, tidy, and the finish is excellent. Our elderly customers have particularly noticed the improvement.',
+      },
+      {
+        name: 'Nina Kowalczyk',
+        business: 'Kowalczyk Bakery',
+        location: 'Reading Town Centre',
+        rating: 5,
+        text: 'We needed a new aluminium shopfront with wide display windows for our pastry counter. Sigma delivered exactly what we wanted, on time and within budget. The quality of the glazing is superb.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Berkshire area?',
+        answer:
+          'Yes. We cover the full Berkshire area including Wokingham, Bracknell, Maidenhead, Slough, Windsor, and Newbury. Our south-east teams are based in the region and respond quickly across all RG and SL postcodes.',
+      },
+      {
+        question: 'Can you work within The Oracle shopping centre?',
+        answer:
+          'Yes. We have experience working within managed retail centre environments and can provide all required contractor compliance documentation including insurance certificates, RAMS, and CSCS records for the centre management team.',
+      },
+    ],
+  },
+
+  {
+    slug: 'wolverhampton',
+    name: 'Wolverhampton',
+    region: 'West Midlands',
+    areas: [
+      'City Centre',
+      'Tettenhall',
+      'Penn',
+      'Bilston',
+      'Wednesfield',
+      'Willenhall',
+      'Blakenhall',
+      'Oxley',
+      'Bushbury',
+      'Fordhouses',
+    ],
+    postcodeAreas: ['WV1', 'WV2', 'WV3', 'WV4', 'WV6', 'WV10', 'WV11', 'WV12', 'WV13', 'WV14'],
+    primaryKeyword: 'shopfronts Wolverhampton',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Wolverhampton',
+    metaDescription:
+      'Professional shopfront installation across Wolverhampton and the Black Country. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Wolverhampton is at the heart of the Black Country, with a commercial property landscape shaped by its industrial heritage and ongoing regeneration. The city centre has seen significant investment through the Westside and Interchange developments, creating demand for high-quality shopfront installations that meet the standards of modern commercial environments.
+
+Sigma Shop Fronts operates across Wolverhampton and the wider Black Country area, installing aluminium shopfronts, roller shutters, security doors, automatic doors, and fire doors for businesses of all sizes. The Mander Centre and the surrounding city-centre retail pitches require shopfront installations that balance commercial impact with the practical demands of a busy urban retail environment.
+
+Bilston, Wednesfield, and Willenhall each have active high streets serving their local communities. These neighbourhood commercial centres are the backbone of the Black Country's retail economy, and a quality shopfront installation here represents a meaningful investment in the long-term appearance and security of the premises.
+
+Tettenhall and Penn serve the more affluent western suburbs with independent retail strips where businesses value quality workmanship and attention to detail. We have built strong relationships with business owners across these areas, returning for maintenance and additional services as their needs evolve.`,
+    testimonials: [
+      {
+        name: 'Steve Cartwright',
+        business: 'Cartwright Motor Spares',
+        location: 'Bilston',
+        rating: 5,
+        text: 'Sigma fitted a new roller shutter and security door at our trade counter. Both are heavy-duty and built to last. The team was professional and the price was very competitive.',
+      },
+      {
+        name: 'Amara Okafor',
+        business: 'Okafor Hair Studio',
+        location: 'Wolverhampton City Centre',
+        rating: 5,
+        text: 'The new aluminium shopfront has completely transformed the look of our salon. Sigma understood what we wanted and delivered a beautiful finish. Highly recommended.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Black Country area?',
+        answer:
+          'Yes. We cover the full Black Country including Dudley, Walsall, West Bromwich, and Sandwell, as well as extending into Staffordshire. Our West Midlands teams are locally based and provide rapid response across all WV and WS postcodes.',
+      },
+      {
+        question: 'Can you provide emergency shopfront repairs in Wolverhampton?',
+        answer:
+          'Yes. We offer 24/7 emergency callout for shopfront boarding, glazing repairs, and shutter repairs across Wolverhampton and the Black Country. Our rapid-response teams can typically reach city-centre premises within one to two hours.',
+      },
+    ],
+  },
+
+  {
+    slug: 'derby',
+    name: 'Derby',
+    region: 'Derbyshire',
+    areas: [
+      'City Centre',
+      'Cathedral Quarter',
+      'Darley Abbey',
+      'Allestree',
+      'Littleover',
+      'Mickleover',
+      'Spondon',
+      'Chellaston',
+      'Normanton',
+      'Chaddesden',
+    ],
+    postcodeAreas: ['DE1', 'DE3', 'DE21', 'DE22', 'DE23', 'DE24', 'DE65', 'DE73'],
+    primaryKeyword: 'shopfronts Derby',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Derby',
+    metaDescription:
+      'Professional shopfront installation across Derby and Derbyshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Derby combines a proud industrial heritage with a growing independent retail and hospitality sector. The Cathedral Quarter in the city centre has become a focus for independent dining and boutique retail, with the historic streets around Iron Gate and Sadler Gate creating a distinctive commercial environment where shopfronts must respect the character of the Georgian and Victorian buildings.
+
+Sigma Shop Fronts works across Derby and the wider Derbyshire area, providing the full range of commercial shopfront and security solutions. The Derbion shopping centre (formerly Intu Derby) anchors the city-centre retail offer, and installations within this managed environment require compliance with the centre management's contractor requirements, which our teams are experienced in delivering.
+
+Normanton Road is one of Derby's most diverse and vibrant commercial streets, with a concentration of independent retail, food, and service businesses serving a multicultural community. Shopfront work here is varied and steady, ranging from new aluminium installations to roller shutter replacements and emergency repairs.
+
+The suburban commercial centres of Allestree, Mickleover, and Chellaston serve their residential communities with neighbourhood retail that values reliability and quality. We provide the same standard of shopfront installation across all of these areas, tailored to the scale and character of each location.`,
+    testimonials: [
+      {
+        name: 'Mark Jenkinson',
+        business: 'Jenkinson & Co. Estate Agents',
+        location: 'Cathedral Quarter',
+        rating: 5,
+        text: 'Sigma installed a new aluminium shopfront with integrated signage zone that looks perfect for the building. The conservation officer was satisfied first time, which saved us weeks on the programme.',
+      },
+      {
+        name: 'Fatima Ali',
+        business: 'Ali Food Store',
+        location: 'Normanton',
+        rating: 5,
+        text: 'Good price, quick installation, and the new roller shutter works smoothly every time. Sigma also fitted a security door at the back which has given us much better peace of mind.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Derbyshire area?',
+        answer:
+          'Yes. We cover the full Derbyshire area including Chesterfield, Belper, Ilkeston, Long Eaton, and Buxton. Our East Midlands teams operate across the region and are familiar with the planning requirements of all Derbyshire local authorities.',
+      },
+      {
+        question: 'Can you work on shopfronts in the Cathedral Quarter conservation area?',
+        answer:
+          'Yes. We have experience with conservation area shopfront installations in Derby and prepare planning applications that address the character appraisal criteria. We specify appropriate profiles, finishes, and hardware for the heritage context of the Cathedral Quarter.',
+      },
+    ],
+  },
+
+  {
+    slug: 'northampton',
+    name: 'Northampton',
+    region: 'Northamptonshire',
+    areas: [
+      'Town Centre',
+      'Abington',
+      'Kingsthorpe',
+      'Weston Favell',
+      'Far Cotton',
+      'Duston',
+      'Moulton',
+      'Wellingborough Road',
+      'St James',
+      'Upton',
+    ],
+    postcodeAreas: ['NN1', 'NN2', 'NN3', 'NN4', 'NN5', 'NN6', 'NN7'],
+    primaryKeyword: 'shopfronts Northampton',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Northampton',
+    metaDescription:
+      'Professional shopfront installation across Northampton and Northamptonshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Northampton is a growing commercial town with a diverse retail environment shaped by its central England location and strong logistics connections. The town centre has undergone significant change in recent years, with investment in the Market Square area and the wider regeneration of the commercial core creating opportunities for shopfront improvement and new installations.
+
+Sigma Shop Fronts operates across Northampton and the wider Northamptonshire area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency callout services. The Grosvenor Centre anchors the town-centre retail offer, and our teams are experienced in working within managed shopping centre environments.
+
+Wellingborough Road is one of Northampton's most characterful commercial streets, with a concentration of independent cafes, restaurants, and specialist retailers. The varied building stock along this corridor creates interesting shopfront requirements that we address with appropriately specified solutions.
+
+Kingsthorpe, Weston Favell, and Duston serve their suburban communities with active neighbourhood retail centres. We provide reliable, quality shopfront installation across all of these areas, building long-term relationships with local business owners.`,
+    testimonials: [
+      {
+        name: 'Paul Atkinson',
+        business: 'Atkinson Hardware',
+        location: 'Kingsthorpe',
+        rating: 5,
+        text: 'Sigma replaced our ageing shopfront with a smart new aluminium system and fitted a roller shutter at the same time. Clean work, competitive price, and they turned up exactly when they said they would.',
+      },
+      {
+        name: 'Sana Begum',
+        business: 'Sana Beauty Lounge',
+        location: 'Wellingborough Road',
+        rating: 5,
+        text: 'The new shopfront has given our salon a completely fresh look. Sigma was easy to deal with and the quality of the installation is excellent. We have had lots of compliments from clients.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Northamptonshire area?',
+        answer:
+          'Yes. We cover the full Northamptonshire area including Wellingborough, Kettering, Corby, Daventry, and Towcester. Our teams are based in the Midlands and respond quickly across all NN postcodes.',
+      },
+      {
+        question: 'What are typical lead times for shopfront installation in Northampton?',
+        answer:
+          'A standard aluminium shopfront replacement typically takes two to three weeks for fabrication after survey, with installation completed in one to two days. The full process from initial contact to completed installation is usually four to six weeks for standard work.',
+      },
+    ],
+  },
+
+  {
+    slug: 'luton',
+    name: 'Luton',
+    region: 'Bedfordshire',
+    areas: [
+      'Town Centre',
+      'Bury Park',
+      'Dunstable',
+      'Leagrave',
+      'Stopsley',
+      'Houghton Regis',
+      'Farley Hill',
+      'Limbury',
+      'Lewsey',
+      'Challney',
+    ],
+    postcodeAreas: ['LU1', 'LU2', 'LU3', 'LU4', 'LU5', 'LU6', 'LU7'],
+    primaryKeyword: 'shopfronts Luton',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Luton',
+    metaDescription:
+      'Professional shopfront installation across Luton and Bedfordshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Luton is a commercially active town with a diverse business community and a retail environment that reflects its multicultural character. The town centre has seen continued investment, and the surrounding commercial corridors — particularly Bury Park Road and Dunstable Road — represent some of the busiest independent retail environments in Bedfordshire.
+
+Sigma Shop Fronts works across Luton and the wider Bedfordshire area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency callout services. The Mall Luton anchors the town-centre retail offer, and our teams are experienced in working within managed retail environments.
+
+Bury Park is one of Luton's most vibrant commercial areas, with a dense concentration of independent retail, food, and textile businesses. Shopfront requirements here are varied and often include wide display windows, integrated lighting, and robust security systems. We have completed numerous installations across this area, working with business owners who value quality and competitive pricing.
+
+Dunstable, Houghton Regis, and the surrounding towns extend our Bedfordshire coverage to the wider area. We provide the same quality of installation and service across all of these locations, with locally based teams who respond quickly to enquiries and callouts.`,
+    testimonials: [
+      {
+        name: 'Tariq Mohammed',
+        business: 'Mohammed Textiles',
+        location: 'Bury Park',
+        rating: 5,
+        text: 'Sigma installed a new aluminium shopfront with wide display windows that really showcase our fabrics. The security shutter gives us peace of mind at night. Excellent service from start to finish.',
+      },
+      {
+        name: 'Karen Bishop',
+        business: 'Bishop Dental Practice',
+        location: 'Dunstable',
+        rating: 5,
+        text: 'We needed an automatic door for accessibility and Sigma delivered exactly what we required. Professional survey, clear quote, and a tidy installation completed in a single day.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Bedfordshire area?',
+        answer:
+          'Yes. We cover the full Bedfordshire area including Dunstable, Houghton Regis, Leighton Buzzard, Bedford, and Biggleswade. Our teams respond quickly across all LU and MK postcodes in the area.',
+      },
+      {
+        question: 'Do you offer emergency shopfront repairs in Luton?',
+        answer:
+          'Yes. We provide 24/7 emergency callout for shopfront boarding, glazing repairs, and shutter repairs across Luton and Bedfordshire. Our rapid-response teams can typically reach town-centre premises within one to two hours.',
+      },
+    ],
+  },
+
+  {
+    slug: 'swindon',
+    name: 'Swindon',
+    region: 'Wiltshire',
+    areas: [
+      'Town Centre',
+      'Old Town',
+      'Highworth',
+      'Wroughton',
+      'Blunsdon',
+      'Stratton',
+      'Haydon Wick',
+      'West Swindon',
+      'Cricklade',
+      'Royal Wootton Bassett',
+    ],
+    postcodeAreas: ['SN1', 'SN2', 'SN3', 'SN4', 'SN5', 'SN6', 'SN25', 'SN26'],
+    primaryKeyword: 'shopfronts Swindon',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Swindon',
+    metaDescription:
+      'Professional shopfront installation across Swindon and Wiltshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Swindon has grown rapidly as a commercial centre, with a diverse economy anchored by its position on the M4 corridor between Bristol and London. The town centre retail environment includes the Designer Outlet and the Brunel Centre, while Old Town maintains a distinct character with independent shops, cafes, and restaurants housed in Victorian and Edwardian buildings.
+
+Sigma Shop Fronts operates across Swindon and the wider Wiltshire area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency callout services. The varied commercial property stock across the town — from modern retail parks to historic Old Town premises — requires a flexible approach to shopfront specification and installation.
+
+Old Town's Wood Street and the surrounding streets house a concentration of independent businesses in buildings with genuine architectural character. Shopfront installations here need to respect the heritage context while delivering modern performance standards for thermal efficiency and security.
+
+The satellite towns of Royal Wootton Bassett, Highworth, and Cricklade each have active high streets where we provide the same quality of shopfront installation as in the town centre, scaled appropriately to the character and requirements of each location.`,
+    testimonials: [
+      {
+        name: 'Graham Perkins',
+        business: 'Perkins & Sons Butchers',
+        location: 'Old Town',
+        rating: 5,
+        text: 'We wanted a traditional-looking shopfront that matched the Old Town character but with modern thermal performance. Sigma specified exactly the right system and the installation was first class.',
+      },
+      {
+        name: 'Lisa Chen',
+        business: 'Chen Noodle Bar',
+        location: 'Swindon Town Centre',
+        rating: 5,
+        text: 'The new shopfront and automatic door have made a huge difference to our restaurant. Sigma was professional, on time, and the price was very fair for the quality delivered.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Wiltshire area?',
+        answer:
+          'Yes. We cover the full Wiltshire area including Chippenham, Devizes, Marlborough, Trowbridge, and Salisbury. Our south-west teams are based in the region and respond across all SN and BA postcodes.',
+      },
+      {
+        question: 'Can you work on shopfronts in Swindon Old Town conservation area?',
+        answer:
+          'Yes. We are familiar with the conservation area requirements in Swindon Old Town and prepare planning applications that address the relevant character appraisal criteria. We specify heritage-appropriate profiles and finishes where the conservation context demands it.',
+      },
+    ],
+  },
+
+  {
+    slug: 'stoke-on-trent',
+    name: 'Stoke-on-Trent',
+    region: 'Staffordshire',
+    areas: [
+      'Hanley',
+      'Stoke',
+      'Burslem',
+      'Tunstall',
+      'Longton',
+      'Fenton',
+      'Newcastle-under-Lyme',
+      'Trentham',
+      'Meir',
+      'Bentilee',
+    ],
+    postcodeAreas: ['ST1', 'ST2', 'ST3', 'ST4', 'ST5', 'ST6', 'ST7', 'ST8'],
+    primaryKeyword: 'shopfronts Stoke-on-Trent',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Stoke-on-Trent',
+    metaDescription:
+      'Professional shopfront installation across Stoke-on-Trent and Staffordshire. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Stoke-on-Trent is a city with a unique commercial structure — six historic towns (Hanley, Stoke, Burslem, Tunstall, Longton, and Fenton) each with their own commercial centres, creating a distributed retail environment unlike any other English city. Hanley serves as the primary city centre, with the Potteries Centre anchoring the retail offer, while the other towns maintain active high streets with their own character and commercial identity.
+
+Sigma Shop Fronts works across Stoke-on-Trent and the wider Staffordshire area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency services. The industrial heritage of the Potteries — with its distinctive bottle kilns, Victorian factory buildings, and terraced commercial streets — creates a shopfront environment with real character that we respect in our specifications.
+
+Burslem, often called the Mother Town of the Potteries, has a particularly strong architectural identity with its Victorian commercial buildings and the ongoing regeneration efforts around the town centre. Shopfront installations here benefit from an understanding of the conservation context and the community's pride in its heritage.
+
+Newcastle-under-Lyme, while technically a separate borough, is closely linked to Stoke-on-Trent commercially and we cover both areas comprehensively. The town centre's independent retail offer and its distinct Georgian and Victorian character create shopfront requirements that differ from the Stoke city centre environment.`,
+    testimonials: [
+      {
+        name: 'Dave Corbishley',
+        business: 'Corbishley Ceramics',
+        location: 'Burslem',
+        rating: 5,
+        text: 'Sigma understood the heritage context of our building and specified a shopfront that the conservation officer approved without any changes. The installation was professional and the finish is outstanding.',
+      },
+      {
+        name: 'Julie Hancock',
+        business: 'Hancock Fish Bar',
+        location: 'Longton',
+        rating: 5,
+        text: 'New shopfront and roller shutter fitted in a day. The team arrived on time, worked efficiently, and left the site spotless. The price was the most competitive we received.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover Newcastle-under-Lyme and the wider Staffordshire area?',
+        answer:
+          'Yes. We cover the full Staffordshire area including Newcastle-under-Lyme, Stafford, Leek, Stone, and Uttoxeter. Our teams operate across all ST postcodes and respond quickly to enquiries and emergency callouts.',
+      },
+      {
+        question: 'Can you work on shopfronts in the Burslem conservation area?',
+        answer:
+          'Yes. We have experience working within conservation areas across Stoke-on-Trent and understand the specific requirements of the Burslem Town Centre Conservation Area. We prepare heritage-sensitive proposals and liaise with the local planning authority throughout the design and approval process.',
+      },
+    ],
+  },
+
+  {
+    slug: 'plymouth',
+    name: 'Plymouth',
+    region: 'Devon',
+    areas: [
+      'City Centre',
+      'Barbican',
+      'Mutley Plain',
+      'Plympton',
+      'Plymstock',
+      'Devonport',
+      'Stonehouse',
+      'Mannamead',
+      'Crownhill',
+      'Saltash',
+    ],
+    postcodeAreas: ['PL1', 'PL2', 'PL3', 'PL4', 'PL5', 'PL6', 'PL7', 'PL9', 'PL12'],
+    primaryKeyword: 'shopfronts Plymouth',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Plymouth',
+    metaDescription:
+      'Professional shopfront installation across Plymouth and Devon. Aluminium shopfronts, roller shutters, security doors and emergency callout. Free site survey.',
+    description: `Plymouth is the south-west's largest city and a major commercial centre with a retail environment shaped by its post-war reconstruction and its dramatic coastal setting. The city centre was comprehensively rebuilt after wartime bombing, and the distinctive planned layout — with Armada Way as its central spine and the pedestrianised shopping streets radiating from it — creates a commercial environment with specific shopfront requirements.
+
+Sigma Shop Fronts operates across Plymouth and the wider Devon area, providing aluminium shopfronts, roller shutters, security doors, automatic doors, and emergency callout services. Drake Circus shopping centre anchors the city-centre retail offer, and our teams are experienced in working within managed retail environments, coordinating with centre management and programming work outside of trading hours.
+
+The Barbican is Plymouth's most historic commercial quarter, with the harbour-side buildings housing a concentration of independent restaurants, galleries, and specialist retailers. The conservation area status of the Barbican requires shopfront installations that respect the maritime heritage character, and we specify appropriate materials and finishes for this sensitive context.
+
+Plymouth's coastal location is a significant factor in shopfront specification. The marine environment accelerates corrosion, and all our Plymouth installations use marine-grade aluminium alloys, stainless steel fixings, and powder-coat finishes with enhanced corrosion protection as standard.
+
+Mutley Plain, Plympton, and Plymstock serve their communities with active neighbourhood retail strips. We provide the same quality of installation across all of these areas, with specifications adapted for the coastal climate that affects the entire Plymouth area.`,
+    testimonials: [
+      {
+        name: 'Tom Westlake',
+        business: 'Westlake Gallery',
+        location: 'Barbican',
+        rating: 5,
+        text: 'Getting a shopfront approved in the Barbican conservation area required a careful approach. Sigma knew the requirements and delivered a shopfront that the planning officer praised. The marine-grade specification means it should last well in this exposed location.',
+      },
+      {
+        name: 'Sarah Penrose',
+        business: 'Penrose Cafe',
+        location: 'Mutley Plain',
+        rating: 5,
+        text: 'The new bi-fold shopfront has been brilliant for summer trade. Sigma specified the marine corrosion protection without us having to ask, which shows they know the area. Professional service throughout.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you cover the wider Devon and Cornwall area?',
+        answer:
+          'Yes. We cover the full Devon and Cornwall area including Exeter, Torquay, Barnstaple, Truro, and Falmouth. Our south-west teams are based in the region and are experienced with the planning requirements of all Devon and Cornwall local authorities.',
+      },
+      {
+        question: 'What corrosion protection do you use for Plymouth coastal installations?',
+        answer:
+          'For all Plymouth installations, we specify marine-grade aluminium alloy sections, grade 316 stainless steel fixings, and powder-coat finishes applied over a chromate conversion primer. Plymouth\'s exposed coastal location means that corrosion protection is standard on every project, not an optional upgrade.',
+      },
+    ],
+  },
 ];

@@ -129,6 +129,29 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SiteNavigationElement",
+              "@id": "https://www.sigmashopfronts.com/#navigation",
+              "name": "Main Navigation",
+              "url": "https://www.sigmashopfronts.com",
+              "hasPart": [
+                {"@type": "SiteNavigationElement", "name": "Services", "url": "https://www.sigmashopfronts.com/services"},
+                {"@type": "SiteNavigationElement", "name": "Areas We Cover", "url": "https://www.sigmashopfronts.com/areas"},
+                {"@type": "SiteNavigationElement", "name": "About Us", "url": "https://www.sigmashopfronts.com/about"},
+                {"@type": "SiteNavigationElement", "name": "Gallery", "url": "https://www.sigmashopfronts.com/gallery"},
+                {"@type": "SiteNavigationElement", "name": "Blog", "url": "https://www.sigmashopfronts.com/blog"},
+                {"@type": "SiteNavigationElement", "name": "Cost Guide", "url": "https://www.sigmashopfronts.com/cost-guide"},
+                {"@type": "SiteNavigationElement", "name": "FAQ", "url": "https://www.sigmashopfronts.com/faq"},
+                {"@type": "SiteNavigationElement", "name": "Reviews", "url": "https://www.sigmashopfronts.com/reviews"},
+                {"@type": "SiteNavigationElement", "name": "Contact", "url": "https://www.sigmashopfronts.com/contact"}
+              ]
+            }),
+          }}
+        />
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/assets/sigma-hero-1.jpeg" />
         <link rel="apple-touch-icon" href="/assets/sigma-hero-1.jpeg" />

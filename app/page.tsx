@@ -241,6 +241,29 @@ export default function HomePage() {
   return (
     <>
       <SchemaMarkup type="LocalBusiness" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': 'https://www.sigmashopfronts.com/#webpage',
+            name: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+            url: 'https://www.sigmashopfronts.com',
+            isPartOf: { '@id': 'https://www.sigmashopfronts.com/#website' },
+            about: { '@id': 'https://www.sigmashopfronts.com/#organization' },
+            speakable: {
+              '@type': 'SpeakableSpecification',
+              cssSelector: ['h1', '.hero-description', '.services-section h2'],
+            },
+            significantLink: [
+              'https://www.sigmashopfronts.com/services',
+              'https://www.sigmashopfronts.com/contact',
+              'https://www.sigmashopfronts.com/areas',
+            ],
+          }),
+        }}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">

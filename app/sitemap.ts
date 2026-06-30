@@ -32,6 +32,14 @@ const citySlugs = [
   'southampton',
   'brighton',
   'coventry',
+  'reading',
+  'wolverhampton',
+  'derby',
+  'northampton',
+  'luton',
+  'swindon',
+  'stoke-on-trent',
+  'plymouth',
 ];
 
 const blogSlugs = [

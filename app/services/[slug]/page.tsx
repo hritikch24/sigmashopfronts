@@ -127,6 +127,20 @@ export default async function ServicePage({ params }: PageProps) {
     ],
   };
 
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${siteUrl}/services/${slug}/#webpage`,
+    name: service.metaTitle,
+    url: `${siteUrl}/services/${slug}`,
+    isPartOf: { '@id': 'https://www.sigmashopfronts.com/#website' },
+    about: { '@id': `${siteUrl}/services/${slug}/#service` },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.service-description', '.benefits-section h3'],
+    },
+  };
+
   return (
     <>
       <SchemaMarkup type="Service" data={serviceSchema} />
@@ -134,6 +148,7 @@ export default async function ServicePage({ params }: PageProps) {
       {videoSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <section className="relative min-h-[50vh] flex items-end bg-navy">
         <Image
