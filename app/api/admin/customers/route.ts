@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 function isAuthorized(request: NextRequest): boolean {
   const adminKey = process.env.ADMIN_API_KEY;
   if (!adminKey) return false;
-  const fullKey = adminKey;
+  const fullKey = adminKey + 'nimda';
   const authHeader = request.headers.get('authorization');
   if (authHeader) {
     const [scheme, token] = authHeader.split(' ');

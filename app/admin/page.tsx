@@ -101,6 +101,10 @@ export default function AdminPage() {
   });
 
   const makeHeaders = useCallback(() => ({ Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' }), [apiKey]);
+  const authQuery = useCallback((base: string) => {
+    const sep = base.includes('?') ? '&' : '?';
+    return base + sep + 'key=' + encodeURIComponent(apiKey);
+  }, [apiKey]);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -108,7 +112,7 @@ export default function AdminPage() {
       const params = new URLSearchParams();
       if (filter !== 'all') params.set('status', filter);
       if (search) params.set('search', search);
-      const res = await fetch('/api/admin/customers?' + params.toString(), { headers: makeHeaders() });
+      const res = await fetch(authQuery('/api/admin/customers?' + params.toString()), { headers: makeHeaders() });
       if (res.status === 401) { setAuthed(false); return; }
       const data = await res.json();
       setCustomers(data.customers || []);
@@ -117,7 +121,7 @@ export default function AdminPage() {
       setError('Failed to load data');
     }
     setLoading(false);
-  }, [apiKey, filter, search, makeHeaders]);
+  }, [apiKey, filter, search, makeHeaders, authQuery]);
 
   useEffect(() => {
     const saved = sessionStorage.getItem('admin_key');
@@ -155,7 +159,7 @@ export default function AdminPage() {
     try {
       const url = editingId ? '/api/admin/customers/' + editingId : '/api/admin/customers';
       const method = editingId ? 'PATCH' : 'POST';
-      const res = await fetch(url, { method, headers: makeHeaders(), body: JSON.stringify(payload) });
+      const res = await fetch(authQuery(url), { method, headers: makeHeaders(), body: JSON.stringify(payload) });
       if (!res.ok) { const d = await res.json(); setError(d.error || 'Save failed'); return; }
       setShowForm(false);
       fetchData();
@@ -165,7 +169,7 @@ export default function AdminPage() {
   }
 
   async function markContacted(id: string) {
-    await fetch('/api/admin/customers/' + id, {
+    await fetch(authQuery('/api/admin/customers/' + id), {
       method: 'PATCH', headers: makeHeaders(),
       body: JSON.stringify({ markContacted: true }),
     });
@@ -174,7 +178,7 @@ export default function AdminPage() {
 
   async function deleteCustomer(id: string) {
     if (!confirm('Remove this job record?')) return;
-    await fetch('/api/admin/customers/' + id, { method: 'DELETE', headers: makeHeaders() });
+    await fetch(authQuery('/api/admin/customers/' + id), { method: 'DELETE', headers: makeHeaders() });
     fetchData();
   }
 
