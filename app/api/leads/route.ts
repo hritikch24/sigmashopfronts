@@ -13,8 +13,7 @@ function isAuthorized(request: NextRequest): boolean {
   const authHeader = request.headers.get("authorization");
   if (!authHeader) return false;
   const [scheme, token] = authHeader.split(" ");
-  const fullKey = adminApiKey + 'nimda';
-  return scheme === "Bearer" && token === fullKey;
+  return scheme === "Bearer" && token === adminApiKey;
 }
 
 // ---------------------------------------------------------------------------
