@@ -184,7 +184,7 @@ function gtagSendEvent(url) {
     }
   };
   gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867',
+    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
     'event_callback': callback,
   });
   return false;
@@ -192,7 +192,7 @@ function gtagSendEvent(url) {
 
 function gtag_report_conversion(url) {
   gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/conversion',
+    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
     'event_callback': function() {
       if (typeof url !== 'undefined') {
         window.location = url;
