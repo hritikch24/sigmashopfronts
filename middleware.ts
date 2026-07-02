@@ -10,8 +10,7 @@ export function middleware(request: NextRequest) {
     const key = searchParams.get('key');
     const adminKey = process.env.ADMIN_API_KEY;
 
-    const fullKey = adminKey + 'nimda';
-    if (!adminKey || key !== fullKey) {
+    if (!adminKey || key !== adminKey) {
       // Return 404 — page doesn't exist for unauthorized visitors
       return NextResponse.rewrite(new URL('/not-found', request.url));
     }
