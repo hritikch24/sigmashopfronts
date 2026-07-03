@@ -1664,4 +1664,152 @@ Mutley Plain, Plympton, and Plymstock serve their communities with active neighb
       },
     ],
   },
+
+  {
+    slug: 'bradford',
+    name: 'Bradford',
+    region: 'West Yorkshire',
+    areas: [
+      'Bradford City Centre',
+      'Manningham',
+      'Shipley',
+      'Bingley',
+      'Keighley',
+      'Idle',
+      'Thornton',
+      'Great Horton',
+      'Queensbury',
+      'Saltaire',
+    ],
+    postcodeAreas: ['BD1', 'BD2', 'BD3', 'BD4', 'BD5', 'BD7', 'BD8', 'BD9', 'BD17', 'BD18', 'BD20', 'BD21'],
+    primaryKeyword: 'shopfronts Bradford',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Bradford',
+    metaDescription:
+      'Professional shopfront installation across Bradford. Aluminium shopfronts, roller shutters, security doors for city centre, Manningham and beyond. Free survey.',
+    description: `Bradford is one of the largest cities in West Yorkshire, with a commercial landscape shaped by its rich textile heritage and its position as one of the most culturally diverse cities in the north of England. The city centre has undergone significant regeneration in recent years, with the Broadway shopping centre anchoring the retail offer and the wider investment in the public realm creating new opportunities for shopfront improvement and installation.
+
+Manningham Lane and the wider Manningham area represent one of the most vibrant and commercially active corridors in the city. The dense concentration of independent retail, food, textile, and service businesses along this stretch creates a shopfront environment with specific requirements: wide display frontages, illuminated signage integration, security-rated shutters, and durable finishes that withstand heavy daily use. Sigma Shop Fronts has completed numerous installations along Manningham Lane and the surrounding streets, working with business owners who value quality, competitive pricing, and reliable delivery.
+
+The city centre's Victorian commercial architecture — particularly around Ivegate, Kirkgate, and the Wool Exchange — creates a heritage context where shopfront specification must be considered carefully. Bradford Council's conservation area guidance applies across much of the historic core, and planning officers expect shopfront proposals to respect the proportions, materials, and character of the Victorian buildings. We have experience preparing design statements and liaising with Bradford Council's planning team on shopfront installations in these sensitive locations.
+
+Saltaire, the UNESCO World Heritage Site on the northern edge of Bradford, presents one of the most demanding shopfront environments in the region. The model village built by Sir Titus Salt in the mid-19th century has a unified architectural character that is rigorously protected, and any shopfront alteration within the village requires careful engagement with conservation officers and, where listed buildings are involved, listed building consent. We have worked within heritage-sensitive environments across the UK and understand the specific requirements of World Heritage Site contexts.
+
+Shipley, Bingley, and Keighley each have active town centres with independent retail communities that benefit from quality shopfront installation. These are market towns with genuine commercial character, and a well-specified shopfront makes a tangible difference to how a business is perceived by its community.
+
+Across the wider Bradford district — Idle, Thornton, Queensbury, and Great Horton — we serve the neighbourhood commercial centres that provide everyday retail and services for Bradford's residential communities.`,
+    testimonials: [
+      {
+        name: 'Imran Malik',
+        business: 'Malik Textiles',
+        location: 'Manningham',
+        rating: 5,
+        text: 'Sigma installed a wide-pane aluminium shopfront with integrated LED lighting and a security shutter. The display looks fantastic and the shutter gives us peace of mind. Very professional service from survey to completion.',
+      },
+      {
+        name: 'Helen Bradshaw',
+        business: 'Bradshaw & Co. Solicitors',
+        location: 'Shipley',
+        rating: 5,
+        text: 'We needed a new shopfront that respected the character of our Victorian building while improving thermal performance. Sigma specified a thermally broken system in a heritage colour that looks exactly right. The office is noticeably warmer too.',
+      },
+      {
+        name: 'Asif Khan',
+        business: 'Khan Jewellers',
+        location: 'Bradford City Centre',
+        rating: 4,
+        text: 'Good quality LPS-rated shutter and laminated glass throughout. Our insurer was happy with the documentation and the installation was completed on time. Competitive price compared to the other quotes we received.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you have experience with shopfronts in Bradford conservation areas?',
+        answer:
+          'Yes. We are familiar with Bradford Council\'s conservation area guidance, particularly for the city centre and Saltaire World Heritage Site. We prepare design statements that address the character appraisal criteria and liaise with conservation officers throughout the design and approval process. We specify heritage-appropriate profiles, finishes, and hardware where the conservation context requires it.',
+      },
+      {
+        question: 'Do you cover Keighley, Bingley, and the wider Bradford district?',
+        answer:
+          'Yes. We cover the full Bradford metropolitan district including Shipley, Bingley, Keighley, Ilkley, Skipton, and the surrounding towns. Our West Yorkshire teams are based in the region and cover all BD postcodes.',
+      },
+      {
+        question: 'Can you install security-rated shopfronts for jewellers and high-value retailers in Bradford?',
+        answer:
+          'Yes. We regularly install LPS 1175 rated shutters, laminated security glazing, and multi-point locked security doors for jewellers and high-value retailers across Bradford. We provide full LPC-certificated documentation for insurance compliance and can advise on the appropriate security specification for your premises and insurance requirements.',
+      },
+    ],
+  },
+
+  {
+    slug: 'swansea',
+    name: 'Swansea',
+    region: 'Wales',
+    areas: [
+      'Swansea City Centre',
+      'The Marina',
+      'Uplands',
+      'Mumbles',
+      'Morriston',
+      'Sketty',
+      'Gorseinon',
+      'Llansamlet',
+      'Neath',
+      'Port Talbot',
+    ],
+    postcodeAreas: ['SA1', 'SA2', 'SA3', 'SA4', 'SA5', 'SA6', 'SA7', 'SA8', 'SA10', 'SA11', 'SA12', 'SA13'],
+    primaryKeyword: 'shopfronts Swansea',
+    metaTitle: 'Aluminium Shopfronts & Shutters in Swansea',
+    metaDescription:
+      'Professional shopfront installation across Swansea and south-west Wales. Aluminium shopfronts, roller shutters, security doors and automatic doors. Free survey.',
+    description: `Swansea is the second-largest city in Wales and the commercial hub of south-west Wales, with a retail and hospitality environment that serves a wide catchment area extending from the Gower Peninsula to the Swansea Valley and the Neath Port Talbot corridor. The city centre has been the focus of significant regeneration investment, with the Swansea Arena development on the waterfront and the ongoing transformation of the retail core creating new demand for quality shopfront installations.
+
+The city centre retail environment is anchored by the Quadrant Shopping Centre and the surrounding pedestrianised streets including Oxford Street and The Kingsway. The varied building stock — from post-war reconstruction architecture to more recent commercial development — creates a range of shopfront requirements. We install aluminium shopfronts, roller shutters, automatic doors, and security systems across the city centre for both national retailers and independent businesses.
+
+The Marina and SA1 waterfront development represent Swansea's most contemporary commercial district. The mixed-use development of former dockland has created a modern commercial environment with restaurants, leisure operators, and professional services businesses that require high-specification entrance systems and shopfronts designed for the exposed coastal setting. Marine corrosion protection is standard on all our Swansea installations given the city's position on the coast.
+
+Uplands and Mumbles are Swansea's most characterful independent retail areas. Uplands' dense high street serves the university population and the surrounding residential community with a vibrant mix of independent cafés, boutiques, and specialist retailers. Mumbles — the gateway to the Gower Peninsula — has a village character with a concentration of independent restaurants, galleries, and lifestyle retailers housed in Victorian and Edwardian buildings. Shopfront installations in Mumbles must respect the conservation area designation and the coastal character of the village, and we specify marine-grade materials and heritage-appropriate finishes where the context demands it.
+
+In Wales, planning policy is set by the Welsh Government through Planning Policy Wales and the associated Technical Advice Notes, administered through local planning authorities. Swansea Council has its own supplementary planning guidance on shopfront design, and we are familiar with both the Welsh Government framework and the local authority requirements. Where planning or listed building consent is required, we prepare the relevant applications and liaise with Swansea Council planning officers throughout the process.
+
+Morriston, Gorseinon, and Llansamlet serve their communities with active neighbourhood commercial centres. Neath and Port Talbot, while separate local authority areas, fall within our south Wales service zone and we cover both comprehensively.`,
+    testimonials: [
+      {
+        name: 'Owain Rees',
+        business: 'Rees & Davies Opticians',
+        location: 'Uplands',
+        rating: 5,
+        text: 'Sigma installed a new thermally broken aluminium shopfront with an automatic door for accessibility. The improvement to both the appearance of the practice and the comfort inside has been significant. Professional service from start to finish.',
+      },
+      {
+        name: 'Catrin Morgan',
+        business: 'The Mumbles Kitchen',
+        location: 'Mumbles',
+        rating: 5,
+        text: 'The bi-fold doors have transformed the restaurant front. On a summer evening with the Gower light coming in, the whole atmosphere changes. Sigma specified marine-grade everything without being asked, which tells you they know coastal work.',
+      },
+      {
+        name: 'Darren Howell',
+        business: 'Howell Hardware & DIY',
+        location: 'Morriston',
+        rating: 4,
+        text: 'Straightforward installation — new aluminium shopfront and roller shutter, done in a day. Good communication, fair price, and a clean finish. Would use again.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you understand the Welsh planning framework for shopfronts in Swansea?',
+        answer:
+          'Yes. We are familiar with Planning Policy Wales, the relevant Technical Advice Notes, and Swansea Council\'s supplementary planning guidance on shopfront design. Where planning or listed building consent is required, we prepare the relevant applications in accordance with the Welsh Government framework and liaise with Swansea Council planning officers throughout the process.',
+      },
+      {
+        question: 'Do you cover Neath, Port Talbot, and the wider south-west Wales area?',
+        answer:
+          'Yes. We cover the full south-west Wales area including Neath, Port Talbot, Llanelli, Carmarthen, and the Gower Peninsula. Our Welsh operations cover all SA postcodes and extend across south and west Wales.',
+      },
+      {
+        question: 'What corrosion protection do you use for Swansea coastal installations?',
+        answer:
+          'For all Swansea installations — given the city\'s coastal position — we specify marine-grade aluminium alloy sections, grade 316 stainless steel fixings throughout, and powder-coat finishes applied over a chromate conversion primer for maximum corrosion resistance. This applies to all areas of the city, not just the immediate seafront, as the salt-air environment affects properties well inland.',
+      },
+    ],
+  },
 ];

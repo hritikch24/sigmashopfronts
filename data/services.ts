@@ -8,6 +8,24 @@ export interface ServiceFaq {
   answer: string;
 }
 
+export interface HowItWorksStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+export interface PricingRange {
+  item: string;
+  price: string;
+}
+
+export interface PricingGuide {
+  heading: string;
+  content: string;
+  ranges: PricingRange[];
+  note: string;
+}
+
 export interface Service {
   slug: string;
   name: string;
@@ -20,6 +38,9 @@ export interface Service {
   primaryKeyword: string;
   metaTitle: string;
   metaDescription: string;
+  howItWorks?: HowItWorksStep[];
+  pricingGuide?: PricingGuide;
+  peopleAlsoAsk?: ServiceFaq[];
 }
 
 export const services: Service[] = [
@@ -106,6 +127,72 @@ Every installation begins with a measured survey of the existing opening or stru
         question: 'Can you match the frame colour to our corporate brand palette?',
         answer:
           'Yes. We powder-coat all aluminium sections in-house or through a BS EN 12206-1 certified finishing partner. The standard range covers the full RAL Classic and RAL Design colour spaces, and we can also match to NCS, BS 4800, or proprietary brand colour references provided as a physical swatch or Pantone reference. Lead time for non-standard colours is typically five to seven working days longer than standard stock colours.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Initial Enquiry',
+        description:
+          'Get in touch by phone or through our website with details of your project. We will discuss your requirements, timescales, and budget to establish whether our aluminium shopfront systems are the right fit.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey & Measurement',
+        description:
+          'One of our surveyors visits the premises to take precise measurements, assess the structural opening, and note any access or planning constraints that could affect the design.',
+      },
+      {
+        step: 3,
+        title: 'Design & Quotation',
+        description:
+          'We prepare detailed drawings showing the proposed shopfront layout, frame profiles, glazing specification, and powder-coat finish. A fixed-price quotation is provided alongside the drawings for your approval.',
+      },
+      {
+        step: 4,
+        title: 'Fabrication & Delivery',
+        description:
+          'Once the design is signed off, our fabrication partners manufacture the aluminium sections and glazing units to the agreed specification. Typical lead time is three to four weeks.',
+      },
+      {
+        step: 5,
+        title: 'Installation & Handover',
+        description:
+          'Our CSCS-carded installation team removes the existing frontage and installs the new system. On completion, we walk you through the finished shopfront, demonstrate all hardware, and provide your guarantee documentation.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does an Aluminium Shopfront Cost?',
+      content:
+        'The cost of an aluminium shopfront depends on the width and height of the opening, the frame profile chosen, glazing specification, and whether thermally broken sections are required. Below are typical price ranges for common configurations.',
+      ranges: [
+        { item: 'Single unit shopfront', price: '£2,500 – £5,000' },
+        { item: 'Double unit shopfront', price: '£4,500 – £8,500' },
+        { item: 'Full parade (3+ units)', price: '£12,000 – £25,000' },
+        { item: 'Thermally broken upgrade (add-on)', price: '£800 – £1,500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'How long do aluminium shopfronts last?',
+        answer:
+          'A well-specified aluminium shopfront typically lasts 25 to 30 years with minimal maintenance. The powder-coat finish is guaranteed for 10 years against fading and peeling, and the aluminium itself does not rust or rot, making it one of the most durable commercial frontage materials available.',
+      },
+      {
+        question: 'Are aluminium shopfronts energy efficient?',
+        answer:
+          'Yes, when thermally broken frames are used. Thermally broken aluminium systems incorporate a polyamide insulating strip that prevents heat transfer through the frame. Combined with double-glazed units, these systems achieve U-values between 1.0 and 1.4 W/m²K, comfortably meeting Building Regulations Part L requirements.',
+      },
+      {
+        question: 'Can you install an aluminium shopfront in a conservation area?',
+        answer:
+          'Yes, but additional planning approval is usually required. We have experience working with planning officers in conservation areas and can specify slimline profiles and heritage colour finishes that satisfy local authority requirements while still providing modern thermal and security performance.',
+      },
+      {
+        question: 'What colours are available for aluminium shopfronts?',
+        answer:
+          'We offer the full RAL Classic and RAL Design colour ranges as standard, giving you over 2,500 colour options. We can also match to BS 4800, NCS, or bespoke brand colours from a physical swatch or Pantone reference. Non-standard colours typically add five to seven working days to the lead time.',
       },
     ],
     relatedServices: ['automatic-doors', 'security-doors', 'bi-fold-doors', 'shopfront-repairs'],
@@ -198,6 +285,72 @@ All shutters are installed with a weather seal along both side guides and at the
           'Yes. In many cases a roller shutter can be retrofitted into an existing aluminium or steel shopfront by installing a face-fit box housing above the aperture and side guides within the existing frame reveals. We assess feasibility at the survey stage, taking into account the available headroom, reveal depth, and structural condition of the existing frame. Where a face-fit installation is not practical, a built-in system with concealed housing box can be specified as part of a new shopfront installation.',
       },
     ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Requirement Discussion',
+        description:
+          'Contact us to discuss your security needs, operating frequency, and whether you require manual, electric, or fire-rated shutters. We will advise on the most suitable system for your premises.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor visits to measure the opening, check headroom and side-fix clearances, assess the structural condition of the lintel, and note any electrical supply requirements for motorised systems.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quote',
+        description:
+          'We specify the curtain type, lath profile, security rating, and operating mechanism, then provide a fixed-price quotation with full technical details for your review.',
+      },
+      {
+        step: 4,
+        title: 'Manufacture & Installation',
+        description:
+          'The shutter is manufactured to the surveyed dimensions and delivered to site. Installation typically takes one day for a standard single opening, including electrical connection for motorised systems.',
+      },
+      {
+        step: 5,
+        title: 'Testing & Commissioning',
+        description:
+          'We test the shutter through a full cycle, set limit switches, commission safety devices, and demonstrate operation to your staff. All documentation, including warranty and maintenance guidance, is handed over.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does a Roller Shutter Cost?',
+      content:
+        'Roller shutter pricing depends on the opening size, curtain material, security rating, and whether manual or electric operation is specified. Fire-rated and industrial shutters carry a premium due to additional testing and certification requirements.',
+      ranges: [
+        { item: 'Manual roller shutter (up to 3m)', price: '£800 – £1,500' },
+        { item: 'Electric roller shutter (up to 3m)', price: '£1,500 – £3,000' },
+        { item: 'Fire-rated roller shutter', price: '£3,000 – £6,000' },
+        { item: 'Industrial shutter (5m+)', price: '£4,000 – £8,000' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'How long does it take to install a roller shutter?',
+        answer:
+          'A standard single-opening roller shutter installation is typically completed within one working day, including fixing the housing box, side guides, curtain, and any electrical wiring. Larger industrial openings or fire-rated shutters may require two days to allow for additional structural work and commissioning.',
+      },
+      {
+        question: 'Are electric roller shutters noisy?',
+        answer:
+          'Modern tubular motors are significantly quieter than older side-mounted drive systems. A typical electric roller shutter operates at around 55–65 dB, comparable to a normal conversation. If noise is a particular concern, we can specify low-noise motor options designed for residential or noise-sensitive commercial environments.',
+      },
+      {
+        question: 'Can roller shutters be insulated?',
+        answer:
+          'Yes. Insulated roller shutter laths are available with a foam-filled core that improves thermal performance and reduces noise transmission. These are particularly popular for shop units where the shutter forms part of the building envelope and energy efficiency is a consideration.',
+      },
+      {
+        question: 'Do I need a roller shutter for insurance purposes?',
+        answer:
+          'Many commercial insurers require physical security measures such as roller shutters for ground-floor retail and warehouse premises. The specific requirement varies by insurer and the value of stock held, but an LPS 1175-rated shutter will satisfy most policy conditions. We recommend checking with your insurer before specifying.',
+      },
+    ],
     relatedServices: ['aluminium-shopfronts', 'security-doors', 'fire-doors', 'emergency-callout'],
   },
 
@@ -284,6 +437,72 @@ Security doors can be supplied with integrated access control provisions — ele
         question: 'What maintenance is required after installation?',
         answer:
           'Security doors require relatively modest maintenance: lubrication of the multi-point locking mechanism and hinge pins with a dry PTFE or light oil product at six-monthly intervals, and an annual function test of the locking system, hinges, and any access control or panic hardware. We offer a maintenance contract that includes an annual inspection and report, which some insurers accept as evidence of ongoing compliance with their security requirements.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Security Assessment',
+        description:
+          'We discuss your security requirements, insurer stipulations, and the specific threats you need to mitigate. This helps us recommend the appropriate security rating and door construction.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor measures the opening, assesses the wall construction and load-bearing capacity, and notes any requirements for panic hardware, access control integration, or fire rating.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quotation',
+        description:
+          'We specify the door leaf construction, security rating, locking system, and any escape or access control hardware. A detailed quotation with product data sheets and certification references is provided.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'Our installation team fits the steel sub-frame with torque-controlled anchor bolts, hangs and adjusts the door leaf, and installs all locking and hardware components. Typical installation takes one day.',
+      },
+      {
+        step: 5,
+        title: 'Handover & Certification',
+        description:
+          'We test all locking points, demonstrate operation to your staff, and provide the LPCB certificate, warranty documentation, and maintenance instructions.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does a Security Door Cost?',
+      content:
+        'Security door pricing varies based on the door construction, security rating, locking specification, and whether additional features such as panic hardware or access control are required. Higher LPS 1175 ratings require heavier construction and more rigorous testing, which is reflected in the price.',
+      ranges: [
+        { item: 'Single leaf steel door', price: '£1,200 – £2,500' },
+        { item: 'Double leaf steel door', price: '£2,000 – £4,000' },
+        { item: 'LPS 1175 SR2 rated door', price: '£2,500 – £5,000' },
+        { item: 'Composite security door', price: '£1,800 – £3,500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'What is the difference between LPS 1175 SR1 and SR2?',
+        answer:
+          'SR1 provides basic resistance to attack using bodily force and simple hand tools such as screwdrivers and pliers, typically for three minutes. SR2 resists a more sustained attack using additional tools including crowbars and claw hammers. Most commercial insurers require SR2 as a minimum for retail back-of-house and warehouse entrances.',
+      },
+      {
+        question: 'Can a security door also be a fire door?',
+        answer:
+          'Yes. Many of our security door sets are dual-rated for both security and fire resistance. A door can achieve LPS 1175 SR2 security certification alongside FD60 fire resistance, making it suitable for openings that sit on both the security boundary and a fire-compartment line.',
+      },
+      {
+        question: 'How heavy is a commercial security door?',
+        answer:
+          'A single-leaf steel security door typically weighs between 60 and 100 kg depending on the steel thickness and reinforcement. Composite security doors are lighter, usually 40 to 70 kg, while offering comparable security ratings. Heavy-duty hinges rated for the door weight are always specified as part of the installation.',
+      },
+      {
+        question: 'Do security doors come with a warranty?',
+        answer:
+          'Yes. Our security doors carry a manufacturer warranty of up to 10 years on the door leaf and frame, and typically 5 years on the locking mechanism and hardware. Extended warranty options are available where required by the client or their insurer.',
       },
     ],
     relatedServices: ['roller-shutters', 'fire-doors', 'aluminium-shopfronts', 'emergency-callout'],
@@ -374,6 +593,72 @@ Automatic doors can be integrated with access control readers for out-of-hours s
           'In many cases, yes. Swing door operators can often be fitted to an existing commercial door frame and leaf, provided the leaf weight and dimensions are within the operator\'s rated capacity and the frame head is structurally sound. Sliding door retrofit is more complex, as it requires a track overhead, side panels, and typically replacement of the door leaves with matching sliding leaves. We assess retrofit feasibility at the survey stage and provide a like-for-like comparison between retrofit and full replacement.',
       },
     ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Consultation',
+        description:
+          'We discuss your entrance requirements including footfall volume, DDA compliance needs, and whether a sliding, swing, or low-energy system is most appropriate for your premises.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey & Assessment',
+        description:
+          'Our engineer surveys the entrance, checks structural capacity for the operator and track, verifies electrical supply availability, and assesses the approach zones for sensor positioning.',
+      },
+      {
+        step: 3,
+        title: 'System Design & Quote',
+        description:
+          'We specify the operator model, sensor type, safety devices, and door leaf configuration. A detailed quotation including all electrical and building works is provided.',
+      },
+      {
+        step: 4,
+        title: 'Installation & Wiring',
+        description:
+          'Our team installs the track, operator, door leaves, and all safety sensors. Electrical connection and integration with fire alarm or access control systems is completed on the same visit.',
+      },
+      {
+        step: 5,
+        title: 'Commissioning & Training',
+        description:
+          'The door is programmed for opening speed, hold-open time, and safety sensitivity. We train your staff on manual override procedures and provide all compliance documentation.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does an Automatic Door Cost?',
+      content:
+        'Automatic door pricing depends on the operator type, door leaf size and material, sensor specification, and any access control or fire alarm integration. Ongoing maintenance contracts are recommended and can be included in the initial quotation.',
+      ranges: [
+        { item: 'Automatic sliding (bi-parting)', price: '£3,500 – £7,000' },
+        { item: 'Automatic swing operator', price: '£2,000 – £4,000' },
+        { item: 'Low-energy swing door', price: '£1,500 – £3,000' },
+        { item: 'Annual maintenance contract', price: '£250 – £500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Are automatic doors a legal requirement for disabled access?',
+        answer:
+          'The Equality Act 2010 requires that service providers make reasonable adjustments to avoid putting disabled people at a substantial disadvantage. While automatic doors are not explicitly mandated, they are widely regarded as a reasonable adjustment for high-footfall commercial entrances. Building Regulations Part M also references automatic or powered doors as a means of achieving accessible entrance design.',
+      },
+      {
+        question: 'How often should automatic doors be serviced?',
+        answer:
+          'The BS 7036 standard recommends that automatic doors are serviced at least every six months by a competent engineer. High-traffic entrances, such as supermarket or hospital doors, may require quarterly servicing. Regular maintenance ensures safety sensors function correctly and extends the life of the operator mechanism.',
+      },
+      {
+        question: 'What happens to automatic doors during a fire alarm?',
+        answer:
+          'Automatic doors connected to the building fire alarm system are programmed to fail-safe open, swinging or sliding to the fully open position to allow unimpeded evacuation. This behaviour is configured during commissioning and tested as part of the regular fire alarm check routine.',
+      },
+      {
+        question: 'Can automatic doors be locked at night?',
+        answer:
+          'Yes. Most automatic door systems include an integrated locking mode that can be activated via a key switch, access control panel, or timer. When locked, the doors function as a conventional secured entrance. Some systems offer a one-way mode, allowing exit only while preventing entry outside trading hours.',
+      },
+    ],
     relatedServices: ['aluminium-shopfronts', 'bi-fold-doors', 'shopfront-repairs', 'security-doors'],
   },
 
@@ -460,6 +745,72 @@ For overnight security in high-footfall or high-risk locations, bi-fold systems 
         question: 'What maintenance does a commercial bi-fold system need?',
         answer:
           'Bi-fold systems require annual maintenance: lubrication of the top track rollers and hinge pivots, adjustment of panel alignment and seal compression, testing of all locking points, and inspection of the glazing seals. In coastal or high-pollution environments, we recommend six-monthly cleaning and inspection of the aluminium sections and hardware to prevent corrosion of exposed steel components within the locking mechanism.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Design Brief',
+        description:
+          'We discuss how you intend to use the opening — fully open retail frontage, café terrace access, or showroom display — and establish the number of panels, opening direction, and traffic door requirements.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor measures the structural opening, checks the floor level and threshold detail, and assesses the track fixing points and parking zone where the folded panels will stack.',
+      },
+      {
+        step: 3,
+        title: 'Configuration & Quote',
+        description:
+          'We finalise the panel count, glazing specification, frame colour, and locking arrangement. A full quotation with technical drawings is provided for approval.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'The top track, threshold, and panels are installed and aligned. Our team adjusts all rollers, hinges, and seals to ensure smooth operation across the full opening span.',
+      },
+      {
+        step: 5,
+        title: 'Demonstration & Sign-Off',
+        description:
+          'We demonstrate the folding sequence, locking operation, and traffic door function to your team. Warranty documents, care instructions, and guarantee certificates are provided.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Do Commercial Bi-Fold Doors Cost?',
+      content:
+        'Bi-fold door pricing is determined by the number of panels, total opening width, glazing specification, and whether a traffic door is included. Thermally broken aluminium frames and enhanced security glazing are standard on all our commercial systems.',
+      ranges: [
+        { item: '3-panel system (up to 3m)', price: '£3,000 – £5,500' },
+        { item: '5-panel system (up to 5m)', price: '£5,500 – £9,000' },
+        { item: '7+ panel system (7m+)', price: '£8,000 – £15,000' },
+        { item: 'Traffic door add-on', price: '£800 – £1,500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Are bi-fold doors secure enough for a commercial shopfront?',
+        answer:
+          'Yes. Our commercial bi-fold systems feature multi-point locking, toughened or laminated safety glass, and robust aluminium frames that meet PAS 24:2022 enhanced security requirements. When locked, the panels are mechanically held at multiple points along the top track, bottom rail, and between each panel.',
+      },
+      {
+        question: 'Can bi-fold doors be used as a main entrance?',
+        answer:
+          'Yes, by incorporating a traffic door. A traffic door is a single panel within the bi-fold set that operates independently as a conventional hinged or pivoting entrance door, allowing everyday access without folding back the entire system. This is standard practice for retail and hospitality premises.',
+      },
+      {
+        question: 'How wide can a commercial bi-fold opening be?',
+        answer:
+          'There is no fixed maximum, as bi-fold systems are modular. We have installed openings exceeding 10 metres using seven or more panels. The practical limit is determined by the structural opening available, the panel parking zone, and the wind loading on the exposed elevation.',
+      },
+      {
+        question: 'Do bi-fold doors meet Building Regulations for thermal performance?',
+        answer:
+          'Yes. Our thermally broken aluminium bi-fold systems achieve overall U-values that comply with Building Regulations Part L. Combined with double-glazed sealed units, they provide effective thermal insulation while allowing maximum natural light and open-plan flexibility.',
       },
     ],
     relatedServices: ['aluminium-shopfronts', 'automatic-doors', 'roller-shutters', 'shopfront-repairs'],
@@ -556,6 +907,72 @@ The Fire Safety (England) Regulations 2022 — introduced following the Grenfell
           'Yes. Every fire door must be fitted with a certified overhead closer (rated to BS EN 1154) that closes and latches the door from any open position. A fire door held open by a wedge, hook, or fire extinguisher is an illegal and dangerous arrangement that could result in enforcement action by the fire authority. Where it is operationally desirable to hold a fire door open, we install an electromagnetic hold-open device linked to the building\'s fire detection and alarm system, which releases the door automatically on a fire signal so that it closes under the action of the overhead closer.',
       },
     ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Fire Strategy Review',
+        description:
+          'We review your building\'s fire strategy and identify which openings require fire-rated door sets, the required fire rating (FD30, FD60, or FD90), and whether smoke seals or hold-open devices are needed.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor measures each opening, checks the wall construction and compartment line, and records the requirements for ironmongery, signage, and any intumescent or smoke seal specifications.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quotation',
+        description:
+          'We specify the door leaf, frame, ironmongery, and seals as a complete certified door set. A quotation with product data sheets, test evidence, and certification references is provided.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'Our accredited installers fit each door set in accordance with the manufacturer\'s installation instructions and the relevant third-party certification scheme. Installation gaps and seal positioning are checked against the test evidence.',
+      },
+      {
+        step: 5,
+        title: 'Certification & Handover',
+        description:
+          'A fire door installation certificate is issued for each door set, forming part of the building\'s fire safety record. We provide maintenance guidance and recommend an inspection schedule.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does a Fire Door Cost?',
+      content:
+        'Fire door pricing depends on the fire resistance period, door leaf construction, and ironmongery specification. Certified fire door sets include the leaf, frame, seals, and all ironmongery tested and certified as a complete assembly.',
+      ranges: [
+        { item: 'FD30 single leaf', price: '£450 – £900' },
+        { item: 'FD60 single leaf', price: '£600 – £1,200' },
+        { item: 'FD30S with smoke seal', price: '£550 – £1,000' },
+        { item: 'FD90 specialist', price: '£1,000 – £2,000' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'What is the difference between FD30 and FD60 fire doors?',
+        answer:
+          'FD30 doors provide 30 minutes of fire resistance and FD60 doors provide 60 minutes, as tested to BS 476-22 or BS EN 1634-1. The required rating depends on the building\'s fire strategy and the compartment line the door sits on. Most internal corridors and stairwells in commercial buildings require FD30, while higher-risk boundaries such as plant rooms or storage areas may need FD60.',
+      },
+      {
+        question: 'How often should fire doors be inspected?',
+        answer:
+          'The Regulatory Reform (Fire Safety) Order 2005 requires the responsible person to maintain fire doors in working order. Industry guidance recommends a visual check every six months and a detailed inspection by a competent person at least annually. Checks should cover the door leaf, frame, seals, hinges, closer, and signage.',
+      },
+      {
+        question: 'Can I replace fire door ironmongery myself?',
+        answer:
+          'No. Fire door ironmongery must be replaced with hardware that has been tested and certified as part of the door set assembly. Fitting non-certified handles, hinges, or closers can invalidate the fire rating of the entire door set. All replacement ironmongery should be installed by a competent person using components listed in the door\'s test evidence.',
+      },
+      {
+        question: 'Do fire doors need intumescent strips and smoke seals?',
+        answer:
+          'Yes. Intumescent strips are essential as they expand when heated to seal the gap between the door leaf and frame, preventing fire spread. Smoke seals are additionally required where the fire strategy specifies smoke control, denoted by the "S" suffix in ratings such as FD30S. Both must be fitted in accordance with the manufacturer\'s tested configuration.',
+      },
+    ],
     relatedServices: ['security-doors', 'roller-shutters', 'shopfront-repairs', 'emergency-callout'],
   },
 
@@ -646,6 +1063,66 @@ We work directly with insurance loss adjusters and brokers, and our documentatio
         question: `Will my landlord\'s consent be needed for repairs?`,
         answer:
           'For like-for-like repairs — replacing broken glass with the same specification, or repairing a damaged frame section in the same profile and colour — landlord consent is generally not required. If the repair involves a change in the appearance of the shopfront (a different glass type, a changed profile, or a modified colour) then your lease may require you to obtain landlord consent before proceeding. We can advise on the likely classification of any proposed repair and assist you in preparing a landlord consent request if needed.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Report the Problem',
+        description:
+          'Call us on 07414 779594 or submit a repair request through our website. Describe the damage and, if possible, send photographs so we can prepare before visiting.',
+      },
+      {
+        step: 2,
+        title: 'Assessment Visit',
+        description:
+          'We visit the premises to inspect the damage, identify the cause, and determine whether a repair or replacement is the most cost-effective solution.',
+      },
+      {
+        step: 3,
+        title: 'Quotation',
+        description:
+          'A detailed repair quotation is provided, including materials, labour, and any temporary securing measures already carried out. For insurance claims, we provide the documentation your insurer needs.',
+      },
+      {
+        step: 4,
+        title: 'Repair Work',
+        description:
+          'Our team carries out the repair using matching materials and profiles. For glass replacements, we source toughened or laminated glass to the correct specification and install it to current standards.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Do Shopfront Repairs Cost?',
+      content:
+        'Repair costs depend on the type and extent of damage, the materials required, and whether emergency boarding is needed before the permanent repair. We provide transparent pricing with no hidden charges.',
+      ranges: [
+        { item: 'Emergency boarding (per opening)', price: '£150 – £350' },
+        { item: 'Single glass panel replacement', price: '£300 – £800' },
+        { item: 'Frame section repair', price: '£400 – £1,200' },
+        { item: 'Door hardware replacement', price: '£150 – £500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Can you repair a shopfront without replacing the whole system?',
+        answer:
+          'In most cases, yes. Many shopfront problems can be resolved by repairing or replacing individual components — a single glass panel, a damaged frame section, or worn door hardware — without the need to replace the entire frontage. We always assess the most economical repair option first.',
+      },
+      {
+        question: 'How quickly can you repair a broken shop window?',
+        answer:
+          'We can usually board up a broken window within a few hours of your call, with the permanent glass replacement completed within two to five working days depending on the glass specification required. Standard toughened glass is typically available within 48 hours.',
+      },
+      {
+        question: 'Will my insurance cover shopfront repairs?',
+        answer:
+          'Most commercial property insurance policies cover accidental damage and vandalism to shopfronts, subject to your policy excess. We provide detailed repair quotations and photographic evidence in a format that insurers accept, and we are happy to deal directly with your insurer or loss adjuster on your behalf.',
+      },
+      {
+        question: 'Can you match the existing frame colour when repairing a section?',
+        answer:
+          'Yes. We match the powder-coat colour of the existing frame using RAL, BS 4800, or NCS colour references. Where the original colour reference is unknown, we take a physical sample and arrange a colour match through our finishing partner to ensure the repaired section blends seamlessly.',
       },
     ],
     relatedServices: ['emergency-callout', 'aluminium-shopfronts', 'roller-shutters', 'automatic-doors'],
@@ -742,6 +1219,66 @@ These upgrades can often be included within the permanent repair scope, and wher
         question: 'Can you also board up domestic properties or is this a commercial-only service?',
         answer:
           'Our primary focus is commercial premises — retail, hospitality, industrial, and multi-occupancy commercial buildings. We can provide emergency boarding for mixed-use buildings (e.g. a ground-floor retail unit with residential above) and for commercial elements of residential developments. For purely domestic boarding requirements, we recommend contacting a specialist domestic glazier or a general emergency property maintenance service.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Emergency Call',
+        description:
+          'Call our emergency line on 07414 779594. We are available 24 hours a day, 7 days a week. Let us know the nature of the damage and the property address.',
+      },
+      {
+        step: 2,
+        title: 'Rapid Response',
+        description:
+          'We aim to have an engineer on site within 1 to 2 hours of your call, depending on your location. Our emergency vehicles carry boarding materials, temporary securing equipment, and essential tools.',
+      },
+      {
+        step: 3,
+        title: 'Make Safe',
+        description:
+          'We board up broken glazing, secure damaged doors, or temporarily fix shutters to ensure the premises is safe and weather-tight. Any broken glass is cleared and disposed of safely.',
+      },
+      {
+        step: 4,
+        title: 'Permanent Repair Arrangement',
+        description:
+          'Once the premises is secured, we assess the permanent repair requirements and provide a quotation. For insurance claims, we document the damage with photographs and a written report.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does an Emergency Callout Cost?',
+      content:
+        'Emergency callout pricing includes a fixed attendance fee covering the first hour on site, plus materials used for temporary securing. Out-of-hours callouts between 6pm and 8am, and weekends and bank holidays, incur a surcharge.',
+      ranges: [
+        { item: 'Emergency callout fee (first hour)', price: '£150 – £250' },
+        { item: 'Out-of-hours surcharge', price: '£75 – £150' },
+        { item: 'Emergency boarding (per panel)', price: '£150 – £350' },
+        { item: 'Temporary shutter securing', price: '£200 – £400' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'How fast can you get to my premises in an emergency?',
+        answer:
+          'We aim to arrive within 1 to 2 hours of your call for most locations across our service area. Response times may be slightly longer for remote locations or during periods of extreme demand. When you call, we will give you a realistic arrival estimate based on your location and our current availability.',
+      },
+      {
+        question: 'Do you provide emergency callouts on weekends and bank holidays?',
+        answer:
+          'Yes. Our emergency callout service operates 24 hours a day, 365 days a year, including weekends, bank holidays, and Christmas. An out-of-hours surcharge applies for callouts outside standard working hours, which we will confirm before attending.',
+      },
+      {
+        question: 'Can you help with insurance claims after emergency damage?',
+        answer:
+          'Yes. We document all emergency work with dated photographs, a written description of the damage, and an itemised invoice that insurers accept. We can also provide a separate quotation for the permanent repair and liaise directly with your insurer or loss adjuster if that would be helpful.',
+      },
+      {
+        question: 'What should I do if my shopfront is smashed overnight?',
+        answer:
+          'Call us immediately on 07414 779594 and, if there is a security risk, also contact the police. Do not attempt to clear broken glass yourself. We will attend, make the premises safe, board up the opening, and advise on the next steps for permanent repair.',
       },
     ],
     relatedServices: ['shopfront-repairs', 'roller-shutters', 'security-doors', 'aluminium-shopfronts'],
@@ -854,6 +1391,66 @@ Our shutter maintenance programme includes lubrication of all moving parts, insp
         question: 'Is it worth repairing an old roller shutter or should I replace it?',
         answer:
           'This depends on the nature and extent of the damage, the age of the shutter, and the availability of replacement parts. As a general rule, if the housing box, barrel, and guide rails are structurally sound, repairing or replacing individual components (springs, motors, curtain laths) is more cost-effective than a full replacement. If the shutter has multiple faults, extensive corrosion, or uses an obsolete profile that cannot be matched, replacement is usually the better investment. We assess each case individually and provide honest advice.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Report the Fault',
+        description:
+          'Contact us by phone on 07414 779594 or through our website. Describe the symptoms — stuck, noisy, won\'t open, won\'t close — so we can prepare the right parts and tools.',
+      },
+      {
+        step: 2,
+        title: 'Diagnostic Visit',
+        description:
+          'Our engineer visits to diagnose the fault, inspecting the motor, springs, curtain laths, guide rails, and safety devices. We identify the root cause and check for any secondary issues.',
+      },
+      {
+        step: 3,
+        title: 'Repair Quotation',
+        description:
+          'We provide a clear quotation for the repair, detailing the parts required and labour involved. If the shutter is beyond economical repair, we advise on replacement options with comparative costs.',
+      },
+      {
+        step: 4,
+        title: 'Repair & Testing',
+        description:
+          'Once approved, we carry out the repair, replacing worn or damaged components with quality parts. The shutter is tested through multiple full cycles and all safety devices are checked before we leave.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does a Shutter Repair Cost?',
+      content:
+        'Shutter repair costs depend on the type of fault and the parts required. Common repairs include spring replacement, motor replacement, and damaged lath sections. We carry many standard parts on our service vehicles to allow same-day repair where possible.',
+      ranges: [
+        { item: 'Spring replacement', price: '£180 – £350' },
+        { item: 'Motor replacement', price: '£400 – £800' },
+        { item: 'Single lath replacement', price: '£80 – £200' },
+        { item: 'Guide rail straightening', price: '£200 – £500' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Why is my roller shutter stuck halfway?',
+        answer:
+          'A shutter stuck in a partially open position is usually caused by a broken spring, a faulty motor, or a curtain lath that has jumped out of the guide rail. Do not attempt to force the shutter open or closed, as this can cause further damage. Call us and we will diagnose and repair the fault safely.',
+      },
+      {
+        question: 'How long does a shutter repair typically take?',
+        answer:
+          'Most common repairs, such as spring or motor replacement, are completed within two to four hours on a single visit. If specialist parts need to be ordered, we will make the shutter safe and operational on a temporary basis where possible, then return to fit the replacement parts once they arrive.',
+      },
+      {
+        question: 'Can you repair any brand of roller shutter?',
+        answer:
+          'Yes. We repair all major brands and types of roller shutter, including steel, aluminium, and fire-rated systems. Our engineers carry a wide range of universal components and have access to manufacturer-specific parts for all common systems installed in the UK.',
+      },
+      {
+        question: 'My shutter motor is making a grinding noise — what does that mean?',
+        answer:
+          'A grinding noise from the motor usually indicates worn gears, a failing capacitor, or debris in the mechanism. Continuing to operate the shutter can cause further damage to the motor and potentially the curtain. We recommend stopping use and calling us for a diagnostic inspection before the fault escalates.',
       },
     ],
     relatedServices: ['roller-shutters', 'shopfront-repairs', 'emergency-callout', 'security-doors'],
@@ -970,6 +1567,66 @@ We communicate expected lead times clearly at the point of order and keep you in
         question: 'Do I need safety glass in my shopfront?',
         answer:
           'Yes. Under the Building Regulations (Approved Document K) and BS 6262, all glazing in critical locations — which includes doors, side panels within 300 mm of a door, and any glazing below 800 mm from floor level — must use safety glass conforming to BS EN 12600. For most commercial shopfronts, toughened safety glass to BS EN 12150-1 is the minimum specification. We verify compliance for every panel we replace and can advise on whether an upgrade to laminated or security-rated glass is appropriate for your situation.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Report the Damage',
+        description:
+          'Contact us with details of the broken or damaged glass. If possible, send photographs showing the affected panel and the surrounding frame so we can prepare an accurate specification.',
+      },
+      {
+        step: 2,
+        title: 'Survey & Measurement',
+        description:
+          'Our surveyor visits to measure the glass aperture, identify the glass type and specification, and assess the condition of the frame and glazing beads. For emergency situations, we board up the opening at the same visit.',
+      },
+      {
+        step: 3,
+        title: 'Glass Specification & Quote',
+        description:
+          'We specify the replacement glass to match or upgrade the original — toughened, laminated, double-glazed, or specialist security glass — and provide a fixed-price quotation.',
+      },
+      {
+        step: 4,
+        title: 'Replacement & Fitting',
+        description:
+          'The replacement glass is manufactured to the surveyed dimensions and installed by our glazing team. We fit new seals and beading where required and ensure the finished installation is watertight and secure.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does Glass Replacement Cost?',
+      content:
+        'Glass replacement pricing depends on the glass type, size, and specification. Toughened safety glass is the standard minimum for commercial premises, with laminated and double-glazed options available for enhanced security and thermal performance.',
+      ranges: [
+        { item: 'Single toughened pane (up to 2m²)', price: '£200 – £500' },
+        { item: 'Double-glazed unit replacement', price: '£350 – £900' },
+        { item: 'Laminated security glass', price: '£500 – £1,200' },
+        { item: 'Large format panel (3m²+)', price: '£800 – £2,000' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'How long does it take to replace shop window glass?',
+        answer:
+          'Standard toughened glass can usually be manufactured and installed within two to five working days of the survey. Double-glazed sealed units and specialist glass such as laminated security or acoustic glass typically require five to ten working days. We provide emergency boarding to keep the premises secure in the meantime.',
+      },
+      {
+        question: 'What is the difference between toughened and laminated glass?',
+        answer:
+          'Toughened glass is heat-treated to be approximately four to five times stronger than standard glass and breaks into small, relatively harmless pieces. Laminated glass consists of two or more layers bonded with a plastic interlayer — when broken, the fragments adhere to the interlayer, maintaining a barrier. Laminated glass is preferred where security or safety retention is critical.',
+      },
+      {
+        question: 'Can you replace just one panel in a double-glazed unit?',
+        answer:
+          'No. A double-glazed unit is a sealed assembly, so if one pane is broken or the seal has failed, the entire unit must be replaced. We manufacture replacement sealed units to match the original dimensions and specification, ensuring compatibility with your existing frame.',
+      },
+      {
+        question: 'Do I need to upgrade my glass to meet current Building Regulations?',
+        answer:
+          'If the replacement is like-for-like, Building Regulations do not typically require an upgrade. However, if the work is part of a larger renovation or if the existing glass does not meet current safety standards (BS EN 12150 for toughened glass), it may be advisable or required to upgrade. We will advise on the regulatory position during the survey.',
       },
     ],
     relatedServices: ['shopfront-repairs', 'aluminium-shopfronts', 'emergency-callout', 'automatic-doors'],

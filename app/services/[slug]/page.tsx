@@ -101,6 +101,24 @@ export default async function ServicePage({ params }: PageProps) {
     url: `${siteUrl}/services/${slug}`,
   };
 
+  const howToSchema = service.howItWorks && service.howItWorks.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Get ${service.name} Installed`,
+    description: `Step-by-step process for ${service.name.toLowerCase()} installation by Sigma Shop Fronts.`,
+    step: service.howItWorks.map((s) => ({
+      '@type': 'HowToStep',
+      position: s.step,
+      name: s.title,
+      text: s.description,
+    })),
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Sigma Shop Fronts',
+      url: siteUrl,
+    },
+  } : null;
+
   const videoSchema = slug === 'automatic-doors' ? {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
@@ -149,6 +167,9 @@ export default async function ServicePage({ params }: PageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
       )}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      {howToSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      )}
 
       <section className="relative min-h-[50vh] flex items-end bg-navy">
         <Image
@@ -304,13 +325,101 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {service.faqs.length > 0 && (
+      {service.howItWorks && service.howItWorks.length > 0 && (
+        <section className="section-padding bg-white">
+          <div className="container-max max-w-4xl">
+            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+              How It Works
+            </h2>
+            <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
+              From initial enquiry to completed installation — here is what to expect when you choose Sigma Shop Fronts for your {service.name.toLowerCase()} project.
+            </p>
+            <div className="relative">
+              <div className="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-gold/20" aria-hidden="true" />
+              <div className="space-y-8">
+                {service.howItWorks.map((step) => (
+                  <div key={step.step} className="flex gap-6 items-start">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-navy flex items-center justify-center shadow-md">
+                      <span className="text-gold font-heading font-bold text-xl">{step.step}</span>
+                    </div>
+                    <div className="pt-2">
+                      <h3 className="font-heading font-bold text-navy text-lg">{step.title}</h3>
+                      <p className="text-grey-600 mt-1">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {service.pricingGuide && (
         <section className="section-padding bg-grey-50">
+          <div className="container-max max-w-4xl">
+            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+              {service.pricingGuide.heading}
+            </h2>
+            <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
+              {service.pricingGuide.content}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {service.pricingGuide.ranges.map((range, i) => (
+                <div key={i} className="card-surface p-5 flex justify-between items-center">
+                  <span className="text-charcoal font-medium">{range.item}</span>
+                  <span className="text-navy font-heading font-bold whitespace-nowrap ml-4">{range.price}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-grey-500 text-sm text-center mt-6">{service.pricingGuide.note}</p>
+            <div className="text-center mt-6">
+              <Link href="/contact" className="btn-gold">
+                Get Your Free Quote
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {service.faqs.length > 0 && (
+        <section className="section-padding bg-white">
           <div className="container-max max-w-3xl">
             <FAQSection
               faqs={service.faqs}
               title={`${service.name} — Frequently Asked Questions`}
             />
+          </div>
+        </section>
+      )}
+
+      {service.peopleAlsoAsk && service.peopleAlsoAsk.length > 0 && (
+        <section className="section-padding bg-grey-50">
+          <div className="container-max max-w-3xl">
+            <h2 className="text-2xl font-heading font-bold text-navy mb-6">
+              People Also Ask
+            </h2>
+            <div className="space-y-4">
+              {service.peopleAlsoAsk.map((item, i) => (
+                <details key={i} className="card-surface group">
+                  <summary className="p-5 cursor-pointer flex items-center justify-between font-medium text-navy hover:text-gold transition-colors">
+                    {item.question}
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="flex-shrink-0 ml-4 transition-transform group-open:rotate-180"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </summary>
+                  <div className="px-5 pb-5 text-grey-600">
+                    {item.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       )}
