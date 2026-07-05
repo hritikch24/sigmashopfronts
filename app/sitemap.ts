@@ -42,6 +42,21 @@ const citySlugs = [
   'plymouth',
   'bradford',
   'swansea',
+  'oxford',
+  'cambridge',
+  'york',
+  'bath',
+  'aberdeen',
+  'belfast',
+  'milton-keynes',
+  'middlesbrough',
+  'bournemouth',
+  'portsmouth',
+  'norwich',
+  'exeter',
+  'chester',
+  'gloucester',
+  'peterborough',
 ];
 
 const blogSlugs = [
@@ -91,6 +106,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
+    citySlugs.map((city) => ({
+      url: `${siteUrl}/services/${service}/${city}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }))
+  );
+
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${siteUrl}/blog/${slug}`,
     lastModified: now,
@@ -98,5 +122,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...cityPages, ...serviceCityPages, ...blogPages];
 }

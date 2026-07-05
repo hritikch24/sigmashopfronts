@@ -47,6 +47,21 @@ const cityGeo: Record<string, { addressLocality: string; addressRegion: string; 
   swindon:     { addressLocality: 'Swindon',             addressRegion: 'Wiltshire',           postalCode: 'SN1',   latitude: 51.5558,  longitude: -1.7797 },
   'stoke-on-trent': { addressLocality: 'Stoke-on-Trent', addressRegion: 'Staffordshire',      postalCode: 'ST1',   latitude: 53.0027,  longitude: -2.1794 },
   plymouth:    { addressLocality: 'Plymouth',            addressRegion: 'Devon',               postalCode: 'PL1',   latitude: 50.3755,  longitude: -4.1427 },
+  oxford:        { addressLocality: 'Oxford',             addressRegion: 'Oxfordshire',         postalCode: 'OX1',   latitude: 51.7520,  longitude: -1.2577 },
+  cambridge:     { addressLocality: 'Cambridge',          addressRegion: 'Cambridgeshire',      postalCode: 'CB1',   latitude: 52.2053,  longitude: 0.1218 },
+  york:          { addressLocality: 'York',               addressRegion: 'North Yorkshire',     postalCode: 'YO1',   latitude: 53.9591,  longitude: -1.0815 },
+  bath:          { addressLocality: 'Bath',               addressRegion: 'Somerset',            postalCode: 'BA1',   latitude: 51.3811,  longitude: -2.3590 },
+  aberdeen:      { addressLocality: 'Aberdeen',           addressRegion: 'Scotland',            postalCode: 'AB10',  latitude: 57.1497,  longitude: -2.0943 },
+  belfast:       { addressLocality: 'Belfast',            addressRegion: 'Northern Ireland',    postalCode: 'BT1',   latitude: 54.5973,  longitude: -5.9301 },
+  'milton-keynes': { addressLocality: 'Milton Keynes',    addressRegion: 'Buckinghamshire',     postalCode: 'MK9',   latitude: 52.0406,  longitude: -0.7594 },
+  middlesbrough: { addressLocality: 'Middlesbrough',      addressRegion: 'North Yorkshire',     postalCode: 'TS1',   latitude: 54.5742,  longitude: -1.2350 },
+  bournemouth:   { addressLocality: 'Bournemouth',        addressRegion: 'Dorset',              postalCode: 'BH1',   latitude: 50.7192,  longitude: -1.8808 },
+  portsmouth:    { addressLocality: 'Portsmouth',         addressRegion: 'Hampshire',           postalCode: 'PO1',   latitude: 50.8198,  longitude: -1.0880 },
+  norwich:       { addressLocality: 'Norwich',            addressRegion: 'Norfolk',             postalCode: 'NR1',   latitude: 52.6309,  longitude: 1.2974 },
+  exeter:        { addressLocality: 'Exeter',             addressRegion: 'Devon',               postalCode: 'EX1',   latitude: 50.7184,  longitude: -3.5339 },
+  chester:       { addressLocality: 'Chester',            addressRegion: 'Cheshire',            postalCode: 'CH1',   latitude: 53.1930,  longitude: -2.8931 },
+  gloucester:    { addressLocality: 'Gloucester',         addressRegion: 'Gloucestershire',     postalCode: 'GL1',   latitude: 51.8642,  longitude: -2.2382 },
+  peterborough:  { addressLocality: 'Peterborough',       addressRegion: 'Cambridgeshire',      postalCode: 'PE1',   latitude: 52.5695,  longitude: -0.2405 },
 };
 
 interface PageProps {
