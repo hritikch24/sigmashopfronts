@@ -147,13 +147,6 @@ const defaultLocalBusiness = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Replacement', url: 'https://www.sigmashopfronts.com/services/glass-replacement' } },
     ],
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '47',
-    bestRating: '5',
-    worstRating: '1',
-  },
   knowsAbout: [
     'Aluminium shopfront installation',
     'Commercial roller shutter installation',
@@ -193,50 +186,6 @@ const defaultLocalBusiness = {
   hasMap: 'https://maps.google.com/?q=4+Thornwood+Close+Oldbury+B68+9LX',
   parentOrganization: { '@id': 'https://www.sigmashopfronts.com/#organization' },
   additionalType: 'https://en.wikipedia.org/wiki/Shopfront',
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Michael Brennan' },
-      reviewBody: 'Sigma fitted a new aluminium shopfront to our takeaway in Wolverhampton. Brilliant finish, the powder-coated frame looks fantastic and the team left the site spotless.',
-      datePublished: '2025-08-15',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Amina Hussain' },
-      reviewBody: 'Called Sigma after our pharmacy window was smashed overnight. They boarded it within the hour and had a permanent replacement fitted by the end of the week. Could not ask for more.',
-      datePublished: '2025-10-22',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Gareth Lloyd' },
-      reviewBody: 'We had roller shutters put on three units in Swansea. Sigma gave us a package price, stuck to the quote, and the shutters have been rock-solid through two winters now.',
-      datePublished: '2025-06-10',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Karen Elliot' },
-      reviewBody: 'Sigma installed automatic sliding doors at our Nottingham dental practice. Fully DDA compliant, quiet operation, and the sensors work perfectly. Patients have commented on how smart they look.',
-      datePublished: '2026-01-04',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Oliver Reeves' },
-      reviewBody: 'Needed FD60 fire doors across our Sheffield office refurb. Sigma handled the whole job — supply, fit, and certification. Everything passed inspection first time. Top-quality work.',
-      datePublished: '2026-03-18',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Nadia Chowdhury' },
-      reviewBody: 'Sigma designed and installed a stunning bi-fold shopfront for our boutique in Leicester. The natural light it lets in has completely transformed the space. Highly recommend.',
-      datePublished: '2025-12-02',
-    },
-  ],
 };
 
 const organizationSchema = {

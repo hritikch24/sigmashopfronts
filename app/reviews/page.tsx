@@ -80,20 +80,6 @@ export default function ReviewsPage() {
     '@type': 'LocalBusiness',
     name: COMPANY,
     url: SITE,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: avgRating,
-      reviewCount: reviews.length,
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: reviews.map((r) => ({
-      '@type': 'Review',
-      author: { '@type': 'Person', name: r.name },
-      datePublished: r.date,
-      reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
-      reviewBody: r.text,
-    })),
   };
 
   return (
