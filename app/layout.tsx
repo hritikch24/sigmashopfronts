@@ -184,20 +184,28 @@ function gtagSendEvent(url) {
     }
   };
   gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
+    'send_to': 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-',
     'event_callback': callback,
+    'event_timeout': 2000,
+  });
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
   });
   return false;
 }
 
 function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-',
+    'event_callback': callback,
+  });
   gtag('event', 'conversion', {
     'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
-    'event_callback': function() {
-      if (typeof url !== 'undefined') {
-        window.location = url;
-      }
-    }
   });
   return false;
 }`,
