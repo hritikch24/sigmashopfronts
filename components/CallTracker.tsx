@@ -56,10 +56,10 @@ function sendTrackEvent(action: string, phone: string, page: string, searchParam
     }).catch(() => {});
   }
 
-  // Also fire gtag conversion if available
+  // Fire gtag conversion if available
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
-      send_to: 'AW-16801337867/' + action,
+      send_to: 'AW-16801337867/u-x7CNe428gcEIukwMs-',
     });
   }
 }
