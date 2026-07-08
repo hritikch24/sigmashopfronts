@@ -15,6 +15,7 @@ const serviceSlugs = [
   'glass-replacement',
 ];
 
+// Core cities only — where the business has real presence
 const citySlugs = [
   'london',
   'birmingham',
@@ -32,31 +33,6 @@ const citySlugs = [
   'southampton',
   'brighton',
   'coventry',
-  'reading',
-  'wolverhampton',
-  'derby',
-  'northampton',
-  'luton',
-  'swindon',
-  'stoke-on-trent',
-  'plymouth',
-  'bradford',
-  'swansea',
-  'oxford',
-  'cambridge',
-  'york',
-  'bath',
-  'aberdeen',
-  'belfast',
-  'milton-keynes',
-  'middlesbrough',
-  'bournemouth',
-  'portsmouth',
-  'norwich',
-  'exeter',
-  'chester',
-  'gloucester',
-  'peterborough',
 ];
 
 const blogSlugs = [
@@ -88,7 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/cost-guide`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/why-choose-us`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/reviews`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
@@ -106,14 +81,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
-    citySlugs.map((city) => ({
-      url: `${siteUrl}/services/${service}/${city}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
-  );
+  // NOTE: service+city combo pages intentionally excluded from sitemap
+  // They are noindexed and used only as PPC landing pages
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${siteUrl}/blog/${slug}`,
@@ -122,5 +91,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages, ...serviceCityPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...cityPages, ...blogPages];
 }
