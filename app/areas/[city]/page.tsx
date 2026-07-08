@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const geo = cityGeo[citySlug] || { addressLocality: city.name, addressRegion: '', postalCode: '', latitude: 51.5074, longitude: -0.1278 };
 
   // Only core cities should be indexed — extra cities are noindex
-  const coreCities = ['london','birmingham','manchester','leeds','liverpool','bristol','sheffield','glasgow','cardiff','newcastle','nottingham','leicester','edinburgh','southampton','brighton','coventry'];
+  const coreCities = ['london','birmingham','leeds','liverpool','glasgow','cardiff','newcastle','edinburgh','bradford','stoke-on-trent','swansea','york','oxford','cambridge','middlesbrough','plymouth'];
   const isCore = coreCities.includes(citySlug);
 
   return {

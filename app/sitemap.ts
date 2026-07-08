@@ -15,24 +15,24 @@ const serviceSlugs = [
   'glass-replacement',
 ];
 
-// Core cities only — where the business has real presence
+// Sigma core cities — north/Wales/Scotland focus
 const citySlugs = [
   'london',
   'birmingham',
-  'manchester',
   'leeds',
   'liverpool',
-  'bristol',
-  'sheffield',
   'glasgow',
   'cardiff',
   'newcastle',
-  'nottingham',
-  'leicester',
   'edinburgh',
-  'southampton',
-  'brighton',
-  'coventry',
+  'bradford',
+  'stoke-on-trent',
+  'swansea',
+  'york',
+  'oxford',
+  'cambridge',
+  'middlesbrough',
+  'plymouth',
 ];
 
 const blogSlugs = [
