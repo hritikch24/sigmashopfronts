@@ -81,8 +81,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // NOTE: service+city combo pages intentionally excluded from sitemap
-  // They are noindexed and used only as PPC landing pages
+  // Core city combo pages only (16 cities × 10 services = 160 pages)
+  const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
+    citySlugs.map((city) => ({
+      url: `${siteUrl}/services/${service}/${city}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  );
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${siteUrl}/blog/${slug}`,
@@ -91,5 +98,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...cityPages, ...serviceCityPages, ...blogPages];
 }
