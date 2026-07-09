@@ -11,7 +11,7 @@ import QuoteCalculator from '@/components/QuoteCalculator';
 export const metadata: Metadata = {
   title: 'Aluminium Shopfronts & Roller Shutters UK | Sigma Shop Fronts',
   description:
-    'UK-wide shopfront specialists. Aluminium shopfronts, roller shutters, security doors, automatic doors & 24/7 emergency callout. Free site surveys. Companies House registered.',
+    'UK shopfront specialists. Aluminium shopfronts, roller shutters, security doors & automatic doors. 24/7 emergency callout. Free site surveys.',
   alternates: {
     canonical: 'https://www.sigmashopfronts.com',
   },
@@ -287,13 +287,13 @@ export default function HomePage() {
             </p>
 
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
-              Signature Shopfronts,{' '}
-              <span className="text-gradient-gold">Shutters &amp; Doors</span>{' '}
+              Aluminium Shopfronts,{' '}
+              <span className="text-gradient-gold">Roller Shutters &amp; Security Doors</span>{' '}
               Across the UK
             </h1>
 
             <p className="text-grey-200 text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-10 font-light">
-              Design, fabrication and installation delivered with rapid nationwide response and 24/7 emergency cover.
+              Professional aluminium shopfront installation, roller shutter fitting and security door supply across England, Scotland and Wales. We handle design, fabrication and installation with rapid nationwide response and 24/7 emergency cover for commercial premises.
             </p>
 
             {/* CTAs */}
