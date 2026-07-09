@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: '*', allow: '/', disallow: ['/api/', '/admin', '/metrics'] },
       { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Anthropic-ai', allow: '/' },
