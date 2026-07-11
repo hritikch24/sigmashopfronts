@@ -15,7 +15,7 @@ const serviceSlugs = [
   'glass-replacement',
 ];
 
-// Sigma core cities — north/Wales/Scotland focus
+// Sigma core cities — must match coreCities in areas/[city]/page.tsx and services/[slug]/[city]/page.tsx
 const citySlugs = [
   'london',
   'birmingham',
@@ -33,6 +33,12 @@ const citySlugs = [
   'cambridge',
   'middlesbrough',
   'plymouth',
+  'coventry',
+  'nottingham',
+  'manchester',
+  'sheffield',
+  'bristol',
+  'leicester',
 ];
 
 const blogSlugs = [
@@ -81,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Core city combo pages only (16 cities × 10 services = 160 pages)
+  // Core city combo pages only (22 cities × 10 services = 220 pages)
   const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
     citySlugs.map((city) => ({
       url: `${siteUrl}/services/${service}/${city}`,
