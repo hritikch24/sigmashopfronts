@@ -51,9 +51,9 @@ export const services: Service[] = [
       'Bespoke aluminium shopfront systems engineered for durability and kerb appeal. Thermally broken frames, toughened glazing, and powder-coat finishes to your specification.',
     heroImage: 'aluminium-shopfront-1.jpeg',
     primaryKeyword: 'aluminium shopfronts',
-    metaTitle: 'Aluminium Shopfronts | Supply & Installation',
+    metaTitle: 'Aluminium Shopfronts UK | Supply & Install',
     metaDescription:
-      'Bespoke aluminium shopfront installation across the UK. Thermally broken frames, toughened glazing, DDA-compliant entrances. Free survey & quote.',
+      'Bespoke aluminium shopfront installation across the UK. Thermally broken frames, toughened glazing, DDA-compliant entrances. Free site survey — call 07414 779594.',
     description: `Aluminium has become the material of choice for commercial shopfront construction across the UK, and for good reason. When specified and installed correctly, an aluminium shopfront system offers an outstanding combination of structural rigidity, weather resistance, design flexibility, and long service life that no other material can match at a comparable price point.
 
 At Sigma Shop Fronts, we design and install aluminium shopfronts to suit everything from a single independent retailer to a multi-unit retail parade or commercial development. Our systems are sourced from leading European fabricators and conform to the relevant British Standards, including BS 6375 for the performance of windows and doors, and BS EN 14351-1, which governs the CE marking requirements for aluminium entrance doors.
@@ -205,7 +205,7 @@ Every installation begins with a measured survey of the existing opening or stru
       'Commercial roller shutters for retail, industrial, and warehouse premises. Manual, electric, and fire-rated options with LPS 1175 security-rated curtains available.',
     heroImage: 'roller-shutter-1.jpeg',
     primaryKeyword: 'roller shutters',
-    metaTitle: 'Roller Shutters | Commercial Installation',
+    metaTitle: 'Roller Shutters UK | Commercial Installation',
     metaDescription:
       'Commercial roller shutter installation across the UK. Manual, electric & fire-rated shutters. LPS 1175 security-rated. Free survey. Nationwide coverage.',
     description: `Roller shutters are one of the most practical and cost-effective security solutions available to commercial and industrial property owners. When correctly specified for the application, a roller shutter provides reliable overnight security, weather protection, and where required, fire containment — all within a compact, retractable assembly that does not impede the operation of the premises during trading hours.
@@ -361,7 +361,7 @@ All shutters are installed with a weather seal along both side guides and at the
       'Steel and composite security doors for commercial premises, rated to STS 202 and LPS 1175 standards. Single and double leaf configurations with multi-point locking.',
     heroImage: 'security door.jpeg',
     primaryKeyword: 'commercial security doors',
-    metaTitle: 'Commercial Security Doors | Steel & Composite',
+    metaTitle: 'Security Doors UK | Steel & Composite',
     metaDescription:
       'Steel and composite security doors rated to LPS 1175 and STS 202. Multi-point locking, anti-drill cylinders, and panic hardware. UK-wide installation.',
     description: `A commercial security door is one of the most important investments a business can make in protecting its assets, staff, and premises. Unlike a standard commercial entrance door, a properly specified security door is engineered from the ground up to resist physical attack, and its performance is independently verified through structured testing rather than manufacturer claims.
@@ -515,7 +515,7 @@ Security doors can be supplied with integrated access control provisions — ele
       'Sliding and swing automatic door systems for retail and commercial premises. BS EN 16005 compliant, with full sensor packages and service plans available.',
     heroImage: 'automatic-door-sigma.jpeg',
     primaryKeyword: 'automatic doors commercial',
-    metaTitle: 'Automatic Doors | Commercial Installation',
+    metaTitle: 'Automatic Doors UK | Commercial Installation',
     metaDescription:
       'Automatic sliding and swing door installation for retail and commercial premises. BS EN 16005 compliant. DDA-friendly entrances. Nationwide UK coverage.',
     description: `Automatic doors are no longer a luxury reserved for supermarkets and airports. For any commercial premises with significant footfall — a busy high-street retail unit, a medical centre, a hotel lobby, or a multi-occupancy office building — automatic door systems offer a compelling combination of accessibility compliance, operational efficiency, and customer experience that increasingly represents the expected standard rather than a premium option.
@@ -669,7 +669,7 @@ Automatic doors can be integrated with access control readers for out-of-hours s
       'Commercial aluminium bi-fold door systems for retail, hospitality, and leisure premises. Open up your frontage completely with thermally broken, weather-rated folding configurations.',
     heroImage: 'bi-fold door.jpeg',
     primaryKeyword: 'commercial bi-fold doors',
-    metaTitle: 'Commercial Bi-Fold Doors | Aluminium Folding',
+    metaTitle: 'Bi-Fold Doors UK | Commercial Aluminium',
     metaDescription:
       'Commercial aluminium bi-fold doors for retail and hospitality. Thermally broken, weather-rated to BS 6375. Open your full frontage. Free UK survey.',
     description: `Commercial bi-fold door systems — sometimes called bifold or folding-sliding doors — are increasingly specified for retail, hospitality, and leisure premises where the ability to open up an entire frontage or elevation creates a fundamentally different trading proposition. A café that can open its complete street-facing wall on a warm day, or a showroom that can create a seamless transition between indoor display and an external forecourt, gains a competitive advantage that a conventional hinged or sliding arrangement simply cannot replicate.
@@ -823,7 +823,7 @@ For overnight security in high-footfall or high-risk locations, bi-fold systems 
       'Certified fire door supply and installation for commercial premises. FD30, FD60, and FD90 rated assemblies with intumescent seals, tested hardware, and third-party certification.',
     heroImage: 'fire-door.jpeg',
     primaryKeyword: 'commercial fire doors',
-    metaTitle: 'Commercial Fire Doors | FD30 FD60 FD90',
+    metaTitle: 'Fire Doors UK | FD30 FD60 FD90 Certified',
     metaDescription:
       'Supply and installation of certified commercial fire doors. FD30, FD60, FD90 rated. Intumescent seals, tested hardware, third-party certification. UK-wide.',
     description: `Fire doors are the most safety-critical doors installed in any commercial building, and their correct specification, installation, and ongoing maintenance are non-negotiable legal requirements for any responsible building owner or manager. The consequences of a fire door failing to perform as designed — either because it was incorrectly specified, poorly installed, or not maintained — are severe: lives can be lost, and the building owner or responsible person faces criminal liability under the Regulatory Reform (Fire Safety) Order 2005 and the Fire Safety Act 2021.
@@ -983,7 +983,7 @@ The Fire Safety (England) Regulations 2022 — introduced following the Grenfell
       'Fast, professional repairs to damaged shopfronts, roller shutters, and entrance doors. Boarding, glazing replacement, frame straightening, and hardware repair across the UK.',
     heroImage: 'shopfront-2.jpeg',
     primaryKeyword: 'shopfront repairs',
-    metaTitle: 'Shopfront Repairs | Glazing, Frames & Shutters',
+    metaTitle: 'Shopfront Repairs UK | Same-Day Service',
     metaDescription:
       'Professional shopfront repair service across the UK. Broken glazing, damaged frames, bent shutters, faulty hardware. Fast response. Insurance work accepted.',
     description: `A damaged shopfront is both a security risk and a commercial liability. Broken glazing exposes the interior of your premises to the elements and to opportunistic theft. A bent shutter that will not close fully negates your overnight security. A failed door closer or broken lock hardware compromises the integrity of your access control. In every case, the damage needs to be addressed quickly, competently, and with materials that match the original installation.
@@ -1135,7 +1135,7 @@ We work directly with insurance loss adjusters and brokers, and our documentatio
       '24/7 emergency response for broken shopfronts, failed shutters, and compromised entrances. We secure your premises, day or night, across the UK.',
     heroImage: 'sigma-front-wide.jpeg',
     primaryKeyword: 'emergency shopfront repair',
-    metaTitle: '24/7 Emergency Shopfront Callout',
+    metaTitle: 'Emergency Shopfront Callout UK | 24/7',
     metaDescription:
       '24/7 emergency shopfront and shutter repair. Board-up, glazing, shutter and door emergency service. Fast response across the UK. Call now.',
     description: `When a shopfront or security barrier fails outside of normal working hours — whether through vandalism, vehicle impact, attempted break-in, or mechanical failure — the consequences are immediate and serious. An open or unsecured premises is vulnerable to opportunistic theft, weather damage, and liability exposure. Every hour that passes without a secure boundary increases the risk and the potential loss.
@@ -1463,7 +1463,7 @@ Our shutter maintenance programme includes lubrication of all moving parts, insp
       'Commercial glass replacement for shopfronts and commercial premises. Toughened safety glass, laminated security glass, double-glazed units, and specialist glazing — measured, specified, and installed to BS 6262.',
     heroImage: 'aluminium-shopfront-1.jpeg',
     primaryKeyword: 'commercial glass replacement',
-    metaTitle: 'Commercial Glass Replacement | Shopfront Glazing',
+    metaTitle: 'Glass Replacement UK | Shopfront Glazing',
     metaDescription:
       'Commercial glass replacement for shopfronts and premises. Toughened safety glass, laminated, DGUs, PAS 24 security glazing. Fast turnaround. UK-wide service.',
     description: `Glass is the defining element of any commercial shopfront. It provides visibility, natural light, and street presence — but it is also the most vulnerable component of the building envelope. Whether the damage is caused by vandalism, accidental impact, attempted burglary, storm debris, or the gradual failure of a sealed double-glazed unit, the result is the same: a compromised frontage that affects security, weather protection, energy performance, and the professional appearance of your premises.
