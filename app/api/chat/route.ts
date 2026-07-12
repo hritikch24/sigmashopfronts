@@ -36,12 +36,12 @@ function getClientIp(request: NextRequest): string {
   return forwarded ? forwarded.split(",")[0].trim() : "unknown";
 }
 
-/* ── Grok client (X.AI — OpenAI-compatible) ──────────────────────────── */
+/* ── Groq client (OpenAI-compatible) ──────────────────────────── */
 
 function getAIClient(): OpenAI | null {
-  const apiKey = process.env.XAI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) return null;
-  return new OpenAI({ apiKey, baseURL: "https://api.x.ai/v1" });
+  return new OpenAI({ apiKey, baseURL: "https://api.groq.com/openai/v1" });
 }
 
 /* ── Static fallback when AI is unavailable ───────────────────────────── */
@@ -149,7 +149,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
   }
 
-  /* Try Grok AI first; fall back to static responses if unavailable */
+  /* Try Groq AI first; fall back to static responses if unavailable */
   const client = getAIClient();
 
   if (!client) {
@@ -161,7 +161,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   try {
     const response = await client.chat.completions.create({
-      model: "grok-3-mini-fast",
+      model: "llama-3.3-70b-versatile",
       max_tokens: 350,
       temperature: 0.7,
       messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
@@ -171,7 +171,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ message: responseText });
   } catch (err) {
-    console.error("[chat] Grok API error:", err);
+    console.error("[chat] Groq API error:", err);
 
     /* Graceful fallback to static response */
     const lastUserMsg = messages.filter((m) => m.role === "user").pop();

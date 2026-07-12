@@ -25,12 +25,12 @@ function getClientIp(req: NextRequest): string {
   return forwarded ? forwarded.split(",")[0].trim() : "unknown";
 }
 
-/* ── Grok client ──────────────────────────────────────────────────────── */
+/* ── Groq client ──────────────────────────────────────────────────────── */
 
 function getAIClient(): OpenAI | null {
-  const apiKey = process.env.XAI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) return null;
-  return new OpenAI({ apiKey, baseURL: "https://api.x.ai/v1" });
+  return new OpenAI({ apiKey, baseURL: "https://api.groq.com/openai/v1" });
 }
 
 /* ── Static recommendation fallback ───────────────────────────────────── */
@@ -174,7 +174,7 @@ Respond in JSON format only:
 Available services: Aluminium Shopfronts (£2,800-£6,500), Roller Shutters (£1,200-£3,500), Security Doors (£1,800-£4,500), Automatic Doors (£3,500-£8,000), Bi-Fold Doors (£3,000-£7,000), Fire Doors (£450-£1,200/door), Shopfront Repairs (£300-£2,000), Emergency Callout (24/7), Shutter Repair (£150-£1,200), Glass Replacement (£200-£1,800).`;
 
     const response = await client.chat.completions.create({
-      model: "grok-3-mini-fast",
+      model: "llama-3.3-70b-versatile",
       max_tokens: 400,
       temperature: 0.6,
       messages: [
@@ -199,7 +199,7 @@ Available services: Aluminium Shopfronts (£2,800-£6,500), Roller Shutters (£1
       return NextResponse.json({ recommendation: staticRec, source: "static" });
     }
   } catch (err) {
-    console.error("[recommend] Grok API error:", err);
+    console.error("[recommend] Groq API error:", err);
     return NextResponse.json({ recommendation: staticRec, source: "static" });
   }
 }
