@@ -5,8 +5,6 @@ import ServiceCard from '@/components/ServiceCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
-import QuoteCalculator from '@/components/QuoteCalculator';
-import AIRecommenderWrapper from '@/components/AIRecommenderWrapper';
 
 export const metadata: Metadata = {
   title: 'Aluminium Shopfronts & Roller Shutters UK | Sigma Shop Fronts',
@@ -147,33 +145,6 @@ const usps = [
   },
 ];
 
-const steps = [
-  {
-    number: '01',
-    title: 'Brief & Survey',
-    description:
-      'We visit your site, take precise measurements, assess access and discuss your requirements in detail.',
-  },
-  {
-    number: '02',
-    title: 'Design & Spec',
-    description:
-      'Our team produces detailed drawings and a full specification. You approve every element before production begins.',
-  },
-  {
-    number: '03',
-    title: 'Fabrication',
-    description:
-      'All units are precision-fabricated in our UK workshop using quality-assured materials and profiles.',
-  },
-  {
-    number: '04',
-    title: 'Installation & Aftercare',
-    description:
-      'Expert installation by our employed teams — never subcontractors. Full handover, guarantee and aftercare included.',
-  },
-];
-
 const galleryImages = [
   { src: '/assets/sigma-hero-1.jpeg', alt: 'Modern aluminium shopfront installation' },
   { src: '/assets/sigma-front-wide.jpeg', alt: 'Wide commercial shopfront with full glazing' },
@@ -192,13 +163,6 @@ const testimonials = [
     location: 'Leeds',
     rating: 5,
     text: 'Sigma replaced our old roller shutter in under a day. The team was professional from first contact to final sign-off. Genuinely one of the best trade experiences we have had as a business.',
-  },
-  {
-    name: 'Priya Sharma',
-    business: 'Prestige Dental Clinic',
-    location: 'Birmingham',
-    rating: 5,
-    text: 'We needed a new automatic entrance door for accessibility compliance. Sigma surveyed within 48 hours, provided a competitive quote and had it installed within the week. Exceptional service.',
   },
   {
     name: 'Daniel O\'Brien',
@@ -422,44 +386,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Process / How We Work ────────────────────────────────────────── */}
-      <section className="section-padding bg-navy relative overflow-hidden" aria-labelledby="process-heading">
-        {/* Subtle pattern */}
-        <div className="absolute inset-0 opacity-5" aria-hidden="true">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        </div>
-
-        <div className="container-max relative z-10">
-          <div className="text-center mb-12 lg:mb-16">
-            <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Our Approach</p>
-            <h2 id="process-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              How Our Shopfront Installation Process Works
-            </h2>
-            <p className="text-grey-400 text-lg max-w-xl mx-auto">
-              A streamlined four-step process designed to deliver your project on time, on spec, first time.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-            {steps.map((step, i) => (
-              <div key={step.number} className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
-                {/* Connector line */}
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-1/2 w-full h-px bg-gold/20" aria-hidden="true" />
-                )}
-                <div className="relative z-10 mb-5">
-                  <span className="font-heading text-5xl font-extrabold text-gradient-gold leading-none">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-grey-400 text-sm leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Recent Projects Gallery ──────────────────────────────────────── */}
       <section className="section-padding bg-white" aria-labelledby="gallery-heading">
         <div className="container-max">
@@ -509,20 +435,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── AI Recommender (lazy-loaded, client-only) ────────────────────── */}
-      <AIRecommenderWrapper />
-
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
       <section className="section-padding bg-grey-50" aria-labelledby="testimonials-heading">
         <div className="container-max">
           <div className="text-center mb-12 lg:mb-16">
-            <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">Client Feedback</p>
             <h2 id="testimonials-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-grey-600 text-lg max-w-xl mx-auto">
-              Trusted by businesses across the UK — from independent retailers to national chains.
-            </p>
           </div>
 
           <TestimonialCarousel testimonials={testimonials} />
@@ -660,38 +579,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Quote Calculator ──────────────────────────────────────────── */}
-      <QuoteCalculator />
-
-      {/* ── Expert Shopfront Guides ─────────────────────────────────────── */}
-      <section className="section-padding bg-grey-50">
-        <div className="container-max">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy text-center mb-3">
-            Expert Shopfront Guides
-          </h2>
-          <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
-            Practical advice from our installation team — covering costs, regulations, design trends, and security standards.
-          </p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <a href="/blog/shopfront-installation-cost-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
-              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Installation Costs (2026)</h3>
-              <p className="text-charcoal text-sm leading-relaxed flex-1">A detailed breakdown of shopfront installation costs across the UK — aluminium shopfronts, roller shutters, security doors, and what affects pricing.</p>
-              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
-            </a>
-            <a href="/blog/shopfront-design-trends-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
-              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Design Trends (2026)</h3>
-              <p className="text-charcoal text-sm leading-relaxed flex-1">The latest shopfront design trends shaping UK high streets — from slim-profile aluminium to smart glass and sustainable materials.</p>
-              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
-            </a>
-            <a href="/blog/shopfront-regulations-building-standards-uk-2026" className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
-              <h3 className="font-heading text-lg font-semibold text-navy mb-2">Shopfront Regulations &amp; Standards</h3>
-              <p className="text-charcoal text-sm leading-relaxed flex-1">A comprehensive guide to UK shopfront regulations — planning permission, Building Regs Parts B, L &amp; M, DDA compliance, and conservation area rules.</p>
-              <span className="mt-4 text-sm font-medium text-gold">Read guide &rarr;</span>
-            </a>
           </div>
         </div>
       </section>
