@@ -1,12 +1,18 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import QuoteCalculator from '@/components/QuoteCalculator';
+
+const AIRecommender = dynamic(() => import('@/components/AIRecommender'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export const metadata: Metadata = {
   title: 'Aluminium Shopfronts & Roller Shutters UK | Sigma Shop Fronts',
@@ -508,6 +514,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── AI Recommender (lazy-loaded, client-only) ────────────────────── */}
+      <AIRecommender />
 
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
       <section className="section-padding bg-grey-50" aria-labelledby="testimonials-heading">
