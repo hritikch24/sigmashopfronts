@@ -82,8 +82,39 @@ model Customer {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
+  documents   Document[]
+
   @@index([status])
   @@index([createdAt])
   @@index([phone])
   @@map("customers")
+}
+
+model Document {
+  id              String    @id @default(cuid())
+  type            String    // "quote" | "invoice"
+  number          String    @unique
+  customerId      String?   @map("customer_id")
+  customer        Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  customerName    String    @map("customer_name")
+  customerEmail   String?   @map("customer_email")
+  customerPhone   String?   @map("customer_phone")
+  customerAddress String?   @map("customer_address")
+  lineItems       Json      @map("line_items")
+  subtotal        Float
+  vatRate         Float     @default(0) @map("vat_rate")
+  vatAmount       Float     @default(0) @map("vat_amount")
+  total           Float
+  notes           String?
+  validUntil      DateTime? @map("valid_until")
+  dueDate         DateTime? @map("due_date")
+  status          String    @default("draft")
+  paidAt          DateTime? @map("paid_at")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([type])
+  @@index([customerId])
+  @@index([createdAt])
+  @@map("documents")
 }

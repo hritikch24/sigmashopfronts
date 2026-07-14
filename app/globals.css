@@ -89,6 +89,12 @@
     width: 100%;
   }
 
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
   /* Gold gradient text */
   .text-gradient-gold {
     background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));

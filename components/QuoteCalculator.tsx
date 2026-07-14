@@ -27,6 +27,10 @@ export default function QuoteCalculator() {
   const [sizeId, setSizeId] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [location, setLocation] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const selectedService = services.find((s) => s.id === serviceId);
   const selectedSize = sizes.find((s) => s.id === sizeId);
@@ -38,9 +42,39 @@ export default function QuoteCalculator() {
     ? Math.round(selectedService.baseMax * selectedSize.multiplier)
     : 0;
 
-  function handleGetQuote() {
+  async function handleGetQuote() {
+    setSubmitError('');
+    setSubmitting(true);
+
+    const estimateLine = `Estimate: £${estimateMin.toLocaleString()} – £${estimateMax.toLocaleString()} (${selectedSize?.name})`;
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          location,
+          service: selectedService?.name || 'Other',
+          message: `Submitted via instant quote calculator.\n${estimateLine}`,
+          source: 'quote_calculator',
+        }),
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        setSubmitError(d.error || 'Could not save your details — please try WhatsApp instead.');
+      }
+    } catch {
+      setSubmitError('Could not save your details — please try WhatsApp instead.');
+    }
+
+    setSubmitting(false);
+    setStep(3);
+
     const msg = encodeURIComponent(
-      `Hi, I used the online estimator and I'm interested in getting a quote.\n\nService: ${selectedService?.name}\nSize: ${selectedSize?.name}\nEstimate: £${estimateMin.toLocaleString()} – £${estimateMax.toLocaleString()}\nName: ${name}\nPhone: ${phone}\n\nPlease arrange a free site survey.`
+      `Hi, I used the online estimator and I'm interested in getting a quote.\n\nService: ${selectedService?.name}\nSize: ${selectedSize?.name}\nLocation: ${location}\n${estimateLine}\nName: ${name}\nPhone: ${phone}\n\nPlease arrange a free site survey.`
     );
     window.open(`https://wa.me/447397066538?text=${msg}`, '_blank');
   }
@@ -137,12 +171,27 @@ export default function QuoteCalculator() {
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-grey-200 bg-grey-50 text-sm text-charcoal placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold"
                   />
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-grey-200 bg-grey-50 text-sm text-charcoal placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Location / town"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-grey-200 bg-grey-50 text-sm text-charcoal placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                  {submitError && <p className="text-red-600 text-xs">{submitError}</p>}
                   <button
-                    onClick={() => { if (name && phone) { setStep(3); handleGetQuote(); } }}
-                    disabled={!name || !phone}
+                    onClick={() => { if (name && phone && email && location) handleGetQuote(); }}
+                    disabled={!name || !phone || !email || !location || submitting}
                     className="w-full bg-gold hover:bg-gold-light text-navy font-heading font-bold text-sm py-3 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Book Free Survey & Get Exact Quote
+                    {submitting ? 'Sending...' : 'Book Free Survey & Get Exact Quote'}
                   </button>
                 </div>
                 <button onClick={() => setStep(1)} className="mt-4 text-sm text-grey-500 hover:text-gold transition-colors">&larr; Back</button>
@@ -162,7 +211,7 @@ export default function QuoteCalculator() {
                   Our team will call you within 2 hours to arrange your free site survey.
                 </p>
                 <button
-                  onClick={() => { setStep(0); setServiceId(''); setSizeId(''); setName(''); setPhone(''); }}
+                  onClick={() => { setStep(0); setServiceId(''); setSizeId(''); setName(''); setPhone(''); setEmail(''); setLocation(''); }}
                   className="mt-6 text-sm text-gold font-medium hover:underline"
                 >
                   Get another estimate
