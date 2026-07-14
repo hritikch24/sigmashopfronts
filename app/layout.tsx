@@ -9,10 +9,10 @@ import MobileStickyBar from '@/components/MobileStickyBar';
 import StickyDesktopCTA from '@/components/StickyDesktopCTA';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import OfferBanner from '@/components/OfferBanner';
 import Analytics from '@/components/Analytics';
 import CallTracker from '@/components/CallTracker';
 import SiteChrome from '@/components/SiteChrome';
+import OfferBanner from '@/components/OfferBanner';
 import { Suspense } from 'react';
 
 const plusJakartaSans = Plus_Jakarta_Sans({

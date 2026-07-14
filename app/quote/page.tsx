@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function QuotePage() {
   return (
     <>
-      <div className="container-max pt-8">
+      <div className="container-max pt-24 lg:pt-28">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Instant Quote' }]} />
       </div>
       <QuoteCalculator />

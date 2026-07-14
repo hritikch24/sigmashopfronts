@@ -242,7 +242,7 @@ export default function HomePage() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/70 to-navy/85" />
 
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-20 pb-16 flex flex-col items-center text-center">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-28 pb-16 flex flex-col items-center text-center">
           <div className="max-w-4xl mx-auto">
             {/* Eyebrow */}
             <p className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold-light text-xs sm:text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">

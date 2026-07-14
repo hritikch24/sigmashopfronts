@@ -9,7 +9,7 @@ export default function OfferBanner() {
   if (dismissed) return null;
 
   return (
-    <div className="bg-gold text-navy relative z-[70]">
+    <div className="bg-gold text-navy relative z-[40] mt-16 lg:mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-3 py-2 text-sm">
         <span className="font-bold hidden sm:inline">Summer 2026 Offer:</span>
         <span className="font-medium">

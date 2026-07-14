@@ -51,11 +51,19 @@ function TypingIndicator() {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setPastHero(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (open && messages.length === 0 && inputRef.current) {
@@ -115,8 +123,12 @@ export default function ChatWidget() {
   return (
     <>
       <div
-        className={`fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3 transition-all duration-300 ${
+        className={`fixed bottom-24 right-4 md:bottom-6 md:right-6 z-[9999] flex flex-col items-end gap-3 transition-all duration-300 ${
           open ? 'items-end' : ''
+        } ${
+          pastHero || open
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto'
         }`}
       >
         {open && (
