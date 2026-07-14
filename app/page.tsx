@@ -263,10 +263,10 @@ export default function HomePage() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
               <Link
-                href="/contact"
+                href="/quote"
                 className="btn-gold text-base sm:text-lg px-8 py-4 shadow-lg shadow-gold/20"
               >
-                Book a Free Site Survey
+                Get an Instant Quote
               </Link>
               <a
                 href="tel:07414779594"
@@ -597,8 +597,11 @@ export default function HomePage() {
               <h2 id="cta-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                 Get a Free Shopfront Installation Quote
               </h2>
-              <p className="text-grey-300 text-lg leading-relaxed mb-8">
+              <p className="text-grey-300 text-lg leading-relaxed mb-4">
                 Tell us about your project and we will provide a detailed, transparent quotation — no obligations, no hidden costs.
+              </p>
+              <p className="text-sm mb-8">
+                <Link href="/quote" className="text-gold font-semibold hover:underline">Want a ballpark price first? Try the 30-second instant estimator &rarr;</Link>
               </p>
 
               <ul className="space-y-4 mb-10">
