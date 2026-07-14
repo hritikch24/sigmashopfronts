@@ -3,15 +3,15 @@
 import { useState } from 'react';
 
 const services = [
-  { id: 'aluminium-shopfront', name: 'Aluminium Shopfront', baseMin: 2800, baseMax: 6500 },
-  { id: 'roller-shutters', name: 'Roller Shutters', baseMin: 1200, baseMax: 3500 },
-  { id: 'security-doors', name: 'Security Doors', baseMin: 1800, baseMax: 4500 },
-  { id: 'automatic-doors', name: 'Automatic Doors', baseMin: 3500, baseMax: 8000 },
-  { id: 'bi-fold-doors', name: 'Bi-Fold Doors', baseMin: 3000, baseMax: 7000 },
-  { id: 'fire-doors', name: 'Fire Doors (per door)', baseMin: 450, baseMax: 1200 },
-  { id: 'shopfront-repairs', name: 'Shopfront Repairs', baseMin: 300, baseMax: 2000 },
-  { id: 'shutter-repair', name: 'Shutter Repair', baseMin: 150, baseMax: 1200 },
-  { id: 'glass-replacement', name: 'Glass Replacement', baseMin: 250, baseMax: 2500 },
+  { id: 'aluminium-shopfront', name: 'Aluminium Shopfront', baseMin: 3360, baseMax: 7800 },
+  { id: 'roller-shutters', name: 'Roller Shutters', baseMin: 1440, baseMax: 4200 },
+  { id: 'security-doors', name: 'Security Doors', baseMin: 2160, baseMax: 5400 },
+  { id: 'automatic-doors', name: 'Automatic Doors', baseMin: 4200, baseMax: 9600 },
+  { id: 'bi-fold-doors', name: 'Bi-Fold Doors', baseMin: 3600, baseMax: 8400 },
+  { id: 'fire-doors', name: 'Fire Doors (per door)', baseMin: 540, baseMax: 1440 },
+  { id: 'shopfront-repairs', name: 'Shopfront Repairs', baseMin: 360, baseMax: 2400 },
+  { id: 'shutter-repair', name: 'Shutter Repair', baseMin: 180, baseMax: 1440 },
+  { id: 'glass-replacement', name: 'Glass Replacement', baseMin: 300, baseMax: 3000 },
 ];
 
 const sizes = [
