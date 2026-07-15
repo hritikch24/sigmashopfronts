@@ -22,6 +22,7 @@ interface Doc {
   vatAmount: number;
   total: number;
   notes: string | null;
+  depositPercent: number | null;
   validUntil: string | null;
   dueDate: string | null;
   status: string;
@@ -70,6 +71,7 @@ function emptyForm() {
     vatEnabled: false,
     vatRate: 20,
     notes: '',
+    depositPercent: '',
     validUntil: '',
     dueDate: '',
   };
@@ -177,6 +179,7 @@ export default function DocumentsAdminPage() {
       lineItems: validItems,
       vatRate: form.vatEnabled ? form.vatRate : 0,
       notes: form.notes || null,
+      depositPercent: tab === 'invoice' && form.depositPercent ? Number(form.depositPercent) : null,
       validUntil: tab === 'quote' && form.validUntil ? form.validUntil : null,
       dueDate: tab === 'invoice' && form.dueDate ? form.dueDate : null,
     };
@@ -460,11 +463,19 @@ export default function DocumentsAdminPage() {
                         className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
                     </div>
                   ) : (
-                    <div className="col-span-2 sm:col-span-1">
-                      <label className="block text-xs font-medium text-grey-500 mb-1">Due Date</label>
-                      <input type="date" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
-                        className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
-                    </div>
+                    <>
+                      <div className="col-span-2 sm:col-span-1">
+                        <label className="block text-xs font-medium text-grey-500 mb-1">Due Date</label>
+                        <input type="date" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
+                          className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                      </div>
+                      <div className="col-span-2 sm:col-span-1">
+                        <label className="block text-xs font-medium text-grey-500 mb-1">Deposit Required <span className="text-grey-300">(% of total, optional)</span></label>
+                        <input type="number" min="0" max="100" step="5" placeholder="e.g. 40" value={form.depositPercent}
+                          onChange={(e) => setForm({ ...form, depositPercent: e.target.value })}
+                          className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                      </div>
+                    </>
                   )}
                   <div className="col-span-2">
                     <label className="block text-xs font-medium text-grey-500 mb-1">Notes <span className="text-grey-300">(payment details, terms, etc.)</span></label>

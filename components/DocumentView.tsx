@@ -1,8 +1,9 @@
 import PrintButton from './PrintButton';
 
-const COMPANY_NAME = 'Sigma Shop Fronts Ltd';
+const COMPANY_NAME = 'SIGMA SHOP FRONTS LTD';
 const COMPANY_ADDRESS = '4 Thornwood Close, Oldbury, West Midlands, B68 9LX';
 const COMPANY_PHONE = '07414 779594';
+const LOGO_SRC = '/assets/sigma-icon-512.png';
 
 interface LineItem {
   description: string;
@@ -24,6 +25,7 @@ interface DocumentData {
   vatAmount: number;
   total: number;
   notes: string | null;
+  depositPercent: number | null;
   validUntil: string | Date | null;
   dueDate: string | Date | null;
   status: string;
@@ -32,103 +34,122 @@ interface DocumentData {
 
 function formatDate(d: string | Date | null) {
   if (!d) return null;
-  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  return new Date(d).toLocaleDateString('en-GB');
+}
+
+function gbp(n: number) {
+  return '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 export default function DocumentView({ doc }: { doc: DocumentData }) {
   const isInvoice = doc.type === 'invoice';
-  const label = isInvoice ? 'INVOICE' : 'QUOTE';
-  const dateLabel = isInvoice ? 'Due Date' : 'Valid Until';
-  const dateValue = isInvoice ? formatDate(doc.dueDate) : formatDate(doc.validUntil);
+  const title = isInvoice ? 'PROFORMA INVOICE' : 'QUOTATION';
+  const numberLabel = isInvoice ? 'Invoice Number' : 'Quote Number';
+  const dateLabel = isInvoice ? 'Invoice Date' : 'Quote Date';
+
+  const deposit = doc.depositPercent && doc.depositPercent > 0 ? (doc.total * doc.depositPercent) / 100 : null;
+  const balance = deposit !== null ? doc.total - deposit : null;
 
   return (
-    <div className="min-h-screen bg-grey-50 py-8 px-4 print:bg-white print:py-0 print:px-0">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-grey-100 py-8 px-4 print:bg-white print:py-0 print:px-0">
+      <div className="max-w-[210mm] mx-auto">
         <div className="no-print flex justify-end mb-4">
           <PrintButton />
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg print:shadow-none print:rounded-none p-8 sm:p-12">
-          <div className="flex items-start justify-between border-b border-grey-100 pb-6 mb-6">
-            <div>
-              <h1 className="font-heading text-xl font-bold text-navy">{COMPANY_NAME}</h1>
-              <p className="text-xs text-grey-500 mt-1 leading-relaxed">{COMPANY_ADDRESS}</p>
-              <p className="text-xs text-grey-500">{COMPANY_PHONE}</p>
-            </div>
-            <div className="text-right">
-              <p className="font-heading text-2xl font-extrabold text-gold tracking-wide">{label}</p>
-              <p className="text-sm text-charcoal font-semibold mt-1">{doc.number}</p>
-              <p className="text-xs text-grey-400 mt-1">{formatDate(doc.createdAt)}</p>
-            </div>
+        <div className="bg-white shadow-lg print:shadow-none p-10 sm:p-14 text-black" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+          {/* Letterhead */}
+          <div className="flex items-center gap-4 border-b-[3px] border-[#c0392b] pb-3 mb-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={LOGO_SRC} alt={COMPANY_NAME + ' logo'} className="w-14 h-14 rounded" />
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#c0392b] tracking-wide">{COMPANY_NAME}</h1>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            <div>
-              <p className="text-[11px] font-semibold text-grey-400 uppercase tracking-wider mb-1">Bill To</p>
-              <p className="text-sm font-semibold text-navy">{doc.customerName}</p>
-              {doc.customerAddress && <p className="text-xs text-grey-500 mt-0.5">{doc.customerAddress}</p>}
-              {doc.customerPhone && <p className="text-xs text-grey-500">{doc.customerPhone}</p>}
-              {doc.customerEmail && <p className="text-xs text-grey-500">{doc.customerEmail}</p>}
-            </div>
-            {dateValue && (
-              <div className="text-right">
-                <p className="text-[11px] font-semibold text-grey-400 uppercase tracking-wider mb-1">{dateLabel}</p>
-                <p className="text-sm text-charcoal">{dateValue}</p>
-              </div>
-            )}
+          {/* Title */}
+          <p className="text-center font-bold underline text-lg mb-10">{title}</p>
+
+          {/* Number + date */}
+          <div className="flex flex-wrap justify-between gap-4 mb-8 text-[15px]">
+            <p><span className="font-bold">{numberLabel}:</span> {doc.number}</p>
+            <p><span className="font-bold">{dateLabel}:</span> {formatDate(doc.createdAt)}</p>
           </div>
 
-          <table className="w-full text-left mb-6">
+          {/* Bill to */}
+          <div className="mb-10 text-[15px]">
+            <p className="font-bold mb-2">{isInvoice ? 'Invoice To:' : 'Quote For:'}</p>
+            <p>{doc.customerName}</p>
+            {doc.customerAddress && doc.customerAddress.split(',').map((line, i) => <p key={i}>{line.trim()}</p>)}
+            {doc.customerPhone && <p>{doc.customerPhone}</p>}
+            {doc.customerEmail && <p>{doc.customerEmail}</p>}
+          </div>
+
+          {/* Items table */}
+          <table className="w-full border-collapse mb-10 text-[15px]">
             <thead>
-              <tr className="border-b-2 border-navy/10">
-                <th className="py-2 text-[11px] font-semibold text-grey-400 uppercase tracking-wider">Description</th>
-                <th className="py-2 text-[11px] font-semibold text-grey-400 uppercase tracking-wider text-right w-16">Qty</th>
-                <th className="py-2 text-[11px] font-semibold text-grey-400 uppercase tracking-wider text-right w-24">Unit Price</th>
-                <th className="py-2 text-[11px] font-semibold text-grey-400 uppercase tracking-wider text-right w-24">Amount</th>
+              <tr>
+                <th className="border border-black px-3 py-2 text-left font-normal">Description</th>
+                <th className="border border-black px-3 py-2 text-right font-normal w-40">Total (£)</th>
               </tr>
             </thead>
             <tbody>
               {doc.lineItems.map((li, idx) => (
-                <tr key={idx} className="border-b border-grey-100">
-                  <td className="py-3 text-sm text-charcoal">{li.description}</td>
-                  <td className="py-3 text-sm text-charcoal text-right">{li.qty}</td>
-                  <td className="py-3 text-sm text-charcoal text-right">£{li.unitPrice.toFixed(2)}</td>
-                  <td className="py-3 text-sm text-charcoal text-right">£{(li.qty * li.unitPrice).toFixed(2)}</td>
+                <tr key={idx}>
+                  <td className="border border-black px-3 py-2">
+                    {li.description}
+                    {li.qty > 1 && <span className="text-sm"> ({li.qty} × {gbp(li.unitPrice)})</span>}
+                  </td>
+                  <td className="border border-black px-3 py-2 text-right font-bold">{gbp(li.qty * li.unitPrice)}{doc.vatRate > 0 ? ' + VAT' : ''}</td>
                 </tr>
               ))}
+              {doc.vatRate > 0 && (
+                <tr>
+                  <td className="border border-black px-3 py-2 text-right">VAT {doc.vatRate}%</td>
+                  <td className="border border-black px-3 py-2 text-right">{gbp(doc.vatAmount)}</td>
+                </tr>
+              )}
+              <tr>
+                <td className="border border-black px-3 py-2 text-right font-bold">TOTAL</td>
+                <td className="border border-black px-3 py-2 text-right font-bold">{gbp(doc.total)}</td>
+              </tr>
+              {deposit !== null && balance !== null && (
+                <>
+                  <tr>
+                    <td className="border border-black px-3 py-2 text-right"><span className="bg-yellow-300 px-1 font-bold">{doc.depositPercent}% DEPOSIT</span></td>
+                    <td className="border border-black px-3 py-2 text-right"><span className="bg-yellow-300 px-1">{gbp(deposit)}</span></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-black px-3 py-2 text-right">{100 - (doc.depositPercent as number)}% BALANCE</td>
+                    <td className="border border-black px-3 py-2 text-right">{gbp(balance)}</td>
+                  </tr>
+                </>
+              )}
             </tbody>
           </table>
 
-          <div className="flex justify-end mb-8">
-            <div className="w-full max-w-xs space-y-1.5">
-              <div className="flex justify-between text-sm text-grey-500">
-                <span>Subtotal</span>
-                <span>£{doc.subtotal.toFixed(2)}</span>
-              </div>
-              {doc.vatRate > 0 && (
-                <div className="flex justify-between text-sm text-grey-500">
-                  <span>VAT ({doc.vatRate}%)</span>
-                  <span>£{doc.vatAmount.toFixed(2)}</span>
-                </div>
-              )}
-              <div className="flex justify-between text-base font-heading font-bold text-navy pt-1.5 border-t border-grey-200">
-                <span>Total</span>
-                <span>£{doc.total.toFixed(2)}</span>
-              </div>
-            </div>
-          </div>
+          {/* Quote validity / invoice due date */}
+          {!isInvoice && doc.validUntil && (
+            <p className="mb-8 text-[15px]"><span className="font-bold">Valid until:</span> {formatDate(doc.validUntil)}</p>
+          )}
+          {isInvoice && doc.dueDate && (
+            <p className="mb-8 text-[15px]"><span className="font-bold">Due date:</span> {formatDate(doc.dueDate)}</p>
+          )}
 
+          {/* Notes */}
           {doc.notes && (
-            <div className="border-t border-grey-100 pt-4">
-              <p className="text-[11px] font-semibold text-grey-400 uppercase tracking-wider mb-1">Notes</p>
-              <p className="text-sm text-charcoal whitespace-pre-wrap leading-relaxed">{doc.notes}</p>
+            <div className="mb-8 text-[15px]">
+              <p className="font-bold mb-1">Notes:</p>
+              <p className="whitespace-pre-wrap">{doc.notes}</p>
             </div>
           )}
 
-          <div className="mt-10 pt-4 border-t border-grey-100 text-center">
-            <p className="text-xs text-grey-400">
-              {isInvoice ? 'Thank you for your business.' : 'This quote is indicative and subject to a final site survey.'} Questions? Call {COMPANY_PHONE}.
-            </p>
+          {isInvoice && (
+            <p className="font-bold underline mb-8 text-[15px]">When making payments, please use invoice number as references.</p>
+          )}
+
+          {/* Footer */}
+          <div className="mt-16 text-[13px] leading-relaxed">
+            <p><span className="font-bold">Company address</span>: {COMPANY_ADDRESS}</p>
+            <p><span className="font-bold">Phone:</span> {COMPANY_PHONE}</p>
           </div>
         </div>
       </div>
