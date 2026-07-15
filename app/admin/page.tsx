@@ -94,6 +94,11 @@ export default function AdminPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [msgCustomer, setMsgCustomer] = useState<Customer | null>(null);
   const [error, setError] = useState('');
+  const [urlQuery, setUrlQuery] = useState('');
+
+  useEffect(() => {
+    setUrlQuery(window.location.search);
+  }, []);
 
   const [form, setForm] = useState({
     name: '', phone: '', email: '', location: '', service: SERVICES[0],
@@ -223,7 +228,7 @@ export default function AdminPage() {
             <p className="text-xs text-grey-400">Manage jobs &amp; follow up with customers</p>
           </div>
           <div className="flex items-center gap-3">
-            <a href="/admin/documents" className="text-sm text-grey-500 hover:text-navy font-medium">Quotes &amp; Invoices &rarr;</a>
+            <a href={'/admin/documents' + urlQuery} className="text-sm text-grey-500 hover:text-navy font-medium">Quotes &amp; Invoices &rarr;</a>
             <button onClick={openAdd}
               className="flex items-center gap-2 px-4 py-2.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12h14" /></svg>

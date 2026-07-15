@@ -88,6 +88,11 @@ export default function DocumentsAdminPage() {
   const [form, setForm] = useState(emptyForm());
   const [error, setError] = useState('');
   const [createdDoc, setCreatedDoc] = useState<Doc | null>(null);
+  const [urlQuery, setUrlQuery] = useState('');
+
+  useEffect(() => {
+    setUrlQuery(window.location.search);
+  }, []);
 
   const makeHeaders = useCallback(() => ({ Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' }), [apiKey]);
 
@@ -249,7 +254,7 @@ export default function DocumentsAdminPage() {
             <h1 className="text-xl font-heading font-bold text-navy">Quotes &amp; Invoices</h1>
             <p className="text-xs text-grey-400">Create shareable quotes and invoices for customers</p>
           </div>
-          <a href="/admin" className="text-sm text-grey-500 hover:text-navy">&larr; Job Tracker</a>
+          <a href={'/admin' + urlQuery} className="text-sm text-grey-500 hover:text-navy">&larr; Job Tracker</a>
         </div>
       </header>
 
