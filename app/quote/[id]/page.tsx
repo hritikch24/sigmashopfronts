@@ -21,6 +21,7 @@ export default async function QuotePage({ params }: { params: Promise<{ id: stri
       doc={{
         ...doc,
         lineItems: doc.lineItems as unknown as { description: string; qty: number; unitPrice: number }[],
+        meta: doc.meta as unknown as { projectReference?: string; scope?: string; specifications?: string; leadTime?: string } | null,
       }}
     />
   );

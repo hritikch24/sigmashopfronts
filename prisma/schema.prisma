@@ -106,6 +106,7 @@ model Document {
   vatAmount       Float     @default(0) @map("vat_amount")
   total           Float
   notes           String?
+  meta            Json?
   depositPercent  Float?    @map("deposit_percent")
   validUntil      DateTime? @map("valid_until")
   dueDate         DateTime? @map("due_date")

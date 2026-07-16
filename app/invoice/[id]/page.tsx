@@ -21,6 +21,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
       doc={{
         ...doc,
         lineItems: doc.lineItems as unknown as { description: string; qty: number; unitPrice: number }[],
+        meta: doc.meta as unknown as { projectReference?: string; scope?: string; specifications?: string; leadTime?: string } | null,
       }}
     />
   );

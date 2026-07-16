@@ -74,6 +74,10 @@ function emptyForm() {
     depositPercent: '',
     validUntil: '',
     dueDate: '',
+    projectReference: '',
+    scope: '',
+    specifications: '',
+    leadTime: '',
   };
 }
 
@@ -187,6 +191,14 @@ export default function DocumentsAdminPage() {
       depositPercent: tab === 'invoice' && form.depositPercent ? Number(form.depositPercent) : null,
       validUntil: tab === 'quote' && form.validUntil ? form.validUntil : null,
       dueDate: tab === 'invoice' && form.dueDate ? form.dueDate : null,
+      meta: tab === 'quote'
+        ? {
+            projectReference: form.projectReference.trim() || undefined,
+            scope: form.scope.trim() || undefined,
+            specifications: form.specifications.trim() || undefined,
+            leadTime: form.leadTime.trim() || undefined,
+          }
+        : null,
     };
 
     try {
@@ -414,18 +426,42 @@ export default function DocumentsAdminPage() {
                   </div>
                 </div>
 
+                {tab === 'quote' && (
+                  <>
+                    <div>
+                      <label className="block text-xs font-medium text-grey-500 mb-1">Project Reference <span className="text-grey-300">(e.g. Aluminium Shopfront)</span></label>
+                      <input value={form.projectReference} onChange={(e) => setForm({ ...form, projectReference: e.target.value })}
+                        className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-grey-500 mb-1">Scope of Work <span className="text-grey-300">(one bullet per line)</span></label>
+                      <textarea rows={3} value={form.scope} onChange={(e) => setForm({ ...form, scope: e.target.value })}
+                        placeholder={'Straight aluminium shopfront double door with fixed glass panels either side.\nAluminium shopfront single door with fixed return & front glass panels either side.'}
+                        className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none resize-none" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-grey-500 mb-1">Specifications <span className="text-grey-300">(lines ending with &quot;:&quot; become headings, other lines become bullets)</span></label>
+                      <textarea rows={6} value={form.specifications} onChange={(e) => setForm({ ...form, specifications: e.target.value })}
+                        placeholder={'Glazing:\nDoor: Double glazed with 4mm toughened glass on both sides.\nFrame & Materials:\nAluminium frame: 100mm x 45mm box section, commercial-grade.'}
+                        className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none resize-none" />
+                    </div>
+                  </>
+                )}
+
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="block text-xs font-medium text-grey-500">Line Items *</label>
-                    <button type="button" onClick={addLineItem} className="text-xs text-gold font-semibold hover:underline">+ Add item</button>
+                    <label className="block text-xs font-medium text-grey-500">{tab === 'quote' ? 'Price Options * (shown as red "PRICE FOR ..." lines)' : 'Line Items *'}</label>
+                    <button type="button" onClick={addLineItem} className="text-xs text-gold font-semibold hover:underline">+ Add {tab === 'quote' ? 'option' : 'item'}</button>
                   </div>
                   <div className="space-y-2">
                     {form.lineItems.map((li, idx) => (
                       <div key={idx} className="flex gap-2 items-start">
-                        <input placeholder="Description" value={li.description} onChange={(e) => updateLineItem(idx, { description: e.target.value })}
+                        <input placeholder={tab === 'quote' ? 'e.g. Straight Shopfront' : 'Description'} value={li.description} onChange={(e) => updateLineItem(idx, { description: e.target.value })}
                           className="flex-1 px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
-                        <input type="number" min="0" step="1" placeholder="Qty" value={li.qty} onChange={(e) => updateLineItem(idx, { qty: Number(e.target.value) })}
-                          className="w-16 px-2 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                        {tab === 'invoice' && (
+                          <input type="number" min="0" step="1" placeholder="Qty" value={li.qty} onChange={(e) => updateLineItem(idx, { qty: Number(e.target.value) })}
+                            className="w-16 px-2 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                        )}
                         <div className="relative w-28">
                           <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-grey-400 text-sm">£</span>
                           <input type="number" min="0" step="0.01" placeholder="Price" value={li.unitPrice} onChange={(e) => updateLineItem(idx, { unitPrice: Number(e.target.value) })}
@@ -440,12 +476,20 @@ export default function DocumentsAdminPage() {
                   </div>
                 </div>
 
+                {tab === 'quote' && (
+                  <div>
+                    <label className="block text-xs font-medium text-grey-500 mb-1">Lead Time <span className="text-grey-300">(e.g. 2 weeks from confirmation)</span></label>
+                    <input value={form.leadTime} onChange={(e) => setForm({ ...form, leadTime: e.target.value })}
+                      className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between bg-grey-50 rounded-lg p-3">
                   <label className="flex items-center gap-2 text-sm text-charcoal">
                     <input type="checkbox" checked={form.vatEnabled} onChange={(e) => setForm({ ...form, vatEnabled: e.target.checked })} />
-                    Add VAT
+                    {tab === 'quote' ? 'Prices are + VAT' : 'Add VAT'}
                   </label>
-                  {form.vatEnabled && (
+                  {form.vatEnabled && tab === 'invoice' && (
                     <div className="flex items-center gap-1">
                       <input type="number" min="0" max="100" step="0.5" value={form.vatRate} onChange={(e) => setForm({ ...form, vatRate: Number(e.target.value) })}
                         className="w-16 px-2 py-1 border border-grey-200 rounded text-sm text-right" />
@@ -454,11 +498,13 @@ export default function DocumentsAdminPage() {
                   )}
                 </div>
 
-                <div className="text-right space-y-1 text-sm">
-                  <p className="text-grey-500">Subtotal: <span className="text-charcoal font-medium">£{subtotal.toFixed(2)}</span></p>
-                  {form.vatEnabled && <p className="text-grey-500">VAT ({form.vatRate}%): <span className="text-charcoal font-medium">£{vatAmount.toFixed(2)}</span></p>}
-                  <p className="text-navy font-heading font-bold text-lg">Total: £{total.toFixed(2)}</p>
-                </div>
+                {tab === 'invoice' && (
+                  <div className="text-right space-y-1 text-sm">
+                    <p className="text-grey-500">Subtotal: <span className="text-charcoal font-medium">£{subtotal.toFixed(2)}</span></p>
+                    {form.vatEnabled && <p className="text-grey-500">VAT ({form.vatRate}%): <span className="text-charcoal font-medium">£{vatAmount.toFixed(2)}</span></p>}
+                    <p className="text-navy font-heading font-bold text-lg">Total: £{total.toFixed(2)}</p>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-2 gap-3">
                   {tab === 'quote' ? (
