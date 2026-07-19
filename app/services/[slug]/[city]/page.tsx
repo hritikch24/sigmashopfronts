@@ -164,14 +164,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const geo = cityGeo[citySlug] || { latitude: 51.5074, longitude: -0.1278 };
   const topAreas = city.areas.slice(0, 3).join(', ');
 
-  // Only core cities should be indexed — extra cities are noindex (PPC only)
-  const coreCities = ['london','birmingham','leeds','liverpool','glasgow','cardiff','newcastle','edinburgh','bradford','stoke-on-trent','swansea','york','oxford','cambridge','middlesbrough','plymouth','coventry','nottingham','manchester','sheffield','bristol','leicester'];
-  const isCore = coreCities.includes(citySlug);
-
   return {
     title: `${service.name} in ${city.name} | Sigma Shop Fronts`,
     description: `Professional ${service.name.toLowerCase()} installation in ${city.name} covering ${topAreas} and surrounding areas. Free site survey and no-obligation quote. Call 07414 779594.`,
-    ...(!isCore && { robots: { index: false, follow: true } }),
     alternates: { canonical: `${siteUrl}/services/${slug}/${citySlug}` },
     openGraph: {
       title: `${service.name} in ${city.name} | Sigma Shop Fronts`,

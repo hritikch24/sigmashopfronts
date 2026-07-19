@@ -15,30 +15,16 @@ const serviceSlugs = [
   'glass-replacement',
 ];
 
-// Sigma core cities — must match coreCities in areas/[city]/page.tsx and services/[slug]/[city]/page.tsx
+// All cities — every service+city combo is now indexed
 const citySlugs = [
-  'london',
-  'birmingham',
-  'leeds',
-  'liverpool',
-  'glasgow',
-  'cardiff',
-  'newcastle',
-  'edinburgh',
-  'bradford',
-  'stoke-on-trent',
-  'swansea',
-  'york',
-  'oxford',
-  'cambridge',
-  'middlesbrough',
-  'plymouth',
-  'coventry',
-  'nottingham',
-  'manchester',
-  'sheffield',
-  'bristol',
-  'leicester',
+  'london', 'birmingham', 'manchester', 'leeds', 'liverpool', 'bristol',
+  'sheffield', 'glasgow', 'cardiff', 'newcastle', 'nottingham', 'leicester',
+  'edinburgh', 'southampton', 'brighton', 'coventry', 'reading',
+  'wolverhampton', 'derby', 'northampton', 'luton', 'swindon',
+  'stoke-on-trent', 'plymouth', 'bradford', 'swansea', 'oxford',
+  'cambridge', 'york', 'bath', 'aberdeen', 'belfast', 'milton-keynes',
+  'middlesbrough', 'bournemouth', 'portsmouth', 'norwich', 'exeter',
+  'chester', 'gloucester', 'peterborough',
 ];
 
 const blogSlugs = [
@@ -87,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Core city combo pages only (22 cities × 10 services = 220 pages)
+  // All city combo pages (41 cities × 10 services = 410 pages)
   const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
     citySlugs.map((city) => ({
       url: `${siteUrl}/services/${service}/${city}`,
