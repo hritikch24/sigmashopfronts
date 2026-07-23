@@ -99,7 +99,7 @@ export default function TermsPage() {
                 3.2 Quotations are based on information provided at the time of enquiry or initial site visit. Final pricing is subject to a formal survey of the Site. Where a survey reveals conditions materially different from those anticipated, we will issue a revised Quotation before proceeding.
               </p>
               <p className="mt-4">
-                3.3 Prices are quoted exclusive of VAT unless stated otherwise. VAT will be charged at the rate applicable on the date of invoice.
+                3.3 All quoted prices include VAT at the prevailing rate where applicable. The VAT amount is shown separately on all quotations and invoices.
               </p>
               <p className="mt-4">
                 3.4 Any variations to the agreed scope of work requested by you after the Contract has been formed may be subject to additional charges. We will provide written confirmation of any additional costs before carrying out variations.

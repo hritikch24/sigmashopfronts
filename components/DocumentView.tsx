@@ -96,7 +96,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
         'All work is completed by qualified engineers using high-quality materials.',
       ]
     : [
-        vat ? 'Prices are exclusive of 20% VAT.' : 'Prices shown are the full amounts payable.',
+        vat ? 'All prices include 20% VAT as shown in the total.' : 'Prices shown are the full amounts payable.',
         'Any additional works not listed above will be quoted separately.',
         validityDays ? `This quotation is valid for ${validityDays} days from the date of issue.` : 'This quotation is valid for 15 days from the date of issue.',
         'Payment is due upon completion of the works unless otherwise agreed.',

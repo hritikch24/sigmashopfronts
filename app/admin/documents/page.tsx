@@ -92,6 +92,7 @@ export default function DocumentsAdminPage() {
   const [form, setForm] = useState(emptyForm());
   const [error, setError] = useState('');
   const [createdDoc, setCreatedDoc] = useState<Doc | null>(null);
+  const [editingDocId, setEditingDocId] = useState<string | null>(null);
   const [urlQuery, setUrlQuery] = useState('');
 
   useEffect(() => {
@@ -139,6 +140,33 @@ export default function DocumentsAdminPage() {
 
   function openCreate() {
     setForm(emptyForm());
+    setCreatedDoc(null);
+    setEditingDocId(null);
+    setError('');
+    setShowForm(true);
+  }
+
+  function editDoc(doc: Doc) {
+    const meta = (doc as unknown as { meta?: { projectReference?: string; scope?: string; specifications?: string; leadTime?: string } }).meta || {};
+    setForm({
+      customerId: '',
+      customerName: doc.customerName,
+      customerEmail: doc.customerEmail || '',
+      customerPhone: doc.customerPhone || '',
+      customerAddress: doc.customerAddress || '',
+      lineItems: doc.lineItems.length > 0 ? doc.lineItems.map(li => ({ ...li })) : [{ description: '', qty: 1, unitPrice: 0 }],
+      vatEnabled: doc.vatRate > 0,
+      vatRate: doc.vatRate || 20,
+      notes: doc.notes || '',
+      depositPercent: doc.depositPercent ? String(doc.depositPercent) : '',
+      validUntil: doc.validUntil ? doc.validUntil.split('T')[0] : '',
+      dueDate: doc.dueDate ? doc.dueDate.split('T')[0] : '',
+      projectReference: meta.projectReference || '',
+      scope: meta.scope || '',
+      specifications: meta.specifications || '',
+      leadTime: meta.leadTime || '',
+    });
+    setEditingDocId(doc.id);
     setCreatedDoc(null);
     setError('');
     setShowForm(true);
@@ -202,10 +230,20 @@ export default function DocumentsAdminPage() {
     };
 
     try {
-      const res = await fetch('/api/admin/documents', { method: 'POST', headers: makeHeaders(), body: JSON.stringify(payload) });
+      let res: Response;
+      if (editingDocId) {
+        res = await fetch('/api/admin/documents/' + editingDocId, { method: 'PATCH', headers: makeHeaders(), body: JSON.stringify(payload) });
+      } else {
+        res = await fetch('/api/admin/documents', { method: 'POST', headers: makeHeaders(), body: JSON.stringify(payload) });
+      }
       if (!res.ok) { const d = await res.json(); setError(d.error || 'Save failed'); return; }
       const data = await res.json();
-      setCreatedDoc(data.document);
+      if (editingDocId) {
+        setShowForm(false);
+        setEditingDocId(null);
+      } else {
+        setCreatedDoc(data.document);
+      }
       fetchDocuments();
     } catch {
       setError('Network error');
@@ -341,6 +379,10 @@ export default function DocumentsAdminPage() {
                               className="p-1.5 rounded hover:bg-grey-100 text-grey-400 hover:text-navy transition-colors">
                               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                             </a>
+                            <button onClick={() => editDoc(doc)} title="Edit"
+                              className="p-1.5 rounded hover:bg-grey-100 text-grey-400 hover:text-navy transition-colors">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>
+                            </button>
                             <button onClick={() => copyLink(doc)} title="Copy link"
                               className="p-1.5 rounded hover:bg-grey-100 text-grey-400 hover:text-navy transition-colors">
                               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
@@ -388,7 +430,7 @@ export default function DocumentsAdminPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-heading font-bold text-navy">New {tab === 'quote' ? 'Quote' : 'Invoice'}</h2>
+                  <h2 className="text-lg font-heading font-bold text-navy">{editingDocId ? 'Edit' : 'New'} {tab === 'quote' ? 'Quote' : 'Invoice'}</h2>
                   <button type="button" onClick={() => setShowForm(false)} className="text-grey-400 hover:text-navy text-xl">&times;</button>
                 </div>
 
@@ -487,7 +529,7 @@ export default function DocumentsAdminPage() {
                 <div className="flex items-center justify-between bg-grey-50 rounded-lg p-3">
                   <label className="flex items-center gap-2 text-sm text-charcoal">
                     <input type="checkbox" checked={form.vatEnabled} onChange={(e) => setForm({ ...form, vatEnabled: e.target.checked })} />
-                    {tab === 'quote' ? 'Prices are + VAT' : 'Add VAT'}
+                    {tab === 'quote' ? 'Include VAT (20%)' : 'Add VAT'}
                   </label>
                   {form.vatEnabled && tab === 'invoice' && (
                     <div className="flex items-center gap-1">
@@ -542,7 +584,7 @@ export default function DocumentsAdminPage() {
                   </button>
                   <button type="submit"
                     className="flex-1 py-2.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/90 transition-colors">
-                    Create {tab === 'quote' ? 'Quote' : 'Invoice'}
+                    {editingDocId ? 'Update' : 'Create'} {tab === 'quote' ? 'Quote' : 'Invoice'}
                   </button>
                 </div>
               </form>
