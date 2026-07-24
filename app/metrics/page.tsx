@@ -194,12 +194,39 @@ function MiniChart({ data, valueKey, height = 80 }: {
   );
 }
 
-function LeadRow({ lead, onStatusChange, expanded, onToggle }: {
+function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
   lead: MetricsData['leads']['recent'][0];
   onStatusChange: (id: string, status: string) => void;
   expanded: boolean;
   onToggle: () => void;
+  apiKey: string;
 }) {
+  const [aiReply, setAiReply] = useState<{ subject: string; body: string } | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [copied, setCopied] = useState<'subject' | 'body' | null>(null);
+
+  const suggestReply = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (aiLoading) return;
+    setAiLoading(true);
+    try {
+      const res = await fetch('/api/ai/lead-reply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({ name: lead.name, service: lead.service, location: lead.location, message: lead.message, email: lead.email }),
+      });
+      const data = await res.json();
+      if (data.reply) setAiReply(data.reply);
+    } catch { /* ignore */ }
+    setAiLoading(false);
+  };
+
+  const copyText = async (text: string, field: 'subject' | 'body') => {
+    await navigator.clipboard.writeText(text);
+    setCopied(field);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
   const date = new Date(lead.createdAt);
   const ago = getTimeAgo(date);
 
@@ -252,14 +279,69 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle }: {
           </svg>
         </td>
       </tr>
-      {expanded && lead.message && (
+      {expanded && (
         <tr className="border-b border-grey-100/60 bg-grey-50/30">
           <td colSpan={7} className="px-4 py-3">
             <div className="ml-12">
-              <p className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-1">Message</p>
-              <p className="text-sm text-charcoal leading-relaxed">{lead.message}</p>
+              {lead.message && (
+                <>
+                  <p className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-1">Message</p>
+                  <p className="text-sm text-charcoal leading-relaxed">{lead.message}</p>
+                </>
+              )}
               {lead.source && (
                 <p className="text-xs text-grey-400 mt-2">Source: {lead.source}</p>
+              )}
+              <div className="mt-3">
+                <button
+                  onClick={suggestReply}
+                  disabled={aiLoading}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy text-white text-xs font-medium hover:bg-navy/90 transition-colors disabled:opacity-50"
+                >
+                  {aiLoading ? (
+                    <>
+                      <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="31.4 31.4" strokeLinecap="round" /></svg>
+                      Generating…
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>
+                      {aiReply ? 'Regenerate Reply' : 'Suggest Reply'}
+                    </>
+                  )}
+                </button>
+              </div>
+              {aiReply && (
+                <div className="mt-3 p-4 bg-white rounded-xl border border-grey-200/60 space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-xs font-semibold text-grey-500 uppercase tracking-wider">Subject</p>
+                      <button onClick={() => copyText(aiReply.subject, 'subject')} className="text-xs text-navy hover:text-gold transition-colors">
+                        {copied === 'subject' ? '✓ Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <p className="text-sm font-medium text-navy">{aiReply.subject}</p>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-xs font-semibold text-grey-500 uppercase tracking-wider">Email Body</p>
+                      <button onClick={() => copyText(aiReply.body, 'body')} className="text-xs text-navy hover:text-gold transition-colors">
+                        {copied === 'body' ? '✓ Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <p className="text-sm text-charcoal leading-relaxed whitespace-pre-wrap">{aiReply.body}</p>
+                  </div>
+                  <div>
+                    <a
+                      href={`mailto:${lead.email}?subject=${encodeURIComponent(aiReply.subject)}&body=${encodeURIComponent(aiReply.body)}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold text-navy text-xs font-semibold hover:bg-gold/90 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                      Open in Email
+                    </a>
+                  </div>
+                </div>
               )}
             </div>
           </td>
@@ -725,6 +807,7 @@ export default function MetricsPage() {
                         onStatusChange={handleStatusChange}
                         expanded={expandedLead === lead.id}
                         onToggle={() => setExpandedLead(expandedLead === lead.id ? null : lead.id)}
+                        apiKey={apiKey}
                       />
                     ))}
                     {data.leads.recent.length === 0 && (
