@@ -120,3 +120,20 @@ model Document {
   @@index([createdAt])
   @@map("documents")
 }
+
+model EmailMessage {
+  id        String   @id @default(cuid())
+  leadId    String   @map("lead_id")
+  direction String   // "outbound" | "note"
+  subject   String
+  body      String
+  toEmail   String   @map("to_email")
+  fromEmail String?  @map("from_email")
+  status    String   @default("sent") // "sent" | "draft" | "failed"
+  resendId  String?  @map("resend_id")
+  createdAt DateTime @default(now())
+
+  @@index([leadId])
+  @@index([createdAt])
+  @@map("email_messages")
+}
