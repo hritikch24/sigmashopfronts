@@ -108,6 +108,7 @@ model Document {
   notes           String?
   meta            Json?
   depositPercent  Float?    @map("deposit_percent")
+  issueDate       DateTime? @map("issue_date")
   validUntil      DateTime? @map("valid_until")
   dueDate         DateTime? @map("due_date")
   status          String    @default("draft")

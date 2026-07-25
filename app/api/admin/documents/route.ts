@@ -75,7 +75,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const body = await request.json();
     const {
       type, customerId, customerName, customerEmail, customerPhone, customerAddress,
-      lineItems, vatRate, notes, meta, depositPercent, validUntil, dueDate,
+      lineItems, vatRate, notes, meta, depositPercent, issueDate, validUntil, dueDate,
     } = body;
 
     if (type !== 'quote' && type !== 'invoice') {
@@ -112,6 +112,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         notes: notes ? String(notes).trim() : null,
         meta: meta && typeof meta === 'object' ? (meta as Prisma.InputJsonValue) : undefined,
         depositPercent: depositPercent ? Number(depositPercent) : null,
+        issueDate: issueDate ? new Date(issueDate) : null,
         validUntil: validUntil ? new Date(validUntil) : null,
         dueDate: dueDate ? new Date(dueDate) : null,
         status: 'sent',

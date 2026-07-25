@@ -38,6 +38,7 @@ interface DocumentData {
   notes: string | null;
   meta: DocumentMeta | null;
   depositPercent: number | null;
+  issueDate: string | Date | null;
   validUntil: string | Date | null;
   dueDate: string | Date | null;
   status: string;
@@ -80,8 +81,10 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
   const deposit = isInvoice && doc.depositPercent && doc.depositPercent > 0 ? (doc.total * doc.depositPercent) / 100 : null;
   const balance = deposit !== null ? doc.total - deposit : null;
 
+  const displayDate = doc.issueDate || doc.createdAt;
+
   const validityDays = doc.validUntil
-    ? Math.max(1, Math.round((new Date(doc.validUntil).getTime() - new Date(doc.createdAt).getTime()) / 86400000))
+    ? Math.max(1, Math.round((new Date(doc.validUntil).getTime() - new Date(displayDate).getTime()) / 86400000))
     : null;
 
   const intro = isInvoice
@@ -145,7 +148,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
                   <tr>
                     <td className="font-bold pr-3 py-0.5" style={{ color: NAVY }}>Date</td>
                     <td className="pr-2">:</td>
-                    <td>{formatDate(doc.createdAt)}</td>
+                    <td>{formatDate(displayDate)}</td>
                   </tr>
                   {!isInvoice && doc.validUntil && (
                     <tr>

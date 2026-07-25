@@ -72,6 +72,7 @@ function emptyForm() {
     vatRate: 20,
     notes: '',
     depositPercent: '',
+    issueDate: '',
     validUntil: '',
     dueDate: '',
     projectReference: '',
@@ -159,6 +160,7 @@ export default function DocumentsAdminPage() {
       vatRate: doc.vatRate || 20,
       notes: doc.notes || '',
       depositPercent: doc.depositPercent ? String(doc.depositPercent) : '',
+      issueDate: (doc as unknown as { issueDate?: string | null }).issueDate ? ((doc as unknown as { issueDate: string }).issueDate).split('T')[0] : doc.createdAt.split('T')[0],
       validUntil: doc.validUntil ? doc.validUntil.split('T')[0] : '',
       dueDate: doc.dueDate ? doc.dueDate.split('T')[0] : '',
       projectReference: meta.projectReference || '',
@@ -217,6 +219,7 @@ export default function DocumentsAdminPage() {
       vatRate: form.vatEnabled ? form.vatRate : 0,
       notes: form.notes || null,
       depositPercent: tab === 'invoice' && form.depositPercent ? Number(form.depositPercent) : null,
+      issueDate: form.issueDate || null,
       validUntil: tab === 'quote' && form.validUntil ? form.validUntil : null,
       dueDate: tab === 'invoice' && form.dueDate ? form.dueDate : null,
       meta: tab === 'quote'
@@ -549,6 +552,11 @@ export default function DocumentsAdminPage() {
                 )}
 
                 <div className="grid grid-cols-2 gap-3">
+                  <div className="col-span-2 sm:col-span-1">
+                    <label className="block text-xs font-medium text-grey-500 mb-1">Date <span className="text-grey-300">(issue date on document)</span></label>
+                    <input type="date" value={form.issueDate} onChange={(e) => setForm({ ...form, issueDate: e.target.value })}
+                      className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                  </div>
                   {tab === 'quote' ? (
                     <div className="col-span-2 sm:col-span-1">
                       <label className="block text-xs font-medium text-grey-500 mb-1">Valid Until</label>

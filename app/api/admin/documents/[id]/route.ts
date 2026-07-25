@@ -38,7 +38,7 @@ export async function PATCH(
     if (body.lineItems) {
       const {
         customerName, customerEmail, customerPhone, customerAddress,
-        lineItems, vatRate, notes, meta, depositPercent, validUntil, dueDate,
+        lineItems, vatRate, notes, meta, depositPercent, issueDate, validUntil, dueDate,
       } = body;
 
       const cleanItems: LineItem[] = lineItems.map((li: LineItem) => ({
@@ -67,6 +67,7 @@ export async function PATCH(
           notes: notes ? String(notes).trim() : null,
           meta: meta && typeof meta === 'object' ? (meta as Prisma.InputJsonValue) : undefined,
           depositPercent: depositPercent ? Number(depositPercent) : null,
+          issueDate: issueDate ? new Date(issueDate) : null,
           validUntil: validUntil ? new Date(validUntil) : null,
           dueDate: dueDate ? new Date(dueDate) : null,
         },
