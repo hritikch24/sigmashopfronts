@@ -29,7 +29,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await prisma.$executeRawUnsafe(`CREATE INDEX IF NOT EXISTS idx_email_messages_lead_id ON email_messages(lead_id)`);
     await prisma.$executeRawUnsafe(`CREATE INDEX IF NOT EXISTS idx_email_messages_created ON email_messages("createdAt")`);
 
-    return NextResponse.json({ ok: true, message: 'email_messages table created.' });
+    // Add issue_date to documents
+    await prisma.$executeRawUnsafe(`ALTER TABLE documents ADD COLUMN IF NOT EXISTS issue_date TIMESTAMP(3)`);
+
+    return NextResponse.json({ ok: true, message: 'Migrations applied.' });
   } catch (err) {
     console.error('[db-migrate]', err);
     return NextResponse.json({ error: String(err) }, { status: 500 });
