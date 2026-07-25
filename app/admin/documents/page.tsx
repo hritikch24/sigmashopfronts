@@ -62,6 +62,7 @@ function statusMeta(type: string, val: string) {
 
 function emptyForm() {
   return {
+    number: '',
     customerId: '',
     customerName: '',
     customerEmail: '',
@@ -150,6 +151,7 @@ export default function DocumentsAdminPage() {
   function editDoc(doc: Doc) {
     const meta = (doc as unknown as { meta?: { projectReference?: string; scope?: string; specifications?: string; leadTime?: string } }).meta || {};
     setForm({
+      number: doc.number,
       customerId: '',
       customerName: doc.customerName,
       customerEmail: doc.customerEmail || '',
@@ -210,6 +212,7 @@ export default function DocumentsAdminPage() {
 
     const payload = {
       type: tab,
+      ...(editingDocId && form.number.trim() ? { number: form.number.trim() } : {}),
       customerId: form.customerId || null,
       customerName: form.customerName,
       customerEmail: form.customerEmail || null,
@@ -436,6 +439,14 @@ export default function DocumentsAdminPage() {
                   <h2 className="text-lg font-heading font-bold text-navy">{editingDocId ? 'Edit' : 'New'} {tab === 'quote' ? 'Quote' : 'Invoice'}</h2>
                   <button type="button" onClick={() => setShowForm(false)} className="text-grey-400 hover:text-navy text-xl">&times;</button>
                 </div>
+
+                {editingDocId && (
+                  <div>
+                    <label className="block text-xs font-medium text-grey-500 mb-1">{tab === 'quote' ? 'Quote' : 'Invoice'} Number</label>
+                    <input value={form.number} onChange={(e) => setForm({ ...form, number: e.target.value })}
+                      className="w-full px-3 py-2 border border-grey-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/40 outline-none" />
+                  </div>
+                )}
 
                 {customers.length > 0 && (
                   <div>

@@ -37,7 +37,7 @@ export async function PATCH(
     // Full edit — if lineItems are provided, it's a full update
     if (body.lineItems) {
       const {
-        customerName, customerEmail, customerPhone, customerAddress,
+        number: newNumber, customerName, customerEmail, customerPhone, customerAddress,
         lineItems, vatRate, notes, meta, depositPercent, issueDate, validUntil, dueDate,
       } = body;
 
@@ -55,6 +55,7 @@ export async function PATCH(
       const document = await prisma.document.update({
         where: { id },
         data: {
+          ...(newNumber ? { number: String(newNumber).trim() } : {}),
           customerName: String(customerName).trim(),
           customerEmail: customerEmail ? String(customerEmail).trim() : null,
           customerPhone: customerPhone ? String(customerPhone).trim() : null,
