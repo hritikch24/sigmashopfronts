@@ -162,7 +162,15 @@ Respond in JSON only:
       return NextResponse.json({ error: 'Failed to generate reply.' }, { status: 500 });
     }
 
-    const reply = JSON.parse(jsonMatch[0]) as { subject: string; body: string };
+    // Sanitise control characters that the LLM sometimes puts inside JSON strings
+    const sanitised = jsonMatch[0].replace(/[\x00-\x1F\x7F]/g, (ch) => {
+      if (ch === '\n') return '\\n';
+      if (ch === '\r') return '\\r';
+      if (ch === '\t') return '\\t';
+      return '';
+    });
+
+    const reply = JSON.parse(sanitised) as { subject: string; body: string };
     if (!reply.subject || !reply.body) {
       return NextResponse.json({ error: 'Incomplete response.' }, { status: 500 });
     }

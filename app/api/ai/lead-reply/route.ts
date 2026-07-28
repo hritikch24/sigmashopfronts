@@ -110,7 +110,13 @@ Respond in JSON only:
     try {
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (!jsonMatch) throw new Error("No JSON found");
-      const reply = JSON.parse(jsonMatch[0]) as { subject: string; body: string };
+      const sanitised = jsonMatch[0].replace(/[\x00-\x1F\x7F]/g, (ch) => {
+        if (ch === '\n') return '\\n';
+        if (ch === '\r') return '\\r';
+        if (ch === '\t') return '\\t';
+        return '';
+      });
+      const reply = JSON.parse(sanitised) as { subject: string; body: string };
       if (!reply.subject || !reply.body) throw new Error("Incomplete");
       return NextResponse.json({ reply, source: "ai" });
     } catch {
