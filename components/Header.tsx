@@ -115,7 +115,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex-shrink-0 group">
-              <span className="font-heading font-bold text-lg lg:text-xl tracking-[0.2em] text-white group-hover:text-cyan transition-colors">
+              <span className="font-heading font-bold text-lg lg:text-xl tracking-[0.2em] text-gradient-future drop-shadow-[0_0_12px_rgba(0,229,255,0.3)]">
                 SIGMA SHOP FRONTS
               </span>
             </Link>
@@ -205,14 +205,14 @@ export default function Header() {
               </a>
               <Link
                 href="/contact"
-                className="bg-cyan/90 hover:bg-cyan text-space font-semibold text-sm px-4 py-2.5 rounded-lg transition-all hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]"
+                className="relative bg-cyan hover:bg-cyan-light text-space font-bold text-sm px-5 py-2.5 rounded-lg transition-all shadow-[0_0_15px_rgba(0,229,255,0.25)] hover:shadow-[0_0_30px_rgba(0,229,255,0.45)] hover:-translate-y-0.5"
               >
                 Get Free Quote
               </Link>
             </div>
 
             <button
-              className="lg:hidden p-2 text-white hover:text-gold transition-colors"
+              className="lg:hidden p-2 text-white hover:text-cyan transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}

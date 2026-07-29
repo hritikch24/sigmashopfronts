@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4 group">
-              <span className="font-heading font-bold text-xl tracking-[0.2em] text-white group-hover:text-cyan transition-colors">
+              <span className="font-heading font-bold text-xl tracking-[0.2em] text-gradient-future">
                 SIGMA SHOP FRONTS
               </span>
             </Link>
