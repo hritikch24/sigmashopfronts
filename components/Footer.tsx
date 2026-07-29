@@ -66,25 +66,28 @@ function ClockIcon() {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-space text-white relative overflow-hidden">
+      {/* Subtle top border glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="font-heading font-bold text-xl tracking-wide text-gold">
+            <Link href="/" className="inline-block mb-4 group">
+              <span className="font-heading font-bold text-xl tracking-[0.2em] text-white group-hover:text-cyan transition-colors">
                 SIGMA SHOP FRONTS
               </span>
             </Link>
             <p className="text-grey-400 text-sm leading-relaxed mb-4">
               Professional shop front installation and repair specialists. Serving businesses across the UK with quality aluminium shop fronts, roller shutters, security doors and more.
             </p>
-            <p className="text-grey-500 text-xs">
-              Company No: 16794487
+            <p className="text-grey-300 text-xs font-mono">
+              Company No: <span className="text-cyan">16794487</span>
             </p>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gold mb-4">
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-[0.15em] text-cyan mb-4">
               Our Services
             </h3>
             <ul className="space-y-2">
@@ -92,7 +95,7 @@ export default function Footer() {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="text-grey-400 hover:text-gold text-sm transition-colors"
+                    className="text-grey-400 hover:text-cyan text-sm transition-colors"
                   >
                     {s.label}
                   </Link>
@@ -102,7 +105,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gold mb-4">
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-[0.15em] text-cyan mb-4">
               Areas We Cover
             </h3>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -110,7 +113,7 @@ export default function Footer() {
                 <li key={a.href}>
                   <Link
                     href={a.href}
-                    className="text-grey-400 hover:text-gold text-sm transition-colors"
+                    className="text-grey-400 hover:text-cyan text-sm transition-colors"
                   >
                     {a.label}
                   </Link>
@@ -120,14 +123,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gold mb-4">
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-[0.15em] text-cyan mb-4">
               Contact Us
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="tel:07414779594"
-                  className="flex items-center gap-2 text-grey-400 hover:text-gold text-sm transition-colors"
+                  className="flex items-center gap-2 text-grey-400 hover:text-cyan text-sm transition-colors"
                 >
                   <PhoneIcon />
                   <span>07414 779594 (Office)</span>
@@ -136,7 +139,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:07397066538"
-                  className="flex items-center gap-2 text-grey-400 hover:text-gold text-sm transition-colors"
+                  className="flex items-center gap-2 text-grey-400 hover:text-cyan text-sm transition-colors"
                 >
                   <PhoneIcon />
                   <span>07397 066538 (Mobile)</span>
@@ -147,7 +150,7 @@ export default function Footer() {
                   href="https://wa.me/447397066538"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-grey-400 hover:text-gold text-sm transition-colors"
+                  className="flex items-center gap-2 text-grey-400 hover:text-cyan text-sm transition-colors"
                 >
                   <WhatsAppIcon />
                   <span>WhatsApp Us</span>
@@ -156,7 +159,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:sales@sigmashopfronts.com"
-                  className="flex items-center gap-2 text-grey-400 hover:text-gold text-sm transition-colors"
+                  className="flex items-center gap-2 text-grey-400 hover:text-cyan text-sm transition-colors"
                 >
                   <EmailIcon />
                   <span>sales@sigmashopfronts.com</span>
@@ -167,7 +170,7 @@ export default function Footer() {
                 <div>
                   <p>Mon–Fri: 8AM–6PM</p>
                   <p>Sat: 9AM–4PM</p>
-                  <p className="text-gold font-medium">24/7 Emergency</p>
+                  <p className="text-cyan font-medium">24/7 Emergency</p>
                 </div>
               </li>
             </ul>
@@ -175,31 +178,31 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-navy-light">
+      <div className="border-t border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-grey-500 text-sm">
+          <p className="text-grey-400 text-sm">
             &copy; {new Date().getFullYear()} Sigma Shop Fronts Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
-            <Link href="/reviews" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/reviews" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Reviews
             </Link>
-            <Link href="/cost-guide" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/cost-guide" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Cost Guide
             </Link>
-            <Link href="/why-choose-us" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/why-choose-us" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Why Choose Us
             </Link>
-            <Link href="/blog" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/blog" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Blog
             </Link>
-            <Link href="/faq" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/faq" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               FAQ
             </Link>
-            <Link href="/privacy-policy" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/privacy-policy" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-grey-500 hover:text-gold text-sm transition-colors">
+            <Link href="/terms" className="text-grey-400 hover:text-cyan text-sm transition-colors">
               Terms & Conditions
             </Link>
           </div>

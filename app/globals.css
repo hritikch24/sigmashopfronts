@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
-/* ─── Custom Theme ──────────────────────────────────────────────────────── */
+/* ─── Futuristic 2050s Theme ─────────────────────────────────────────────── */
 @theme inline {
-  /* Brand colours */
-  --color-navy:        #1a1a2e;
-  --color-navy-light:  #2d2d4a;
-  --color-charcoal:    #2c2c3a;
-  --color-gold:        #d4a843;
-  --color-gold-light:  #e8c876;
+  /* Deep space base */
+  --color-space:         #06060e;
+  --color-space-light:   #0c0c1a;
+  --color-space-mid:     #111128;
+  --color-void:          #0a0a14;
 
-  /* Neutrals */
-  --color-white:       #ffffff;
-  --color-grey-50:     #f9fafb;
-  --color-grey-100:    #f3f4f6;
-  --color-grey-200:    #e5e7eb;
-  --color-grey-300:    #d1d5db;
-  --color-grey-400:    #9ca3af;
-  --color-grey-500:    #6b7280;
-  --color-grey-600:    #4b5563;
-  --color-grey-700:    #374151;
-  --color-grey-800:    #1f2937;
-  --color-grey-900:    #111827;
+  /* Legacy mappings — keep Tailwind classes working */
+  --color-navy:          #0a0a18;
+  --color-navy-light:    #14142a;
+  --color-charcoal:      #e0e6f0;
+
+  /* Electric accent — cyan/teal */
+  --color-cyan:          #00e5ff;
+  --color-cyan-light:    #62f0ff;
+  --color-cyan-dim:      #007a8a;
+
+  /* Gold → electric amber (brand continuity) */
+  --color-gold:          #f0b429;
+  --color-gold-light:    #ffd060;
+
+  /* Neon violet secondary */
+  --color-violet:        #9945ff;
+  --color-violet-light:  #b47cff;
+  --color-violet-dim:    #5c2d91;
+
+  /* Neutrals — shifted cool */
+  --color-white:         #f0f2f8;
+  --color-grey-50:       #0d0d1c;
+  --color-grey-100:      #12122a;
+  --color-grey-200:      #1c1c3a;
+  --color-grey-300:      #2a2a50;
+  --color-grey-400:      #6e7191;
+  --color-grey-500:      #8b8eb0;
+  --color-grey-600:      #a8abca;
+  --color-grey-700:      #c0c3de;
+  --color-grey-800:      #d8daf0;
+  --color-grey-900:      #eef0fa;
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -37,28 +55,100 @@
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-white);
-    color: var(--color-charcoal);
+    background-color: var(--color-space);
+    color: var(--color-grey-700);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    color: var(--color-navy);
+    color: var(--color-white);
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-navy);
+    background-color: var(--color-cyan);
+    color: var(--color-space);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-cyan);
     outline-offset: 2px;
   }
 
   * {
     box-sizing: border-box;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-space);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-grey-300);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cyan-dim);
+  }
+}
+
+/* ─── Keyframe Animations ─────────────────────────────────────────────── */
+@layer base {
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes border-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes grid-fade {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.06; }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  @keyframes text-glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(0, 229, 255, 0.5), 0 0 80px rgba(0, 229, 255, 0.2); }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes orb-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.05); }
+    50% { transform: translate(-20px, 15px) scale(0.95); }
+    75% { transform: translate(15px, 25px) scale(1.02); }
   }
 }
 
@@ -95,70 +185,273 @@
     }
   }
 
-  /* Gold gradient text */
+  /* ── Futuristic Text Effects ──────────────────────────────────────────── */
+
+  /* Cyan gradient text */
   .text-gradient-gold {
-    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Navy-to-charcoal gradient background */
+  /* Violet → Cyan gradient text */
+  .text-gradient-future {
+    background: linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated holographic text */
+  .text-holo {
+    background: linear-gradient(
+      90deg,
+      var(--color-cyan),
+      var(--color-violet-light),
+      var(--color-gold),
+      var(--color-cyan)
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Glowing text */
+  .text-glow-cyan {
+    animation: text-glow 3s ease-in-out infinite;
+  }
+
+  /* ── Background Effects ───────────────────────────────────────────────── */
+
+  /* Space gradient background */
   .bg-gradient-dark {
-    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-charcoal) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-space) 0%,
+      var(--color-space-mid) 50%,
+      var(--color-space) 100%
+    );
   }
 
-  /* Card surface */
+  /* Mesh grid background */
+  .bg-mesh-grid {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Dense grid pattern */
+  .bg-grid-dense {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: grid-fade 6s ease-in-out infinite;
+  }
+
+  /* Radial glow orbs */
+  .bg-orb-cyan {
+    position: relative;
+  }
+  .bg-orb-cyan::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    animation: orb-drift 20s ease-in-out infinite;
+  }
+
+  .bg-orb-violet {
+    position: relative;
+  }
+  .bg-orb-violet::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(153, 69, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    animation: orb-drift 25s ease-in-out infinite reverse;
+  }
+
+  /* ── Glass & Card Surfaces ────────────────────────────────────────────── */
+
+  /* Glassmorphism card */
   .card-surface {
-    background-color: var(--color-white);
-    border-radius: 0.75rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    border: 1px solid var(--color-grey-200);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
-  /* Gold CTA button base */
+  .card-surface:hover {
+    border-color: rgba(0, 229, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Glass panel — heavier blur */
+  .glass-panel {
+    background: rgba(10, 10, 24, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.25rem;
+  }
+
+  /* Gradient border card */
+  .card-gradient-border {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 229, 255, 0.3),
+      rgba(153, 69, 255, 0.2),
+      rgba(0, 229, 255, 0.1),
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ── Button Styles ────────────────────────────────────────────────────── */
+
+  /* Primary CTA — electric cyan */
   .btn-gold {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--color-gold);
-    color: var(--color-navy);
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan-dim));
+    color: var(--color-space);
     font-family: var(--font-heading);
     font-weight: 700;
     padding: 0.875rem 2rem;
-    border-radius: 0.5rem;
-    transition: background-color 150ms ease, transform 150ms ease;
+    border-radius: 0.75rem;
+    transition: all 300ms ease;
     text-decoration: none;
     cursor: pointer;
     border: none;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2), 0 0 60px rgba(0, 229, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+    pointer-events: none;
   }
 
   .btn-gold:hover {
-    background-color: var(--color-gold-light);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--color-cyan-light), var(--color-cyan));
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4), 0 0 80px rgba(0, 229, 255, 0.1);
   }
 
-  /* Outline button */
+  /* Outline button — cyan border */
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border: 2px solid var(--color-gold);
-    color: var(--color-gold);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    color: var(--color-cyan);
     font-family: var(--font-heading);
     font-weight: 700;
     padding: 0.875rem 2rem;
-    border-radius: 0.5rem;
-    transition: background-color 150ms ease, color 150ms ease;
+    border-radius: 0.75rem;
+    transition: all 300ms ease;
     text-decoration: none;
     cursor: pointer;
-    background: transparent;
+    background: rgba(0, 229, 255, 0.05);
   }
 
   .btn-outline:hover {
-    background-color: var(--color-gold);
-    color: var(--color-navy);
+    background: rgba(0, 229, 255, 0.15);
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+    color: var(--color-cyan-light);
+  }
+
+  /* ── Utility Animations ───────────────────────────────────────────────── */
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-reveal {
+    animation: reveal-up 0.8s ease-out forwards;
+  }
+
+  /* Staggered reveal delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+
+  /* Neon underline on hover */
+  .hover-neon-underline {
+    position: relative;
+  }
+  .hover-neon-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-cyan);
+    box-shadow: 0 0 6px var(--color-cyan);
+    transition: width 300ms ease;
+  }
+  .hover-neon-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Glow border on hover */
+  .hover-glow {
+    transition: all 300ms ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0, 229, 255, 0.03);
+    border-color: rgba(0, 229, 255, 0.3) !important;
   }
 }
