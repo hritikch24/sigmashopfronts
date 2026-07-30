@@ -70,6 +70,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+    description:
+      'Leading UK shopfront specialists — aluminium shopfronts, roller shutters, security & automatic doors. Nationwide installation, 24/7 emergency callout.',
+    images: [`${siteUrl}/assets/sigma-hero-1.jpeg`],
   },
   robots: {
     index: true,

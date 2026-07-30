@@ -198,6 +198,7 @@ const organizationSchema = {
   legalName: 'Sigma Shopfronts and Shutter Limited',
   url: 'https://www.sigmashopfronts.com',
   logo: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
+  image: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
   description: defaultLocalBusiness.description,
   telephone: defaultLocalBusiness.telephone,
   email: defaultLocalBusiness.email,
