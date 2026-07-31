@@ -3,70 +3,47 @@ import PrintButton from './PrintButton';
 const COMPANY_NAME = 'SIGMA SHOP FRONTS LTD';
 const COMPANY_ADDRESS = '4 Thornwood Close, Oldbury, West Midlands, B68 9LX';
 const COMPANY_PHONE = '07414 779594';
+const COMPANY_EMAIL = 'info@sigmashopfronts.com';
 const COMPANY_SITE = 'www.sigmashopfronts.com';
 const LOGO_SRC = '/assets/sigma-icon-512.png';
 
-const NAVY = '#101a3a';
-const NAVY_LIGHT = '#1d2b5c';
+/* Hardcoded — independent of site theme so documents print correctly */
+const C = {
+  brand:     '#0f1b3d',
+  brandAlt:  '#1a2d5e',
+  accent:    '#c49b2a',
+  accentBg:  '#faf4e2',
+  text:      '#1e2332',
+  textMuted: '#5a6070',
+  border:    '#d8dce6',
+  borderAlt: '#e8ecf2',
+  paper:     '#ffffff',
+  rowAlt:    '#f7f8fb',
+};
 
-interface LineItem {
-  description: string;
-  qty: number;
-  unitPrice: number;
-}
-
-interface DocumentMeta {
-  projectReference?: string;
-  scope?: string;
-  specifications?: string;
-  leadTime?: string;
-}
+interface LineItem { description: string; qty: number; unitPrice: number }
+interface DocumentMeta { projectReference?: string; scope?: string; specifications?: string; leadTime?: string }
 
 interface DocumentData {
-  id: string;
-  type: string;
-  number: string;
-  customerName: string;
-  customerEmail: string | null;
-  customerPhone: string | null;
-  customerAddress: string | null;
-  lineItems: LineItem[];
-  subtotal: number;
-  vatRate: number;
-  vatAmount: number;
-  total: number;
-  notes: string | null;
-  meta: DocumentMeta | null;
-  depositPercent: number | null;
-  issueDate: string | Date | null;
-  validUntil: string | Date | null;
-  dueDate: string | Date | null;
-  status: string;
-  createdAt: string | Date;
+  id: string; type: string; number: string;
+  customerName: string; customerEmail: string | null; customerPhone: string | null; customerAddress: string | null;
+  lineItems: LineItem[]; subtotal: number; vatRate: number; vatAmount: number; total: number;
+  notes: string | null; meta: DocumentMeta | null; depositPercent: number | null;
+  issueDate: string | Date | null; validUntil: string | Date | null; dueDate: string | Date | null;
+  status: string; createdAt: string | Date;
 }
 
-function formatDate(d: string | Date | null) {
-  if (!d) return null;
-  return new Date(d).toLocaleDateString('en-GB');
-}
-
-function gbp(n: number) {
-  return '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
+function fmt(d: string | Date | null) { return d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : null; }
+function gbp(n: number) { return '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 
 function SpecLines({ text }: { text: string }) {
   return (
-    <div className="space-y-1">
+    <div style={{ lineHeight: '1.7' }}>
       {text.split('\n').map((line, i) => {
         const t = line.trim();
-        if (!t) return <div key={i} className="h-1.5" />;
-        if (t.endsWith(':')) return <p key={i} className="font-bold" style={{ color: NAVY }}>{t}</p>;
-        return (
-          <p key={i} className="pl-5 relative">
-            <span className="absolute left-1" style={{ color: NAVY }}>&bull;</span>
-            {t}
-          </p>
-        );
+        if (!t) return <div key={i} style={{ height: 6 }} />;
+        if (t.endsWith(':')) return <p key={i} style={{ fontWeight: 700, color: C.brand, marginTop: 8 }}>{t}</p>;
+        return <p key={i} style={{ paddingLeft: 18, position: 'relative' }}><span style={{ position: 'absolute', left: 4, color: C.accent }}>&bull;</span>{t}</p>;
       })}
     </div>
   );
@@ -77,229 +54,217 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
   const meta = doc.meta || {};
   const title = isInvoice ? 'INVOICE' : 'QUOTATION';
   const vat = doc.vatRate > 0;
-
   const deposit = isInvoice && doc.depositPercent && doc.depositPercent > 0 ? (doc.total * doc.depositPercent) / 100 : null;
   const balance = deposit !== null ? doc.total - deposit : null;
-
   const displayDate = doc.issueDate || doc.createdAt;
-
   const validityDays = doc.validUntil
     ? Math.max(1, Math.round((new Date(doc.validUntil).getTime() - new Date(displayDate).getTime()) / 86400000))
     : null;
 
   const intro = isInvoice
-    ? ['Thank you for your business.', 'Please find below our invoice for the works', 'carried out at the above premises.']
-    : ['Thank you for your enquiry.', 'We are pleased to submit our quotation', 'for the supply and installation works', 'at the above premises as per your request.'];
+    ? 'Thank you for your business. Please find below our invoice for the works carried out at the above premises.'
+    : 'Thank you for your enquiry. We are pleased to submit our quotation for the supply and installation works at the above premises as per your request.';
 
   const terms: string[] = isInvoice
     ? [
         vat ? 'Prices are inclusive of 20% VAT where shown.' : 'No VAT has been applied to this invoice.',
-        deposit !== null ? `A deposit of ${doc.depositPercent}% is required to confirm the order.` : 'Payment is due upon completion of the works unless otherwise agreed.',
+        deposit !== null ? `A deposit of ${doc.depositPercent}% is required to confirm the order.` : 'Payment is due upon completion unless otherwise agreed.',
         'Please use the invoice number as the payment reference.',
-        'All work is completed by qualified engineers using high-quality materials.',
+        'All work completed by qualified engineers using high-quality materials.',
       ]
     : [
-        vat ? 'All prices include 20% VAT as shown in the total.' : 'Prices shown are the full amounts payable.',
-        'Any additional works not listed above will be quoted separately.',
-        validityDays ? `This quotation is valid for ${validityDays} days from the date of issue.` : 'This quotation is valid for 15 days from the date of issue.',
-        'Payment is due upon completion of the works unless otherwise agreed.',
-        'All work will be completed by qualified engineers using high-quality materials.',
+        vat ? 'All prices include 20% VAT as shown.' : 'Prices shown are the full amounts payable.',
+        'Additional works not listed will be quoted separately.',
+        validityDays ? `Valid for ${validityDays} days from date of issue.` : 'Valid for 15 days from date of issue.',
+        'Payment due upon completion unless otherwise agreed.',
+        'Work completed by qualified engineers using high-quality materials.',
       ];
 
+  const detailRows = [
+    [isInvoice ? 'Invoice No.' : 'Quote No.', doc.number],
+    ['Date', fmt(displayDate)],
+    ...(!isInvoice && doc.validUntil ? [['Valid Until', fmt(doc.validUntil)]] : []),
+    ...(isInvoice && doc.dueDate ? [['Payment Due', fmt(doc.dueDate)]] : []),
+    ...(meta.projectReference ? [['Reference', meta.projectReference]] : []),
+  ];
+
   return (
-    <div className="min-h-screen bg-grey-100 py-8 px-4 print:bg-white print:py-0 print:px-0" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-      <div className="max-w-[210mm] mx-auto">
-        <div className="no-print flex justify-end mb-4">
+    <div className="min-h-screen py-10 px-4 print:bg-white print:py-0 print:px-0" style={{ background: 'linear-gradient(135deg, #06060e 0%, #0c0c1a 50%, #0a0a14 100%)', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+      <div style={{ maxWidth: '210mm', margin: '0 auto' }}>
+        {/* Action bar */}
+        <div className="no-print flex items-center justify-between mb-5">
+          <p style={{ color: '#8b8eb0', fontSize: 13, fontFamily: 'var(--font-heading)' }}>
+            {isInvoice ? 'Invoice' : 'Quotation'} &middot; {doc.number}
+          </p>
           <PrintButton />
         </div>
 
-        <div className="bg-white shadow-lg print:shadow-none text-[#1f2430] text-[14.5px] leading-relaxed overflow-hidden" style={{ fontFamily: 'var(--font-heading), "Segoe UI", Arial, sans-serif' }}>
+        {/* ── Document ── */}
+        <div style={{ background: C.paper, fontFamily: '"Plus Jakarta Sans", "Segoe UI", Arial, sans-serif', fontSize: '14px', lineHeight: 1.6, color: C.text, boxShadow: '0 25px 60px rgba(0,0,0,0.5)', borderRadius: 4, overflow: 'hidden' }} className="print:shadow-none print:rounded-none">
 
-          {/* ── Header band ── */}
-          <div className="relative overflow-hidden" style={{ backgroundColor: NAVY }}>
-            <div className="absolute -right-16 -top-16 w-56 h-56 rotate-45" style={{ backgroundColor: NAVY_LIGHT }} />
-            <div className="relative z-10 flex items-center gap-5 px-10 py-6">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={LOGO_SRC} alt={COMPANY_NAME + ' logo'} className="w-16 h-16 rounded" />
-              <div>
-                <h1 className="text-white text-2xl sm:text-[32px] font-extrabold tracking-wide leading-tight">{COMPANY_NAME}</h1>
-                <p className="text-white/85 text-[13px] mt-1.5 font-medium tracking-wide">
-                  ☎ {COMPANY_PHONE} &nbsp;|&nbsp; {COMPANY_SITE}
-                </p>
+          {/* ── Top accent bar ── */}
+          <div style={{ height: 5, background: `linear-gradient(90deg, ${C.brand}, ${C.brandAlt}, ${C.accent})` }} />
+
+          {/* ── Header ── */}
+          <div style={{ padding: '32px 40px 28px', borderBottom: `1px solid ${C.border}` }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={LOGO_SRC} alt="" style={{ width: 56, height: 56, borderRadius: 10, border: `1px solid ${C.borderAlt}` }} />
+                <div>
+                  <h1 style={{ fontSize: 22, fontWeight: 800, color: C.brand, letterSpacing: '0.5px', margin: 0, lineHeight: 1.2 }}>{COMPANY_NAME}</h1>
+                  <p style={{ fontSize: 12, color: C.textMuted, marginTop: 4 }}>{COMPANY_ADDRESS}</p>
+                  <p style={{ fontSize: 12, color: C.textMuted }}>{COMPANY_PHONE} &nbsp;&middot;&nbsp; {COMPANY_SITE}</p>
+                </div>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <h2 style={{ fontSize: 36, fontWeight: 800, color: C.brand, margin: 0, lineHeight: 1, letterSpacing: '1px' }}>{title}</h2>
+                <div style={{ width: 48, height: 3, background: C.accent, marginTop: 8, marginLeft: 'auto', borderRadius: 2 }} />
               </div>
             </div>
           </div>
 
-          <div className="px-10 pt-6 pb-10">
-
-            {/* title row */}
-            <div className="flex flex-wrap justify-between items-start gap-6 mb-8">
+          <div style={{ padding: '28px 40px 40px' }}>
+            {/* ── Detail strip + Customer ── */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 32 }}>
               <div>
-                <h2 className="text-[44px] font-extrabold leading-none tracking-tight" style={{ color: NAVY }}>{title}</h2>
-                <div className="w-16 h-1.5 mt-2 rounded" style={{ backgroundColor: NAVY }} />
-              </div>
-              <table className="text-[14px]">
-                <tbody>
-                  <tr>
-                    <td className="font-bold pr-3 py-0.5" style={{ color: NAVY }}>{isInvoice ? 'Invoice No.' : 'Quotation No.'}</td>
-                    <td className="pr-2">:</td>
-                    <td>{doc.number}</td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold pr-3 py-0.5" style={{ color: NAVY }}>Date</td>
-                    <td className="pr-2">:</td>
-                    <td>{formatDate(displayDate)}</td>
-                  </tr>
-                  {!isInvoice && doc.validUntil && (
-                    <tr>
-                      <td className="font-bold pr-3 py-0.5" style={{ color: NAVY }}>Valid Until</td>
-                      <td className="pr-2">:</td>
-                      <td>{formatDate(doc.validUntil)}</td>
-                    </tr>
-                  )}
-                  {isInvoice && doc.dueDate && (
-                    <tr>
-                      <td className="font-bold pr-3 py-0.5" style={{ color: NAVY }}>Payment Due</td>
-                      <td className="pr-2">:</td>
-                      <td>{formatDate(doc.dueDate)}</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Customer box + intro */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
-              <div>
-                <span className="inline-block text-white text-[13px] font-bold px-4 py-1.5" style={{ backgroundColor: NAVY }}>
-                  {isInvoice ? 'Invoice To' : 'Quotation For'}
-                </span>
-                <div className="border px-4 py-3.5" style={{ borderColor: NAVY }}>
-                  <p className="font-bold uppercase" style={{ color: NAVY }}>{doc.customerName}</p>
-                  {doc.customerAddress && doc.customerAddress.split(',').map((line, i) => <p key={i}>{line.trim()}</p>)}
-                  {doc.customerPhone && <p>{doc.customerPhone}</p>}
-                  {doc.customerEmail && <p>{doc.customerEmail}</p>}
+                <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: C.textMuted, marginBottom: 8 }}>
+                  {isInvoice ? 'Billed To' : 'Quote For'}
+                </p>
+                <div style={{ padding: '14px 16px', borderLeft: `3px solid ${C.accent}`, background: C.rowAlt, borderRadius: '0 6px 6px 0' }}>
+                  <p style={{ fontWeight: 700, color: C.brand, fontSize: 15, marginBottom: 2 }}>{doc.customerName}</p>
+                  {doc.customerAddress && <p style={{ fontSize: 13, color: C.textMuted }}>{doc.customerAddress}</p>}
+                  {doc.customerPhone && <p style={{ fontSize: 13, color: C.textMuted }}>{doc.customerPhone}</p>}
+                  {doc.customerEmail && <p style={{ fontSize: 13, color: C.textMuted }}>{doc.customerEmail}</p>}
                 </div>
               </div>
-              <div className="pt-8 space-y-1">
-                {intro.map((l, i) => <p key={i}>{l}</p>)}
+              <div>
+                <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: C.textMuted, marginBottom: 8 }}>
+                  Document Details
+                </p>
+                <table style={{ fontSize: 13 }}>
+                  <tbody>
+                    {detailRows.map(([label, val], i) => (
+                      <tr key={i}>
+                        <td style={{ paddingRight: 16, paddingTop: 3, paddingBottom: 3, fontWeight: 600, color: C.brand, whiteSpace: 'nowrap' }}>{label}</td>
+                        <td style={{ paddingTop: 3, paddingBottom: 3, color: C.text }}>{val}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
 
-            {/* Scope + specifications (quotes) */}
+            <p style={{ fontSize: 13, color: C.textMuted, marginBottom: 28, lineHeight: 1.7 }}>{intro}</p>
+
             {!isInvoice && meta.scope && (
-              <div className="mb-8">
-                <p className="font-bold mb-1.5" style={{ color: NAVY }}>Scope of Work — supply and install:</p>
-                <ul className="list-disc pl-6 space-y-1">
-                  {meta.scope.split('\n').filter((l) => l.trim()).map((l, i) => <li key={i}>{l.trim()}</li>)}
+              <div style={{ marginBottom: 24 }}>
+                <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Scope of Work</p>
+                <ul style={{ paddingLeft: 20, margin: 0, lineHeight: 1.8 }}>
+                  {meta.scope.split('\n').filter((l) => l.trim()).map((l, i) => <li key={i} style={{ fontSize: 13, color: C.text }}>{l.trim()}</li>)}
                 </ul>
               </div>
             )}
+
             {!isInvoice && meta.specifications && (
-              <div className="mb-10">
-                <p className="font-bold mb-2 text-[15px] uppercase tracking-wide" style={{ color: NAVY }}>Specifications</p>
+              <div style={{ marginBottom: 28 }}>
+                <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Specifications</p>
                 <SpecLines text={meta.specifications} />
               </div>
             )}
 
-            {/* Works table */}
-            <table className="w-full border-collapse mb-8">
+            {/* ── Line Items Table ── */}
+            <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 8 }}>
               <thead>
-                <tr className="text-white text-[13px] tracking-wider" style={{ backgroundColor: NAVY }}>
-                  <th className="px-3 py-2.5 text-left w-14">NO.</th>
-                  <th className="px-3 py-2.5 text-left">DESCRIPTION OF WORKS</th>
-                  <th className="px-3 py-2.5 text-right w-44">{vat ? 'PRICE (EX. VAT)' : 'PRICE'}</th>
+                <tr>
+                  <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', width: 44 }}>#</th>
+                  <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>Description</th>
+                  <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'center', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', width: 60 }}>Qty</th>
+                  <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'right', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', width: 100 }}>Unit Price</th>
+                  <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'right', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', width: 110 }}>{vat ? 'Amount' : 'Total'}</th>
                 </tr>
               </thead>
               <tbody>
                 {doc.lineItems.map((li, idx) => (
-                  <tr key={idx} className="align-top" style={{ borderBottom: `1px solid ${NAVY}22`, borderLeft: `1px solid ${NAVY}44`, borderRight: `1px solid ${NAVY}44` }}>
-                    <td className="px-3 py-4 font-extrabold text-lg" style={{ color: NAVY }}>{idx + 1}.</td>
-                    <td className="px-3 py-4">
-                      <p className="font-bold text-[15.5px]" style={{ color: NAVY }}>{li.description}</p>
-                      {li.qty > 1 && <p className="text-[13px] mt-1">Quantity: {li.qty} × {gbp(li.unitPrice)}</p>}
+                  <tr key={idx} style={{ background: idx % 2 === 1 ? C.rowAlt : C.paper, borderBottom: `1px solid ${C.borderAlt}` }}>
+                    <td style={{ padding: '12px 14px', fontWeight: 700, color: C.brand, fontSize: 14 }}>{idx + 1}</td>
+                    <td style={{ padding: '12px 14px' }}>
+                      <p style={{ fontWeight: 600, color: C.brand, fontSize: 14, margin: 0 }}>{li.description}</p>
                     </td>
-                    <td className="px-3 py-4 text-right">
-                      <p className="font-extrabold text-[22px] leading-tight" style={{ color: NAVY }}>{gbp(li.qty * li.unitPrice)}</p>
-                      {vat && <p className="text-[13px]">+ VAT</p>}
-                    </td>
+                    <td style={{ padding: '12px 14px', textAlign: 'center', color: C.textMuted }}>{li.qty}</td>
+                    <td style={{ padding: '12px 14px', textAlign: 'right', color: C.textMuted }}>{gbp(li.unitPrice)}</td>
+                    <td style={{ padding: '12px 14px', textAlign: 'right', fontWeight: 700, color: C.brand, fontSize: 15 }}>{gbp(li.qty * li.unitPrice)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
 
             {!isInvoice && meta.leadTime && (
-              <p className="mb-8 font-bold" style={{ color: NAVY }}>LEAD TIME: <span className="font-medium text-[#1f2430]">{meta.leadTime}</span></p>
+              <p style={{ margin: '16px 0 24px', fontWeight: 600, color: C.brand, fontSize: 13 }}>
+                Lead Time: <span style={{ fontWeight: 400, color: C.text }}>{meta.leadTime}</span>
+              </p>
             )}
 
-            {/* Terms + totals */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+            {/* ── Totals + Terms ── */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: 32, marginTop: 24, marginBottom: 32 }}>
               <div>
-                <p className="font-bold text-[14px] tracking-wide mb-2" style={{ color: NAVY }}>TERMS &amp; CONDITIONS</p>
-                <ul className="space-y-1.5 text-[12.5px]">
-                  {terms.map((t, i) => (
-                    <li key={i} className="pl-4 relative">
-                      <span className="absolute left-0" style={{ color: NAVY }}>&bull;</span>
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: C.brand, marginBottom: 8 }}>Terms &amp; Conditions</p>
+                <ol style={{ margin: 0, paddingLeft: 16, fontSize: 12, color: C.textMuted, lineHeight: 1.8 }}>
+                  {terms.map((t, i) => <li key={i}>{t}</li>)}
+                </ol>
                 {doc.notes && (
-                  <div className="mt-4 text-[12.5px]">
-                    <p className="font-bold" style={{ color: NAVY }}>Notes:</p>
-                    <p className="whitespace-pre-wrap">{doc.notes}</p>
+                  <div style={{ marginTop: 12, padding: '10px 12px', background: C.accentBg, borderRadius: 6, fontSize: 12 }}>
+                    <p style={{ fontWeight: 700, color: C.brand, marginBottom: 2 }}>Notes</p>
+                    <p style={{ color: C.text, whiteSpace: 'pre-wrap' }}>{doc.notes}</p>
                   </div>
                 )}
               </div>
-              <div>
-                <table className="w-full border-collapse text-[14.5px]">
-                  <tbody>
-                    <tr style={{ border: `1px solid ${NAVY}55` }}>
-                      <td className="px-4 py-2 font-bold" style={{ color: NAVY }}>SUBTOTAL</td>
-                      <td className="px-4 py-2 text-right">{gbp(doc.subtotal)}</td>
-                    </tr>
-                    {vat && (
-                      <tr style={{ border: `1px solid ${NAVY}55` }}>
-                        <td className="px-4 py-2 font-bold" style={{ color: NAVY }}>VAT ({doc.vatRate}%)</td>
-                        <td className="px-4 py-2 text-right">{gbp(doc.vatAmount)}</td>
-                      </tr>
-                    )}
-                    <tr className="text-white" style={{ backgroundColor: NAVY }}>
-                      <td className="px-4 py-2.5 font-bold">TOTAL {vat ? '(INC. VAT)' : ''}</td>
-                      <td className="px-4 py-2.5 text-right font-extrabold text-[18px]">{gbp(doc.total)}</td>
-                    </tr>
-                    {deposit !== null && balance !== null && (
-                      <>
-                        <tr style={{ border: `1px solid ${NAVY}55`, backgroundColor: '#fdf3cd' }}>
-                          <td className="px-4 py-2 font-bold" style={{ color: NAVY }}>{doc.depositPercent}% DEPOSIT</td>
-                          <td className="px-4 py-2 text-right font-bold">{gbp(deposit)}</td>
-                        </tr>
-                        <tr style={{ border: `1px solid ${NAVY}55` }}>
-                          <td className="px-4 py-2 font-bold" style={{ color: NAVY }}>{100 - (doc.depositPercent as number)}% BALANCE</td>
-                          <td className="px-4 py-2 text-right">{gbp(balance)}</td>
-                        </tr>
-                      </>
-                    )}
-                  </tbody>
-                </table>
+
+              <div style={{ border: `1px solid ${C.border}`, borderRadius: 8, overflow: 'hidden' }}>
+                <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${C.borderAlt}` }}>
+                  <span style={{ fontSize: 13, color: C.textMuted }}>Subtotal</span>
+                  <span style={{ fontSize: 13, fontWeight: 600 }}>{gbp(doc.subtotal)}</span>
+                </div>
+                {vat && (
+                  <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${C.borderAlt}` }}>
+                    <span style={{ fontSize: 13, color: C.textMuted }}>VAT ({doc.vatRate}%)</span>
+                    <span style={{ fontSize: 13, fontWeight: 600 }}>{gbp(doc.vatAmount)}</span>
+                  </div>
+                )}
+                <div style={{ padding: '14px 16px', background: C.brand, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Total {vat ? '(Inc. VAT)' : ''}</span>
+                  <span style={{ fontSize: 22, fontWeight: 800, color: '#fff' }}>{gbp(doc.total)}</span>
+                </div>
+                {deposit !== null && balance !== null && (
+                  <>
+                    <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', background: C.accentBg, borderBottom: `1px solid ${C.borderAlt}` }}>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: C.brand }}>{doc.depositPercent}% Deposit</span>
+                      <span style={{ fontSize: 14, fontWeight: 700, color: C.brand }}>{gbp(deposit)}</span>
+                    </div>
+                    <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ fontSize: 13, color: C.textMuted }}>{100 - (doc.depositPercent as number)}% Balance</span>
+                      <span style={{ fontSize: 13, fontWeight: 600 }}>{gbp(balance)}</span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
-            {/* Closing line */}
-            <p className="text-center italic text-[17px] font-semibold mb-1" style={{ color: NAVY, fontFamily: 'Georgia, serif' }}>
+            {/* Closing */}
+            <p style={{ textAlign: 'center', fontSize: 16, fontWeight: 600, color: C.brand, fontStyle: 'italic', marginBottom: 4, fontFamily: 'Georgia, serif' }}>
               {isInvoice ? 'Thank you for your business.' : 'Thank you for the opportunity to quote.'}
             </p>
-            <p className="text-center text-[13px]">We look forward to working with you.</p>
+            <p style={{ textAlign: 'center', fontSize: 12, color: C.textMuted }}>We look forward to working with you.</p>
           </div>
 
-          {/* ── Footer band ── */}
-          <div className="relative overflow-hidden text-center text-white px-10 py-4" style={{ backgroundColor: NAVY }}>
-            <div className="absolute -left-14 -bottom-14 w-40 h-40 rotate-45" style={{ backgroundColor: NAVY_LIGHT }} />
-            <div className="relative z-10">
-              <p className="font-bold text-[14px]">{COMPANY_NAME}</p>
-              <p className="text-white/85 text-[12.5px] mt-0.5">{COMPANY_ADDRESS}</p>
-              <p className="text-white/85 text-[12.5px] mt-0.5">☎ {COMPANY_PHONE} &nbsp;|&nbsp; {COMPANY_SITE}</p>
-            </div>
+          {/* ── Footer ── */}
+          <div style={{ background: C.brand, padding: '14px 40px', textAlign: 'center' }}>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', margin: 0 }}>
+              {COMPANY_NAME} &nbsp;&middot;&nbsp; {COMPANY_ADDRESS}
+            </p>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 2 }}>
+              {COMPANY_PHONE} &nbsp;&middot;&nbsp; {COMPANY_EMAIL} &nbsp;&middot;&nbsp; {COMPANY_SITE}
+            </p>
           </div>
         </div>
       </div>
