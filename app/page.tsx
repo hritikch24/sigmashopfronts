@@ -255,7 +255,7 @@ export default function HomePage() {
               Nationwide UK Shopfront Specialists
             </p>
 
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
+            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
               Aluminium Shopfronts,{' '}
               <span className="text-gradient-gold">Roller Shutters &amp; Security Doors</span>{' '}
               Across the UK
