@@ -146,10 +146,13 @@ const usps = [
 ];
 
 const galleryImages = [
+  { src: '/assets/shopfront-night-1.jpeg', alt: 'Aluminium shopfront illuminated at night' },
   { src: '/assets/sigma-hero-1.jpeg', alt: 'Modern aluminium shopfront installation' },
   { src: '/assets/sigma-front-wide.jpeg', alt: 'Wide commercial shopfront with full glazing' },
+  { src: '/assets/shopfront-transform-1.jpeg', alt: 'Shopfront before and after transformation' },
   { src: '/assets/sigma-mall-front.jpeg', alt: 'Retail mall shopfront installation' },
   { src: '/assets/sigma-glass-front.jpeg', alt: 'Glass shopfront with slim aluminium frame' },
+  { src: '/assets/security-door-steel-1.jpeg', alt: 'Steel security door on commercial warehouse' },
   { src: '/assets/shopfront-2.jpeg', alt: 'Frameless glass shopfront project' },
   { src: '/assets/shopfront-4.jpeg', alt: 'High street shopfront renovation' },
   { src: '/assets/shopfront-5.jpeg', alt: 'Contemporary commercial shopfront' },

@@ -15,8 +15,16 @@ export const metadata: Metadata = {
 
 const images = [
   {
+    src: '/assets/shopfront-premium-1.jpeg',
+    alt: 'Premium anthracite aluminium shopfront with full glazing',
+  },
+  {
     src: '/assets/sigma-hero-1.jpeg',
     alt: 'Modern aluminium shopfront installation by Sigma Shop Fronts',
+  },
+  {
+    src: '/assets/shopfront-interior-1.jpeg',
+    alt: 'Interior view through aluminium shopfront entrance',
   },
   {
     src: '/assets/sigma-front-wide.jpeg',
@@ -33,6 +41,10 @@ const images = [
   {
     src: '/assets/sigma-roller-front.jpeg',
     alt: 'Integrated roller shutter shopfront installation',
+  },
+  {
+    src: '/assets/roller-shutter-evening-1.jpeg',
+    alt: 'Roller shutter secured at evening on commercial unit',
   },
   {
     src: '/assets/sigma-retail-front.jpeg',
