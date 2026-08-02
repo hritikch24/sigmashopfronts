@@ -78,7 +78,7 @@ const services = [
     title: 'Shutter Repair',
     description:
       'Fast roller shutter repairs for jammed shutters, broken springs, motor failure and damaged laths. Same-day service available across the UK.',
-    image: '/assets/roller-shutter-1.jpeg',
+    image: '/assets/roller-shutter-evening-1.jpeg',
     href: '/services/shutter-repair',
   },
   {

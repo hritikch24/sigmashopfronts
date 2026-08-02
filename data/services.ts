@@ -1289,7 +1289,7 @@ These upgrades can often be included within the permanent repair scope, and wher
     name: 'Shutter Repair',
     shortDescription:
       'Fast, professional roller shutter repairs across the UK. Jammed shutters, broken springs, motor failure, damaged laths, and bent guides diagnosed and fixed — often on the same day.',
-    heroImage: 'roller-shutter-1.jpeg',
+    heroImage: 'roller-shutter-evening-1.jpeg',
     primaryKeyword: 'roller shutter repair',
     metaTitle: 'Roller Shutter Repair | Fast UK-Wide Service',
     metaDescription:
