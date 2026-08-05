@@ -57,6 +57,8 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       dailyCallClicks,
       recentCallClicks,
       callClicksByAction,
+      trafficSources,
+      searchLandings,
     ] = await Promise.all([
       // Traffic
       prisma.pageView.count({ where: { createdAt: { gte: since } } }),
@@ -163,6 +165,55 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         `SELECT COALESCE(action,'call_click') as action, COUNT(*)::bigint as count FROM call_clicks WHERE "createdAt" >= $1 GROUP BY action ORDER BY count DESC`,
         since
       ).catch(() => []),
+
+      // Traffic sources classification
+      prisma.$queryRawUnsafe<{ source: string; count: bigint }[]>(
+        `SELECT
+          CASE
+            WHEN gclid IS NOT NULL AND gclid != '' THEN 'Google Ads'
+            WHEN utm_medium IN ('cpc','ppc','paid') THEN 'Google Ads'
+            WHEN (referrer IS NULL OR referrer = '') AND utm_source IS NULL THEN 'Direct'
+            WHEN referrer ILIKE '%google.%' THEN 'Google Organic'
+            WHEN referrer ILIKE '%bing.%' OR referrer ILIKE '%msn.%' THEN 'Bing'
+            WHEN referrer ILIKE '%yahoo.%' THEN 'Yahoo'
+            WHEN referrer ILIKE '%duckduckgo.%' THEN 'DuckDuckGo'
+            WHEN referrer ILIKE '%facebook.%' OR referrer ILIKE '%fb.%' THEN 'Facebook'
+            WHEN referrer ILIKE '%instagram.%' THEN 'Instagram'
+            WHEN referrer ILIKE '%twitter.%' OR referrer ILIKE '%x.com%' THEN 'X / Twitter'
+            WHEN referrer ILIKE '%linkedin.%' THEN 'LinkedIn'
+            ELSE 'Other'
+          END as source,
+          COUNT(*)::bigint as count
+        FROM page_views WHERE "createdAt" >= $1
+        GROUP BY source ORDER BY count DESC`,
+        since
+      ).catch(() => []),
+
+      // Landing pages by source (first view per session)
+      prisma.$queryRawUnsafe<{ path: string; source: string; sessions: bigint }[]>(
+        `WITH first_views AS (
+          SELECT DISTINCT ON (session_id)
+            session_id, path, referrer, utm_source, utm_medium, gclid
+          FROM page_views
+          WHERE "createdAt" >= $1
+          ORDER BY session_id, "createdAt" ASC
+        )
+        SELECT path,
+          CASE
+            WHEN gclid IS NOT NULL AND gclid != '' THEN 'Google Ads'
+            WHEN utm_medium IN ('cpc','ppc','paid') THEN 'Google Ads'
+            WHEN (referrer IS NULL OR referrer = '') AND utm_source IS NULL THEN 'Direct'
+            WHEN referrer ILIKE '%google.%' THEN 'Google Organic'
+            WHEN referrer ILIKE '%bing.%' OR referrer ILIKE '%msn.%' THEN 'Bing'
+            ELSE 'Other Search'
+          END as source,
+          COUNT(*)::bigint as sessions
+        FROM first_views
+        GROUP BY path, source
+        ORDER BY sessions DESC
+        LIMIT 30`,
+        since
+      ).catch(() => []),
     ]);
 
     const serialize = <T extends Record<string, unknown>>(arr: T[]) =>
@@ -203,6 +254,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         byAction: serialize(callClicksByAction as Record<string, unknown>[]),
         daily: serialize(dailyCallClicks as Record<string, unknown>[]),
         recent: recentCallClicks,
+      },
+      sources: {
+        bySource: serialize(trafficSources as Record<string, unknown>[]),
+        landings: serialize(searchLandings as Record<string, unknown>[]),
       },
     });
   } catch (err) {

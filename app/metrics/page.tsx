@@ -53,6 +53,10 @@ interface MetricsData {
       created_at: string;
     }[];
   };
+  sources?: {
+    bySource: { source: string; count: number }[];
+    landings: { path: string; source: string; sessions: number }[];
+  };
 }
 
 /* ── Status styling (dark-mode safe) ────────────────────────────────── */
@@ -479,7 +483,7 @@ function getTimeAgo(date: Date): string {
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 }
 
-const TABS = ['overview', 'traffic', 'leads', 'calls'] as const;
+const TABS = ['overview', 'traffic', 'sources', 'leads', 'calls'] as const;
 type Tab = typeof TABS[number];
 
 const PERIODS: Record<string, string> = {
@@ -657,7 +661,7 @@ export default function MetricsPage() {
                       : 'text-grey-500 hover:text-white'
                   }`}
                 >
-                  {tab === 'calls' ? 'Calls' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
               ))}
             </nav>
@@ -696,7 +700,7 @@ export default function MetricsPage() {
                 activeTab === tab ? 'text-gold border-gold' : 'text-grey-500 border-transparent'
               }`}
             >
-              {tab === 'calls' ? 'Calls' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
         </div>
@@ -757,6 +761,87 @@ export default function MetricsPage() {
                 <SectionCard title="Top IPs"><BarChart data={data.traffic.ips} labelKey="ip" valueKey="count" color="violet" /></SectionCard>
               </div>
             )}
+          </div>
+        )}
+
+        {/* ── SOURCES ────────────────────────────────────────────────── */}
+        {activeTab === 'sources' && data.sources && (
+          <div className="space-y-8">
+            {(() => {
+              const s = data.sources.bySource;
+              const total = s.reduce((a, b) => a + b.count, 0) || 1;
+              const google = s.find((x) => x.source === 'Google Organic')?.count || 0;
+              const ads = s.find((x) => x.source === 'Google Ads')?.count || 0;
+              const direct = s.find((x) => x.source === 'Direct')?.count || 0;
+              const other = total - google - ads - direct;
+              return (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <StatCard label="Google Organic" value={google.toLocaleString()} sub={`${((google / total) * 100).toFixed(1)}% of traffic`} accent />
+                  <StatCard label="Google Ads" value={ads.toLocaleString()} sub={`${((ads / total) * 100).toFixed(1)}% of traffic`} />
+                  <StatCard label="Direct" value={direct.toLocaleString()} sub={`${((direct / total) * 100).toFixed(1)}% of traffic`} />
+                  <StatCard label="Other" value={other.toLocaleString()} sub={`${((other / total) * 100).toFixed(1)}% of traffic`} />
+                </div>
+              );
+            })()}
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <SectionCard title="Traffic Sources">
+                <BarChart data={data.sources.bySource} labelKey="source" valueKey="count" maxBars={12} color="blue" />
+              </SectionCard>
+              <SectionCard title="Raw Referrers">
+                <BarChart data={data.traffic.topReferrers} labelKey="referrer" valueKey="views" maxBars={10} color="violet" />
+              </SectionCard>
+            </div>
+
+            <SectionCard title="Landing Pages by Source">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="border-b border-grey-200/10">
+                      {['Landing Page', 'Source', 'Sessions'].map((h) => (
+                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-grey-500 uppercase tracking-widest">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.sources.landings.map((row, i) => (
+                      <tr key={i} className="border-b border-grey-200/10 hover:bg-grey-200/10 transition-colors">
+                        <td className="py-3 px-4 text-sm text-white font-medium max-w-[300px] truncate">{row.path}</td>
+                        <td className="py-3 px-4">
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold ${
+                            row.source === 'Google Organic' ? 'bg-emerald-500/15 text-emerald-400' :
+                            row.source === 'Google Ads' ? 'bg-blue-500/15 text-blue-400' :
+                            row.source === 'Direct' ? 'bg-amber-500/15 text-amber-400' :
+                            row.source === 'Bing' ? 'bg-sky-500/15 text-sky-400' :
+                            'bg-grey-200/20 text-grey-400'
+                          }`}>
+                            {row.source}
+                          </span>
+                        </td>
+                        <td className="py-3 px-4 text-sm font-bold text-white tabular-nums">{row.sessions}</td>
+                      </tr>
+                    ))}
+                    {data.sources.landings.length === 0 && (
+                      <tr>
+                        <td colSpan={3} className="py-12 text-center text-grey-500 text-sm">No landing page data yet</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </SectionCard>
+
+            <div className="flex items-start gap-3 px-5 py-4 rounded-xl bg-blue-500/5 border border-blue-500/15">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400 flex-shrink-0 mt-0.5">
+                <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+              </svg>
+              <p className="text-sm text-grey-600">
+                <span className="font-semibold text-blue-400">Search queries not available from referrer.</span>{' '}
+                Google encrypts search queries since 2011 — the referrer only shows the domain (google.com), not what the user searched.
+                To see actual search queries, use <span className="text-white font-medium">Google Search Console</span> (Performance &gt; Queries).
+                The landing pages above show which pages attract organic traffic, which indirectly tells you which queries are working.
+              </p>
+            </div>
           </div>
         )}
 

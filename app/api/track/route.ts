@@ -5,7 +5,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const body = await request.json();
 
-    const { path, referrer, utmSource, utmMedium, utmCampaign, device, browser, sessionId } = body;
+    const { path, referrer, utmSource, utmMedium, utmCampaign, gclid, device, browser, sessionId } = body;
 
     if (!path || !sessionId) {
       return NextResponse.json({ ok: false }, { status: 400 });
@@ -27,6 +27,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         utmSource: utmSource ? String(utmSource).slice(0, 200) : null,
         utmMedium: utmMedium ? String(utmMedium).slice(0, 200) : null,
         utmCampaign: utmCampaign ? String(utmCampaign).slice(0, 200) : null,
+        gclid: gclid ? String(gclid).slice(0, 200) : null,
         device: device ? String(device).slice(0, 50) : null,
         browser: browser ? String(browser).slice(0, 50) : null,
         country: geo,

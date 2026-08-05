@@ -47,6 +47,7 @@ export default function Analytics() {
       utmSource: searchParams.get('utm_source'),
       utmMedium: searchParams.get('utm_medium'),
       utmCampaign: searchParams.get('utm_campaign'),
+      gclid: searchParams.get('gclid'),
       device: getDevice(),
       browser: getBrowser(),
       sessionId: getSessionId(),
