@@ -13,6 +13,10 @@ const serviceSlugs = [
   'emergency-callout',
   'shutter-repair',
   'glass-replacement',
+  'aluminium-doors',
+  'aluminium-windows',
+  'curtain-walling',
+  'glass-shopfronts',
 ];
 
 // All cities — every service+city combo is now indexed

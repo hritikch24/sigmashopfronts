@@ -1631,4 +1631,622 @@ We communicate expected lead times clearly at the point of order and keep you in
     ],
     relatedServices: ['shopfront-repairs', 'aluminium-shopfronts', 'emergency-callout', 'automatic-doors'],
   },
+
+  {
+    slug: 'aluminium-doors',
+    name: 'Aluminium Doors',
+    shortDescription:
+      'Commercial aluminium entrance doors for retail, office, and industrial premises. Thermally broken profiles, PAS 24 security options, DDA-compliant thresholds, and a full RAL colour range.',
+    heroImage: 'aluminium-shopfront-1.jpeg',
+    primaryKeyword: 'aluminium doors commercial',
+    metaTitle: 'Aluminium Doors UK | Commercial Supply & Install',
+    metaDescription:
+      'Commercial aluminium door installation across the UK. Thermally broken frames, PAS 24 security, DDA-compliant. Hinged, pivot & double leaf options. Free survey.',
+    description: `Aluminium doors are the standard entrance solution for commercial buildings across the UK, from high-street retail units and office reception areas to warehouses, schools, and healthcare facilities. When correctly specified, an aluminium entrance door delivers the combination of structural strength, slim sightlines, weather resistance, and design versatility that commercial environments demand — at a price point that makes economic sense over a 25-year service life.
+
+Sigma Shop Fronts supplies and installs commercial aluminium doors as standalone entrance systems and as integrated elements within larger shopfront, curtain walling, and glazed screen installations. We work with hinged, pivot, and double-leaf configurations, using profile systems from leading European fabricators that are independently tested and CE-marked to BS EN 14351-1.
+
+**Door Configurations**
+
+Single-leaf hinged doors are the most common commercial entrance configuration, suitable for offices, individual retail units, and service entrances. Standard commercial door leaf sizes range from 900 mm to 1200 mm in width, with heights up to 2400 mm. For wider openings or premises with high footfall requiring simultaneous two-way traffic, double-leaf (French door) configurations provide a clear opening of 1600 mm to 2400 mm.
+
+Pivot doors — where the leaf rotates on a top-and-bottom pivot rather than side-hung hinges — are specified for large, heavy door leaves (typically over 100 kg) or for architectural effect. Pivot doors require a floor socket and overhead pivot bearing, and the door leaf must be precisely balanced to ensure smooth, effortless operation.
+
+**Thermal Performance**
+
+For commercial buildings subject to Building Regulations Part L (Conservation of Fuel and Power), thermally broken aluminium door frames are required. Our thermally broken profiles incorporate a continuous polyamide insulating strip within the aluminium section, reducing heat transfer through the frame and eliminating the cold-bridging and internal condensation that non-broken frames produce.
+
+Complete door assembly U-values for our thermally broken systems typically range from 1.2 to 1.8 W/m²K depending on the glazing specification, comfortably meeting the elemental U-value targets set out in Approved Document L2 for non-domestic buildings.
+
+**Security Specification**
+
+Commercial entrance doors are frequently a target for forced entry. We offer door sets tested and certified to PAS 24:2022 (Enhanced Security Performance Requirements for Doorsets and Windows), the standard most commonly referenced by commercial insurers. PAS 24 door sets are tested as a complete assembly — frame, leaf, glazing, and hardware together — against a defined series of manual and mechanical attack tests.
+
+Multi-point locking is standard on our commercial aluminium doors, engaging the frame at a minimum of three points. Anti-drill, anti-pick, and anti-bump euro profile cylinders rated to TS 007 three-star are specified as standard, and we can accommodate master-keying and restricted keyway requirements for multi-tenanted buildings.
+
+**Glazing Options**
+
+Aluminium door leaves can be fully glazed, partially glazed with a solid lower panel, or solid with a vision panel. Glazing is typically toughened safety glass to BS EN 12150-1 as a minimum, with laminated or security-rated glass specified for PAS 24 assemblies. For energy performance, double-glazed units with low-emissivity coatings are standard.
+
+**DDA Compliance**
+
+The Equality Act 2010 requires that commercial premises provide accessible entrances. Our aluminium doors are designed with low thresholds (maximum 15 mm upstand), minimum 775 mm clear opening width as standard (extendable to 900 mm or beyond), and lever handle furniture at accessible heights in accordance with BS 8300. Where automatic operation is required, our doors can be fitted with swing-door operators to provide powered opening — see our automatic doors service for details.
+
+**Powder Coating and Finish**
+
+All aluminium door sections are powder-coated to BS EN 12206-1 in any RAL Classic or RAL Design colour. Our standard guarantee covers colour retention and adhesion for 10 years under normal UK exposure conditions. Dual-colour finishes — a different colour on the internal and external faces — are available for premises where the interior colour scheme differs from the external branding.`,
+    benefits: [
+      {
+        title: 'Slim Sightlines with Maximum Glass Area',
+        description:
+          'Aluminium door profiles are significantly narrower than timber or PVC-U equivalents, maximising the glazed area and natural light entering the premises while maintaining full structural integrity and weather performance.',
+      },
+      {
+        title: 'PAS 24 Security Certification Available',
+        description:
+          'Our PAS 24:2022 certified door sets provide independently verified resistance to forced entry, satisfying the security requirements of commercial insurers and giving building owners documented evidence of enhanced protection.',
+      },
+      {
+        title: 'Thermally Broken for Building Regulations Compliance',
+        description:
+          'Thermally broken aluminium profiles meet the U-value requirements of Building Regulations Part L for non-domestic buildings, ensuring energy compliance without compromising the structural performance or slim aesthetic of the door.',
+      },
+      {
+        title: '25+ Year Service Life',
+        description:
+          'Aluminium does not rust, rot, or warp. A correctly installed aluminium door requires only periodic cleaning and occasional hardware maintenance to provide decades of reliable daily use in a commercial environment.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between an aluminium door and an aluminium shopfront?',
+        answer:
+          'An aluminium door is a standalone entrance assembly — leaf, frame, threshold, and hardware — designed to fit within a structural opening. An aluminium shopfront is a complete glazed facade system incorporating fixed glass panels, transoms, mullions, and one or more entrance doors as integrated elements. We supply and install both: standalone aluminium doors for individual entrances, and full shopfront systems where the door is part of a larger glazed frontage.',
+      },
+      {
+        question: 'Can you replace a timber or PVC-U door with an aluminium one?',
+        answer:
+          'Yes. Aluminium doors can be installed into existing structural openings previously occupied by timber or PVC-U doors. The aluminium frame is fixed directly into the masonry or concrete reveal, and the threshold detail is coordinated with the existing floor level. In most cases, the swap can be completed within one working day.',
+      },
+      {
+        question: 'Do aluminium doors need regular maintenance?',
+        answer:
+          'Aluminium doors require minimal maintenance compared to timber. We recommend cleaning the frame and leaf with a mild detergent solution every three months to remove dirt and pollutants, lubricating the hinges and locking mechanism with a dry PTFE spray every six months, and carrying out an annual function check of the closer, seals, and weather stripping. This routine will keep the door operating smoothly for its full service life.',
+      },
+      {
+        question: 'How much does a commercial aluminium door cost?',
+        answer:
+          'A standard single-leaf commercial aluminium door, fully glazed with toughened glass and multi-point locking, typically costs between £1,200 and £2,800 installed, depending on the frame profile, thermal break specification, and hardware. Double-leaf and PAS 24 certified configurations are priced higher. We provide fixed-price quotations after a site survey.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Enquiry & Consultation',
+        description:
+          'Contact us with your requirements — single or double leaf, security rating, thermal specification, and colour preference. We advise on the most suitable configuration for your premises.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor measures the structural opening, checks floor levels and threshold details, and notes any DDA or fire compliance requirements that affect the door specification.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quote',
+        description:
+          'We specify the frame profile, glazing, hardware, and finish, then provide a fixed-price quotation with technical drawings for your approval.',
+      },
+      {
+        step: 4,
+        title: 'Fabrication & Installation',
+        description:
+          'The door is fabricated to the surveyed dimensions and installed by our team, typically within one working day. All hardware is adjusted and demonstrated on completion.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does an Aluminium Door Cost?',
+      content:
+        'Aluminium door pricing depends on the leaf configuration, thermal break specification, glazing type, and security rating. Below are typical installed prices for common configurations.',
+      ranges: [
+        { item: 'Single leaf hinged door', price: '£1,200 – £2,800' },
+        { item: 'Double leaf entrance', price: '£2,500 – £5,000' },
+        { item: 'PAS 24 certified door set', price: '£2,800 – £5,500' },
+        { item: 'Pivot door (architectural)', price: '£3,000 – £6,000' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Are aluminium doors better than PVC-U for commercial use?',
+        answer:
+          'Yes, for most commercial applications. Aluminium offers significantly greater structural strength, allowing larger door sizes and slimmer frame profiles. It accepts high-security multi-point locking hardware, achieves higher security ratings (PAS 24), and has a longer service life. PVC-U is typically more appropriate for domestic and light commercial use.',
+      },
+      {
+        question: 'Can aluminium doors be made to match existing shopfront colours?',
+        answer:
+          'Yes. We powder-coat all aluminium doors to any RAL Classic or RAL Design colour, and can match to NCS, BS 4800, or bespoke brand colour references. This ensures a seamless visual match with existing shopfront systems, signage, and branding.',
+      },
+      {
+        question: 'How long does it take to install an aluminium door?',
+        answer:
+          'A standard single-leaf aluminium door installation is typically completed within one working day, including frame fixing, door hanging, hardware installation, and adjustment. Double-leaf and more complex installations may require a second day.',
+      },
+      {
+        question: 'Do aluminium doors comply with fire regulations?',
+        answer:
+          'Standard aluminium doors are not fire-rated. Where a fire-rated entrance is required, we specify purpose-designed fire door assemblies tested to BS EN 1634-1. See our fire doors service page for details on FD30, FD60, and FD90 rated options.',
+      },
+    ],
+    relatedServices: ['aluminium-shopfronts', 'automatic-doors', 'security-doors', 'glass-replacement'],
+  },
+
+  {
+    slug: 'aluminium-windows',
+    name: 'Aluminium Windows',
+    shortDescription:
+      'Commercial aluminium window systems for retail, office, and industrial premises. Fixed, top-hung, and side-hung configurations with thermally broken frames and toughened safety glazing.',
+    heroImage: 'aluminium-shopfront-1.jpeg',
+    primaryKeyword: 'aluminium windows commercial',
+    metaTitle: 'Aluminium Windows UK | Commercial Installation',
+    metaDescription:
+      'Commercial aluminium window installation across the UK. Thermally broken frames, toughened glazing, BS 6375 weather rated. Fixed, casement & tilt-and-turn options.',
+    description: `Commercial aluminium windows are a core element of modern retail, office, and industrial building envelopes. Whether installed as part of a shopfront system, within a curtain wall assembly, or as standalone window units in a commercial facade, aluminium windows deliver the combination of structural rigidity, slim profiles, large glazed areas, and long-term durability that commercial specifications demand.
+
+Sigma Shop Fronts designs and installs commercial aluminium window systems across the UK, working with fixed-light, top-hung (awning), side-hung (casement), and tilt-and-turn configurations from leading profile fabricators. All our window systems are CE-marked to BS EN 14351-1 and independently tested for air permeability, watertightness, and wind resistance to BS 6375.
+
+**Window Types for Commercial Applications**
+
+*Fixed-light windows* are the most common configuration in shopfront and curtain wall installations. The glass is permanently fixed within the aluminium frame with no opening mechanism, maximising the glazed area and providing the best thermal and acoustic performance. Fixed lights are used for display windows, high-level glazing, and any location where ventilation is provided by other means.
+
+*Top-hung (awning) windows* open outward from the bottom, hinged at the top. This configuration is popular for commercial buildings because it allows ventilation while providing some rain protection when partially open. Top-hung windows are frequently specified above shopfront transoms to provide natural ventilation to the trading floor.
+
+*Side-hung (casement) windows* open outward on side hinges. They provide the maximum opening area for ventilation and are commonly used in office buildings, schools, and healthcare facilities where building regulations require a minimum opening area for purge ventilation.
+
+*Tilt-and-turn windows* offer dual-mode operation: tilting inward from the top for secure ventilation, or swinging inward on side hinges for full opening. This configuration is particularly suitable for upper-floor commercial premises where outward-opening windows present a risk or are restricted by planning conditions.
+
+**Thermal Performance**
+
+All our commercial aluminium windows use thermally broken profiles as standard. The polyamide thermal break within the aluminium section reduces the frame U-value to between 1.5 and 2.5 W/m²K depending on the profile depth. Combined with double-glazed units featuring low-emissivity coatings and argon gas fill, our complete window assemblies achieve overall U-values of 1.2 to 1.6 W/m²K, meeting the requirements of Building Regulations Part L for replacement and new-build commercial glazing.
+
+For projects with demanding energy performance targets — BREEAM-rated buildings, Passivhaus-influenced specifications, or buildings subject to enhanced planning conditions — we can specify triple-glazed units and enhanced thermal break profiles to achieve overall U-values below 1.0 W/m²K.
+
+**Weather Performance**
+
+Commercial windows face the full range of UK weather conditions, including driving rain, sustained wind loads, and rapid temperature changes. Our window systems are tested to BS 6375 for air permeability (Class 4 as standard), watertightness (typically Class 7A or 9A depending on exposure), and wind resistance (Class C5 for most commercial applications).
+
+For buildings in exposed coastal or elevated locations, we specify enhanced weather seals and drainage provisions to ensure the window assembly performs reliably under the higher wind-driven rain loads encountered in these environments.
+
+**Glazing Specification**
+
+All glazing installed in our commercial aluminium windows uses toughened safety glass to BS EN 12150-1 as a minimum. For windows in critical locations — below 800 mm from floor level, as defined in BS 6262 — the glass must meet the impact classification requirements of BS EN 12600.
+
+Double-glazed sealed units are standard for commercial installations, providing thermal insulation, acoustic attenuation, and condensation resistance. We specify low-emissivity coated glass as standard and can accommodate solar-control, acoustic, and privacy glass options to meet specific project requirements.
+
+**Security**
+
+Opening windows in commercial premises are potential entry points for intruders. We offer window assemblies tested to PAS 24:2022 for enhanced security, incorporating multi-point espagnolette locking, shoot-bolt engagement at top and bottom, and security glazing. Lockable restrictors can be specified to limit the opening angle while allowing controlled ventilation — a common requirement for upper-floor offices and healthcare buildings.
+
+**Powder Coat Finish**
+
+All aluminium window sections are powder-coated to BS EN 12206-1 in any RAL Classic or RAL Design colour. Marine-grade powder coat specifications are available for coastal installations where salt exposure demands enhanced corrosion protection.`,
+    benefits: [
+      {
+        title: 'Slim Frames, Maximum Natural Light',
+        description:
+          'Aluminium window profiles are narrower than timber or PVC-U equivalents, allowing larger glass areas within the same structural opening. This maximises natural daylight penetration — a key requirement for retail display and office working environments.',
+      },
+      {
+        title: 'Thermally Broken for Energy Compliance',
+        description:
+          'All our commercial aluminium windows use thermally broken profiles as standard, meeting Building Regulations Part L U-value requirements without compromising frame strength or sightline width.',
+      },
+      {
+        title: 'BS 6375 Weather Rated',
+        description:
+          'Every window system is independently tested for air permeability, watertightness, and wind resistance to BS 6375, providing documented assurance that the installation will perform in the UK climate.',
+      },
+      {
+        title: 'Maintenance-Free Aluminium Construction',
+        description:
+          'Aluminium does not rot, rust, or warp, and the powder-coat finish requires only periodic cleaning to maintain its appearance. This eliminates the painting and timber treatment cycles that other frame materials demand.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can aluminium windows be installed in an existing shopfront?',
+        answer:
+          'Yes. Opening aluminium windows — typically top-hung or tilt-and-turn — can be integrated into an existing aluminium shopfront system by replacing a fixed glazed panel with an opening frame. This is a common upgrade for retail units that lack adequate ventilation. We assess compatibility with the existing profile system at the survey stage.',
+      },
+      {
+        question: 'Are aluminium windows energy efficient?',
+        answer:
+          'Yes. Our thermally broken aluminium windows achieve overall U-values of 1.2 to 1.6 W/m²K with standard double glazing, meeting Building Regulations Part L. With triple glazing and enhanced thermal break profiles, U-values below 1.0 W/m²K are achievable for projects with higher energy performance targets.',
+      },
+      {
+        question: 'What colours are available for aluminium windows?',
+        answer:
+          'We offer the full RAL Classic and RAL Design range — over 2,500 colours. Dual-colour finishes (different colours inside and outside) are available. Non-standard colours typically add five to seven working days to the lead time.',
+      },
+      {
+        question: 'How long do aluminium windows last?',
+        answer:
+          'Commercial aluminium windows typically provide 30 to 40 years of reliable service with minimal maintenance. The aluminium frame is inherently corrosion-resistant, and the powder-coat finish is guaranteed for 10 years against fading and peeling under normal UK conditions.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Requirements Discussion',
+        description:
+          'Contact us to discuss your window requirements — fixed, opening, or a combination — along with ventilation needs, security requirements, and colour preferences.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey',
+        description:
+          'Our surveyor measures each window opening, assesses the structural condition of the reveals, and notes exposure conditions and any planning constraints.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quote',
+        description:
+          'We specify the frame profile, opening type, glazing, hardware, and colour, then provide a fixed-price quotation with drawings for approval.',
+      },
+      {
+        step: 4,
+        title: 'Manufacture & Installation',
+        description:
+          'Windows are fabricated to the surveyed dimensions and installed by our team. All opening mechanisms, restrictors, and locking hardware are adjusted and demonstrated on completion.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Do Commercial Aluminium Windows Cost?',
+      content:
+        'Aluminium window pricing depends on the window size, opening type, glazing specification, and thermal performance requirements. Fixed-light windows are the most economical; opening windows with security hardware carry a premium.',
+      ranges: [
+        { item: 'Fixed-light window (per m²)', price: '£250 – £500' },
+        { item: 'Top-hung opening window', price: '£400 – £900' },
+        { item: 'Tilt-and-turn window', price: '£500 – £1,100' },
+        { item: 'PAS 24 security window', price: '£700 – £1,400' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'Are aluminium windows better than PVC-U for commercial buildings?',
+        answer:
+          'For most commercial applications, yes. Aluminium provides greater structural strength, allowing larger window sizes with slimmer frame profiles. It has a longer service life, accepts higher-security hardware, and is fully recyclable. PVC-U is more appropriate for domestic and light-duty commercial use.',
+      },
+      {
+        question: 'Can aluminium windows be double or triple glazed?',
+        answer:
+          'Yes. Double glazing is standard on all our commercial aluminium windows. Triple glazing is available for projects requiring enhanced thermal or acoustic performance. Our frame profiles accommodate sealed units from 24 mm to 44 mm in total thickness.',
+      },
+      {
+        question: 'Do aluminium windows need planning permission?',
+        answer:
+          'Like-for-like replacement of existing windows does not normally require planning permission. However, changes to window size, position, or style in conservation areas or on listed buildings may need planning approval. We advise on the planning position at the survey stage.',
+      },
+      {
+        question: 'How are aluminium windows secured against break-in?',
+        answer:
+          'Our commercial aluminium windows feature multi-point espagnolette locking with shoot bolts at top and bottom. For enhanced security, we offer PAS 24:2022 certified window assemblies with security glazing and reinforced frame profiles, meeting the requirements of most commercial insurers.',
+      },
+    ],
+    relatedServices: ['aluminium-shopfronts', 'aluminium-doors', 'glass-replacement', 'curtain-walling'],
+  },
+
+  {
+    slug: 'curtain-walling',
+    name: 'Curtain Walling',
+    shortDescription:
+      'Aluminium curtain wall systems for commercial facades. Stick-built and unitised solutions with structural glazing, thermally broken mullions, and full weather testing to BS EN 13830.',
+    heroImage: 'sigma-front-wide.jpeg',
+    primaryKeyword: 'curtain walling UK',
+    metaTitle: 'Curtain Walling UK | Aluminium Facade Systems',
+    metaDescription:
+      'Aluminium curtain walling design and installation for commercial buildings. Stick-built & unitised systems, structural glazing, BS EN 13830 tested. UK-wide service.',
+    description: `Curtain walling is a non-load-bearing facade system that spans between floor slabs or structural frames, creating a continuous glazed or panelled envelope around a commercial building. Unlike a traditional shopfront — which is installed within a single-storey structural opening — a curtain wall can extend across multiple storeys and is designed to resist wind loads, support its own dead weight, accommodate thermal and structural movement, and provide weather exclusion, thermal insulation, and acoustic attenuation for the entire building envelope.
+
+Sigma Shop Fronts designs and installs aluminium curtain wall systems for a range of commercial applications: multi-storey office buildings, retail developments, mixed-use schemes, hotels, educational buildings, and healthcare facilities. We work with stick-built and unitised curtain wall systems, using profiles from established fabricators whose products are tested and certified to BS EN 13830 — the European standard for curtain walling.
+
+**Stick-Built vs Unitised Systems**
+
+*Stick-built curtain walling* is assembled on site from individual aluminium mullions (vertical members) and transoms (horizontal members), with glass or panel infills glazed into the grid after the framework is erected. Stick-built systems are versatile, cost-effective for smaller projects, and allow adjustments during installation to accommodate site tolerances. They are the most common curtain wall type for single and two-storey commercial facades.
+
+*Unitised curtain walling* consists of factory-assembled panels — each containing a section of mullion, transom, glazing, and weather seals — that are craned into position and clipped together on site. Unitised systems offer faster on-site installation, higher factory quality control, and better weather sealing, but require greater upfront design investment and are typically specified for larger multi-storey projects where the speed and consistency benefits justify the premium.
+
+**Structural Performance**
+
+Curtain wall mullions and transoms are structural members that resist wind loads — both positive pressure and negative suction — and transfer these loads to the primary building structure at each floor level or structural bracket point. The mullion section is sized by structural calculation to resist the design wind pressure for the building height, location, and exposure category, calculated in accordance with BS EN 1991-1-4 (Eurocode 1: Wind actions).
+
+Our structural calculations are prepared by a qualified engineer and submitted to the building control body as part of the Building Regulations application. Deflection limits for curtain wall mullions are typically L/200 under design wind load (where L is the span between fixings), although more stringent limits may apply for specific glazing types or for buildings with enhanced serviceability requirements.
+
+**Thermal Performance**
+
+Curtain wall systems must comply with Building Regulations Part L for non-domestic buildings, achieving overall facade U-values that contribute to the building's target energy performance. Our curtain wall profiles incorporate polyamide thermal breaks within the aluminium mullions and transoms, reducing the frame-zone U-value to between 1.5 and 2.5 W/m²K depending on the profile depth and thermal break width.
+
+Combined with high-performance double-glazed units (typically 1.0 to 1.1 W/m²K centre-pane) and insulated spandrel panels, the overall curtain wall assembly achieves the facade U-values required for compliance with Part L and, where specified, BREEAM or other sustainability assessment targets.
+
+**Weather Performance and Testing**
+
+Curtain wall systems are tested to BS EN 13830 for air permeability, watertightness, and wind resistance. This standard is specific to curtain walling and differs from BS 6375 (which applies to windows and doors). The test sequence includes static air permeability, watertightness under static and dynamic pressure, and wind resistance under positive and negative pressure.
+
+Our systems are also tested for resistance to water penetration under pulsating air pressure — the "hose test" — which simulates the driving rain conditions encountered on exposed UK building facades. Weather sealing is achieved through a combination of EPDM gaskets, silicone weather seals, and pressure-equalised drainage chambers within the mullion and transom profiles.
+
+**Glazing and Infill Options**
+
+Curtain wall infill panels can be glazed or opaque. Glazed infills use double-glazed sealed units with performance specifications selected to meet the project's thermal, solar, acoustic, and safety requirements. Spandrel panels — the opaque sections typically located at floor-slab and beam levels — use insulated aluminium composite, enamelled glass, or stone cladding backed by thermal insulation.
+
+Structural glazing — where the glass is bonded to the aluminium frame with structural silicone rather than retained by external pressure plates — creates a flush external appearance with no visible frame on the outside face. Structural glazing requires specific design calculations, silicone compatibility testing, and quality-controlled application, all of which we manage as part of the project.
+
+**Fire Compartmentation**
+
+Where a curtain wall passes across a fire compartment boundary — typically at each floor slab — fire stopping is required to prevent fire and smoke from spreading through the void between the curtain wall and the floor slab edge. We install tested fire-stop systems using mineral wool and intumescent sealant, certified to achieve the required fire resistance period (typically 60 or 120 minutes) at each compartment junction.`,
+    benefits: [
+      {
+        title: 'Full-Height Glazed Facades',
+        description:
+          'Curtain walling spans between floor slabs, creating continuous glazed elevations that maximise natural light, provide uninterrupted views, and give the building a contemporary commercial aesthetic that traditional punched-window construction cannot achieve.',
+      },
+      {
+        title: 'Engineered Wind Load Resistance',
+        description:
+          'Unlike shopfront systems designed for single-storey use, curtain wall mullions are structurally calculated to resist the full design wind load for the building height and exposure. This provides documented structural performance that satisfies Building Regulations and building control requirements.',
+      },
+      {
+        title: 'Thermal and Acoustic Performance',
+        description:
+          'Thermally broken mullions and transoms, combined with high-performance glazing and insulated spandrel panels, achieve the facade U-values and acoustic ratings required for modern commercial buildings, including BREEAM-rated and Part L compliant developments.',
+      },
+      {
+        title: 'Design Flexibility',
+        description:
+          'Curtain wall grids can be configured in any module width and height, with a mix of fixed glazing, opening vents, spandrel panels, and louvre sections. This flexibility allows the facade design to respond to internal layouts, ventilation strategy, and the architect\'s aesthetic intent.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between a shopfront and curtain walling?',
+        answer:
+          'A shopfront is a ground-floor glazed facade installed within a single structural opening, typically up to one storey in height. Curtain walling is a multi-storey facade system that spans between floor slabs and is designed to resist the wind loads, thermal movements, and weather conditions associated with taller buildings. For ground-floor commercial frontages, a shopfront system is usually more cost-effective; for multi-storey facades or large glazed areas spanning above ground floor, curtain walling is the appropriate specification.',
+      },
+      {
+        question: 'How long does a curtain wall installation take?',
+        answer:
+          'Installation timescales depend on the system type and facade area. A typical two-storey stick-built curtain wall of 50 to 100 m² can be erected and glazed within two to three weeks. Larger unitised installations proceed at a faster rate per square metre once the initial set-out is complete, but require more upfront design and manufacturing time.',
+      },
+      {
+        question: 'Does curtain walling need Building Regulations approval?',
+        answer:
+          'Yes. Curtain walling installations require Building Regulations approval for structural performance, thermal performance (Part L), fire stopping at compartment boundaries, and safety glazing compliance. We manage the Building Regulations application and provide all structural calculations, thermal calculations, and fire-stopping details as part of our project service.',
+      },
+      {
+        question: 'Can curtain walling include opening windows?',
+        answer:
+          'Yes. Opening vents — typically top-hung or parallel-opening — can be integrated within the curtain wall grid to provide natural ventilation. These openings are fitted with the same weather sealing and locking hardware as standalone commercial windows, and are positioned within the grid layout to suit the building\'s ventilation strategy.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Design Brief',
+        description:
+          'We discuss the facade area, building height, structural frame type, and performance requirements — thermal, acoustic, solar, and fire — to establish the appropriate curtain wall system.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey & Structural Review',
+        description:
+          'Our surveyor measures the facade, records the structural fixing points, and coordinates with the project structural engineer to confirm bracket positions and load capacities.',
+      },
+      {
+        step: 3,
+        title: 'Detailed Design & Calculations',
+        description:
+          'We prepare structural calculations for mullion sizing, thermal calculations for Part L compliance, and detailed fabrication drawings showing every mullion, transom, and infill panel.',
+      },
+      {
+        step: 4,
+        title: 'Fabrication & Installation',
+        description:
+          'Aluminium sections are fabricated, powder-coated, and delivered to site. Our installation team erects the framework, glazes the infills, installs fire stopping, and commissions any opening vents.',
+      },
+      {
+        step: 5,
+        title: 'Testing & Handover',
+        description:
+          'On completion, we carry out a hose test to verify watertightness and provide all documentation including structural calculations, fire-stopping certificates, and maintenance guidance.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does Curtain Walling Cost?',
+      content:
+        'Curtain wall pricing is typically quoted per square metre of facade area and depends on the system type, glazing specification, opening vent requirements, and complexity of the facade geometry.',
+      ranges: [
+        { item: 'Stick-built system (per m²)', price: '£350 – £650' },
+        { item: 'Unitised system (per m²)', price: '£500 – £900' },
+        { item: 'Structural glazing upgrade', price: '£80 – £150 per m²' },
+        { item: 'Fire stopping (per linear metre)', price: '£50 – £120' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey and structural design.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'What is curtain walling used for?',
+        answer:
+          'Curtain walling creates the external envelope of commercial buildings — offices, retail centres, hotels, schools, and hospitals. It provides weather protection, thermal insulation, natural daylight, and the visual appearance of the building while transferring wind loads to the primary structure.',
+      },
+      {
+        question: 'Is curtain walling load-bearing?',
+        answer:
+          'No. Curtain walling is a non-load-bearing cladding system. It carries its own weight and resists wind loads, but does not support the floors or roof of the building. These loads are carried by the primary structural frame (steel, concrete, or timber), and the curtain wall is fixed to the frame at each floor level.',
+      },
+      {
+        question: 'How is curtain walling maintained?',
+        answer:
+          'Regular maintenance includes external cleaning of the glass and aluminium frames, inspection and replacement of perimeter weather seals (typically every 15 to 20 years), checking drainage channels for blockage, and inspection of fire-stopping at compartment boundaries. We provide a maintenance schedule as part of the handover documentation.',
+      },
+      {
+        question: 'Can curtain walling be retrofitted to an existing building?',
+        answer:
+          'Yes, provided the existing structural frame can support the curtain wall brackets and the additional wind loads. Retrofit curtain walling is commonly used to modernise the appearance and thermal performance of older commercial buildings. We coordinate with a structural engineer to verify the frame capacity before design.',
+      },
+    ],
+    relatedServices: ['aluminium-shopfronts', 'aluminium-windows', 'aluminium-doors', 'glass-replacement'],
+  },
+
+  {
+    slug: 'glass-shopfronts',
+    name: 'Glass Shopfronts',
+    shortDescription:
+      'Frameless and structural glass shopfront systems for maximum transparency and visual impact. Toughened safety glass, patch fittings, and minimal frame details for a contemporary retail entrance.',
+    heroImage: 'aluminium-shopfront-1.jpeg',
+    primaryKeyword: 'glass shopfronts',
+    metaTitle: 'Glass Shopfronts UK | Frameless & Structural',
+    metaDescription:
+      'Frameless and structural glass shopfront installation across the UK. Toughened safety glass, patch fittings, minimal framing. Maximum visibility for retail premises.',
+    description: `Glass shopfronts — also known as frameless shopfronts or structural glass facades — use minimal or no visible aluminium framing to create the most transparent possible retail entrance. Where a traditional aluminium shopfront uses mullions and transoms to support the glazing, a glass shopfront relies on the structural capacity of the toughened glass itself, supported by patch fittings, point fixings, or slender stainless-steel hardware that is visually unobtrusive.
+
+The result is a shopfront with maximum transparency: an uninterrupted view of the retail interior from the street, maximum natural light penetration, and a contemporary, high-end aesthetic that communicates quality and openness to prospective customers.
+
+Sigma Shop Fronts designs and installs glass shopfront systems for retail units, showrooms, restaurants, galleries, and any commercial premises where visual transparency is a primary design objective.
+
+**Frameless Glass Construction**
+
+In a frameless glass shopfront, each glass panel is a structural element. The glass is toughened to BS EN 12150-1 — typically 10 mm or 12 mm thick for shopfront applications — and is self-supporting within the limits of the panel size and wind load. Panels are joined at their edges by patch fittings (stainless-steel clamps fixed through holes drilled in the glass), by structural silicone bonding, or by channel fixings at head and sill that allow the glass to stand vertically without intermediate mullions.
+
+The absence of aluminium mullions means that each glass panel must be sized to resist the full wind load on its area without deflecting beyond acceptable limits. Maximum panel sizes are determined by the glass thickness, aspect ratio, and the design wind pressure for the site. Typical maximum panel sizes for 12 mm toughened glass in a shopfront application are approximately 3.0 m in height by 2.0 m in width, although this varies with wind loading and support conditions.
+
+**Glass Door Options**
+
+Glass shopfront entrance doors can be frameless (using patch fittings and a floor spring or overhead pivot) or framed within a minimal stainless-steel or slim aluminium frame. Frameless glass doors use 10 mm or 12 mm toughened glass with top and bottom patch fittings, a floor-spring closer recessed into the threshold, and pull handles bolted through the glass.
+
+For premises requiring automatic operation, we integrate automatic sliding or swing door operators within the glass shopfront design. Sliding systems use a slim overhead track with minimal visible hardware; swing systems use a concealed floor-spring or overhead operator. See our automatic doors service for full details.
+
+**Structural Glazing and Point Fixings**
+
+For larger glass facades or multi-storey applications, point-fixed structural glazing uses stainless-steel spider fittings or button fixings to connect the glass panels to a supporting structure — typically stainless-steel rods, cable trusses, or structural glass fins. This approach allows floor-to-ceiling glazing with no visible framing, creating the most transparent possible facade.
+
+Point-fixed glazing requires specialist engineering: each fixing must be designed to transfer wind loads and dead loads through the glass without inducing unacceptable stress concentrations around the fixing holes. Our systems use countersunk stainless-steel fixings with nylon bushes that distribute the load across the glass thickness, and all fixing positions are verified by finite-element stress analysis.
+
+**Safety and Compliance**
+
+All glass in shopfront applications must comply with BS 6262 for glazing in buildings and must use safety glass — toughened to BS EN 12150-1 or laminated to BS EN ISO 12543 — in all critical locations as defined by the standard. For frameless glass doors, the glass must also comply with BS EN 12600 for impact classification.
+
+Where the glass shopfront incorporates a DDA-compliant entrance, manifestation markings are applied to the glass at two height bands (850–1000 mm and 1400–1600 mm above floor level) to make the glazing visible to partially sighted people, as required by BS 8300 and Approved Document M.
+
+**Thermal Considerations**
+
+Single-pane frameless glass shopfronts do not achieve the U-values required by Building Regulations Part L for new-build or major refurbishment. Where Part L compliance is required, we can specify frameless double-glazed units using structural silicone edge bonding, or specify a hybrid system with minimal aluminium framing at head and sill to support a double-glazed sealed unit. The appropriate solution depends on the building control body's interpretation of Part L requirements for the specific project.
+
+For existing shopfront replacements that do not trigger Part L requirements, single-pane toughened glass frameless systems remain a popular and visually striking option.`,
+    benefits: [
+      {
+        title: 'Maximum Visual Transparency',
+        description:
+          'Frameless glass shopfronts eliminate the visual barrier of aluminium mullions and transoms, creating an uninterrupted view between the street and the retail interior. This is particularly effective for premium retail, galleries, showrooms, and restaurants where visual connection with passers-by drives footfall.',
+      },
+      {
+        title: 'Contemporary, High-End Aesthetic',
+        description:
+          'A frameless glass facade communicates quality, modernity, and openness. For businesses positioning themselves at the premium end of their market, a glass shopfront reinforces brand values more effectively than a conventional framed system.',
+      },
+      {
+        title: 'Toughened Safety Glass Throughout',
+        description:
+          'All glass panels are toughened to BS EN 12150-1, providing four to five times the strength of standard float glass and a safe fragmentation pattern in the event of breakage. This meets all safety glazing requirements for commercial shopfront applications.',
+      },
+      {
+        title: 'Flexible Door Integration',
+        description:
+          'Glass shopfronts can incorporate frameless glass doors, framed glass doors, automatic sliding doors, or bi-fold panels, allowing the entrance design to be tailored precisely to the operational requirements and aesthetic goals of the business.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How secure is a glass shopfront?',
+        answer:
+          'Toughened glass is significantly stronger than standard glass and resists casual impact. For enhanced security, we specify laminated toughened glass — a multi-layer construction that holds together when broken, resisting smash-and-grab attacks. Glass shopfronts can also be combined with roller shutters for overnight security.',
+      },
+      {
+        question: 'Can a glass shopfront be energy efficient?',
+        answer:
+          'Single-pane frameless systems have limited thermal performance. Where energy efficiency is a priority or Building Regulations Part L compliance is required, we specify frameless double-glazed units or hybrid systems with minimal framing. These achieve U-values comparable to conventional aluminium shopfronts while maintaining the frameless visual aesthetic.',
+      },
+      {
+        question: 'How are frameless glass panels cleaned?',
+        answer:
+          'Frameless glass shopfronts are cleaned using the same methods as any commercial glazing — professional window cleaning with water-fed poles or squeegees. The absence of aluminium frames actually makes cleaning easier, as there are fewer ledges and channels where dirt accumulates.',
+      },
+      {
+        question: 'What happens if a glass panel is broken?',
+        answer:
+          'We provide emergency boarding and glass replacement as part of our shopfront repair service. Toughened glass shatters into small granules on impact, which are relatively safe but leave the opening exposed. We can typically source and install a replacement toughened glass panel within 48 hours of measurement.',
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Design Consultation',
+        description:
+          'We discuss your visual objectives, entrance requirements, and any planning constraints. Our design team advises on the most appropriate glass system — fully frameless, patch-fitted, or hybrid — for your premises.',
+      },
+      {
+        step: 2,
+        title: 'Site Survey & Engineering',
+        description:
+          'Our surveyor measures the opening and assesses the structural head and sill conditions. For larger installations, we prepare wind-load calculations and glass stress analysis to determine the correct glass thickness and fixing positions.',
+      },
+      {
+        step: 3,
+        title: 'Specification & Quote',
+        description:
+          'We specify the glass type and thickness, fixing hardware, door configuration, and any manifestation requirements. A fixed-price quotation with technical drawings is provided.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'Our glazing team installs the channel fixings, patch fittings, and glass panels. Doors are hung and adjusted, and all hardware is demonstrated. Typical installation for a single-unit shopfront is one to two days.',
+      },
+    ],
+    pricingGuide: {
+      heading: 'What Does a Glass Shopfront Cost?',
+      content:
+        'Glass shopfront pricing depends on the glass thickness, panel sizes, fixing type, and door configuration. Frameless systems are typically 10 to 30 per cent more expensive than equivalent aluminium-framed shopfronts due to the thicker glass and specialist hardware required.',
+      ranges: [
+        { item: 'Frameless glass shopfront (single unit)', price: '£3,500 – £7,000' },
+        { item: 'Frameless glass door (patch fittings)', price: '£1,500 – £3,000' },
+        { item: 'Point-fixed structural glazing (per m²)', price: '£400 – £800' },
+        { item: 'Manifestation markings', price: '£150 – £400' },
+      ],
+      note: 'All prices exclude VAT. Final cost confirmed after site survey.',
+    },
+    peopleAlsoAsk: [
+      {
+        question: 'What is the difference between a glass shopfront and an aluminium shopfront?',
+        answer:
+          'An aluminium shopfront uses aluminium mullions and transoms to support the glazing — the glass sits within the metal framework. A glass shopfront eliminates or minimises these metal frames, using the structural capacity of the toughened glass itself with patch fittings or point fixings. Glass shopfronts offer greater transparency but are typically more expensive and have more limited thermal performance.',
+      },
+      {
+        question: 'Are glass shopfronts suitable for all types of retail?',
+        answer:
+          'Glass shopfronts work best for businesses where visual transparency is a priority — premium retail, galleries, showrooms, restaurants, and professional services. For businesses requiring greater privacy, security, or thermal performance, a conventional aluminium shopfront may be more appropriate.',
+      },
+      {
+        question: 'Do glass shopfronts need planning permission?',
+        answer:
+          'Replacing an existing shopfront with a glass system is usually permitted development for commercial premises. In conservation areas or for listed buildings, the change in appearance may require planning approval. We advise on the planning position at the survey stage.',
+      },
+      {
+        question: 'How thick is the glass in a frameless shopfront?',
+        answer:
+          'Frameless shopfront glass is typically 10 mm or 12 mm thick toughened safety glass. The specific thickness is determined by the panel dimensions and the design wind load. Larger panels and more exposed locations require thicker glass to maintain acceptable deflection limits.',
+      },
+    ],
+    relatedServices: ['aluminium-shopfronts', 'glass-replacement', 'automatic-doors', 'shopfront-repairs'],
+  },
 ];
