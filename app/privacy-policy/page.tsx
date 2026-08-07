@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
             items={[{ label: 'Privacy Policy' }]}
           />
 
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mt-4 mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-2">
             Privacy Policy
           </h1>
           <p className="text-grey-500 text-sm mb-10">Last updated: May 2026</p>
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             {/* Introduction */}
             <section>
               <p>
-                Sigma Shopfronts and Shutter Limited (<strong className="text-navy">&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;</strong>) is committed to protecting and respecting your privacy. This policy explains what personal data we collect, how we use it, and your rights in relation to it. We comply with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+                Sigma Shopfronts and Shutter Limited (<strong className="text-white">&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;</strong>) is committed to protecting and respecting your privacy. This policy explains what personal data we collect, how we use it, and your rights in relation to it. We comply with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
               </p>
               <p className="mt-4">
                 Please read this policy carefully. By using our website or contacting us, you acknowledge that you have read and understood this policy.
@@ -38,10 +38,10 @@ export default function PrivacyPolicyPage() {
 
             {/* 1. Data Controller */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">1. Data Controller</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">1. Data Controller</h2>
               <p>The data controller responsible for your personal data is:</p>
               <address className="not-italic mt-4 pl-4 border-l-4 border-gold space-y-1">
-                <p className="font-semibold text-navy">Sigma Shopfronts and Shutter Limited</p>
+                <p className="font-semibold text-white">Sigma Shopfronts and Shutter Limited</p>
                 <p>Company No: 16794487</p>
                 <p>West Midlands, United Kingdom</p>
                 <p>
@@ -61,10 +61,10 @@ export default function PrivacyPolicyPage() {
 
             {/* 2. What Personal Data We Collect */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">2. What Personal Data We Collect</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">2. What Personal Data We Collect</h2>
               <p>We collect personal data through three main channels:</p>
 
-              <h3 className="text-lg font-semibold text-navy mt-6 mb-2">2.1 Contact Form</h3>
+              <h3 className="text-lg font-semibold text-white mt-6 mb-2">2.1 Contact Form</h3>
               <p>When you submit an enquiry through our contact form, we collect:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Full name</li>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
                 <li>The content of your message</li>
               </ul>
 
-              <h3 className="text-lg font-semibold text-navy mt-6 mb-2">2.2 Chatbot Conversations</h3>
+              <h3 className="text-lg font-semibold text-white mt-6 mb-2">2.2 Chatbot Conversations</h3>
               <p>
                 Our website features an AI-powered chatbot to assist with initial enquiries. If you use it, we collect:
               </p>
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
                 Conversation data is processed by Anthropic&rsquo;s Claude AI (see Section 5).
               </p>
 
-              <h3 className="text-lg font-semibold text-navy mt-6 mb-2">2.3 Analytics and Cookies</h3>
+              <h3 className="text-lg font-semibold text-white mt-6 mb-2">2.3 Analytics and Cookies</h3>
               <p>When you visit our website, we may automatically collect:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>IP address (anonymised where possible)</li>
@@ -101,23 +101,23 @@ export default function PrivacyPolicyPage() {
 
             {/* 3. How We Use Your Data */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">3. How We Use Your Personal Data</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">3. How We Use Your Personal Data</h2>
               <p>We use your personal data for the following purposes:</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>
-                  <strong className="text-navy">Responding to enquiries</strong> — to reply to your questions, requests for information, or site survey requests.
+                  <strong className="text-white">Responding to enquiries</strong> — to reply to your questions, requests for information, or site survey requests.
                 </li>
                 <li>
-                  <strong className="text-navy">Preparing and sending quotations</strong> — to produce accurate, tailored quotes for shopfront installation, repair, or maintenance work.
+                  <strong className="text-white">Preparing and sending quotations</strong> — to produce accurate, tailored quotes for shopfront installation, repair, or maintenance work.
                 </li>
                 <li>
-                  <strong className="text-navy">Fulfilling contracts</strong> — to manage and perform the services you have engaged us to provide.
+                  <strong className="text-white">Fulfilling contracts</strong> — to manage and perform the services you have engaged us to provide.
                 </li>
                 <li>
-                  <strong className="text-navy">Improving our services and website</strong> — to analyse how visitors use our site and identify areas for improvement.
+                  <strong className="text-white">Improving our services and website</strong> — to analyse how visitors use our site and identify areas for improvement.
                 </li>
                 <li>
-                  <strong className="text-navy">Legal and regulatory compliance</strong> — to comply with our obligations under applicable law.
+                  <strong className="text-white">Legal and regulatory compliance</strong> — to comply with our obligations under applicable law.
                 </li>
               </ul>
               <p className="mt-4">
@@ -127,29 +127,29 @@ export default function PrivacyPolicyPage() {
 
             {/* 4. Legal Basis */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">4. Legal Basis for Processing</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">4. Legal Basis for Processing</h2>
               <p>Under UK GDPR, we must have a lawful basis for processing your personal data. We rely on:</p>
               <div className="mt-4 space-y-4">
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Legitimate Interests (Article 6(1)(f))</p>
+                  <p className="font-semibold text-white">Legitimate Interests (Article 6(1)(f))</p>
                   <p className="mt-1">
                     Processing enquiry and chatbot data to respond to potential customers and improve our services. We have balanced our interests against your rights and determined this processing is necessary and proportionate.
                   </p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Contractual Necessity (Article 6(1)(b))</p>
+                  <p className="font-semibold text-white">Contractual Necessity (Article 6(1)(b))</p>
                   <p className="mt-1">
                     Processing data necessary to fulfil a contract you have entered into with us, or to take steps at your request before entering a contract (such as preparing a quotation).
                   </p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Consent (Article 6(1)(a))</p>
+                  <p className="font-semibold text-white">Consent (Article 6(1)(a))</p>
                   <p className="mt-1">
                     Where we place non-essential cookies or use analytics tools, we will ask for your consent. You may withdraw consent at any time by adjusting your cookie preferences.
                   </p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Legal Obligation (Article 6(1)(c))</p>
+                  <p className="font-semibold text-white">Legal Obligation (Article 6(1)(c))</p>
                   <p className="mt-1">
                     Processing necessary to comply with a legal obligation to which we are subject, such as tax and accounting requirements.
                   </p>
@@ -159,7 +159,7 @@ export default function PrivacyPolicyPage() {
 
             {/* 5. Third Parties */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">5. Third-Party Service Providers</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">5. Third-Party Service Providers</h2>
               <p>
                 We share your data with the following trusted third-party providers solely to operate our business and deliver our services. Each provider is contractually obligated to handle your data securely and only as instructed.
               </p>
@@ -167,9 +167,9 @@ export default function PrivacyPolicyPage() {
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="bg-grey-100">
-                      <th className="text-left px-4 py-3 font-semibold text-navy border border-grey-200">Provider</th>
-                      <th className="text-left px-4 py-3 font-semibold text-navy border border-grey-200">Purpose</th>
-                      <th className="text-left px-4 py-3 font-semibold text-navy border border-grey-200">Data Transferred</th>
+                      <th className="text-left px-4 py-3 font-semibold text-white border border-grey-200">Provider</th>
+                      <th className="text-left px-4 py-3 font-semibold text-white border border-grey-200">Purpose</th>
+                      <th className="text-left px-4 py-3 font-semibold text-white border border-grey-200">Data Transferred</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-grey-200">
@@ -211,42 +211,42 @@ export default function PrivacyPolicyPage() {
 
             {/* 6. Data Retention */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">6. How Long We Keep Your Data</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">6. How Long We Keep Your Data</h2>
               <p>We retain your personal data only for as long as is necessary for the purposes for which it was collected:</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>
-                  <strong className="text-navy">Enquiries that do not result in a contract:</strong> Up to 12 months from receipt, after which they are securely deleted.
+                  <strong className="text-white">Enquiries that do not result in a contract:</strong> Up to 12 months from receipt, after which they are securely deleted.
                 </li>
                 <li>
-                  <strong className="text-navy">Enquiries that result in a contract:</strong> For the duration of the contract and for 6 years thereafter, in accordance with the Limitation Act 1980.
+                  <strong className="text-white">Enquiries that result in a contract:</strong> For the duration of the contract and for 6 years thereafter, in accordance with the Limitation Act 1980.
                 </li>
                 <li>
-                  <strong className="text-navy">Chatbot conversation logs:</strong> Up to 90 days, unless the conversation leads to an enquiry or contract, in which case the relevant data is retained as above.
+                  <strong className="text-white">Chatbot conversation logs:</strong> Up to 90 days, unless the conversation leads to an enquiry or contract, in which case the relevant data is retained as above.
                 </li>
                 <li>
-                  <strong className="text-navy">Analytics data:</strong> Up to 26 months, as per Google Analytics default retention settings.
+                  <strong className="text-white">Analytics data:</strong> Up to 26 months, as per Google Analytics default retention settings.
                 </li>
                 <li>
-                  <strong className="text-navy">Financial and accounting records:</strong> 6 years from the end of the relevant tax year, as required by HMRC.
+                  <strong className="text-white">Financial and accounting records:</strong> 6 years from the end of the relevant tax year, as required by HMRC.
                 </li>
               </ul>
             </section>
 
             {/* 7. Cookie Policy */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">7. Cookie Policy</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">7. Cookie Policy</h2>
               <p>
                 Our website uses cookies — small text files placed on your device — to improve functionality and analyse usage. The types of cookies we use are:
               </p>
               <div className="mt-4 space-y-4">
                 <div>
-                  <p className="font-semibold text-navy">Strictly Necessary Cookies</p>
+                  <p className="font-semibold text-white">Strictly Necessary Cookies</p>
                   <p className="mt-1">
                     Required for the website to function correctly (e.g. session management). These cannot be disabled.
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold text-navy">Analytics Cookies</p>
+                  <p className="font-semibold text-white">Analytics Cookies</p>
                   <p className="mt-1">
                     Set by Google Analytics to help us understand how visitors interact with our website. These are only placed with your consent. You may opt out at any time.
                   </p>
@@ -267,37 +267,37 @@ export default function PrivacyPolicyPage() {
 
             {/* 8. Your Rights */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">8. Your Rights Under UK GDPR</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">8. Your Rights Under UK GDPR</h2>
               <p>
                 Under UK data protection law, you have the following rights in relation to your personal data:
               </p>
               <div className="mt-4 space-y-4">
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right of Access</p>
+                  <p className="font-semibold text-white">Right of Access</p>
                   <p className="mt-1">You have the right to request a copy of the personal data we hold about you (a Subject Access Request).</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Rectification</p>
+                  <p className="font-semibold text-white">Right to Rectification</p>
                   <p className="mt-1">You may request that we correct any inaccurate or incomplete personal data we hold about you.</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Erasure (&ldquo;Right to be Forgotten&rdquo;)</p>
+                  <p className="font-semibold text-white">Right to Erasure (&ldquo;Right to be Forgotten&rdquo;)</p>
                   <p className="mt-1">You may request that we delete your personal data in certain circumstances (e.g. where it is no longer necessary for the purpose for which it was collected).</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Data Portability</p>
+                  <p className="font-semibold text-white">Right to Data Portability</p>
                   <p className="mt-1">Where processing is based on consent or contractual necessity, you may request that we provide your data in a structured, commonly used, machine-readable format.</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Object</p>
+                  <p className="font-semibold text-white">Right to Object</p>
                   <p className="mt-1">You have the right to object to processing based on legitimate interests. We will stop processing unless we can demonstrate compelling legitimate grounds that override your interests.</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Restrict Processing</p>
+                  <p className="font-semibold text-white">Right to Restrict Processing</p>
                   <p className="mt-1">You may request that we restrict processing in certain circumstances, such as while we verify the accuracy of your data following a rectification request.</p>
                 </div>
                 <div className="pl-4 border-l-2 border-grey-200">
-                  <p className="font-semibold text-navy">Right to Withdraw Consent</p>
+                  <p className="font-semibold text-white">Right to Withdraw Consent</p>
                   <p className="mt-1">Where processing is based on your consent, you may withdraw it at any time without affecting the lawfulness of processing carried out before withdrawal.</p>
                 </div>
               </div>
@@ -308,12 +308,12 @@ export default function PrivacyPolicyPage() {
 
             {/* 9. Contact for Data Requests */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">9. Contact Us About Your Data</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">9. Contact Us About Your Data</h2>
               <p>
                 To make a data subject request, raise a concern, or ask any question about this privacy policy, please contact us:
               </p>
               <address className="not-italic mt-4 pl-4 border-l-4 border-gold space-y-1">
-                <p className="font-semibold text-navy">Sigma Shopfronts and Shutter Limited</p>
+                <p className="font-semibold text-white">Sigma Shopfronts and Shutter Limited</p>
                 <p>Data Enquiries</p>
                 <p>
                   Email:{' '}
@@ -332,12 +332,12 @@ export default function PrivacyPolicyPage() {
 
             {/* 10. Complaints */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">10. Right to Complain to the ICO</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">10. Right to Complain to the ICO</h2>
               <p>
                 If you are unhappy with how we have handled your personal data, you have the right to lodge a complaint with the Information Commissioner&rsquo;s Office (ICO), the UK supervisory authority for data protection:
               </p>
               <address className="not-italic mt-4 pl-4 border-l-4 border-gold space-y-1">
-                <p className="font-semibold text-navy">Information Commissioner&rsquo;s Office</p>
+                <p className="font-semibold text-white">Information Commissioner&rsquo;s Office</p>
                 <p>Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF</p>
                 <p>
                   Website:{' '}
@@ -359,7 +359,7 @@ export default function PrivacyPolicyPage() {
 
             {/* 11. Changes */}
             <section>
-              <h2 className="text-2xl font-bold text-navy mb-4">11. Changes to This Policy</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">11. Changes to This Policy</h2>
               <p>
                 We may update this privacy policy from time to time to reflect changes in our practices, technology, or legal requirements. Any changes will be posted on this page with an updated &ldquo;Last updated&rdquo; date. We encourage you to review this policy periodically.
               </p>

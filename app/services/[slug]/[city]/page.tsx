@@ -311,7 +311,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
       <section className="section-padding">
         <div className="container-max">
           <div className="prose prose-lg max-w-none text-charcoal leading-relaxed">
-            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-navy mb-6">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mb-6">
               {service.name} Across {city.name}
             </h2>
             {introParagraphs.map((paragraph, i) => (
@@ -325,7 +325,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
       {service.benefits.length > 0 && (
         <section className="section-padding bg-grey-50">
           <div className="container-max">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
               Why Choose Our {service.name}
             </h2>
             <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
@@ -339,7 +339,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                       <path d="M20 6L9 17l-5-5" stroke="#d4a843" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
-                  <h3 className="font-heading font-bold text-navy text-lg mb-2">{benefit.title}</h3>
+                  <h3 className="font-heading font-bold text-white text-lg mb-2">{benefit.title}</h3>
                   <p className="text-grey-600 text-sm">{benefit.description}</p>
                 </div>
               ))}
@@ -349,9 +349,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
       )}
 
       {/* Areas We Cover */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-obsidian-light">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+          <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
             Areas We Cover in {city.name}
           </h2>
           <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
@@ -381,7 +381,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
       {service.howItWorks && service.howItWorks.length > 0 && (
         <section className="section-padding bg-grey-50">
           <div className="container-max max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
               How It Works
             </h2>
             <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
@@ -396,7 +396,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                       <span className="text-gold font-heading font-bold text-xl">{step.step}</span>
                     </div>
                     <div className="pt-2">
-                      <h3 className="font-heading font-bold text-navy text-lg">{step.title}</h3>
+                      <h3 className="font-heading font-bold text-white text-lg">{step.title}</h3>
                       <p className="text-grey-600 mt-1">{step.description}</p>
                     </div>
                   </div>
@@ -409,9 +409,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
 
       {/* Pricing Guide */}
       {service.pricingGuide && (
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-obsidian-light">
           <div className="container-max max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
               {service.pricingGuide.heading}
             </h2>
             <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
@@ -421,7 +421,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               {service.pricingGuide.ranges.map((range, i) => (
                 <div key={i} className="card-surface p-5 flex justify-between items-center">
                   <span className="text-charcoal font-medium">{range.item}</span>
-                  <span className="text-navy font-heading font-bold whitespace-nowrap ml-4">{range.price}</span>
+                  <span className="text-white font-heading font-bold whitespace-nowrap ml-4">{range.price}</span>
                 </div>
               ))}
             </div>
@@ -448,9 +448,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
       )}
 
       {/* Other Services in This City */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-obsidian-light">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+          <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
             Other Services in {city.name}
           </h2>
           <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
@@ -469,7 +469,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-heading font-bold text-navy text-sm group-hover:text-gold transition-colors">
+                  <p className="font-heading font-bold text-white text-sm group-hover:text-gold transition-colors">
                     {s.name}
                   </p>
                   <p className="text-grey-500 text-xs mt-0.5">{s.name} in {city.name}</p>
@@ -483,7 +483,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
       {/* This Service in Other Cities */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+          <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
             {service.name} in Other Cities
           </h2>
           <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
@@ -496,7 +496,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 href={`/services/${slug}/${c.slug}`}
                 className="card-surface p-4 text-center hover:shadow-md transition-shadow group"
               >
-                <p className="font-heading font-bold text-navy text-sm group-hover:text-gold transition-colors">
+                <p className="font-heading font-bold text-white text-sm group-hover:text-gold transition-colors">
                   {c.name}
                 </p>
                 <p className="text-grey-500 text-xs mt-0.5">{c.region}</p>

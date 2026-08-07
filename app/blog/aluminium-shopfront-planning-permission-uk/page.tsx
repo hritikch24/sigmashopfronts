@@ -57,7 +57,7 @@ export default function PlanningPermissionPage() {
         }}
       />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -67,7 +67,7 @@ export default function PlanningPermissionPage() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             Do You Need Planning Permission for an Aluminium Shopfront?
           </h1>
 
@@ -75,7 +75,7 @@ export default function PlanningPermissionPage() {
             If you are planning to install or replace an aluminium shopfront in the UK, one of the first questions to answer is whether you need planning permission. Get it wrong and you risk enforcement action, costly removal work, or delays that push back your opening date. The good news is that many shopfront projects fall under permitted development and do not require a formal application — but the rules have important exceptions that every business owner should understand.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Permitted Development: The General Rule
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -85,21 +85,21 @@ export default function PlanningPermissionPage() {
             However, permitted development is not a blanket entitlement. Your local planning authority may have removed or restricted permitted development rights through an Article 4 Direction — a tool commonly used in town centres, conservation areas, and areas of special character. If an Article 4 Direction is in force, you will need to apply for planning permission even for works that would otherwise be permitted.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Conservation Areas
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             If your premises sit within a designated conservation area, the planning authority has a statutory duty to preserve or enhance the character and appearance of that area. In practice, this means shopfront designs are scrutinised far more closely. Most conservation areas are covered by an Article 4 Direction that removes permitted development rights for changes to frontages, meaning you will almost certainly need planning permission. The authority may also have published a shopfront design guide setting out acceptable materials, colours, signage styles, and proportions. Following this guidance from the outset will significantly improve your chances of approval.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Listed Buildings
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Works to a listed building that affect its character as a building of special architectural or historic interest require listed building consent under the Planning (Listed Buildings and Conservation Areas) Act 1990. This applies to both external and internal alterations. Replacing a shopfront on a listed building will therefore require listed building consent in addition to any planning permission that may be needed. The application must demonstrate that the proposed works preserve the significance of the building or, where harm is unavoidable, that the harm is justified by public benefits. Engaging a heritage consultant at an early stage is strongly recommended for listed building projects.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             The Planning Application Process
           </h2>
           <p className="text-charcoal leading-relaxed mb-4">
@@ -112,7 +112,7 @@ export default function PlanningPermissionPage() {
             <li><strong>Determination</strong> — The authority has eight weeks to determine a standard application. During this time, neighbours and relevant bodies (such as the conservation officer) will be consulted. If the application is refused, you have the right to appeal to the Planning Inspectorate.</li>
           </ol>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Building Regulations: A Separate Requirement
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -123,7 +123,7 @@ export default function PlanningPermissionPage() {
             is designed to meet the current Building Regulations requirements.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Practical Tips
           </h2>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-10 space-y-2">
@@ -135,13 +135,13 @@ export default function PlanningPermissionPage() {
 
           {/* Visual FAQ section */}
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
                     {faq.question}
                   </h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>

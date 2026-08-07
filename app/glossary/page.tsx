@@ -259,7 +259,7 @@ export default function GlossaryPage() {
               <a
                 key={letter}
                 href={`#letter-${letter}`}
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-grey-100 text-charcoal font-heading font-semibold text-sm hover:bg-gold hover:text-navy transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-grey-100 text-charcoal font-heading font-semibold text-sm hover:bg-gold hover:text-white transition-colors"
               >
                 {letter}
               </a>
@@ -277,7 +277,7 @@ export default function GlossaryPage() {
             );
             return (
               <div key={letter} id={`letter-${letter}`} className="mb-12 scroll-mt-8">
-                <h2 className="text-3xl font-heading font-bold text-navy border-b-2 border-gold pb-2 mb-6">
+                <h2 className="text-3xl font-heading font-bold text-white border-b-2 border-gold pb-2 mb-6">
                   {letter}
                 </h2>
                 <dl className="space-y-8">

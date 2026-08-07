@@ -84,7 +84,7 @@ export default function BlogIndex() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.sigmashopfronts.com/blog' }] }) }} />
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-obsidian-light">
         <div className="container-max">
           <Breadcrumbs
             items={[
@@ -93,7 +93,7 @@ export default function BlogIndex() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-4">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
             Shopfront Installation Guides &amp; Articles
           </h1>
           <p className="text-grey-600 max-w-2xl mb-10">
@@ -108,7 +108,7 @@ export default function BlogIndex() {
                 href={`/blog/${post.slug}`}
                 className="card-surface rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow"
               >
-                <h2 className="font-heading text-lg font-semibold text-navy mb-2">
+                <h2 className="font-heading text-lg font-semibold text-white mb-2">
                   {post.title}
                 </h2>
                 <p className="text-charcoal text-sm leading-relaxed flex-1">

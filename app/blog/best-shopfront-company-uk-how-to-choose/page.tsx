@@ -63,7 +63,7 @@ export default function BestShopfrontCompanyPage() {
         }}
       />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -73,7 +73,7 @@ export default function BestShopfrontCompanyPage() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             How to Choose the Best Shopfront Company in the UK
           </h1>
 
@@ -81,7 +81,7 @@ export default function BestShopfrontCompanyPage() {
             Choosing a shopfront installer is a significant decision. Your shopfront is the face of your business — it is the first thing customers see, and it needs to look right, perform well, and last for years. Unfortunately, the shopfront industry has its share of unreliable operators who overcharge, underdeliver, or disappear after taking a deposit. This guide helps you identify a professional, trustworthy installer and avoid the common pitfalls.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">The Essential Checklist</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">The Essential Checklist</h2>
           <p className="text-charcoal leading-relaxed mb-4">Before appointing any shopfront company, confirm the following:</p>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-3">
             <li><strong>Companies House registration:</strong> Every legitimate UK company is registered at Companies House. Search for the company name at beta.companieshouse.gov.uk and check that the company is active, not dissolved or in liquidation. Note the incorporation date — while newer companies can be excellent, this gives you context.</li>
@@ -92,7 +92,7 @@ export default function BestShopfrontCompanyPage() {
             <li><strong>Written warranty:</strong> Any reputable installer will provide a written warranty covering both the materials and the installation workmanship. Be wary of companies that offer only verbal assurances.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Red Flags to Watch For</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Red Flags to Watch For</h2>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-3">
             <li><strong>Quoting from photographs:</strong> A company that quotes without visiting the site cannot give you an accurate price. They are either planning to add extras later or they do not understand what the job involves.</li>
             <li><strong>Large upfront deposits:</strong> A 10–20% deposit on order confirmation is normal. Anything above 30% before work begins is a risk. Never pay the full amount before installation is complete.</li>
@@ -101,7 +101,7 @@ export default function BestShopfrontCompanyPage() {
             <li><strong>No insurance documentation:</strong> If a company cannot or will not provide copies of their insurance certificates, do not proceed.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Questions to Ask Before Signing</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Questions to Ask Before Signing</h2>
           <ol className="list-decimal pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li>Are you registered at Companies House? What is your company number?</li>
             <li>Can you provide copies of your public liability and employers&apos; liability insurance?</li>
@@ -113,18 +113,18 @@ export default function BestShopfrontCompanyPage() {
             <li>Can you provide references from recent clients?</li>
           </ol>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Why Businesses Choose Sigma Shop Fronts</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Why Businesses Choose Sigma Shop Fronts</h2>
           <p className="text-charcoal leading-relaxed mb-6">
             At <Link href="/why-choose-us" className="text-gold font-medium hover:underline">Sigma Shop Fronts</Link>, we meet every criterion on this checklist. We are Companies House registered, fully insured, and our installation teams hold CSCS cards. Every project comes with a written workmanship guarantee, and our quotations are detailed, transparent, and valid for 30 days. Our staff collectively bring over 10 years of hands-on experience in the commercial shopfront industry, and we are happy to share references, insurance certificates, and photographs of completed projects before you commit. We provide{' '}
             <Link href="/contact" className="text-gold font-medium hover:underline">free site surveys</Link> with no obligation — call us on 07414 779594 to arrange yours.
           </p>
 
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">{faq.question}</h3>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">{faq.question}</h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>
                 </div>
               ))}

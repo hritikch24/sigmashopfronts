@@ -206,7 +206,7 @@ export default async function ServicePage({ params }: PageProps) {
                 {service.description.split('\n\n').map((paragraph, i) => {
                   if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                     return (
-                      <h2 key={i} className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                      <h2 key={i} className="text-2xl font-heading font-bold text-white mt-8 mb-4">
                         {paragraph.replace(/\*\*/g, '')}
                       </h2>
                     );
@@ -215,7 +215,7 @@ export default async function ServicePage({ params }: PageProps) {
                     const parts = paragraph.split('**');
                     return (
                       <div key={i}>
-                        <h2 className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                        <h2 className="text-2xl font-heading font-bold text-white mt-8 mb-4">
                           {parts[1]}
                         </h2>
                         {parts[2] && <p className="mb-4">{parts[2]}</p>}
@@ -228,7 +228,7 @@ export default async function ServicePage({ params }: PageProps) {
 
               {slug === 'automatic-doors' && (
                 <div className="mt-10">
-                  <h2 className="text-2xl font-heading font-bold text-navy mb-4">
+                  <h2 className="text-2xl font-heading font-bold text-white mb-4">
                     Watch Our Automatic Door Installation
                   </h2>
                   <video
@@ -252,7 +252,7 @@ export default async function ServicePage({ params }: PageProps) {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 <div className="card-surface p-6">
-                  <h3 className="font-heading font-bold text-navy text-lg mb-4">
+                  <h3 className="font-heading font-bold text-white text-lg mb-4">
                     Key Benefits
                   </h3>
                   <ul className="space-y-4">
@@ -264,7 +264,7 @@ export default async function ServicePage({ params }: PageProps) {
                           </svg>
                         </span>
                         <div>
-                          <p className="font-semibold text-navy text-sm">{benefit.title}</p>
+                          <p className="font-semibold text-white text-sm">{benefit.title}</p>
                           <p className="text-grey-600 text-sm mt-0.5">{benefit.description}</p>
                         </div>
                       </li>
@@ -292,7 +292,7 @@ export default async function ServicePage({ params }: PageProps) {
 
                 {related.length > 0 && (
                   <div className="card-surface p-6">
-                    <h3 className="font-heading font-bold text-navy text-lg mb-3">
+                    <h3 className="font-heading font-bold text-white text-lg mb-3">
                       Related Services
                     </h3>
                     <ul className="space-y-2">
@@ -319,9 +319,9 @@ export default async function ServicePage({ params }: PageProps) {
       </section>
 
       {service.howItWorks && service.howItWorks.length > 0 && (
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-obsidian-light">
           <div className="container-max max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
               How It Works
             </h2>
             <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
@@ -336,7 +336,7 @@ export default async function ServicePage({ params }: PageProps) {
                       <span className="text-gold font-heading font-bold text-xl">{step.step}</span>
                     </div>
                     <div className="pt-2">
-                      <h3 className="font-heading font-bold text-navy text-lg">{step.title}</h3>
+                      <h3 className="font-heading font-bold text-white text-lg">{step.title}</h3>
                       <p className="text-grey-600 mt-1">{step.description}</p>
                     </div>
                   </div>
@@ -350,7 +350,7 @@ export default async function ServicePage({ params }: PageProps) {
       {service.pricingGuide && (
         <section className="section-padding bg-grey-50">
           <div className="container-max max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
               {service.pricingGuide.heading}
             </h2>
             <p className="text-grey-600 text-center mb-10 max-w-2xl mx-auto">
@@ -360,7 +360,7 @@ export default async function ServicePage({ params }: PageProps) {
               {service.pricingGuide.ranges.map((range, i) => (
                 <div key={i} className="card-surface p-5 flex justify-between items-center">
                   <span className="text-charcoal font-medium">{range.item}</span>
-                  <span className="text-navy font-heading font-bold whitespace-nowrap ml-4">{range.price}</span>
+                  <span className="text-white font-heading font-bold whitespace-nowrap ml-4">{range.price}</span>
                 </div>
               ))}
             </div>
@@ -375,7 +375,7 @@ export default async function ServicePage({ params }: PageProps) {
       )}
 
       {service.faqs.length > 0 && (
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-obsidian-light">
           <div className="container-max max-w-3xl">
             <FAQSection
               faqs={service.faqs}
@@ -388,13 +388,13 @@ export default async function ServicePage({ params }: PageProps) {
       {service.peopleAlsoAsk && service.peopleAlsoAsk.length > 0 && (
         <section className="section-padding bg-grey-50">
           <div className="container-max max-w-3xl">
-            <h2 className="text-2xl font-heading font-bold text-navy mb-6">
+            <h2 className="text-2xl font-heading font-bold text-white mb-6">
               People Also Ask
             </h2>
             <div className="space-y-4">
               {service.peopleAlsoAsk.map((item, i) => (
                 <details key={i} className="card-surface group">
-                  <summary className="p-5 cursor-pointer flex items-center justify-between font-medium text-navy hover:text-gold transition-colors">
+                  <summary className="p-5 cursor-pointer flex items-center justify-between font-medium text-white hover:text-gold transition-colors">
                     {item.question}
                     <svg
                       width="20"

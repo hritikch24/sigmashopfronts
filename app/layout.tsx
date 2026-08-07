@@ -231,7 +231,7 @@ function gtag_report_conversion(url) {
         <meta name="ICBM" content="52.4912, -2.0150" />
         <link rel="alternate" hrefLang="en-gb" href="https://www.sigmashopfronts.com" />
       </head>
-      <body className="min-h-full flex flex-col font-body bg-white text-charcoal">
+      <body className="min-h-full flex flex-col font-body bg-obsidian text-charcoal">
         {gtmId && (
           <noscript>
             <iframe

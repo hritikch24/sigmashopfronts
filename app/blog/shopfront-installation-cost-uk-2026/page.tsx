@@ -63,7 +63,7 @@ export default function ShopfrontCostUK2026Page() {
         }}
       />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -73,7 +73,7 @@ export default function ShopfrontCostUK2026Page() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             Shopfront Installation Costs in the UK (2026): What to Expect
           </h1>
 
@@ -81,7 +81,7 @@ export default function ShopfrontCostUK2026Page() {
             If you are considering a new shopfront for your business premises in 2026, one of the first questions you will ask is: how much does it cost? The answer depends on several factors — the type of system, the size of the opening, the glazing specification, your location, and whether structural work is required. This guide breaks down current UK pricing across the most common shopfront types so you can budget with confidence.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Aluminium Shopfront Costs</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Aluminium Shopfront Costs</h2>
           <p className="text-charcoal leading-relaxed mb-4">Aluminium is the industry standard for commercial shopfronts in the UK. Here are typical 2026 price ranges for supply and installation:</p>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li><strong>Single-bay shopfront (up to 4m wide):</strong> £2,000–£5,000</li>
@@ -93,7 +93,7 @@ export default function ShopfrontCostUK2026Page() {
             These prices assume a straightforward replacement within an existing structural opening. If a new lintel or structural beam is required, structural engineering and building control costs will add £1,000–£3,000 to the project.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Roller Shutter Costs</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Roller Shutter Costs</h2>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li><strong>Manual roller shutter:</strong> £800–£1,500</li>
             <li><strong>Electric roller shutter:</strong> £1,200–£2,500</li>
@@ -101,21 +101,21 @@ export default function ShopfrontCostUK2026Page() {
             <li><strong>LPS 1175 security-rated:</strong> £2,500–£5,000</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Security Door Costs</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Security Door Costs</h2>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li><strong>Standard steel security door:</strong> £800–£1,500</li>
             <li><strong>LPS 1175 SR2 rated:</strong> £1,500–£3,000</li>
             <li><strong>LPS 1175 SR3 rated:</strong> £2,500–£5,000</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">Automatic Door Costs</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">Automatic Door Costs</h2>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li><strong>Sliding bi-parting entrance:</strong> £3,000–£6,000</li>
             <li><strong>Swing operator retrofit:</strong> £1,500–£3,000</li>
             <li><strong>Annual maintenance contract:</strong> £200–£400 per door</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">What Drives the Price Up?</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">What Drives the Price Up?</h2>
           <p className="text-charcoal leading-relaxed mb-4">Several factors can push costs above the standard ranges:</p>
           <ul className="list-disc pl-6 text-charcoal leading-relaxed mb-6 space-y-2">
             <li><strong>Structural alterations:</strong> forming a new or wider opening requires a structural engineer, steelwork, and building control approval</li>
@@ -125,18 +125,18 @@ export default function ShopfrontCostUK2026Page() {
             <li><strong>London and coastal locations:</strong> access logistics, marine-grade specifications, and higher labour rates</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">How to Get the Best Value</h2>
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">How to Get the Best Value</h2>
           <p className="text-charcoal leading-relaxed mb-6">
             The most important step is to get a proper site survey from a reputable installer. Avoid companies that quote from photographs alone — accurate pricing requires physical measurement of the opening, assessment of the structural condition, and understanding of any planning constraints. A good installer will provide a detailed, itemised written quotation that you can compare directly with other quotes. At{' '}
             <Link href="/contact" className="text-gold font-medium hover:underline">Sigma Shop Fronts</Link>, all site surveys are free, and our quotations break down every cost element so you can make an informed decision.
           </p>
 
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">{faq.question}</h3>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">{faq.question}</h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>
                 </div>
               ))}

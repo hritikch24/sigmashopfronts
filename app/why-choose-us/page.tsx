@@ -80,7 +80,7 @@ export default function WhyChooseUsPage() {
       {/* Experience */}
       <section className="section-padding bg-grey-50">
         <div className="container-max" style={{ maxWidth: '48rem' }}>
-          <h2 className="font-heading text-navy" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>10+ Years of Trade Experience</h2>
+          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>10+ Years of Trade Experience</h2>
           <p className="text-grey-600" style={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
             Our installation teams collectively bring over a decade of hands-on shopfront experience. From aluminium curtain walling and bi-fold shop doors to roller shutters and fire-rated glazing, we have seen — and solved — it all. Sigma Shop Fronts is registered at Companies House (verifiable on the public register), carries comprehensive public liability insurance, and operates with full CSCS-carded site personnel. We do not subcontract to unknown labour; every installer on your project is part of our vetted, experienced team.
           </p>
@@ -90,7 +90,7 @@ export default function WhyChooseUsPage() {
       {/* Differentiators */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="font-heading text-navy" style={{ fontSize: '1.75rem', marginBottom: '2rem', textAlign: 'center' }}>What Sets Us Apart</h2>
+          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', marginBottom: '2rem', textAlign: 'center' }}>What Sets Us Apart</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {differentiators.map((d) => (
               <div key={d.title} className="card-surface" style={{ padding: '1.5rem' }}>
@@ -120,7 +120,7 @@ export default function WhyChooseUsPage() {
       {/* Comparison */}
       <section className="section-padding bg-grey-50">
         <div className="container-max" style={{ maxWidth: '52rem' }}>
-          <h2 className="font-heading text-navy" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '2rem' }}>How We Compare</h2>
+          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '2rem' }}>How We Compare</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0', borderRadius: '0.75rem', overflow: 'hidden' }}>
             <div className="bg-navy" style={{ padding: '0.75rem 1rem' }}><strong className="text-gold">Sigma Shop Fronts</strong></div>
             <div style={{ padding: '0.75rem 1rem', background: '#e5e7eb' }}><strong className="text-charcoal">Typical Shopfront Companies</strong></div>
@@ -137,13 +137,13 @@ export default function WhyChooseUsPage() {
       {/* Testimonials */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="font-heading text-navy" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '2rem' }}>Trusted by Businesses Across the UK</h2>
+          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '2rem' }}>Trusted by Businesses Across the UK</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {testimonials.map((t) => (
               <blockquote key={t.name} className="card-surface" style={{ padding: '1.5rem', margin: 0 }}>
                 <p className="text-charcoal" style={{ fontSize: '0.95rem', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '1rem' }}>&ldquo;{t.quote}&rdquo;</p>
                 <footer>
-                  <strong className="text-navy" style={{ display: 'block' }}>{t.name}</strong>
+                  <strong className="text-white" style={{ display: 'block' }}>{t.name}</strong>
                   <span className="text-grey-600" style={{ fontSize: '0.875rem' }}>{t.business}, {t.location}</span>
                 </footer>
               </blockquote>
@@ -155,7 +155,7 @@ export default function WhyChooseUsPage() {
       {/* Accreditations */}
       <section className="section-padding bg-grey-50">
         <div className="container-max" style={{ maxWidth: '48rem' }}>
-          <h2 className="font-heading text-navy" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '1.5rem' }}>Accreditations &amp; Compliance</h2>
+          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '1.5rem' }}>Accreditations &amp; Compliance</h2>
           <p className="text-grey-600" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Every installation meets or exceeds the following British and European standards:</p>
           <ul style={{ columns: 2, gap: '1.5rem', listStyle: 'none', padding: 0 }}>
             {standards.map((s) => (

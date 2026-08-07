@@ -70,7 +70,7 @@ export default function RollerShutterMaintenancePage() {
         ],
       }) }} />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -80,7 +80,7 @@ export default function RollerShutterMaintenancePage() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             How to Maintain Commercial Roller Shutters: A Complete Guide
           </h1>
 
@@ -91,14 +91,14 @@ export default function RollerShutterMaintenancePage() {
             This guide explains how to maintain commercial roller shutters properly, covering everything from monthly checks you can do yourself through to the professional servicing that keeps warranties valid and insurers satisfied.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Why Roller Shutter Maintenance Matters
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             A well-maintained roller shutter can last fifteen to twenty years. Without maintenance, components wear unevenly, small problems escalate, and premature failure becomes far more likely. In the UK, insurers increasingly ask for evidence of regular shutter servicing as a condition of commercial property cover — particularly where shutters form part of the insured security measures. Neglecting maintenance could therefore jeopardise a claim after a burglary or storm-damage event.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Monthly Visual Inspection
           </h2>
           <p className="text-charcoal leading-relaxed mb-4">
@@ -112,21 +112,21 @@ export default function RollerShutterMaintenancePage() {
             <li>Verify that the manual override (if fitted) is accessible and functional. This is a legal requirement under BS EN 13241 for power-operated shutters.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Lubrication: What to Use and Where
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Lubrication reduces friction between the curtain slats and the guide channels, lowers the load on the motor, and prevents the irritating squeal that dry shutters develop. Use a silicone-based spray lubricant — never a petroleum-based product such as WD-40, which attracts dust and creates a gritty paste that accelerates wear. Apply lubricant lightly to both guide rails from top to bottom, then cycle the shutter two or three times to distribute the spray evenly. For spring-balanced manual shutters, the tension springs inside the barrel should only be lubricated by a qualified engineer, as these are under significant tension and can cause serious injury.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Cleaning Your Shutters
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Cleaning is not just cosmetic. Accumulated dirt, salt, and industrial grime accelerate corrosion — especially on galvanised steel shutters in coastal or urban areas. Wash the curtain face with warm soapy water and a soft brush or cloth at least twice a year. Rinse with clean water and allow to dry before closing. For powder-coated or colour-finished shutters, avoid abrasive cleaners that could damage the coating. Pay special attention to the bottom rail and seal, where road grit tends to accumulate.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Professional Servicing
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -140,7 +140,7 @@ export default function RollerShutterMaintenancePage() {
             can provide a like-for-like replacement or an upgrade to a more modern specification.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Common Faults and When to Call a Professional
           </h2>
           <p className="text-charcoal leading-relaxed mb-4">
@@ -153,7 +153,7 @@ export default function RollerShutterMaintenancePage() {
             <li><strong>Remote control or key switch unresponsive</strong> — check batteries and the isolator switch first. If the problem persists, the control board may need replacing.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Keep Records
           </h2>
           <p className="text-charcoal leading-relaxed mb-10">
@@ -162,13 +162,13 @@ export default function RollerShutterMaintenancePage() {
 
           {/* Visual FAQ section */}
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
                     {faq.question}
                   </h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>

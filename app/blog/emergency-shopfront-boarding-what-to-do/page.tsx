@@ -70,7 +70,7 @@ export default function EmergencyBoardingPage() {
         ],
       }) }} />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -80,7 +80,7 @@ export default function EmergencyBoardingPage() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             Emergency Shopfront Boarding: What to Do When Your Shop Is Broken Into
           </h1>
 
@@ -91,21 +91,21 @@ export default function EmergencyBoardingPage() {
             This guide walks you through exactly what to do — from the moment you discover the break-in through to arranging a permanent repair.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 1: Ensure Personal Safety
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Before anything else, make sure you and your staff are safe. Do not enter the premises if there is any possibility that the intruder is still inside. Stand well back, call 999, and wait for the police to arrive and confirm the building is clear. If you arrive to find the break-in has already occurred and the building is obviously empty, you may enter — but remain cautious and avoid touching anything unnecessarily.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 2: Call the Police
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Report the break-in to the police as soon as possible. If the crime is in progress or has just occurred, dial 999. If you discover the aftermath some time later, call 101 to report it as a non-emergency. You will be given a crime reference number — keep this safe, as your insurer will require it. In some cases, a scenes-of-crime officer (SOCO) will attend to gather forensic evidence such as fingerprints, footwear marks, and DNA samples. Do not clean up or disturb the scene until they have finished.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 3: Secure the Premises
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -119,14 +119,14 @@ export default function EmergencyBoardingPage() {
             covers emergency boarding, temporary shutter fitting, and emergency glass replacement across our service area.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 4: Document Everything
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Before any clean-up begins, photograph and video the damage thoroughly. Capture wide shots showing the full extent of the break-in point, close-ups of damaged locks, frames, and glass, and images of any displaced or stolen stock. If you have CCTV, secure the footage immediately — many systems overwrite after a set period, so download or back up the relevant files without delay. Make a written list of all stolen or damaged items as soon as you can, while the details are fresh.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 5: Notify Your Insurer
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -144,14 +144,14 @@ export default function EmergencyBoardingPage() {
             Some policies require you to use an insurer-approved contractor for repairs. Ask your broker about this before commissioning permanent work, as using an unapproved supplier could jeopardise the claim.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Step 6: Arrange a Permanent Repair
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Emergency boarding is a temporary measure. As soon as your insurer has authorised the repair — or given you the go-ahead to obtain quotes — arrange for a permanent replacement shopfront. A standard aluminium shopfront can typically be manufactured and installed within two to three weeks. If you are upgrading security at the same time (for example, adding a roller shutter or specifying laminated glass), discuss this with your installer at the quotation stage so the work can be combined.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Preventing Future Break-Ins
           </h2>
           <p className="text-charcoal leading-relaxed mb-4">
@@ -171,13 +171,13 @@ export default function EmergencyBoardingPage() {
 
           {/* Visual FAQ section */}
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
                     {faq.question}
                   </h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>

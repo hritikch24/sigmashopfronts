@@ -176,7 +176,7 @@ export default function GalleryPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <p className="px-3 py-2 text-xs text-grey-500 bg-white leading-snug">{image.alt}</p>
+                <p className="px-3 py-2 text-xs text-grey-500 bg-grey-100 leading-snug">{image.alt}</p>
               </div>
             ))}
           </div>

@@ -81,7 +81,7 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h2 className="font-heading font-bold text-navy text-lg group-hover:text-gold transition-colors mb-2">
+                  <h2 className="font-heading font-bold text-white text-lg group-hover:text-gold transition-colors mb-2">
                     {service.name}
                   </h2>
                   <p className="text-grey-600 text-sm leading-relaxed mb-3">{service.desc}</p>

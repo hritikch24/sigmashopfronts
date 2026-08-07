@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="container-max">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-heading font-bold text-navy mb-6">Our Story</h2>
+              <h2 className="text-3xl font-heading font-bold text-white mb-6">Our Story</h2>
               <div className="space-y-4 text-grey-600 leading-relaxed">
                 <p>
                   Sigma Shop Fronts was established in the West Midlands by a team of experienced shopfront
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We are registered at Companies House under company number{' '}
-                  <strong className="text-navy">16794487</strong>, and we operate with full public liability
+                  <strong className="text-white">16794487</strong>, and we operate with full public liability
                   and employers&apos; liability insurance. Transparency and accountability sit at the core of
                   how we do business, and we are proud to be a legitimate, regulated UK company.
                 </p>
@@ -126,7 +126,7 @@ export default function AboutPage() {
       {/* What We Do */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-4">What We Do</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-4">What We Do</h2>
           <p className="text-grey-600 max-w-3xl leading-relaxed mb-8">
             We specialise in every aspect of commercial entrance solutions — from full shopfront replacement to
             bespoke security systems and automated access. Our in-house team handles the complete project
@@ -161,7 +161,7 @@ export default function AboutPage() {
       {/* Team & Values */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-4">Our Team &amp; Values</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-4">Our Team &amp; Values</h2>
           <div className="space-y-4 text-grey-600 leading-relaxed max-w-3xl mb-12">
             <p>
               Our installation crews are time-served tradesmen with decades of combined experience in the
@@ -190,7 +190,7 @@ export default function AboutPage() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-navy text-gold mb-4">
                   {pillar.icon}
                 </div>
-                <h3 className="text-lg font-heading font-bold text-navy mb-2">{pillar.title}</h3>
+                <h3 className="text-lg font-heading font-bold text-white mb-2">{pillar.title}</h3>
                 <p className="text-grey-600 text-sm leading-relaxed">{pillar.description}</p>
               </div>
             ))}
@@ -201,7 +201,7 @@ export default function AboutPage() {
       {/* Why Businesses Trust Us */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">
             Why Businesses Choose Sigma Shop Fronts
           </h2>
           <div className="grid md:grid-cols-2 gap-8 text-grey-600 leading-relaxed">

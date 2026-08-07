@@ -57,7 +57,7 @@ export default function FD30vsFD60Page() {
         }}
       />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -67,7 +67,7 @@ export default function FD30vsFD60Page() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             FD30 vs FD60 Fire Doors: Which Does Your Business Need?
           </h1>
 
@@ -75,7 +75,7 @@ export default function FD30vsFD60Page() {
             Fire doors are a critical part of any commercial building&apos;s passive fire protection strategy. They buy time — holding back flames and smoke so that occupants can evacuate safely and fire services can reach the scene before the blaze spreads beyond a single compartment. In the UK, fire doors are classified by the number of minutes they resist a standard fire test: FD30 provides thirty minutes of protection, while FD60 provides sixty. Choosing the wrong rating is not just a safety risk; it is a breach of the Building Regulations that can result in enforcement action and, in the worst case, criminal prosecution.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Understanding Fire Resistance Ratings
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -85,7 +85,7 @@ export default function FD30vsFD60Page() {
             It is important to understand that the rating applies to the complete door assembly — leaf, frame, intumescent seals, hinges, closer, lock, and any glazed apertures. Swapping any component for a non-tested alternative can invalidate the rating entirely.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             What the Building Regulations Require
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -99,14 +99,14 @@ export default function FD30vsFD60Page() {
             In Scotland, the requirements are set out in the Building (Scotland) Regulations and the associated Technical Handbooks, which follow similar principles but with some differences in detail. In Northern Ireland, the Building Regulations (Northern Ireland) apply. Always check the requirements specific to your jurisdiction.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             When Your Business Needs FD30
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             FD30 doors are the workhorse of commercial fire protection. If your premises are a standard retail unit, office, or small workshop in a building under 18 metres tall, FD30 doors on escape routes and compartment walls will typically satisfy the Building Regulations. They are lighter, less expensive, and easier to operate than their FD60 equivalents, which makes them practical for high-traffic doorways where ease of use matters.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             When Your Business Needs FD60
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -120,14 +120,14 @@ export default function FD30vsFD60Page() {
             <li>Shared walls or floors between different tenancies in a multi-occupied building, where the fire strategy requires 60-minute compartmentation.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Third-Party Certification
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             A genuine fire door should carry a label or plug from a recognised third-party certification body — typically BWF-CERTIFIRE, BM TRADA Q-Mark, or Warringtonfire. This label confirms that the door has been manufactured under an audited quality management system and that the specific configuration has been tested and approved. Doors without third-party certification may not be accepted by Building Control or your insurer.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Installation and Compliance
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -138,7 +138,7 @@ export default function FD30vsFD60Page() {
             covers supply, fitting, and certification so that your premises meet the required standard from day one.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Ongoing Maintenance
           </h2>
           <p className="text-charcoal leading-relaxed mb-10">
@@ -147,13 +147,13 @@ export default function FD30vsFD60Page() {
 
           {/* Visual FAQ section */}
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
                     {faq.question}
                   </h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>

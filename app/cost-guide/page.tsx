@@ -48,7 +48,7 @@ const blogPosting = {
 function PriceCard({ title, price, note }: { title: string; price: string; note?: string }) {
   return (
     <div className="card-surface rounded-xl p-5">
-      <h3 className="font-heading font-semibold text-navy text-lg">{title}</h3>
+      <h3 className="font-heading font-semibold text-white text-lg">{title}</h3>
       <p className="text-2xl font-bold text-gradient-gold mt-2">{price}</p>
       {note && <p className="text-grey-500 text-sm mt-1">{note}</p>}
     </div>
@@ -78,7 +78,7 @@ export default function CostGuidePage() {
       <section className="section-padding">
         <div className="container-max max-w-3xl">
           <p className="text-grey-600 leading-relaxed">
-            Whether you are fitting out a new retail unit, upgrading a tired fascia, or improving security after a break-in, the first question is always the same: <strong className="text-navy">how much will it cost?</strong> Below we break down typical UK prices for every type of commercial shopfront product we install, the factors that push costs up or down, and regional variations you should be aware of. Every project is different, so treat these as guide prices — we always provide a detailed written quotation after a free site survey.
+            Whether you are fitting out a new retail unit, upgrading a tired fascia, or improving security after a break-in, the first question is always the same: <strong className="text-white">how much will it cost?</strong> Below we break down typical UK prices for every type of commercial shopfront product we install, the factors that push costs up or down, and regional variations you should be aware of. Every project is different, so treat these as guide prices — we always provide a detailed written quotation after a free site survey.
           </p>
         </div>
       </section>
@@ -86,7 +86,7 @@ export default function CostGuidePage() {
       {/* Aluminium Shopfront Costs */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Aluminium Shopfront Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Aluminium Shopfront Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Aluminium remains the industry standard for commercial shopfronts in the UK. All prices below are for supply, fabrication, and professional installation of thermally broken aluminium profiles with toughened safety glass to BS EN 12600.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <PriceCard title="Single-Bay Shopfront" price="£2,000 - £5,000" note="Up to approx. 4m wide, standard height" />
@@ -100,7 +100,7 @@ export default function CostGuidePage() {
       {/* Roller Shutter Costs */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Roller Shutter Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Roller Shutter Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Roller shutters are the most common security upgrade for UK retail and commercial premises. Prices depend on the opening size, lath material, operation method, and any fire or security certification required.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <PriceCard title="Manual Roller Shutter" price="£800 - £1,500" note="Spring-balanced, hand-crank, or push-up" />
@@ -114,7 +114,7 @@ export default function CostGuidePage() {
       {/* Security Door Costs */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Security Door Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Security Door Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Certified security doors are essential for high-risk premises. Prices include the door-set, frame, multipoint locking, and installation. LPS 1175 certification is increasingly required by insurers.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <PriceCard title="Standard Steel Security Door" price="£800 - £1,500" note="Galvanised steel, multipoint lock" />
@@ -127,7 +127,7 @@ export default function CostGuidePage() {
       {/* Automatic Door Costs */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Automatic Door Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Automatic Door Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Automatic doors improve accessibility (Equality Act 2010 / BS 8300) and footfall. Prices below cover supply, installation, and commissioning compliant with BS EN 16005.</p>
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
             <PriceCard title="Sliding Bi-Parting Automatic" price="£3,000 - £6,000" note="Sensor-activated, full breakout option" />
@@ -139,7 +139,7 @@ export default function CostGuidePage() {
       {/* Bi-Fold Door Costs */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Bi-Fold Door Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Bi-Fold Door Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Commercial bi-fold doors create open-plan frontages for restaurants, bars, and retail. Aluminium profiles with thermally broken sections and toughened double-glazed units as standard.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <PriceCard title="3-Panel Bi-Fold" price="£3,000 - £5,000" note="Up to approx. 3m opening" />
@@ -152,7 +152,7 @@ export default function CostGuidePage() {
       {/* Fire Door Costs */}
       <section className="section-padding">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Fire Door Costs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Fire Door Costs</h2>
           <p className="text-grey-600 max-w-3xl mb-8">Fire doors are a Building Regulations Part B requirement in commercial premises. All our fire door-sets are third-party certified and supplied with the correct intumescent strips, cold smoke seals, and CE/UKCA marking.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <PriceCard title="FD30 Single Leaf" price="£400 - £800" note="30-minute integrity, most common spec" />
@@ -165,7 +165,7 @@ export default function CostGuidePage() {
       {/* What Affects the Final Price */}
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">What Affects the Final Price</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">What Affects the Final Price</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
             {[
               { t: 'Site Access', d: 'Restricted access, scaffolding, or high-level work adds cost.' },
@@ -176,7 +176,7 @@ export default function CostGuidePage() {
               { t: 'Waste Removal', d: 'Disposal of old shopfront, asbestos surveys if pre-1990s.' },
             ].map((item) => (
               <div key={item.t} className="card-surface rounded-xl p-5">
-                <h3 className="font-heading font-semibold text-navy">{item.t}</h3>
+                <h3 className="font-heading font-semibold text-white">{item.t}</h3>
                 <p className="text-grey-500 text-sm mt-1">{item.d}</p>
               </div>
             ))}
@@ -187,11 +187,11 @@ export default function CostGuidePage() {
       {/* Regional Price Variations */}
       <section className="section-padding">
         <div className="container-max max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-6">Regional Price Variations</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-6">Regional Price Variations</h2>
           <ul className="space-y-4 text-grey-600">
-            <li><strong className="text-navy">London and the South East:</strong> Expect a 15 to 25 percent premium on labour due to higher wages, ULEZ charges, and restricted working hours in many boroughs.</li>
-            <li><strong className="text-navy">Scotland:</strong> Building warrant costs and the separate Scottish Building Standards may add to the overall project price compared to England and Wales.</li>
-            <li><strong className="text-navy">Coastal Locations:</strong> Marine-grade powder coating or anodised finishes are recommended to resist salt-air corrosion, adding roughly 10 to 15 percent to material costs.</li>
+            <li><strong className="text-white">London and the South East:</strong> Expect a 15 to 25 percent premium on labour due to higher wages, ULEZ charges, and restricted working hours in many boroughs.</li>
+            <li><strong className="text-white">Scotland:</strong> Building warrant costs and the separate Scottish Building Standards may add to the overall project price compared to England and Wales.</li>
+            <li><strong className="text-white">Coastal Locations:</strong> Marine-grade powder coating or anodised finishes are recommended to resist salt-air corrosion, adding roughly 10 to 15 percent to material costs.</li>
           </ul>
         </div>
       </section>
@@ -213,11 +213,11 @@ export default function CostGuidePage() {
       {/* FAQs */}
       <section className="section-padding">
         <div className="container-max max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-navy mb-8">Shopfront Cost FAQs</h2>
+          <h2 className="text-3xl font-heading font-bold text-white mb-8">Shopfront Cost FAQs</h2>
           <div className="space-y-4">
             {faqs.map((f, i) => (
               <details key={i} className="card-surface rounded-xl group">
-                <summary className="cursor-pointer p-5 font-heading font-semibold text-navy flex items-center justify-between gap-4 list-none [&::-webkit-details-marker]:hidden">
+                <summary className="cursor-pointer p-5 font-heading font-semibold text-white flex items-center justify-between gap-4 list-none [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span className="text-gold text-xl leading-none transition-transform group-open:rotate-45">+</span>
                 </summary>

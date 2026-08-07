@@ -227,7 +227,7 @@ export default async function CityPage({ params }: PageProps) {
                 {city.description.split('\n\n').map((paragraph, i) => {
                   if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                     return (
-                      <h2 key={i} className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                      <h2 key={i} className="text-2xl font-heading font-bold text-white mt-8 mb-4">
                         {paragraph.replace(/\*\*/g, '')}
                       </h2>
                     );
@@ -236,7 +236,7 @@ export default async function CityPage({ params }: PageProps) {
                     const parts = paragraph.split('**');
                     return (
                       <div key={i}>
-                        <h2 className="text-2xl font-heading font-bold text-navy mt-8 mb-4">
+                        <h2 className="text-2xl font-heading font-bold text-white mt-8 mb-4">
                           {parts[1]}
                         </h2>
                         {parts[2] && <p className="mb-4">{parts[2]}</p>}
@@ -248,14 +248,14 @@ export default async function CityPage({ params }: PageProps) {
               </div>
 
               <div className="mt-8 p-6 bg-grey-50 rounded-xl">
-                <h3 className="font-heading font-bold text-navy text-lg mb-3">
+                <h3 className="font-heading font-bold text-white text-lg mb-3">
                   Areas We Cover in {city.name}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {city.areas.map((area) => (
                     <span
                       key={area}
-                      className="px-3 py-1.5 bg-white rounded-full text-sm text-charcoal border border-grey-200"
+                      className="px-3 py-1.5 bg-grey-100 rounded-full text-sm text-charcoal border border-grey-200"
                     >
                       {area}
                     </span>
@@ -290,7 +290,7 @@ export default async function CityPage({ params }: PageProps) {
                 </div>
 
                 <div className="card-surface p-6">
-                  <h3 className="font-heading font-bold text-navy text-lg mb-2">
+                  <h3 className="font-heading font-bold text-white text-lg mb-2">
                     Why Sigma in {city.name}?
                   </h3>
                   <ul className="space-y-3">
@@ -318,7 +318,7 @@ export default async function CityPage({ params }: PageProps) {
 
       <section className="section-padding bg-grey-50">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-navy text-center mb-3">
+          <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
             Our {city.name} Services
           </h2>
           <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
@@ -341,7 +341,7 @@ export default async function CityPage({ params }: PageProps) {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-heading font-bold text-navy text-sm group-hover:text-gold transition-colors">
+                  <h3 className="font-heading font-bold text-white text-sm group-hover:text-gold transition-colors">
                     {service.name}
                   </h3>
                   <span className="text-gold text-xs font-medium mt-1 inline-flex items-center gap-1">
@@ -360,7 +360,7 @@ export default async function CityPage({ params }: PageProps) {
       {city.testimonials.length > 0 && (
         <section className="section-padding">
           <div className="container-max max-w-3xl">
-            <h2 className="text-3xl font-heading font-bold text-navy text-center mb-8">
+            <h2 className="text-3xl font-heading font-bold text-white text-center mb-8">
               What Our {city.name} Clients Say
             </h2>
             <TestimonialCarousel testimonials={city.testimonials} />

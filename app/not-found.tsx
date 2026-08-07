@@ -12,7 +12,7 @@ export default function NotFound() {
     <section className="section-padding">
       <div className="container-max text-center py-16">
         <p className="text-7xl font-heading font-extrabold text-gold mb-4">404</p>
-        <h1 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
           Page Not Found
         </h1>
         <p className="text-grey-600 max-w-md mx-auto mb-8 leading-relaxed">

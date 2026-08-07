@@ -57,7 +57,7 @@ export default function LPS1175Page() {
         }}
       />
 
-      <article className="section-padding bg-white">
+      <article className="section-padding bg-obsidian-light">
         <div className="container-max max-w-3xl">
           <Breadcrumbs
             items={[
@@ -67,7 +67,7 @@ export default function LPS1175Page() {
             ]}
           />
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
             What Is the LPS 1175 Security Rating? A Business Owner&apos;s Guide
           </h1>
 
@@ -75,14 +75,14 @@ export default function LPS1175Page() {
             If you have ever received a letter from your insurer asking for &quot;LPS 1175-rated doors&quot; or seen the term on a security product brochure, you may have wondered what it actually means — and whether it matters. The short answer is that LPS 1175 is one of the most widely recognised physical security standards in the UK, and meeting the right level can be the difference between a valid insurance claim and a rejected one.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             The Standard Explained
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             LPS 1175 is published by the Loss Prevention Certification Board (LPCB), a division of BRE (the Building Research Establishment) based in Watford. It tests the resistance of building components — doors, shutters, windows, walls, and fencing — to forced entry. Unlike many standards that only assess the strength of a lock or a hinge in isolation, LPS 1175 subjects the complete installed assembly to a realistic attack using defined tool categories, carried out by trained operatives within a fixed time window. If the product prevents access for the required duration, it passes.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Understanding the Security Rating Levels
           </h2>
           <p className="text-charcoal leading-relaxed mb-4">
@@ -96,7 +96,7 @@ export default function LPS1175Page() {
             <li><strong>SR5 and above</strong> — Intended for the highest-risk environments including government, military, and critical national infrastructure.</li>
           </ul>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Why Insurers Care About LPS 1175
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -106,7 +106,7 @@ export default function LPS1175Page() {
             If your policy specifies an LPS 1175 requirement and you fail to meet it, the insurer may reduce or decline a claim following a break-in — even if the door was forced open — on the grounds that you did not maintain the agreed level of security. Checking your policy wording and matching it to the correct Security Rating is therefore not optional; it is a basic commercial precaution.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Choosing the Right Level for Your Business
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -121,14 +121,14 @@ export default function LPS1175Page() {
             Your insurer or broker can confirm the exact requirement. If you are in any doubt, specify the higher rating — the cost difference is usually modest compared to the potential consequences of under-specifying.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Verifying Certification
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
             Any supplier can claim their product is &quot;to LPS 1175 standard,&quot; but genuine certification is verifiable. Every approved product has a unique LPCB certificate number, and you can look it up in the LPCB Red Book — a free online database hosted by BRE at <em>redbooklive.com</em>. The physical product should also display a permanent LPCB approval label. If a supplier cannot provide a certificate number or tells you the product is &quot;equivalent to&quot; LPS 1175 without actually holding the certification, treat the claim sceptically.
           </p>
 
-          <h2 className="font-heading text-2xl font-semibold text-navy mt-10 mb-4">
+          <h2 className="font-heading text-2xl font-semibold text-white mt-10 mb-4">
             Installation Matters
           </h2>
           <p className="text-charcoal leading-relaxed mb-6">
@@ -145,13 +145,13 @@ export default function LPS1175Page() {
 
           {/* Visual FAQ section */}
           <section className="border-t border-grey-200 pt-10">
-            <h2 className="font-heading text-2xl font-semibold text-navy mb-6">
+            <h2 className="font-heading text-2xl font-semibold text-white mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="font-heading text-lg font-medium text-navy mb-2">
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
                     {faq.question}
                   </h3>
                   <p className="text-charcoal leading-relaxed">{faq.answer}</p>

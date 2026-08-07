@@ -8,6 +8,11 @@
   --color-space-mid:     #111128;
   --color-void:          #0a0a14;
 
+  /* Obsidian aliases (shared class compatibility with Urban) */
+  --color-obsidian:      #06060e;
+  --color-obsidian-light:#0c0c1a;
+  --color-obsidian-mid:  #111128;
+
   /* Legacy mappings — keep Tailwind classes working */
   --color-navy:          #0a0a18;
   --color-navy-light:    #14142a;

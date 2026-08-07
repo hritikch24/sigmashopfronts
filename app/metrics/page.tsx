@@ -456,7 +456,7 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
                   </div>
                   <a
                     href={`mailto:${lead.email}?subject=${encodeURIComponent(aiReply.subject)}&body=${encodeURIComponent(aiReply.body)}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold text-navy text-xs font-semibold hover:bg-gold-light transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold text-white text-xs font-semibold hover:bg-gold-light transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {icons.mail} Open in Email
@@ -596,7 +596,7 @@ export default function MetricsPage() {
           <button
             type="submit"
             disabled={!apiKey.trim() || loading}
-            className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-xl transition-all disabled:opacity-40 text-sm"
+            className="w-full bg-gold hover:bg-gold-light text-white font-bold py-3.5 rounded-xl transition-all disabled:opacity-40 text-sm"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
@@ -657,7 +657,7 @@ export default function MetricsPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                     activeTab === tab
-                      ? 'bg-gold text-navy shadow-lg shadow-gold/20'
+                      ? 'bg-gold text-white shadow-lg shadow-gold/20'
                       : 'text-grey-500 hover:text-white'
                   }`}
                 >

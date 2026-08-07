@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-start">
             {/* Left — Contact Form */}
             <div>
-              <h2 className="text-2xl font-heading font-bold text-navy mb-2">Send Us a Message</h2>
+              <h2 className="text-2xl font-heading font-bold text-white mb-2">Send Us a Message</h2>
               <p className="text-grey-500 mb-6 text-sm">
                 We aim to respond to all enquiries within one business day.
               </p>
@@ -95,7 +95,7 @@ export default function ContactPage() {
             <aside className="space-y-6">
               {/* Details Card */}
               <div className="card-surface rounded-xl p-6">
-                <h2 className="text-xl font-heading font-bold text-navy mb-5">Contact Details</h2>
+                <h2 className="text-xl font-heading font-bold text-white mb-5">Contact Details</h2>
                 <ul className="space-y-4">
                   {contactDetails.map((item) => (
                     <li key={item.label} className="flex items-start gap-3">
@@ -109,14 +109,14 @@ export default function ContactPage() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="text-navy font-semibold hover:text-gold transition-colors break-all"
+                            className="text-white font-semibold hover:text-gold transition-colors break-all"
                             target={item.href.startsWith('http') ? '_blank' : undefined}
                             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-navy font-semibold">{item.value}</p>
+                          <p className="text-white font-semibold">{item.value}</p>
                         )}
                       </div>
                     </li>
@@ -126,19 +126,19 @@ export default function ContactPage() {
 
               {/* Working Hours */}
               <div className="card-surface rounded-xl p-6">
-                <h3 className="text-lg font-heading font-bold text-navy mb-4">Working Hours</h3>
+                <h3 className="text-lg font-heading font-bold text-white mb-4">Working Hours</h3>
                 <ul className="space-y-2 text-sm text-grey-600">
                   <li className="flex justify-between">
                     <span>Monday – Friday</span>
-                    <span className="font-semibold text-navy">08:00 – 18:00</span>
+                    <span className="font-semibold text-white">08:00 – 18:00</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Saturday</span>
-                    <span className="font-semibold text-navy">09:00 – 16:00</span>
+                    <span className="font-semibold text-white">09:00 – 16:00</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Sunday</span>
-                    <span className="font-semibold text-navy">By appointment</span>
+                    <span className="font-semibold text-white">By appointment</span>
                   </li>
                 </ul>
                 <p className="mt-4 text-xs text-grey-400">
@@ -193,7 +193,7 @@ export default function ContactPage() {
               { heading: 'Fully Insured', body: 'All our work is covered by comprehensive public liability and employers\' liability insurance.' },
             ].map((item) => (
               <div key={item.heading}>
-                <h3 className="text-lg font-heading font-bold text-navy mb-2">{item.heading}</h3>
+                <h3 className="text-lg font-heading font-bold text-white mb-2">{item.heading}</h3>
                 <p className="text-grey-500 text-sm leading-relaxed">{item.body}</p>
               </div>
             ))}

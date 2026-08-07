@@ -97,14 +97,14 @@ export default function ReviewsPage() {
       </section>
 
       {/* Summary bar */}
-      <section className="bg-white border-b border-grey-100">
+      <section className="bg-obsidian-light border-b border-grey-100">
         <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center gap-6">
           <div className="text-center sm:text-left">
-            <p className="text-5xl font-bold text-navy">{avgRating}</p>
+            <p className="text-5xl font-bold text-white">{avgRating}</p>
             <StarRating rating={Math.round(Number(avgRating))} />
           </div>
           <div className="text-center sm:text-left">
-            <p className="text-grey-600 text-sm">Based on <span className="font-semibold text-navy">{reviews.length} verified reviews</span></p>
+            <p className="text-grey-600 text-sm">Based on <span className="font-semibold text-white">{reviews.length} verified reviews</span></p>
             <p className="text-grey-500 text-sm mt-1">All reviews are from real customers who used our services.</p>
           </div>
         </div>
@@ -115,11 +115,11 @@ export default function ReviewsPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {reviews.map((r, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-grey-100 flex flex-col">
+              <div key={i} className="bg-grey-100 rounded-2xl p-6 shadow-sm border border-grey-100 flex flex-col">
                 <StarRating rating={r.rating} />
                 <p className="text-grey-700 mt-4 flex-1 leading-relaxed">&ldquo;{r.text}&rdquo;</p>
                 <div className="mt-5 pt-4 border-t border-grey-100">
-                  <p className="font-semibold text-navy">{r.name}</p>
+                  <p className="font-semibold text-white">{r.name}</p>
                   <p className="text-sm text-grey-500">{r.service} — {r.location}</p>
                   <p className="text-xs text-grey-400 mt-1">{new Date(r.date).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</p>
                 </div>
@@ -135,7 +135,7 @@ export default function ReviewsPage() {
           <h2 className="text-2xl font-bold text-white">Ready to join our satisfied customers?</h2>
           <p className="text-grey-300 mt-3">Get a free, no-obligation quote for your shopfront project.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <Link href="/contact" className="inline-block bg-gold text-navy font-bold py-3 px-8 rounded-lg hover:bg-gold/90 transition-colors">
+            <Link href="/contact" className="inline-block bg-gold text-white font-bold py-3 px-8 rounded-lg hover:bg-gold/90 transition-colors">
               Get a Free Quote
             </Link>
             <Link href="/services" className="inline-block border border-grey-400 text-white font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-colors">
