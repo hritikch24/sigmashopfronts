@@ -53,7 +53,7 @@ export const services: Service[] = [
     primaryKeyword: 'aluminium shopfronts',
     metaTitle: 'Aluminium Shopfronts UK | Supply & Install',
     metaDescription:
-      'Bespoke aluminium shopfront installation across the UK. Thermally broken frames, toughened glazing, DDA-compliant entrances. Free site survey — call 07414 779594.',
+      'Toughened glass shopfronts with thermally broken aluminium frames. DDA-compliant entrances, powder-coat finishes, BS EN 12150 safety glazing. Free site survey — call 07414 779594.',
     description: `Aluminium has become the material of choice for commercial shopfront construction across the UK, and for good reason. When specified and installed correctly, an aluminium shopfront system offers an outstanding combination of structural rigidity, weather resistance, design flexibility, and long service life that no other material can match at a comparable price point.
 
 At Sigma Shop Fronts, we design and install aluminium shopfronts to suit everything from a single independent retailer to a multi-unit retail parade or commercial development. Our systems are sourced from leading European fabricators and conform to the relevant British Standards, including BS 6375 for the performance of windows and doors, and BS EN 14351-1, which governs the CE marking requirements for aluminium entrance doors.
@@ -2107,7 +2107,7 @@ Where a curtain wall passes across a fire compartment boundary — typically at 
     primaryKeyword: 'glass shopfronts',
     metaTitle: 'Glass Shopfronts UK | Frameless & Structural',
     metaDescription:
-      'Frameless and structural glass shopfront installation across the UK. Toughened safety glass, patch fittings, minimal framing. Maximum visibility for retail premises.',
+      'Toughened glass shopfronts — frameless and structural glass installations across the UK. BS EN 12150 safety glass, patch fittings, minimal framing. Maximum visibility.',
     description: `Glass shopfronts — also known as frameless shopfronts or structural glass facades — use minimal or no visible aluminium framing to create the most transparent possible retail entrance. Where a traditional aluminium shopfront uses mullions and transoms to support the glazing, a glass shopfront relies on the structural capacity of the toughened glass itself, supported by patch fittings, point fixings, or slender stainless-steel hardware that is visually unobtrusive.
 
 The result is a shopfront with maximum transparency: an uninterrupted view of the retail interior from the street, maximum natural light penetration, and a contemporary, high-end aesthetic that communicates quality and openness to prospective customers.
