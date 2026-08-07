@@ -36,8 +36,16 @@ function computeTotals(lineItems: LineItem[], vatRate: number) {
 async function nextNumber(type: string): Promise<string> {
   const prefix = type === 'invoice' ? 'INV' : 'Q';
   const year = new Date().getFullYear();
-  const count = await prisma.document.count({ where: { type } });
-  return `${prefix}-${year}-${String(count + 1).padStart(4, '0')}`;
+  const pattern = `${prefix}-${year}-%`;
+
+  const result = await prisma.$queryRawUnsafe<{ max_num: number | null }[]>(
+    `SELECT MAX(CAST(SPLIT_PART(number, '-', 3) AS INTEGER)) as max_num
+     FROM documents WHERE number LIKE $1`,
+    pattern
+  );
+
+  const maxNum = result[0]?.max_num || 0;
+  return `${prefix}-${year}-${String(maxNum + 1).padStart(4, '0')}`;
 }
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
