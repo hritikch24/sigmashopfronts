@@ -22,7 +22,7 @@ const C = {
 };
 
 interface LineItem { description: string; qty: number; unitPrice: number }
-interface DocumentMeta { projectReference?: string; scope?: string; specifications?: string; leadTime?: string }
+interface DocumentMeta { projectReference?: string; scope?: string; specifications?: string; leadTime?: string; photoDrawing?: string }
 
 interface DocumentData {
   id: string; type: string; number: string;
@@ -170,6 +170,14 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
               <div style={{ marginBottom: 28 }}>
                 <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Specifications</p>
                 <SpecLines text={meta.specifications} />
+              </div>
+            )}
+
+            {!isInvoice && meta.photoDrawing && (
+              <div style={{ marginBottom: 28 }}>
+                <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Photo / Drawing</p>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={meta.photoDrawing} alt="Photo / Drawing" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 6, border: `1px solid ${C.border}` }} />
               </div>
             )}
 

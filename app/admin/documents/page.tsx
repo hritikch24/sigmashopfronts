@@ -80,6 +80,7 @@ function emptyForm() {
     scope: '',
     specifications: '',
     leadTime: '',
+    photoDrawing: '',
   };
 }
 
@@ -149,7 +150,7 @@ export default function DocumentsAdminPage() {
   }
 
   function editDoc(doc: Doc) {
-    const meta = (doc as unknown as { meta?: { projectReference?: string; scope?: string; specifications?: string; leadTime?: string } }).meta || {};
+    const meta = (doc as unknown as { meta?: { projectReference?: string; scope?: string; specifications?: string; leadTime?: string; photoDrawing?: string } }).meta || {};
     setForm({
       number: doc.number,
       customerId: '',
@@ -169,6 +170,7 @@ export default function DocumentsAdminPage() {
       scope: meta.scope || '',
       specifications: meta.specifications || '',
       leadTime: meta.leadTime || '',
+      photoDrawing: meta.photoDrawing || '',
     });
     setEditingDocId(doc.id);
     setCreatedDoc(null);
@@ -231,6 +233,7 @@ export default function DocumentsAdminPage() {
             scope: form.scope.trim() || undefined,
             specifications: form.specifications.trim() || undefined,
             leadTime: form.leadTime.trim() || undefined,
+            photoDrawing: form.photoDrawing || undefined,
           }
         : null,
     };
@@ -500,6 +503,30 @@ export default function DocumentsAdminPage() {
                       <textarea rows={6} value={form.specifications} onChange={(e) => setForm({ ...form, specifications: e.target.value })}
                         placeholder={'Glazing:\nDoor: Double glazed with 4mm toughened glass on both sides.\nFrame & Materials:\nAluminium frame: 100mm x 45mm box section, commercial-grade.'}
                         className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none resize-none" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-slate-500 mb-1">Photo / Drawing <span className="text-slate-300">(optional — shown on the quote)</span></label>
+                      {form.photoDrawing ? (
+                        <div className="relative inline-block">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={form.photoDrawing} alt="Attached" className="max-h-40 rounded-lg border border-slate-200" />
+                          <button type="button" onClick={() => setForm({ ...form, photoDrawing: '' })}
+                            className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full text-xs flex items-center justify-center hover:bg-red-600">
+                            &times;
+                          </button>
+                        </div>
+                      ) : (
+                        <input type="file" accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (!file) return;
+                            if (file.size > 2 * 1024 * 1024) { setError('Image must be under 2MB'); return; }
+                            const reader = new FileReader();
+                            reader.onload = () => setForm((prev) => ({ ...prev, photoDrawing: reader.result as string }));
+                            reader.readAsDataURL(file);
+                          }}
+                          className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200" />
+                      )}
                     </div>
                   </>
                 )}
