@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  trailingSlash: false,
+
   // Strict mode catches common bugs during development
   reactStrictMode: true,
 

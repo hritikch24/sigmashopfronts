@@ -57,6 +57,117 @@ const cityGeo: Record<string, { latitude: number; longitude: number }> = {
   peterborough: { latitude: 52.5695, longitude: -0.2405 },
 };
 
+function simpleHash(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
+}
+
+type RegionGroup = 'scotland' | 'wales' | 'north' | 'midlands' | 'south' | 'london';
+
+function getRegionGroup(region: string): RegionGroup {
+  const r = region.toLowerCase();
+  if (r.includes('scotland')) return 'scotland';
+  if (r.includes('wales')) return 'wales';
+  if (r.includes('london') || r.includes('greater london')) return 'london';
+  if (r.includes('north') || r.includes('yorkshire') || r.includes('lancashire') || r.includes('tyne') || r.includes('cumbria') || r.includes('humber')) return 'north';
+  if (r.includes('midland') || r.includes('derby') || r.includes('nottingham') || r.includes('leicester') || r.includes('stafford') || r.includes('warwick') || r.includes('shropshire')) return 'midlands';
+  return 'south';
+}
+
+const regionTraits: Record<RegionGroup, { climate: string; commercial: string; planning: string }> = {
+  scotland: {
+    climate: 'Scottish weather — with driving rain, coastal winds, and freezing temperatures — demands materials and finishes that can withstand sustained harsh exposure without degradation',
+    commercial: 'Scotland\'s mix of historic high streets, modern retail parks, and regeneration zones means every installation must respect both the built heritage and the commercial ambitions of the area',
+    planning: 'Scottish planning regulations and listed building requirements often differ from English frameworks, and our teams are experienced in navigating these specific approval processes',
+  },
+  wales: {
+    climate: 'The Welsh climate, with its higher-than-average rainfall and exposure to Atlantic weather systems, requires shopfront systems with exceptional water management and corrosion resistance',
+    commercial: 'Welsh town centres are experiencing a resurgence of independent retail alongside investment in mixed-use developments, creating demand for both heritage-sensitive and contemporary shopfront solutions',
+    planning: 'Welsh planning policy, including the unique requirements of Cadw-listed buildings and Welsh language signage regulations, adds considerations that we are well-versed in handling',
+  },
+  north: {
+    climate: 'Northern England\'s variable weather — from Pennine wind exposure to coastal salt air — requires shopfront systems specified with enhanced weatherproofing and durable powder-coat finishes',
+    commercial: 'The Northern Powerhouse investment programme has driven significant regeneration across the region, with new retail and commercial developments alongside the revitalisation of traditional high streets',
+    planning: 'Many northern cities have active conservation area policies and specific shopfront design guides that govern materials, proportions, and signage — our teams work within these frameworks regularly',
+  },
+  midlands: {
+    climate: 'The Midlands\' central location means installations face a full range of British weather conditions, and we specify systems that perform reliably through seasonal temperature extremes and sustained rain',
+    commercial: 'The Midlands has one of the UK\'s most dynamic commercial property markets, with substantial investment flowing into both established city centres and emerging out-of-town retail and logistics hubs',
+    planning: 'Midlands councils often have detailed shopfront design supplementary planning documents, and our surveying process accounts for these local requirements before any work begins',
+  },
+  south: {
+    climate: 'Southern England\'s milder but variable climate, including increasing summer heat and storm events, requires careful material specification to ensure longevity and year-round performance',
+    commercial: 'The south of England\'s strong consumer economy supports a diverse retail landscape — from coastal tourism-driven high streets to affluent commuter-town centres — each with distinct frontage requirements',
+    planning: 'Many southern towns and cities have conservation areas and heritage high streets where shopfront design must satisfy both planning requirements and the commercial expectations of premium trading locations',
+  },
+  london: {
+    climate: 'London\'s urban heat island effect, combined with exposure to pollution and construction dust, means shopfront finishes must be selected for cleanability and long-term appearance retention',
+    commercial: 'London\'s commercial property market is the most competitive in the UK, where first impressions at street level directly affect footfall, rental values, and lease negotiations',
+    planning: 'London borough planning requirements vary significantly — from Westminster\'s strict heritage controls to Stratford\'s modern design codes — and we adapt our approach to each council\'s specific framework',
+  },
+};
+
+function getCityLocalContent(cityName: string, region: string, serviceName: string, areas: string[], postcodeAreas: string[]): { heading: string; paragraphs: string[] } {
+  const rg = getRegionGroup(region);
+  const traits = regionTraits[rg];
+  const areaCount = areas.length;
+  const postcodeList = postcodeAreas.slice(0, 4).join(', ');
+  const hash = simpleHash(cityName);
+
+  const headingVariants = [
+    `Why ${cityName} Businesses Choose Sigma Shop Fronts`,
+    `Local ${serviceName} Expertise in ${cityName}`,
+    `Trusted ${serviceName} Provider in ${cityName}`,
+    `${serviceName} Specialists Serving ${cityName}`,
+  ];
+  const heading = headingVariants[hash % headingVariants.length];
+
+  const p1Variants = [
+    `${traits.climate}. When we install ${serviceName.toLowerCase()} systems in ${cityName}, every component is selected to handle the specific environmental conditions that ${region} properties face, from frame profiles and glazing specifications to sealants and fixings.`,
+    `Working across ${cityName} and the wider ${region} area, we understand that ${traits.commercial.charAt(0).toLowerCase()}${traits.commercial.slice(1)}. Our ${serviceName.toLowerCase()} installations are designed to meet both the practical demands of the location and the aesthetic standards that ${cityName} businesses expect.`,
+    `${cityName} sits within one of the UK\'s most active commercial regions. ${traits.commercial}. Whether your premises is on a busy high street or within a managed retail development, our ${serviceName.toLowerCase()} systems are specified to suit the particular character of your ${cityName} location.`,
+  ];
+
+  const p2Variants = [
+    `${traits.planning}. For ${serviceName.toLowerCase()} projects in ${cityName}, we handle the full process — from initial survey and specification through to planning liaison where required, installation, and final commissioning. With ${areaCount} areas covered across ${cityName}${postcodeList ? ` (postcodes including ${postcodeList})` : ''}, we maintain short response times for both new installations and aftercare.`,
+    `Our experience across ${region} means we know the practical realities of working in ${cityName}: access constraints, parking restrictions, out-of-hours installation requirements, and the coordination needed when working on occupied commercial premises. ${traits.planning}. We bring this local knowledge to every ${serviceName.toLowerCase()} project.`,
+    `${traits.planning}. From initial consultation to project handover, every ${serviceName.toLowerCase()} installation in ${cityName} follows our standard quality process — measured survey, detailed specification, written quotation, scheduled installation by our own directly-employed teams, and a post-installation inspection to confirm everything meets the agreed standard.`,
+  ];
+
+  return {
+    heading,
+    paragraphs: [
+      p1Variants[hash % p1Variants.length],
+      p2Variants[(hash + 1) % p2Variants.length],
+    ],
+  };
+}
+
+function getBenefitsSubtitle(cityName: string, serviceName: string): string {
+  const hash = simpleHash(cityName);
+  const variants = [
+    `Every ${serviceName.toLowerCase()} project we deliver in ${cityName} is backed by quality materials, experienced installation teams, and reliable aftercare.`,
+    `${cityName} businesses choose us for our combination of competitive pricing, professional installation, and responsive ongoing support for all ${serviceName.toLowerCase()} systems.`,
+    `From specification to installation and maintenance, our ${serviceName.toLowerCase()} service in ${cityName} is built on quality workmanship and transparent, fixed-price quotations.`,
+    `We deliver ${serviceName.toLowerCase()} projects across ${cityName} with a focus on durability, compliance, and minimal disruption to your trading hours.`,
+  ];
+  return variants[hash % variants.length];
+}
+
+function getAreasSubtitle(cityName: string, serviceName: string, region: string): string {
+  const hash = simpleHash(cityName);
+  const variants = [
+    `Our ${serviceName.toLowerCase()} service is available across ${cityName} and all surrounding areas in ${region}.`,
+    `We cover the whole of ${cityName} and neighbouring areas throughout ${region} for ${serviceName.toLowerCase()} supply, installation, and repairs.`,
+    `From central ${cityName} to the surrounding ${region} suburbs, our ${serviceName.toLowerCase()} teams are available for free site surveys and installations.`,
+    `Whether your premises is in the heart of ${cityName} or on the outskirts of ${region}, our ${serviceName.toLowerCase()} service covers your area.`,
+  ];
+  return variants[hash % variants.length];
+}
+
 function getServiceIntro(serviceSlug: string, serviceName: string, cityName: string, region: string, areas: string[]): string[] {
   const areaList = areas.slice(0, 5).join(', ');
   const remainingCount = areas.length - 5;
@@ -194,6 +305,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
   const geo = cityGeo[citySlug] || { latitude: 51.5074, longitude: -0.1278 };
 
   const introParagraphs = getServiceIntro(service.slug, service.name, city.name, city.region, city.areas);
+  const localContent = getCityLocalContent(city.name, city.region, service.name, city.areas, city.postcodeAreas);
+  const benefitsSubtitle = getBenefitsSubtitle(city.name, service.name);
+  const areasSubtitle = getAreasSubtitle(city.name, service.name, city.region);
 
   const otherServices = services.filter((s) => s.slug !== slug);
   const otherCities = cities.filter((c) => c.slug !== citySlug).slice(0, 12);
@@ -321,15 +435,29 @@ export default async function ServiceCityPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Local Expertise */}
+      <section className="section-padding bg-grey-50">
+        <div className="container-max">
+          <div className="prose prose-lg max-w-none text-charcoal leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mb-6">
+              {localContent.heading}
+            </h2>
+            {localContent.paragraphs.map((paragraph, i) => (
+              <p key={i} className="mb-4">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Benefits grid */}
       {service.benefits.length > 0 && (
-        <section className="section-padding bg-grey-50">
+        <section className="section-padding bg-obsidian-light">
           <div className="container-max">
             <h2 className="text-3xl font-heading font-bold text-white text-center mb-3">
-              Why Choose Our {service.name}
+              Why Choose Our {service.name} in {city.name}
             </h2>
             <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
-              Every {service.name.toLowerCase()} project we deliver in {city.name} is backed by quality materials, experienced installation teams, and reliable aftercare.
+              {benefitsSubtitle}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {service.benefits.map((benefit, i) => (
@@ -355,7 +483,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             Areas We Cover in {city.name}
           </h2>
           <p className="text-grey-600 text-center max-w-2xl mx-auto mb-10">
-            Our {service.name.toLowerCase()} service is available across {city.name} and all surrounding areas in {city.region}.
+            {areasSubtitle}
           </p>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-wrap gap-2 justify-center mb-6">
