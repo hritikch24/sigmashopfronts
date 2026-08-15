@@ -80,13 +80,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const siteUrl = 'https://www.sigmashopfronts.com';
   const geo = cityGeo[citySlug] || { addressLocality: city.name, addressRegion: '', postalCode: '', latitude: 51.5074, longitude: -0.1278 };
 
+  const enhancedTitle = `Shopfront Installation ${city.name} | Affordable Prices | Sigma Shop Fronts`;
+  const enhancedDescription = `Affordable shopfront installation & repairs in ${city.name}. Aluminium shopfronts, roller shutters, security doors & more. Free site surveys, competitive prices. Call 07414 779594.`;
+
   return {
-    title: city.metaTitle,
-    description: city.metaDescription,
+    title: enhancedTitle,
+    description: enhancedDescription,
     alternates: { canonical: `${siteUrl}/areas/${citySlug}` },
     openGraph: {
-      title: city.metaTitle,
-      description: city.metaDescription,
+      title: enhancedTitle,
+      description: enhancedDescription,
       url: `${siteUrl}/areas/${citySlug}`,
       type: 'website',
       images: [{ url: '/assets/sigma-hero-1.jpeg', width: 1200, height: 630 }],

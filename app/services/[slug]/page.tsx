@@ -23,13 +23,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const siteUrl = 'https://www.sigmashopfronts.com';
 
+  const enhancedTitle = `${service.metaTitle} | Affordable Prices & Free Quotes`;
+  const enhancedDescription = `${service.metaDescription} Competitive prices, free site surveys, and no-obligation quotes available.`;
+
   return {
-    title: service.metaTitle,
-    description: service.metaDescription,
+    title: enhancedTitle,
+    description: enhancedDescription,
     alternates: { canonical: `${siteUrl}/services/${slug}` },
     openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
+      title: enhancedTitle,
+      description: enhancedDescription,
       url: `${siteUrl}/services/${slug}`,
       type: 'website',
       images: [{ url: `/assets/${service.heroImage}`, width: 1200, height: 630 }],

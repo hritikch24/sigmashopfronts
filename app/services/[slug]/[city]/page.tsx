@@ -276,12 +276,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const topAreas = city.areas.slice(0, 3).join(', ');
 
   return {
-    title: `${service.name} in ${city.name} | Sigma Shop Fronts`,
-    description: `Professional ${service.name.toLowerCase()} installation in ${city.name} covering ${topAreas} and surrounding areas. Free site survey and no-obligation quote. Call 07414 779594.`,
+    title: `${service.name} in ${city.name} | Affordable Prices | Sigma Shop Fronts`,
+    description: `Affordable ${service.name.toLowerCase()} in ${city.name} — competitive prices, free site survey & no-obligation quotes. Covering ${topAreas} and surrounding areas. Same-day response available. Call 07414 779594.`,
     alternates: { canonical: `${siteUrl}/services/${slug}/${citySlug}` },
     openGraph: {
-      title: `${service.name} in ${city.name} | Sigma Shop Fronts`,
-      description: `Professional ${service.name.toLowerCase()} installation in ${city.name} covering ${topAreas} and surrounding areas. Free site survey and no-obligation quote.`,
+      title: `${service.name} in ${city.name} | Affordable Prices | Sigma Shop Fronts`,
+      description: `Affordable ${service.name.toLowerCase()} in ${city.name} — competitive prices, free site survey & no-obligation quotes. Covering ${topAreas} and surrounding areas.`,
       url: `${siteUrl}/services/${slug}/${citySlug}`,
       type: 'website',
       images: [{ url: `/assets/${service.heroImage}`, width: 1200, height: 630 }],
@@ -343,12 +343,34 @@ export default async function ServiceCityPage({ params }: PageProps) {
       name: city.name,
     },
     url: `${siteUrl}/services/${slug}/${citySlug}`,
+    serviceType: service.name,
     offers: {
       '@type': 'Offer',
       priceCurrency: 'GBP',
       availability: 'https://schema.org/InStock',
       url: `${siteUrl}/services/${slug}/${citySlug}`,
+      ...(service.pricingGuide?.ranges?.[0] ? {
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'GBP',
+          name: service.pricingGuide.ranges[0].item,
+          price: service.pricingGuide.ranges[0].price,
+        },
+      } : {}),
     },
+    hasOfferCatalog: service.pricingGuide ? {
+      '@type': 'OfferCatalog',
+      name: `${service.name} Price Guide`,
+      itemListElement: service.pricingGuide.ranges.map((range) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: range.item,
+        },
+        priceCurrency: 'GBP',
+        price: range.price,
+      })),
+    } : undefined,
   };
 
   const breadcrumbSchema = {
