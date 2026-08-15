@@ -9,16 +9,16 @@ const LOGO_SRC = '/assets/sigma-icon-512.png';
 
 /* Hardcoded — independent of site theme so documents print correctly */
 const C = {
-  brand:     '#0f1b3d',
-  brandAlt:  '#1a2d5e',
-  accent:    '#c49b2a',
-  accentBg:  '#faf4e2',
+  brand:     '#1e3a5f',
+  brandAlt:  '#2a4f7a',
+  accent:    '#e85d3a',
+  accentBg:  '#fef0ec',
   text:      '#1e2332',
   textMuted: '#5a6070',
-  border:    '#d8dce6',
-  borderAlt: '#e8ecf2',
+  border:    '#d1d9e6',
+  borderAlt: '#e4eaf2',
   paper:     '#ffffff',
-  rowAlt:    '#f7f8fb',
+  rowAlt:    '#f5f7fa',
 };
 
 interface LineItem { description: string; qty: number; unitPrice: number }
@@ -89,7 +89,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
   ];
 
   return (
-    <div className="min-h-screen py-10 px-4 print:bg-white print:py-0 print:px-0" style={{ background: 'linear-gradient(135deg, #06060e 0%, #0c0c1a 50%, #0a0a14 100%)', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+    <div className="min-h-screen py-10 px-4 print:bg-white print:py-0 print:px-0" style={{ background: 'linear-gradient(135deg, #0a1422 0%, #0f1c2e 50%, #081018 100%)', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
       <div style={{ maxWidth: '210mm', margin: '0 auto' }}>
         {/* Action bar */}
         <div className="no-print flex items-center justify-between mb-5">
