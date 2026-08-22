@@ -112,9 +112,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
-    languages: {
-      'en-GB': siteUrl,
-    },
   },
   metadataBase: new URL(siteUrl),
 };
@@ -243,7 +240,6 @@ function gtag_report_conversion(url) {
         <meta name="geo.placename" content="Oldbury, West Midlands, United Kingdom" />
         <meta name="geo.position" content="52.4912;-2.0150" />
         <meta name="ICBM" content="52.4912, -2.0150" />
-        <link rel="alternate" hrefLang="en-gb" href="https://www.sigmashopfronts.com" />
       </head>
       <body className="min-h-full flex flex-col font-body bg-obsidian text-charcoal">
         {gtmId && (

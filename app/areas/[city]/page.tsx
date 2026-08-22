@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cities } from '@/data/cities';
+import { services } from '@/data/services';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQSection from '@/components/FAQSection';
 import SchemaMarkup from '@/components/SchemaMarkup';
@@ -381,6 +382,30 @@ export default async function CityPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      <section className="section-padding">
+        <div className="container-max">
+          <h2 className="text-2xl font-heading font-bold mb-3">
+            Our Services in {city.name}
+          </h2>
+          <p className="text-grey-500 mb-8 max-w-2xl">
+            Every service we offer is available across {city.name} and the surrounding area.
+            Follow a link below for details, pricing and local coverage.
+          </p>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link
+                  href={`/services/${service.slug}/${city.slug}`}
+                  className="text-charcoal hover:text-gold transition-colors text-sm"
+                >
+                  {service.name} in {city.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section className="section-padding bg-gradient-dark">
         <div className="container-max">
