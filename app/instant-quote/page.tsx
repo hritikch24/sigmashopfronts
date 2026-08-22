@@ -77,8 +77,8 @@ export default function InstantQuotePage() {
                 <h2 className="text-lg font-heading font-bold mb-3">What happens next</h2>
                 <ol className="space-y-3">
                   {[
-                    'You see your indicative figure immediately.',
-                    'We review your requirements and get in touch.',
+                    'You see your figure immediately and we email you a copy.',
+                    'We call you within one working day to talk it through.',
                     'We arrange a free site survey at a time that suits you.',
                     'You receive a fixed written quotation with no hidden costs.',
                   ].map((step, i) => (

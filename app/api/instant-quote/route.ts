@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
-import { calculateEstimate, findService } from '@/lib/estimator';
-import { sendLeadNotification } from '@/lib/resend';
+import { calculateEstimate, findService, budgetLabel } from '@/lib/estimator';
+import { sendLeadNotification, sendEstimateEmail } from '@/lib/resend';
 import { sendTelegramLeadNotification } from '@/lib/telegram';
 
 // Same limiter shape as /api/contact — instant estimates are cheap to request
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   const {
     name, email, phone, citySlug, cityName, serviceSlug, variantId,
-    quantity, difficultAccess, removalRequired, outOfHours, notes,
+    quantity, difficultAccess, removalRequired, outOfHours, notes, budgetBand,
   } = body as Record<string, string | number | boolean | undefined>;
 
   const missing: string[] = [];
@@ -124,6 +124,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   const cleanPhone = String(phone).trim();
   const location = String(cityName || citySlug || '').trim() || 'Not specified';
   const cleanNotes = String(notes || '').trim();
+  const budget = budgetLabel(budgetBand ? String(budgetBand) : null);
 
   // The estimate is shown even if persistence fails — the customer should never
   // lose their number because of a database hiccup.
@@ -167,6 +168,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
             difficultAccess: Boolean(difficultAccess),
             removalRequired: Boolean(removalRequired),
             outOfHours: Boolean(outOfHours),
+            budgetBand: budgetBand ? String(budgetBand) : null,
+            budgetLabel: budget,
           },
         } as unknown as Prisma.InputJsonValue,
         status: 'auto',
@@ -182,6 +185,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     `Instant estimate ${quoteNumber ?? '(unsaved)'}: £${estimate.low.toLocaleString('en-GB')} – £${estimate.high.toLocaleString('en-GB')}`,
     `${estimate.serviceName} — ${estimate.variantLabel} × ${estimate.quantity}`,
     estimate.factors.length ? `Factors: ${estimate.factors.join('; ')}` : '',
+    budget ? `Stated budget: ${budget}` : '',
     cleanNotes ? `Customer notes: ${cleanNotes}` : '',
   ].filter(Boolean).join('\n');
 
@@ -210,6 +214,25 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
   } catch (err) {
     console.error('[instant-quote] Failed to save lead:', err);
+  }
+
+  // Goes out within seconds of the visitor pressing the button. This is the
+  // touch that holds the lead while we get to the callback, so it is sent
+  // even if the lead or document write above failed.
+  try {
+    await sendEstimateEmail({
+      name: cleanName,
+      email: cleanEmail,
+      reference: quoteNumber,
+      low: estimate.low,
+      high: estimate.high,
+      serviceName: estimate.serviceName,
+      variantLabel: estimate.variantLabel,
+      quantity: estimate.quantity,
+      factors: estimate.factors,
+    });
+  } catch (err) {
+    console.error('[instant-quote] Estimate email failed:', err);
   }
 
   return NextResponse.json({

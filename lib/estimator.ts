@@ -30,10 +30,14 @@ export interface ServiceEstimate {
 /**
  * How far into each base range the top of the shown estimate reaches.
  * 0 = quote the floor price, 1 = quote the full published range.
- * Kept low on purpose so the indication reads as attractive rather than
- * off-putting. Raise it if quotes are routinely landing above the estimate.
+ *
+ * The band is deliberately wide rather than tight: price-sensitive customers
+ * anchor on the low figure, customers who do not negotiate read the high one,
+ * and there is room to come down at the survey without ever going below the
+ * published floor. Raise it if quotes routinely land above the estimate;
+ * lower it if the top of the range is putting people off.
  */
-export const ESTIMATE_LEAN = 0.45;
+export const ESTIMATE_LEAN = 0.6;
 
 export const SERVICES: ServiceEstimate[] = [
   {
@@ -184,6 +188,31 @@ const COASTAL = new Set([
   'plymouth', 'brighton', 'bournemouth', 'portsmouth', 'swansea',
   'aberdeen', 'exeter', 'southampton', 'cardiff', 'liverpool',
 ]);
+
+/**
+ * Optional self-declared budget. Customers who want a cheap job say so here,
+ * which is far better follow-up intel than guessing. It does not change the
+ * calculated figure — it is captured for the callback conversation.
+ */
+export const BUDGET_BANDS = [
+  { id: 'under-1k', label: 'Under £1,000' },
+  { id: '1k-3k', label: '£1,000 – £3,000' },
+  { id: '3k-5k', label: '£3,000 – £5,000' },
+  { id: '5k-10k', label: '£5,000 – £10,000' },
+  { id: 'over-10k', label: 'Over £10,000' },
+  { id: 'unsure', label: 'Not sure yet' },
+] as const;
+
+export function budgetLabel(id: string | undefined | null): string | null {
+  if (!id) return null;
+  return BUDGET_BANDS.find((b) => b.id === id)?.label ?? null;
+}
+
+/** Entry price for a variant, for showing "from £X" against each option. */
+export function variantFrom(serviceSlug: string, variantId: string): number | null {
+  const v = findService(serviceSlug)?.variants.find((x) => x.id === variantId);
+  return v ? v.low : null;
+}
 
 export interface EstimateOptions {
   serviceSlug: string;

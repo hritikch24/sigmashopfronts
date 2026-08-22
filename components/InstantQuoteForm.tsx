@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { SERVICES, formatGBP } from '@/lib/estimator';
+import { SERVICES, BUDGET_BANDS, formatGBP } from '@/lib/estimator';
 import { cities } from '@/data/cities';
 
 interface EstimateResponse {
@@ -36,6 +36,7 @@ export default function InstantQuoteForm() {
   const [difficultAccess, setDifficultAccess] = useState(false);
   const [removalRequired, setRemovalRequired] = useState(false);
   const [outOfHours, setOutOfHours] = useState(false);
+  const [budgetBand, setBudgetBand] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -75,6 +76,7 @@ export default function InstantQuoteForm() {
           cityName: cities.find((c) => c.slug === citySlug)?.name,
           serviceSlug, variantId, quantity,
           difficultAccess, removalRequired, outOfHours,
+          budgetBand: budgetBand || undefined,
           notes,
         }),
       });
@@ -133,19 +135,58 @@ export default function InstantQuoteForm() {
           </p>
         </div>
 
+        <div className="rounded-lg border border-grey-200 px-4 py-3 mb-6">
+          <p className="text-charcoal text-sm font-semibold mb-1">
+            We have emailed this to you — check your inbox.
+          </p>
+          <p className="text-grey-600 text-sm">
+            One of our team will call you <strong>within one working day</strong> to talk it
+            through and book your free site survey. Your reference is{' '}
+            <strong>{result.reference ?? 'on its way by email'}</strong>.
+          </p>
+        </div>
+
         <p className="text-grey-600 text-sm mb-4">
-          We have your details and will be in touch shortly. If you would rather talk it through now:
+          Do not want to wait? Call or message us now and we will pick it up straight away:
         </p>
         <div className="flex flex-wrap gap-3">
           <a href="tel:07414779594" className="btn-gold">Call 07414 779594</a>
+          <a
+            href={`https://wa.me/447397066538?text=${encodeURIComponent(
+              `Hi, I just got an instant estimate${result.reference ? ` (ref ${result.reference})` : ''} for ${result.serviceName} and would like to discuss it.`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-dark"
+          >
+            WhatsApp Us
+          </a>
           <Link href="/contact" className="btn-outline-dark">Send more details</Link>
         </div>
       </div>
     );
   }
 
+  // Three visible stages: pick a service, describe the job, tell us where to
+  // send it. Showing progress keeps people going once the form grows.
+  const step = !serviceSlug ? 1 : !name || !email || !phone ? 2 : 3;
+
   return (
     <form onSubmit={handleSubmit} className="card-surface p-6 sm:p-8 space-y-5">
+      <div className="flex items-center gap-2 pb-1">
+        {[1, 2, 3].map((n) => (
+          <div key={n} className="flex-1">
+            <div
+              className={
+                'h-1 rounded-full transition-colors ' +
+                (n <= step ? 'bg-gold' : 'bg-grey-200')
+              }
+            />
+          </div>
+        ))}
+        <span className="text-grey-500 text-xs whitespace-nowrap ml-1">Step {step} of 3</span>
+      </div>
+
       <div>
         <label htmlFor="iq-service" className={labelClass}>
           What do you need? <span className="text-red-500">*</span>
@@ -179,7 +220,9 @@ export default function InstantQuoteForm() {
             >
               <option value="">Select an option…</option>
               {service.variants.map((v) => (
-                <option key={v.id} value={v.id}>{v.label}</option>
+                <option key={v.id} value={v.id}>
+                  {v.label} — from {formatGBP(v.low)}
+                </option>
               ))}
             </select>
           </div>
@@ -235,6 +278,30 @@ export default function InstantQuoteForm() {
             </label>
           ))}
         </fieldset>
+      )}
+
+      {service && (
+        <div>
+          <label htmlFor="iq-budget" className={labelClass}>
+            Do you have a budget in mind?{' '}
+            <span className="text-grey-500 font-normal">(optional)</span>
+          </label>
+          <select
+            id="iq-budget"
+            value={budgetBand}
+            onChange={(e) => setBudgetBand(e.target.value)}
+            className={selectClass}
+          >
+            <option value="">Prefer not to say</option>
+            {BUDGET_BANDS.map((b) => (
+              <option key={b.id} value={b.id}>{b.label}</option>
+            ))}
+          </select>
+          <p className="text-grey-500 text-xs mt-1.5">
+            It will not change the estimate — it just helps us suggest the right specification
+            when we call.
+          </p>
+        </div>
       )}
 
       <div className="border-t border-grey-200 pt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">

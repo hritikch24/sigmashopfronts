@@ -45,6 +45,7 @@ interface AutoQuoteMeta {
     difficultAccess?: boolean;
     removalRequired?: boolean;
     outOfHours?: boolean;
+    budgetLabel?: string | null;
   };
 }
 
@@ -449,6 +450,11 @@ export default function DocumentsAdminPage() {
                             {(doc.meta?.factors?.length ?? 0) > 0 && (
                               <p className="text-xs text-amber-600 mt-0.5">
                                 {doc.meta!.factors!.join(' · ')}
+                              </p>
+                            )}
+                            {doc.meta?.inputs?.budgetLabel && (
+                              <p className="text-xs font-semibold text-emerald-700 mt-0.5">
+                                Budget: {doc.meta.inputs.budgetLabel}
                               </p>
                             )}
                             {doc.notes && (
