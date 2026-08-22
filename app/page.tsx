@@ -271,8 +271,17 @@ export default function HomePage() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Link
-                href="/contact"
+                href="/instant-quote"
                 className="btn-gold text-base sm:text-lg px-8 py-4"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                Get an Instant Price
+              </Link>
+              <Link
+                href="/contact"
+                className="btn-outline text-base sm:text-lg px-8 py-4"
               >
                 Book a Free Site Survey
               </Link>
@@ -285,15 +294,6 @@ export default function HomePage() {
                 </svg>
                 Call Now: 07414 779594
               </a>
-              <Link
-                href="/instant-quote"
-                className="btn-outline text-base sm:text-lg px-8 py-4"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-                Get an Instant Price
-              </Link>
             </div>
 
             {/* Trust badges — glass pills */}
