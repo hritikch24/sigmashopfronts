@@ -268,7 +268,7 @@ export default function AIRecommender() {
                       className={`flex items-center gap-3 text-left px-4 py-3.5 rounded-xl border-2 transition-all text-sm font-medium hover:border-gold hover:bg-gold/5 ${
                         answers[steps[currentStep].key] === opt.id
                           ? 'border-gold bg-gold/5 text-navy'
-                          : 'border-grey-200 text-charcoal bg-white'
+                          : 'border-grey-200 text-navy bg-white'
                       }`}
                     >
                       <span className="text-xl flex-shrink-0" aria-hidden="true">

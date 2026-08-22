@@ -29,6 +29,7 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Cost Guide', href: '/cost-guide' },
+  { label: 'Instant Price', href: '/instant-quote' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

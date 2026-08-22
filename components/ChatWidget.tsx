@@ -192,7 +192,7 @@ export default function ChatWidget() {
                         className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                           msg.role === 'user'
                             ? 'bg-gold text-navy font-medium rounded-br-sm'
-                            : 'bg-white text-charcoal shadow-sm rounded-bl-sm border border-grey-100'
+                            : 'bg-white text-navy shadow-sm rounded-bl-sm border border-grey-100'
                         }`}
                       >
                         {msg.content}

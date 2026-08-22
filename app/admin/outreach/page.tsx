@@ -216,7 +216,7 @@ export default function OutreachPage() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="text-sm border border-grey-200 rounded-lg px-3 py-1.5 bg-white text-charcoal"
+              className="text-sm border border-grey-200 rounded-lg px-3 py-1.5 bg-white text-navy"
             >
               <option value="">All statuses</option>
               {['new', 'contacted', 'quoted', 'won', 'lost'].map((s) => (

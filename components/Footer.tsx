@@ -7,6 +7,7 @@ const services = [
   { label: 'Automatic Doors', href: '/services/automatic-doors' },
   { label: 'Bi-Fold Doors', href: '/services/bi-fold-doors' },
   { label: 'Fire Doors', href: '/services/fire-doors' },
+  { label: 'Instant Estimate', href: '/instant-quote' },
   { label: 'Shop Front Repairs', href: '/services/shopfront-repairs' },
   { label: 'Emergency Callout', href: '/services/emergency-callout' },
   { label: 'Shutter Repair', href: '/services/shutter-repair' },

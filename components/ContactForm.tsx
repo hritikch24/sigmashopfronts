@@ -142,12 +142,12 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
   }
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full px-4 py-3 rounded-lg border text-sm font-body bg-white text-charcoal placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold transition-colors ${
+    `w-full px-4 py-3 rounded-lg border text-sm font-body bg-white text-navy placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold transition-colors ${
       errors[field] ? 'border-red-400' : 'border-grey-200 hover:border-grey-300'
     }`;
 
   const selectClass = (field: keyof FormErrors) =>
-    `w-full px-4 py-3 rounded-lg border text-sm font-body bg-white text-charcoal focus:outline-none focus:ring-2 focus:ring-gold transition-colors appearance-none cursor-pointer ${
+    `w-full px-4 py-3 rounded-lg border text-sm font-body bg-white text-navy focus:outline-none focus:ring-2 focus:ring-gold transition-colors appearance-none cursor-pointer ${
       errors[field] ? 'border-red-400' : 'border-grey-200 hover:border-grey-300'
     }`;
 
@@ -307,7 +307,7 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
           placeholder="Tell us more about your project..."
           value={form.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-grey-200 hover:border-grey-300 text-sm font-body bg-white text-charcoal placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-lg border border-grey-200 hover:border-grey-300 text-sm font-body bg-white text-navy placeholder-grey-400 focus:outline-none focus:ring-2 focus:ring-gold transition-colors resize-none"
         />
       </div>
 
@@ -321,7 +321,7 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
             name="hearAbout"
             value={form.hearAbout}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-grey-200 hover:border-grey-300 text-sm font-body bg-white text-charcoal focus:outline-none focus:ring-2 focus:ring-gold transition-colors appearance-none cursor-pointer"
+            className="w-full px-4 py-3 rounded-lg border border-grey-200 hover:border-grey-300 text-sm font-body bg-white text-navy focus:outline-none focus:ring-2 focus:ring-gold transition-colors appearance-none cursor-pointer"
           >
             <option value="">Select...</option>
             {hearAboutOptions.map((o) => (
