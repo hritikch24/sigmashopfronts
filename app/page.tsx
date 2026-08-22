@@ -285,6 +285,15 @@ export default function HomePage() {
                 </svg>
                 Call Now: 07414 779594
               </a>
+              <Link
+                href="/instant-quote"
+                className="btn-outline text-base sm:text-lg px-8 py-4"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                Get an Instant Price
+              </Link>
             </div>
 
             {/* Trust badges — glass pills */}
@@ -343,6 +352,27 @@ export default function HomePage() {
           <div className="text-center mt-10">
             <Link href="/services" className="btn-gold inline-flex">
               View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Instant Price Estimate ───────────────────────────────────────── */}
+      <section className="section-padding bg-space-light relative" aria-labelledby="instant-heading">
+        <div className="container-max">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-cyan font-semibold text-sm tracking-[0.2em] uppercase mb-3">No waiting</p>
+            <h2 id="instant-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Know roughly what it costs — before you call
+            </h2>
+            <p className="text-grey-500 text-lg mb-8">
+              Answer a few quick questions about your premises and we will show you an indicative
+              price straight away, adjusted for your location and site conditions. It is a guide
+              price, not a formal quote — but it gives you a realistic starting point in under a
+              minute. No obligation.
+            </p>
+            <Link href="/instant-quote" className="btn-gold inline-flex text-base px-8 py-4">
+              Get My Instant Estimate
             </Link>
           </div>
         </div>
