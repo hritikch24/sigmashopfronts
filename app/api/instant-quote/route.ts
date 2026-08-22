@@ -74,7 +74,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   const {
     name, email, phone, citySlug, cityName, serviceSlug, variantId,
-    quantity, difficultAccess, removalRequired, outOfHours, notes, budgetBand,
+    quantity, difficultAccess, removalRequired, outOfHours, notes, budgetBand, sessionId,
   } = body as Record<string, string | number | boolean | undefined>;
 
   const missing: string[] = [];
@@ -199,6 +199,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         service: estimate.serviceName,
         message: summary,
         source: 'instant-quote',
+        sessionId: sessionId ? String(sessionId).trim().slice(0, 100) : undefined,
       },
     });
 

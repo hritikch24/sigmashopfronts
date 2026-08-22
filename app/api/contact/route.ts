@@ -86,7 +86,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  const { name, email, phone, location, service, message, source } = body as {
+  const { name, email, phone, location, service, message, source, sessionId } = body as {
     name?: string;
     email?: string;
     phone?: string;
@@ -94,6 +94,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     service?: string;
     message?: string;
     source?: string;
+    sessionId?: string;
   };
 
   // Required field validation
@@ -134,6 +135,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         service: service!.trim(),
         message: message?.trim() || undefined,
         source: source?.trim() || undefined,
+        sessionId: sessionId?.trim().slice(0, 100) || undefined,
       },
     });
   } catch (err) {

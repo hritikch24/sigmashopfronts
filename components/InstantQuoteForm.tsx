@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { SERVICES, BUDGET_BANDS, formatGBP } from '@/lib/estimator';
+import { getSessionId } from '@/lib/session';
 import { cities } from '@/data/cities';
 
 interface EstimateResponse {
@@ -109,6 +110,7 @@ export default function InstantQuoteForm() {
           difficultAccess, removalRequired, outOfHours,
           budgetBand: budgetBand || undefined,
           notes,
+          sessionId: getSessionId(),
         }),
       });
       const data = await res.json();

@@ -37,10 +37,12 @@ model Lead {
   service   String
   message   String?
   source    String?
+  sessionId String?  @map("session_id")
   status    String   @default("new")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@index([sessionId])
   @@map("leads")
 }
 

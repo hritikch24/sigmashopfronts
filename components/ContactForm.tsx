@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { getSessionId } from '@/lib/session';
 
 const cities = [
   'London', 'Birmingham', 'Manchester', 'Leeds', 'Liverpool',
@@ -107,6 +108,7 @@ export default function ContactForm({ defaultCity }: ContactFormProps) {
           service: form.service,
           message: form.message || undefined,
           source: form.hearAbout || undefined,
+          sessionId: getSessionId(),
         }),
       });
       if (!res.ok) throw new Error('Server error');

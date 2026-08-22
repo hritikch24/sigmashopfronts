@@ -59,6 +59,12 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       callClicksByAction,
       trafficSources,
       searchLandings,
+      sessionFunnel,
+      exitPages,
+      entryPages,
+      viewsHeatmap,
+      leadsHeatmap,
+      callsHeatmap,
     ] = await Promise.all([
       // Traffic
       prisma.pageView.count({ where: { createdAt: { gte: since } } }),
@@ -214,6 +220,102 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         LIMIT 30`,
         since
       ).catch(() => []),
+
+      // ── Drop-off ────────────────────────────────────────────────────────
+      // Where visitors stop. Every stage below is counted per session, so the
+      // numbers describe people rather than page loads.
+      prisma.$queryRawUnsafe<{
+        sessions: bigint; engaged: bigint; saw_offer: bigint;
+        reached_convert: bigint; acted: bigint;
+      }[]>(
+        `WITH s AS (
+           SELECT session_id,
+             COUNT(*) AS views,
+             BOOL_OR(path LIKE '/services/%' OR path LIKE '/areas/%') AS saw_offer,
+             BOOL_OR(path = '/instant-quote' OR path = '/contact') AS reached_convert
+           FROM page_views
+           WHERE "createdAt" >= $1
+           GROUP BY session_id
+         ),
+         c AS (
+           SELECT DISTINCT session_id FROM call_clicks WHERE "createdAt" >= $1
+         )
+         SELECT
+           COUNT(*)::bigint AS sessions,
+           COUNT(*) FILTER (WHERE s.views >= 2)::bigint AS engaged,
+           COUNT(*) FILTER (WHERE s.saw_offer)::bigint AS saw_offer,
+           COUNT(*) FILTER (WHERE s.reached_convert)::bigint AS reached_convert,
+           COUNT(*) FILTER (WHERE c.session_id IS NOT NULL)::bigint AS acted
+         FROM s LEFT JOIN c USING (session_id)`,
+        since
+      ).catch(() => []),
+
+      // Exit pages: how often a page is the last thing a session sees.
+      // A high exit rate on a page with real traffic is a leak worth fixing.
+      prisma.$queryRawUnsafe<{ path: string; views: bigint; exits: bigint }[]>(
+        `WITH ranked AS (
+           SELECT path, session_id,
+             ROW_NUMBER() OVER (PARTITION BY session_id ORDER BY "createdAt" DESC) AS rn
+           FROM page_views
+           WHERE "createdAt" >= $1
+         )
+         SELECT path,
+           COUNT(*)::bigint AS views,
+           COUNT(*) FILTER (WHERE rn = 1)::bigint AS exits
+         FROM ranked
+         GROUP BY path
+         HAVING COUNT(*) >= 3
+         ORDER BY COUNT(*) FILTER (WHERE rn = 1) DESC
+         LIMIT 25`,
+        since
+      ).catch(() => []),
+
+      // Entry pages and how many of those sessions went no further.
+      prisma.$queryRawUnsafe<{ path: string; sessions: bigint; bounced: bigint }[]>(
+        `WITH sess AS (
+           SELECT session_id, COUNT(*) AS views FROM page_views
+           WHERE "createdAt" >= $1 GROUP BY session_id
+         ),
+         entries AS (
+           SELECT DISTINCT ON (session_id) session_id, path
+           FROM page_views WHERE "createdAt" >= $1
+           ORDER BY session_id, "createdAt" ASC
+         )
+         SELECT e.path,
+           COUNT(*)::bigint AS sessions,
+           COUNT(*) FILTER (WHERE s.views = 1)::bigint AS bounced
+         FROM entries e JOIN sess s USING (session_id)
+         GROUP BY e.path
+         HAVING COUNT(*) >= 3
+         ORDER BY sessions DESC
+         LIMIT 25`,
+        since
+      ).catch(() => []),
+
+      // Weekday x hour grids, in UK local time so the numbers match the phone.
+      prisma.$queryRawUnsafe<{ dow: number; hour: number; count: bigint }[]>(
+        `SELECT EXTRACT(DOW FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS dow,
+                EXTRACT(HOUR FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS hour,
+                COUNT(*)::bigint AS count
+         FROM page_views WHERE "createdAt" >= $1 GROUP BY dow, hour`,
+        since
+      ).catch(() => []),
+
+      prisma.$queryRawUnsafe<{ dow: number; hour: number; count: bigint }[]>(
+        `SELECT EXTRACT(DOW FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS dow,
+                EXTRACT(HOUR FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS hour,
+                COUNT(*)::bigint AS count
+         FROM leads WHERE "createdAt" >= $1 GROUP BY dow, hour`,
+        since
+      ).catch(() => []),
+
+      prisma.$queryRawUnsafe<{ dow: number; hour: number; count: bigint }[]>(
+        `SELECT EXTRACT(DOW FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS dow,
+                EXTRACT(HOUR FROM "createdAt" AT TIME ZONE 'Europe/London')::int AS hour,
+                COUNT(*)::bigint AS count
+         FROM call_clicks WHERE "createdAt" >= $1 GROUP BY dow, hour`,
+        since
+      ).catch(() => []),
     ]);
 
     const serialize = <T extends Record<string, unknown>>(arr: T[]) =>
@@ -258,6 +360,16 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       sources: {
         bySource: serialize(trafficSources as Record<string, unknown>[]),
         landings: serialize(searchLandings as Record<string, unknown>[]),
+      },
+      dropOff: {
+        funnel: serialize(sessionFunnel as Record<string, unknown>[])[0] ?? null,
+        exitPages: serialize(exitPages as Record<string, unknown>[]),
+        entryPages: serialize(entryPages as Record<string, unknown>[]),
+      },
+      heatmaps: {
+        views: serialize(viewsHeatmap as Record<string, unknown>[]),
+        leads: serialize(leadsHeatmap as Record<string, unknown>[]),
+        calls: serialize(callsHeatmap as Record<string, unknown>[]),
       },
     });
   } catch (err) {
