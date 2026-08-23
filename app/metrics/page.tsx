@@ -81,6 +81,7 @@ interface HeatCell {
   count: number;
 }
 
+
 /* ── Status styling (dark-mode safe) ────────────────────────────────── */
 const STATUS_COLORS: Record<string, string> = {
   new: 'bg-blue-500/15 text-blue-400 ring-blue-500/25',
@@ -99,7 +100,7 @@ const STATUS_DOT: Record<string, string> = {
 };
 
 const BAR_GRADIENTS: Record<string, [string, string]> = {
-  gold:    ['#f0b429', '#d4960f'],
+  gold:    ['#00ff88', '#00cc6a'],
   blue:    ['#3b82f6', '#2563eb'],
   emerald: ['#10b981', '#059669'],
   orange:  ['#f97316', '#ea580c'],
@@ -172,9 +173,9 @@ function GlassCard({ children, className = '', hover = true }: {
 }) {
   return (
     <div className={`
-      relative rounded-2xl border border-white/[0.08]
-      bg-white/[0.06] backdrop-blur-xl
-      ${hover ? 'hover:border-gold/20 hover:bg-white/[0.09] transition-all duration-300' : ''}
+      relative rounded-2xl border border-grey-200/20
+      bg-grey-100/40 backdrop-blur-xl
+      ${hover ? 'hover:border-gold/20 hover:bg-grey-100/60 transition-all duration-300' : ''}
       ${className}
     `}>
       {children}
@@ -192,13 +193,13 @@ function StatCard({ label, value, sub, icon, accent = false }: {
   return (
     <GlassCard className="p-5">
       <div className="flex items-start justify-between mb-3">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">{label}</p>
-        {icon && <div className="text-zinc-500">{icon}</div>}
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-grey-400">{label}</p>
+        {icon && <div className="text-grey-400/60">{icon}</div>}
       </div>
       <p className={`text-3xl font-heading font-bold tracking-tight ${accent ? 'text-gold' : 'text-white'}`}>
         {value}
       </p>
-      {sub && <p className="text-xs mt-1.5 text-zinc-500">{sub}</p>}
+      {sub && <p className="text-xs mt-1.5 text-grey-500">{sub}</p>}
     </GlassCard>
   );
 }
@@ -210,7 +211,7 @@ function SectionCard({ title, children, className = '' }: {
 }) {
   return (
     <GlassCard className={`overflow-hidden ${className}`} hover={false}>
-      <div className="px-5 py-4 border-b border-white/[0.07]">
+      <div className="px-5 py-4 border-b border-grey-200/15">
         <h2 className="font-heading font-semibold text-white text-sm tracking-wide">{title}</h2>
       </div>
       <div className="p-5">{children}</div>
@@ -247,10 +248,10 @@ function Funnel({ funnel }: { funnel: NonNullable<NonNullable<MetricsData['dropO
             {prev !== null && (
               <div className="flex items-center gap-2 py-1 pl-1">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  strokeWidth="2.5" className={severe ? 'text-red-400' : 'text-grey-500'} aria-hidden="true">
+                  strokeWidth="2.5" className={severe ? 'text-red-400' : 'text-zinc-500'} aria-hidden="true">
                   <path d="M12 5v14M19 12l-7 7-7-7" />
                 </svg>
-                <span className={`text-xs font-semibold ${severe ? 'text-red-400' : 'text-grey-500'}`}>
+                <span className={`text-xs font-semibold ${severe ? 'text-red-400' : 'text-zinc-500'}`}>
                   {lost.toLocaleString()} lost here ({dropPct.toFixed(0)}%)
                 </span>
               </div>
@@ -264,13 +265,13 @@ function Funnel({ funnel }: { funnel: NonNullable<NonNullable<MetricsData['dropO
               <div className="relative flex items-center justify-between gap-3 px-4 py-3">
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold text-white">{s.label}</p>
-                  <p className="truncate text-xs text-grey-500">{s.note}</p>
+                  <p className="truncate text-xs text-zinc-500">{s.note}</p>
                 </div>
                 <div className="flex-shrink-0 text-right">
                   <p className="font-heading text-lg font-bold text-white tabular-nums">
                     {s.value.toLocaleString()}
                   </p>
-                  <p className="text-[11px] text-grey-500 tabular-nums">{ofTotal.toFixed(1)}% of all</p>
+                  <p className="text-[11px] text-zinc-500 tabular-nums">{ofTotal.toFixed(1)}% of all</p>
                 </div>
               </div>
             </div>
@@ -289,24 +290,24 @@ function Heatmap({ cells, accent = 'gold' }: { cells: HeatCell[]; accent?: 'gold
     grid.set(`${c.dow}-${c.hour}`, c.count);
     if (c.count > max) max = c.count;
   }
-  if (max === 0) return <p className="text-grey-500 text-sm">No data for this period yet</p>;
+  if (max === 0) return <p className="text-zinc-500 text-sm">No data for this period yet</p>;
 
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const rgb = accent === 'emerald' ? '52, 211, 153' : '201, 168, 76';
+  const base = accent === 'emerald' ? '#34d399' : 'var(--color-gold)';
 
   return (
     <div className="overflow-x-auto">
       <div className="min-w-[560px]">
         <div className="mb-1 flex gap-[2px] pl-9">
           {Array.from({ length: 24 }, (_, h) => (
-            <div key={h} className="flex-1 text-center text-[9px] text-grey-500 tabular-nums">
+            <div key={h} className="flex-1 text-center text-[9px] text-zinc-500 tabular-nums">
               {h % 3 === 0 ? h : ''}
             </div>
           ))}
         </div>
         {days.map((day, d) => (
           <div key={day} className="mb-[2px] flex items-center gap-[2px]">
-            <div className="w-9 flex-shrink-0 text-[10px] text-grey-500">{day}</div>
+            <div className="w-9 flex-shrink-0 text-[10px] text-zinc-500">{day}</div>
             {Array.from({ length: 24 }, (_, h) => {
               const v = grid.get(`${d}-${h}`) ?? 0;
               const intensity = v === 0 ? 0 : 0.12 + (v / max) * 0.88;
@@ -314,17 +315,17 @@ function Heatmap({ cells, accent = 'gold' }: { cells: HeatCell[]; accent?: 'gold
                 <div
                   key={h}
                   className="h-6 flex-1 rounded-[2px] border border-white/[0.04]"
-                  style={{ background: v === 0 ? 'rgba(255,255,255,0.02)' : `rgba(${rgb}, ${intensity})` }}
+                  style={{ background: v === 0 ? 'rgba(255,255,255,0.02)' : `color-mix(in srgb, ${base} ${(intensity * 100).toFixed(0)}%, transparent)` }}
                   title={`${day} ${String(h).padStart(2, '0')}:00 — ${v}`}
                 />
               );
             })}
           </div>
         ))}
-        <div className="mt-2 flex items-center justify-end gap-2 text-[10px] text-grey-500">
+        <div className="mt-2 flex items-center justify-end gap-2 text-[10px] text-zinc-500">
           <span>0</span>
           {[0.15, 0.35, 0.6, 0.85, 1].map((f) => (
-            <div key={f} className="h-3 w-5 rounded-[2px]" style={{ background: `rgba(${rgb}, ${f})` }} />
+            <div key={f} className="h-3 w-5 rounded-[2px]" style={{ background: `color-mix(in srgb, ${base} ${f * 100}%, transparent)` }} />
           ))}
           <span className="tabular-nums">{max}</span>
         </div>
@@ -335,16 +336,16 @@ function Heatmap({ cells, accent = 'gold' }: { cells: HeatCell[]; accent?: 'gold
 
 /** Pages ranked by how many sessions ended there. */
 function LeakTable({ rows }: { rows: { path: string; views: number; exits: number }[] }) {
-  if (!rows.length) return <p className="text-grey-500 text-sm">Not enough data yet</p>;
+  if (!rows.length) return <p className="text-zinc-500 text-sm">Not enough data yet</p>;
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-left">
         <thead>
           <tr className="border-b border-white/[0.07]">
-            <th className="pb-2 text-[11px] font-semibold uppercase tracking-wider text-grey-500">Page</th>
-            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-grey-500">Views</th>
-            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-grey-500">Left here</th>
-            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-grey-500">Exit rate</th>
+            <th className="pb-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Page</th>
+            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Views</th>
+            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Left here</th>
+            <th className="pb-2 text-right text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Exit rate</th>
           </tr>
         </thead>
         <tbody>
@@ -353,12 +354,12 @@ function LeakTable({ rows }: { rows: { path: string; views: number; exits: numbe
             const bad = rate >= 70 && r.views >= 10;
             return (
               <tr key={r.path} className="border-b border-white/[0.04]">
-                <td className="py-2 pr-3 text-sm text-grey-300">
+                <td className="py-2 pr-3 text-sm text-zinc-300">
                   <span className="block max-w-[280px] truncate" title={r.path}>{r.path}</span>
                 </td>
-                <td className="py-2 text-right text-sm text-grey-400 tabular-nums">{r.views.toLocaleString()}</td>
+                <td className="py-2 text-right text-sm text-zinc-400 tabular-nums">{r.views.toLocaleString()}</td>
                 <td className="py-2 text-right text-sm text-white tabular-nums">{r.exits.toLocaleString()}</td>
-                <td className={`py-2 text-right text-sm font-semibold tabular-nums ${bad ? 'text-red-400' : 'text-grey-400'}`}>
+                <td className={`py-2 text-right text-sm font-semibold tabular-nums ${bad ? 'text-red-400' : 'text-zinc-400'}`}>
                   {rate.toFixed(0)}%
                 </td>
               </tr>
@@ -384,7 +385,7 @@ function BarChart({ data, labelKey, valueKey, maxBars = 8, color = 'gold' }: {
   if (data.length === 0) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-zinc-500 text-sm">No data yet</p>
+        <p className="text-grey-500 text-sm">No data yet</p>
       </div>
     );
   }
@@ -397,12 +398,12 @@ function BarChart({ data, labelKey, valueKey, maxBars = 8, color = 'gold' }: {
         return (
           <div key={i} className="group">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-sm text-zinc-400 truncate max-w-[180px] group-hover:text-white transition-colors" title={String(row[labelKey])}>
+              <span className="text-sm text-grey-600 truncate max-w-[180px] group-hover:text-white transition-colors" title={String(row[labelKey])}>
                 {String(row[labelKey]) || '(direct)'}
               </span>
               <span className="text-sm font-semibold text-white tabular-nums ml-3">{val.toLocaleString()}</span>
             </div>
-            <div className="h-1.5 bg-white/[0.08] rounded-full overflow-hidden">
+            <div className="h-1.5 bg-grey-200/30 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-700 ease-out"
                 style={{
@@ -428,7 +429,7 @@ function AreaChart({ data, valueKey, height = 130 }: {
   if (data.length < 2) {
     return (
       <div className="flex items-center justify-center" style={{ height }}>
-        <p className="text-zinc-500 text-sm">Not enough data to chart</p>
+        <p className="text-grey-500 text-sm">Not enough data to chart</p>
       </div>
     );
   }
@@ -465,7 +466,7 @@ function AreaChart({ data, valueKey, height = 130 }: {
         {/* Grid lines */}
         {[0.25, 0.5, 0.75].map((frac) => (
           <line key={frac} x1={pad.left} y1={pad.top + chartH * (1 - frac)} x2={w - pad.right} y2={pad.top + chartH * (1 - frac)}
-            stroke="white" strokeOpacity="0.08" strokeDasharray="4 4" />
+            stroke="var(--color-grey-200)" strokeOpacity="0.15" strokeDasharray="4 4" />
         ))}
         {/* Area fill */}
         <path d={areaPath} fill={`url(#areaGrad-${valueKey})`} />
@@ -488,17 +489,17 @@ function AreaChart({ data, valueKey, height = 130 }: {
       {/* Tooltip */}
       {hoveredIdx !== null && (
         <div
-          className="absolute -top-1 pointer-events-none z-10 px-2.5 py-1 rounded-lg bg-zinc-800 border border-white/[0.12] text-xs text-white shadow-xl"
+          className="absolute -top-1 pointer-events-none z-10 px-2.5 py-1 rounded-lg bg-grey-100 border border-grey-200/30 text-xs text-white shadow-xl"
           style={{ left: `${(hoveredIdx / (values.length - 1)) * 100}%`, transform: 'translateX(-50%)' }}
         >
-          <span className="text-zinc-500">{data[hoveredIdx].date.slice(5)}</span>
+          <span className="text-grey-500">{data[hoveredIdx].date.slice(5)}</span>
           <span className="ml-1.5 font-bold text-gold">{values[hoveredIdx]}</span>
         </div>
       )}
       {/* X-axis labels */}
-      <div className="flex items-center justify-between mt-2 text-[11px] text-zinc-500">
+      <div className="flex items-center justify-between mt-2 text-[11px] text-grey-500">
         <span>{data[0].date.slice(5)}</span>
-        <span className="font-medium text-zinc-400">Avg: {avg}/day</span>
+        <span className="font-medium text-grey-400">Avg: {avg}/day</span>
         <span>{data[data.length - 1].date.slice(5)}</span>
       </div>
     </div>
@@ -542,7 +543,7 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
 
   return (
     <>
-      <tr className="border-b border-white/[0.06] hover:bg-white/[0.04] transition-colors cursor-pointer group" onClick={onToggle}>
+      <tr className="border-b border-grey-200/10 hover:bg-grey-200/10 transition-colors cursor-pointer group" onClick={onToggle}>
         <td className="py-4 px-4">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
@@ -550,27 +551,27 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
             </div>
             <div>
               <p className="font-semibold text-white text-sm">{lead.name}</p>
-              <p className="text-xs text-zinc-500">{lead.email}</p>
+              <p className="text-xs text-grey-500">{lead.email}</p>
             </div>
           </div>
         </td>
         <td className="py-4 px-4">
-          <a href={`tel:${lead.phone}`} className="text-sm text-zinc-400 hover:text-gold transition-colors" onClick={(e) => e.stopPropagation()}>
+          <a href={`tel:${lead.phone}`} className="text-sm text-grey-600 hover:text-gold transition-colors" onClick={(e) => e.stopPropagation()}>
             {lead.phone}
           </a>
         </td>
         <td className="py-4 px-4">
-          <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-white/[0.06] text-xs font-medium text-zinc-400">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-grey-200/20 text-xs font-medium text-grey-600">
             {lead.service}
           </span>
         </td>
-        <td className="py-4 px-4 text-sm text-zinc-400">{lead.location}</td>
+        <td className="py-4 px-4 text-sm text-grey-600">{lead.location}</td>
         <td className="py-4 px-4">
           <select
             value={lead.status}
             onChange={(e) => { e.stopPropagation(); onStatusChange(lead.id, e.target.value); }}
             onClick={(e) => e.stopPropagation()}
-            className={`text-xs font-semibold px-2.5 py-1 rounded-full ring-1 ring-inset border-0 cursor-pointer appearance-none bg-transparent ${STATUS_COLORS[lead.status] || 'bg-white/[0.06] text-zinc-400 ring-zinc-500/20'}`}
+            className={`text-xs font-semibold px-2.5 py-1 rounded-full ring-1 ring-inset border-0 cursor-pointer appearance-none bg-transparent ${STATUS_COLORS[lead.status] || 'bg-grey-200/20 text-grey-400 ring-grey-500/20'}`}
           >
             {['new', 'contacted', 'quoted', 'won', 'lost'].map((s) => (
               <option key={s} value={s} className="bg-navy text-white">{s.charAt(0).toUpperCase() + s.slice(1)}</option>
@@ -578,23 +579,23 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
           </select>
         </td>
         <td className="py-4 px-4">
-          <span className="text-xs text-zinc-500" title={new Date(lead.createdAt).toLocaleString('en-GB')}>{ago}</span>
+          <span className="text-xs text-grey-500" title={new Date(lead.createdAt).toLocaleString('en-GB')}>{ago}</span>
         </td>
         <td className="py-4 px-2">
-          <div className={`text-zinc-500 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>{icons.chevron}</div>
+          <div className={`text-grey-500 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>{icons.chevron}</div>
         </td>
       </tr>
       {expanded && (
-        <tr className="border-b border-white/[0.06] bg-white/[0.05]">
+        <tr className="border-b border-grey-200/10 bg-grey-100/30">
           <td colSpan={7} className="px-4 py-4">
             <div className="ml-12 space-y-3">
               {lead.message && (
                 <div>
-                  <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest mb-1">Message</p>
-                  <p className="text-sm text-zinc-300 leading-relaxed">{lead.message}</p>
+                  <p className="text-[11px] font-semibold text-grey-500 uppercase tracking-widest mb-1">Message</p>
+                  <p className="text-sm text-grey-700 leading-relaxed">{lead.message}</p>
                 </div>
               )}
-              {lead.source && <p className="text-xs text-zinc-500">Source: <span className="text-zinc-400">{lead.source}</span></p>}
+              {lead.source && <p className="text-xs text-grey-500">Source: <span className="text-grey-600">{lead.source}</span></p>}
               <div className="flex items-center gap-2">
                 <button
                   onClick={suggestReply}
@@ -609,10 +610,10 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
                 </button>
               </div>
               {aiReply && (
-                <div className="p-4 rounded-xl bg-white/[0.08] border border-white/[0.08] space-y-3">
+                <div className="p-4 rounded-xl bg-grey-100/50 border border-grey-200/20 space-y-3">
                   <div>
                     <div className="flex items-center justify-between mb-1">
-                      <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Subject</p>
+                      <p className="text-[11px] font-semibold text-grey-500 uppercase tracking-widest">Subject</p>
                       <button onClick={() => copyText(aiReply.subject, 'subject')} className="text-xs text-gold hover:text-gold-light transition-colors">
                         {copied === 'subject' ? 'Copied' : 'Copy'}
                       </button>
@@ -621,16 +622,16 @@ function LeadRow({ lead, onStatusChange, expanded, onToggle, apiKey }: {
                   </div>
                   <div>
                     <div className="flex items-center justify-between mb-1">
-                      <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Email Body</p>
+                      <p className="text-[11px] font-semibold text-grey-500 uppercase tracking-widest">Email Body</p>
                       <button onClick={() => copyText(aiReply.body, 'body')} className="text-xs text-gold hover:text-gold-light transition-colors">
                         {copied === 'body' ? 'Copied' : 'Copy'}
                       </button>
                     </div>
-                    <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-wrap">{aiReply.body}</p>
+                    <p className="text-sm text-grey-700 leading-relaxed whitespace-pre-wrap">{aiReply.body}</p>
                   </div>
                   <a
                     href={`mailto:${lead.email}?subject=${encodeURIComponent(aiReply.subject)}&body=${encodeURIComponent(aiReply.body)}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold text-white text-xs font-semibold hover:bg-gold-light transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold text-navy text-xs font-semibold hover:bg-gold-light transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {icons.mail} Open in Email
@@ -678,7 +679,7 @@ export default function MetricsPage() {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
 
   useEffect(() => {
-    const saved = sessionStorage.getItem('_grewal_metrics_key');
+    const saved = sessionStorage.getItem('_sigma_metrics_key');
     if (saved) { setApiKey(saved); setAuthenticated(true); }
   }, []);
 
@@ -691,14 +692,14 @@ export default function MetricsPage() {
       if (res.status === 401) {
         setError('Invalid API key');
         setAuthenticated(false);
-        sessionStorage.removeItem('_grewal_metrics_key');
+        sessionStorage.removeItem('_sigma_metrics_key');
         return;
       }
       if (!res.ok) throw new Error('Failed');
       const json = await res.json();
       setData(json);
       setAuthenticated(true);
-      sessionStorage.setItem('_grewal_metrics_key', key);
+      sessionStorage.setItem('_sigma_metrics_key', key);
     } catch {
       setError('Failed to load metrics.');
     } finally {
@@ -745,18 +746,20 @@ export default function MetricsPage() {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber/5 rounded-full blur-[120px]" />
         </div>
-        <form onSubmit={handleLogin} className="relative bg-white/[0.09] backdrop-blur-2xl rounded-2xl p-10 w-full max-w-sm border border-white/[0.08] shadow-2xl">
-          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto overflow-hidden">
-            <img src="/assets/grewal-icon-512.png" alt="Grewal" className="w-full h-full object-contain" />
+        <form onSubmit={handleLogin} className="relative bg-grey-100/60 backdrop-blur-2xl rounded-2xl p-10 w-full max-w-sm border border-grey-200/20 shadow-2xl">
+          <div className="w-14 h-14 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
-          <h1 className="font-heading font-bold text-2xl text-white text-center mb-1">Grewal Metrics</h1>
-          <p className="text-zinc-500 text-sm text-center mb-8">Enter your admin API key</p>
+          <h1 className="font-heading font-bold text-2xl text-white text-center mb-1">Sigma Metrics</h1>
+          <p className="text-grey-500 text-sm text-center mb-8">Enter your admin API key</p>
           <input
             type="password"
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             placeholder="API key"
-            className="w-full px-4 py-3.5 rounded-xl bg-white/[0.08] border border-white/[0.08] text-white text-sm placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold/40 mb-4 transition-all"
+            className="w-full px-4 py-3.5 rounded-xl bg-grey-200/30 border border-grey-200/20 text-white text-sm placeholder:text-grey-500 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold/40 mb-4 transition-all"
             autoFocus
           />
           {error && (
@@ -768,7 +771,7 @@ export default function MetricsPage() {
           <button
             type="submit"
             disabled={!apiKey.trim() || loading}
-            className="w-full bg-gold hover:bg-gold-light text-white font-bold py-3.5 rounded-xl transition-all disabled:opacity-40 text-sm"
+            className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-3.5 rounded-xl transition-all disabled:opacity-40 text-sm"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
@@ -788,7 +791,7 @@ export default function MetricsPage() {
       <div className="min-h-screen bg-navy flex items-center justify-center">
         <div className="text-center">
           <div className="w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-zinc-500 text-sm font-medium">Loading metrics...</p>
+          <p className="text-grey-500 text-sm font-medium">Loading metrics...</p>
         </div>
       </div>
     );
@@ -806,29 +809,31 @@ export default function MetricsPage() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-navy/80 backdrop-blur-2xl border-b border-white/[0.06]">
+      <header className="sticky top-0 z-50 bg-navy/80 backdrop-blur-2xl border-b border-grey-200/10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src="/assets/grewal-icon-512.png" alt="Grewal" className="w-full h-full object-contain" />
+                <div className="w-8 h-8 bg-gold/10 border border-gold/20 rounded-lg flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
-                <span className="font-heading font-bold text-gold text-lg hidden sm:block">Grewal Metrics</span>
+                <span className="font-heading font-bold text-gold text-lg hidden sm:block">Sigma Metrics</span>
               </div>
               {loading && <div className="w-4 h-4 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />}
             </div>
 
             {/* Desktop Tabs */}
-            <nav className="hidden md:flex items-center gap-0.5 bg-white/[0.06] rounded-xl p-1 border border-white/[0.06]">
+            <nav className="hidden md:flex items-center gap-0.5 bg-grey-100/40 rounded-xl p-1 border border-grey-200/10">
               {TABS.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                     activeTab === tab
-                      ? 'bg-gold text-white shadow-lg shadow-gold/20'
-                      : 'text-zinc-500 hover:text-white'
+                      ? 'bg-gold text-navy shadow-lg shadow-gold/20'
+                      : 'text-grey-500 hover:text-white'
                   }`}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -840,18 +845,18 @@ export default function MetricsPage() {
               <select
                 value={period}
                 onChange={(e) => setPeriod(e.target.value)}
-                className="bg-white/[0.06] text-zinc-400 text-sm border border-white/[0.07] rounded-lg px-3 py-2 focus:ring-gold/40 focus:ring-2 focus:outline-none"
+                className="bg-grey-100/40 text-grey-600 text-sm border border-grey-200/15 rounded-lg px-3 py-2 focus:ring-gold/40 focus:ring-2 focus:outline-none"
               >
                 {Object.entries(PERIODS).map(([k, v]) => (
                   <option key={k} value={k} className="bg-navy text-white">{v}</option>
                 ))}
               </select>
               <button onClick={() => fetchMetrics(apiKey, period)}
-                className="p-2 text-zinc-500 hover:text-gold rounded-lg hover:bg-white/[0.05] transition-all" title="Refresh">
+                className="p-2 text-grey-500 hover:text-gold rounded-lg hover:bg-grey-100/30 transition-all" title="Refresh">
                 {icons.refresh}
               </button>
-              <button onClick={() => { sessionStorage.removeItem('_grewal_metrics_key'); setAuthenticated(false); setData(null); setApiKey(''); }}
-                className="p-2 text-zinc-500 hover:text-red-400 rounded-lg hover:bg-white/[0.05] transition-all" title="Sign out">
+              <button onClick={() => { sessionStorage.removeItem('_sigma_metrics_key'); setAuthenticated(false); setData(null); setApiKey(''); }}
+                className="p-2 text-grey-500 hover:text-red-400 rounded-lg hover:bg-grey-100/30 transition-all" title="Sign out">
                 {icons.logout}
               </button>
             </div>
@@ -860,14 +865,14 @@ export default function MetricsPage() {
       </header>
 
       {/* Mobile Tabs */}
-      <div className="md:hidden sticky top-16 z-40 bg-navy/80 backdrop-blur-xl border-b border-white/[0.06]">
+      <div className="md:hidden sticky top-16 z-40 bg-navy/80 backdrop-blur-xl border-b border-grey-200/10">
         <div className="flex">
           {TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 py-3 text-sm font-semibold transition-all border-b-2 ${
-                activeTab === tab ? 'text-gold border-gold' : 'text-zinc-500 border-transparent'
+                activeTab === tab ? 'text-gold border-gold' : 'text-grey-500 border-transparent'
               }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -879,7 +884,7 @@ export default function MetricsPage() {
       <main className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Period + Alert badges */}
         <div className="flex items-center gap-3 mb-8">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.07] text-zinc-400 text-xs font-semibold">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-grey-100/40 border border-grey-200/15 text-grey-600 text-xs font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {PERIODS[period] || period}
           </span>
@@ -1003,7 +1008,6 @@ export default function MetricsPage() {
         {/* ── SOURCES ────────────────────────────────────────────────── */}
         {activeTab === 'sources' && data.sources && (
           <div className="space-y-8">
-            {/* Source breakdown stats */}
             {(() => {
               const s = data.sources.bySource;
               const total = s.reduce((a, b) => a + b.count, 0) || 1;
@@ -1022,31 +1026,27 @@ export default function MetricsPage() {
             })()}
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Traffic source donut-style bar chart */}
               <SectionCard title="Traffic Sources">
                 <BarChart data={data.sources.bySource} labelKey="source" valueKey="count" maxBars={12} color="blue" />
               </SectionCard>
-
-              {/* Referrers (existing) */}
               <SectionCard title="Raw Referrers">
                 <BarChart data={data.traffic.topReferrers} labelKey="referrer" valueKey="views" maxBars={10} color="violet" />
               </SectionCard>
             </div>
 
-            {/* Landing pages by source */}
             <SectionCard title="Landing Pages by Source">
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="border-b border-white/[0.06]">
+                    <tr className="border-b border-grey-200/10">
                       {['Landing Page', 'Source', 'Sessions'].map((h) => (
-                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">{h}</th>
+                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-grey-500 uppercase tracking-widest">{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {data.sources.landings.map((row, i) => (
-                      <tr key={i} className="border-b border-white/[0.06] hover:bg-white/[0.04] transition-colors">
+                      <tr key={i} className="border-b border-grey-200/10 hover:bg-grey-200/10 transition-colors">
                         <td className="py-3 px-4 text-sm text-white font-medium max-w-[300px] truncate">{row.path}</td>
                         <td className="py-3 px-4">
                           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold ${
@@ -1054,7 +1054,7 @@ export default function MetricsPage() {
                             row.source === 'Google Ads' ? 'bg-blue-500/15 text-blue-400' :
                             row.source === 'Direct' ? 'bg-amber-500/15 text-amber-400' :
                             row.source === 'Bing' ? 'bg-sky-500/15 text-sky-400' :
-                            'bg-white/[0.06] text-zinc-400'
+                            'bg-grey-200/20 text-grey-400'
                           }`}>
                             {row.source}
                           </span>
@@ -1064,7 +1064,7 @@ export default function MetricsPage() {
                     ))}
                     {data.sources.landings.length === 0 && (
                       <tr>
-                        <td colSpan={3} className="py-12 text-center text-zinc-500 text-sm">No landing page data yet</td>
+                        <td colSpan={3} className="py-12 text-center text-grey-500 text-sm">No landing page data yet</td>
                       </tr>
                     )}
                   </tbody>
@@ -1072,12 +1072,11 @@ export default function MetricsPage() {
               </div>
             </SectionCard>
 
-            {/* Info note about search queries */}
             <div className="flex items-start gap-3 px-5 py-4 rounded-xl bg-blue-500/5 border border-blue-500/15">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400 flex-shrink-0 mt-0.5">
                 <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
               </svg>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-grey-600">
                 <span className="font-semibold text-blue-400">Search queries not available from referrer.</span>{' '}
                 Google encrypts search queries since 2011 — the referrer only shows the domain (google.com), not what the user searched.
                 To see actual search queries, use <span className="text-white font-medium">Google Search Console</span> (Performance &gt; Queries).
@@ -1105,13 +1104,13 @@ export default function MetricsPage() {
                   {data.leads.byStatus.map((row) => (
                     <div key={row.status} className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
-                        <span className={`w-2 h-2 rounded-full ${STATUS_DOT[row.status] || 'bg-zinc-500'}`} />
-                        <span className="text-sm text-zinc-400">{row.status.charAt(0).toUpperCase() + row.status.slice(1)}</span>
+                        <span className={`w-2 h-2 rounded-full ${STATUS_DOT[row.status] || 'bg-grey-500'}`} />
+                        <span className="text-sm text-grey-600">{row.status.charAt(0).toUpperCase() + row.status.slice(1)}</span>
                       </div>
                       <span className="font-bold text-white text-sm tabular-nums">{row.count}</span>
                     </div>
                   ))}
-                  {data.leads.byStatus.length === 0 && <p className="text-zinc-500 text-sm text-center py-4">No leads yet</p>}
+                  {data.leads.byStatus.length === 0 && <p className="text-grey-500 text-sm text-center py-4">No leads yet</p>}
                 </div>
               </SectionCard>
               <SectionCard title="By Service"><BarChart data={data.leads.byService} labelKey="service" valueKey="count" /></SectionCard>
@@ -1121,18 +1120,18 @@ export default function MetricsPage() {
 
             {/* Recent Leads Table */}
             <GlassCard className="overflow-hidden" hover={false}>
-              <div className="px-5 py-4 border-b border-white/[0.07] flex items-center justify-between">
+              <div className="px-5 py-4 border-b border-grey-200/15 flex items-center justify-between">
                 <div>
                   <h2 className="font-heading font-semibold text-white">Recent Leads</h2>
-                  <p className="text-xs text-zinc-500 mt-0.5">{data.leads.recent.length} shown &middot; Click to expand</p>
+                  <p className="text-xs text-grey-500 mt-0.5">{data.leads.recent.length} shown &middot; Click to expand</p>
                 </div>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="border-b border-white/[0.06]">
+                    <tr className="border-b border-grey-200/10">
                       {['Contact', 'Phone', 'Service', 'Location', 'Status', 'When', ''].map((h) => (
-                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">{h}</th>
+                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-grey-500 uppercase tracking-widest">{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -1145,8 +1144,8 @@ export default function MetricsPage() {
                     {data.leads.recent.length === 0 && (
                       <tr>
                         <td colSpan={7} className="py-16 text-center">
-                          <div className="text-zinc-400 mb-3">{icons.leads}</div>
-                          <p className="text-zinc-500 text-sm">No leads in this period</p>
+                          <div className="text-grey-400 mb-3">{icons.leads}</div>
+                          <p className="text-grey-500 text-sm">No leads in this period</p>
                         </td>
                       </tr>
                     )}
@@ -1188,16 +1187,16 @@ export default function MetricsPage() {
 
             {/* Recent Contact Events */}
             <GlassCard className="overflow-hidden" hover={false}>
-              <div className="px-5 py-4 border-b border-white/[0.07]">
+              <div className="px-5 py-4 border-b border-grey-200/15">
                 <h2 className="font-heading font-semibold text-white">Recent Contact Events</h2>
-                <p className="text-xs text-zinc-500 mt-0.5">{data.callClicks.recent.length} shown</p>
+                <p className="text-xs text-grey-500 mt-0.5">{data.callClicks.recent.length} shown</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="border-b border-white/[0.06]">
+                    <tr className="border-b border-grey-200/10">
                       {['Action', 'Phone', 'Page', 'Device', 'Browser', 'IP', 'Country', 'When'].map((h) => (
-                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">{h}</th>
+                        <th key={h} className="py-3 px-4 text-[11px] font-semibold text-grey-500 uppercase tracking-widest">{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -1205,7 +1204,7 @@ export default function MetricsPage() {
                     {data.callClicks.recent.map((click, i) => {
                       const date = new Date(click.created_at);
                       return (
-                        <tr key={i} className="border-b border-white/[0.06] hover:bg-white/[0.04] transition-colors">
+                        <tr key={i} className="border-b border-grey-200/10 hover:bg-grey-200/10 transition-colors">
                           <td className="py-3 px-4">
                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold ${
                               click.action === 'whatsapp_click' ? 'bg-green-500/15 text-green-400' :
@@ -1216,22 +1215,22 @@ export default function MetricsPage() {
                             </span>
                           </td>
                           <td className="py-3 px-4 text-sm font-medium text-white">{click.phone}</td>
-                          <td className="py-3 px-4 text-sm text-zinc-400 max-w-[200px] truncate">{click.page}</td>
+                          <td className="py-3 px-4 text-sm text-grey-600 max-w-[200px] truncate">{click.page}</td>
                           <td className="py-3 px-4">
-                            <span className="inline-flex items-center px-2 py-0.5 rounded bg-white/[0.05] text-xs font-medium text-zinc-500">{click.device || '--'}</span>
+                            <span className="inline-flex items-center px-2 py-0.5 rounded bg-grey-200/15 text-xs font-medium text-grey-500">{click.device || '--'}</span>
                           </td>
-                          <td className="py-3 px-4 text-sm text-zinc-400">{click.browser || '--'}</td>
-                          <td className="py-3 px-4 text-xs text-zinc-500 font-mono">{click.ip || '--'}</td>
-                          <td className="py-3 px-4 text-sm text-zinc-400">{click.country || '--'}</td>
-                          <td className="py-3 px-4 text-xs text-zinc-500" title={date.toLocaleString('en-GB')}>{getTimeAgo(date)}</td>
+                          <td className="py-3 px-4 text-sm text-grey-600">{click.browser || '--'}</td>
+                          <td className="py-3 px-4 text-xs text-grey-500 font-mono">{click.ip || '--'}</td>
+                          <td className="py-3 px-4 text-sm text-grey-600">{click.country || '--'}</td>
+                          <td className="py-3 px-4 text-xs text-grey-500" title={date.toLocaleString('en-GB')}>{getTimeAgo(date)}</td>
                         </tr>
                       );
                     })}
                     {data.callClicks.recent.length === 0 && (
                       <tr>
                         <td colSpan={8} className="py-16 text-center">
-                          <div className="text-zinc-400 mb-3">{icons.phone}</div>
-                          <p className="text-zinc-500 text-sm">No contact events recorded yet</p>
+                          <div className="text-grey-400 mb-3">{icons.phone}</div>
+                          <p className="text-grey-500 text-sm">No contact events recorded yet</p>
                         </td>
                       </tr>
                     )}

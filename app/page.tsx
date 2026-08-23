@@ -7,7 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'Affordable Shopfront Installation & Roller Shutters UK | Sigma Shop Fronts',
+  title: 'Affordable Shopfront Installation & Roller Shutters UK',
   description:
     'Affordable shopfront installation across the UK. Aluminium shopfronts, roller shutters, security doors & automatic doors. Competitive prices, 24/7 emergency callout, free site surveys & no-obligation quotes.',
   alternates: {

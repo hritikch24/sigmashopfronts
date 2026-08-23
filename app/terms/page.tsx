@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | Sigma Shop Fronts',
+  title: 'Terms & Conditions',
   description:
     'Read the Terms and Conditions for Sigma Shopfronts and Shutter Limited. Our standard terms cover quotations, payment, installation, warranties, and your rights as a customer.',
   alternates: {

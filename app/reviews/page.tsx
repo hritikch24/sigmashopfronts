@@ -135,7 +135,7 @@ export default function ReviewsPage() {
           <h2 className="text-2xl font-bold text-white">Ready to join our satisfied customers?</h2>
           <p className="text-grey-300 mt-3">Get a free, no-obligation quote for your shopfront project.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <Link href="/contact" className="inline-block bg-gold text-white font-bold py-3 px-8 rounded-lg hover:bg-gold/90 transition-colors">
+            <Link href="/contact" className="inline-block bg-gold text-navy font-bold py-3 px-8 rounded-lg hover:bg-gold/90 transition-colors">
               Get a Free Quote
             </Link>
             <Link href="/services" className="inline-block border border-grey-400 text-white font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-colors">

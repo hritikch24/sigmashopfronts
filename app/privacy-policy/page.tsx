@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Sigma Shop Fronts',
+  title: 'Privacy Policy',
   description:
     'Read the Privacy Policy for Sigma Shopfronts and Shutter Limited. Learn how we collect, use, and protect your personal data in accordance with UK GDPR.',
   alternates: {
