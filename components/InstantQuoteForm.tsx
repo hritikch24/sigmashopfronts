@@ -14,6 +14,8 @@ interface EstimateResponse {
   quantity: number;
   factors: string[];
   reference: string | null;
+  /** False when the send failed — never promise an email that did not go. */
+  emailed: boolean;
 }
 
 /**
@@ -118,7 +120,7 @@ export default function InstantQuoteForm() {
         setError(data.error || 'Something went wrong. Please call us instead.');
         return;
       }
-      setResult(data.estimate);
+      setResult({ ...data.estimate, emailed: Boolean(data.emailed) });
     } catch {
       setError('Could not reach the server. Please call us instead.');
     } finally {
@@ -170,12 +172,16 @@ export default function InstantQuoteForm() {
 
         <div className="rounded-lg border border-grey-200 px-4 py-3 mb-6">
           <p className="text-charcoal text-sm font-semibold mb-1">
-            We have emailed this to you — check your inbox.
+            {result.emailed
+              ? 'We have emailed this to you — check your inbox.'
+              : 'Save your reference — we have your details.'}
           </p>
           <p className="text-grey-600 text-sm">
             One of our team will call you <strong>within one working day</strong> to talk it
-            through and book your free site survey. Your reference is{' '}
-            <strong>{result.reference ?? 'on its way by email'}</strong>.
+            through and book your free site survey.
+            {result.reference ? (
+              <> Your reference is <strong>{result.reference}</strong>.</>
+            ) : null}
           </p>
         </div>
 

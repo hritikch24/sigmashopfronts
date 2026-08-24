@@ -220,6 +220,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   // Goes out within seconds of the visitor pressing the button. This is the
   // touch that holds the lead while we get to the callback, so it is sent
   // even if the lead or document write above failed.
+  // Whether this actually left the building. The UI must not promise an email
+  // that Resend rejected — an unconfigured key or an unverified sending domain
+  // both fail here, and the customer would otherwise be told to check an inbox
+  // that will stay empty.
+  let emailed = false;
   try {
     await sendEstimateEmail({
       name: cleanName,
@@ -232,12 +237,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       quantity: estimate.quantity,
       factors: estimate.factors,
     });
+    emailed = true;
   } catch (err) {
     console.error('[instant-quote] Estimate email failed:', err);
   }
 
   return NextResponse.json({
     success: true,
+    emailed,
     estimate: {
       low: estimate.low,
       high: estimate.high,
