@@ -9,10 +9,14 @@ const cities = [
   'Newcastle', 'Cardiff', 'Edinburgh', 'Glasgow', 'Southampton', 'Brighton', 'Other',
 ];
 
+// Mirrors data/services.ts — a visitor must not be able to enquire
+// about something we do not offer.
 const serviceOptions = [
-  'Aluminium Shop Fronts', 'Roller Shutters', 'Security Doors',
+  'Aluminium Shopfronts', 'Roller Shutters', 'Security Doors',
   'Automatic Doors', 'Bi-Fold Doors', 'Fire Doors',
-  'Shop Front Repairs', 'Emergency Callout', 'Other',
+  'Shopfront Repairs', 'Emergency Callout', 'Shutter Repair',
+  'Glass Replacement', 'Aluminium Doors', 'Aluminium Windows',
+  'Curtain Walling', 'Glass Shopfronts', 'Other',
 ];
 
 const hearAboutOptions = [

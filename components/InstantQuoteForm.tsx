@@ -120,6 +120,17 @@ export default function InstantQuoteForm() {
         setError(data.error || 'Something went wrong. Please call us instead.');
         return;
       }
+      // Report to Google Ads. This is the primary conversion path on the site,
+      // so it must fire the same actions the contact form does — without this
+      // the estimate is invisible to bidding.
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-',
+        });
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16801337867/u-x7CNe428gcEIukwMs-',
+        });
+      }
       setResult({ ...data.estimate, emailed: Boolean(data.emailed) });
     } catch {
       setError('Could not reach the server. Please call us instead.');
