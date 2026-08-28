@@ -24,11 +24,15 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   }
 
   const { searchParams } = new URL(request.url);
+  // With neither param supplied, default to the last 24 hours to match
+  // the dashboard's default selection.
   const hoursParam = searchParams.get('hours');
-  const daysParam = parseInt(searchParams.get('days') || '30', 10);
+  const daysParam = searchParams.get('days');
   const totalHours = hoursParam
     ? Math.min(Math.max(1, parseInt(hoursParam, 10)), 8760)
-    : Math.min(Math.max(1, daysParam), 365) * 24;
+    : daysParam
+      ? Math.min(Math.max(1, parseInt(daysParam, 10)), 365) * 24
+      : 24;
   const days = totalHours / 24;
 
   const since = new Date(Date.now() - totalHours * 60 * 60 * 1000);

@@ -674,7 +674,9 @@ export default function MetricsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState<MetricsData | null>(null);
-  const [period, setPeriod] = useState('30d');
+  // Default to the last 24 hours — the dashboard is checked to see what is
+  // happening now, not to review the month.
+  const [period, setPeriod] = useState('24h');
   const [expandedLead, setExpandedLead] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>('overview');
 
