@@ -185,6 +185,9 @@ function slugsFrom(file) {
     const suffix = tpl[1].replace('%s', '').trim();
     const dupes = [];
     for (const f of walk(join(ROOT, 'app'), /page\.tsx$/)) {
+      // The root segment is exempt: title.template does not apply to it, so
+      // app/page.tsx must repeat the brand. Checked separately in 5c.
+      if (relative(ROOT, f) === 'app/page.tsx') continue;
       const src = read(f);
       const m = src.match(/^\s*title:\s*'([^']+)'/m);
       const brand = suffix.replace(/^\|\s*/, '').trim();
@@ -213,6 +216,23 @@ function slugsFrom(file) {
   }
   if (bare.length === 0) ok('social titles — all name the business');
   else bare.forEach((b) => fail('social titles', b));
+}
+
+// ── 5c. The homepage title must name the business ────────────────────────
+{
+  // Next.js does not apply the root layout's title.template to the root
+  // segment, so app/page.tsx must carry the brand itself. Stripping it here
+  // silently removes the business name from the most important title on the
+  // site — it happened once and shipped.
+  const home = read(join(ROOT, 'app/page.tsx'));
+  const m = home.match(/export const metadata[\s\S]*?title:\s*['"]([^'"]+)['"]/);
+  if (!m) {
+    fail('homepage title', 'no metadata title found in app/page.tsx');
+  } else if (!m[1].includes(SITE.shortName)) {
+    fail('homepage title', `"${m[1]}" does not name the business — the layout template does not apply to the root segment`);
+  } else {
+    ok('homepage title — names the business');
+  }
 }
 
 // ── 6. Canonical host matches this site ──────────────────────────────────
