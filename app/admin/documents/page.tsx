@@ -6,6 +6,8 @@ interface LineItem {
   description: string;
   qty: number;
   unitPrice: number;
+  /** Either/or alternative — priced on its own, never added to the total. */
+  isOption?: boolean;
 }
 
 interface Doc {
@@ -629,7 +631,7 @@ export default function DocumentsAdminPage() {
 
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="block text-xs font-medium text-slate-500">{tab === 'quote' ? 'Price Options * (shown as red "PRICE FOR ..." lines)' : 'Line Items *'}</label>
+                    <label className="block text-xs font-medium text-slate-500">{tab === 'quote' ? 'Line Items * — tick "Either/or" for alternatives the customer picks between' : 'Line Items *'}</label>
                     <button type="button" onClick={addLineItem} className="text-xs text-blue-600 font-semibold hover:underline">+ Add {tab === 'quote' ? 'option' : 'item'}</button>
                   </div>
                   <div className="space-y-2">
@@ -646,6 +648,17 @@ export default function DocumentsAdminPage() {
                           <input type="number" min="0" step="0.01" placeholder="Price" value={li.unitPrice} onChange={(e) => updateLineItem(idx, { unitPrice: Number(e.target.value) })}
                             className="w-full pl-6 pr-2 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none" />
                         </div>
+                        {tab === 'quote' && (
+                          <label className="flex items-center gap-1.5 px-2 py-2 cursor-pointer select-none" title="Either/or alternative — priced separately, not added to the total">
+                            <input
+                              type="checkbox"
+                              checked={Boolean(li.isOption)}
+                              onChange={(e) => updateLineItem(idx, { isOption: e.target.checked })}
+                              className="h-4 w-4 cursor-pointer accent-blue-600"
+                            />
+                            <span className="text-xs font-medium text-slate-500 whitespace-nowrap">Either/or</span>
+                          </label>
+                        )}
                         <button type="button" onClick={() => removeLineItem(idx)} disabled={form.lineItems.length === 1}
                           className="p-2 text-slate-400 hover:text-red-500 disabled:opacity-30">
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>

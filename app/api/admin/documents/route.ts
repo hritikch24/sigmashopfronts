@@ -20,10 +20,21 @@ interface LineItem {
   description: string;
   qty: number;
   unitPrice: number;
+  /**
+   * Marks this line as an either/or alternative rather than an addition.
+   * Options are excluded from the subtotal — a quote offering single OR
+   * double glazing must not bill the customer for both. The document shows
+   * each option priced separately so they can choose one.
+   */
+  isOption?: boolean;
 }
 
 function computeTotals(lineItems: LineItem[], vatRate: number) {
-  const subtotal = lineItems.reduce((sum, li) => sum + li.qty * li.unitPrice, 0);
+  // Only non-option lines contribute to the running total. Option lines are
+  // alternatives to each other and are priced individually in the document.
+  const subtotal = lineItems
+    .filter((li) => !li.isOption)
+    .reduce((sum, li) => sum + li.qty * li.unitPrice, 0);
   const vatAmount = subtotal * (vatRate / 100);
   const total = subtotal + vatAmount;
   return {
@@ -97,6 +108,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       description: String(li.description || '').trim(),
       qty: Number(li.qty) || 0,
       unitPrice: Number(li.unitPrice) || 0,
+      isOption: Boolean(li.isOption),
     }));
 
     const rate = Number(vatRate) || 0;

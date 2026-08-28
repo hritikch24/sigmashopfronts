@@ -20,6 +20,8 @@ interface LineItem {
   description: string;
   qty: number;
   unitPrice: number;
+  /** Either/or alternative — excluded from the subtotal. See the POST route. */
+  isOption?: boolean;
 }
 
 export async function PATCH(
@@ -45,10 +47,13 @@ export async function PATCH(
         description: String(li.description || '').trim(),
         qty: Number(li.qty) || 0,
         unitPrice: Number(li.unitPrice) || 0,
+        isOption: Boolean(li.isOption),
       }));
 
       const rate = Number(vatRate) || 0;
-      const subtotal = cleanItems.reduce((sum, li) => sum + li.qty * li.unitPrice, 0);
+      const subtotal = cleanItems
+        .filter((li) => !li.isOption)
+        .reduce((sum, li) => sum + li.qty * li.unitPrice, 0);
       const vatAmount = subtotal * (rate / 100);
       const total = subtotal + vatAmount;
 
