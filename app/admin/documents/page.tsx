@@ -39,6 +39,9 @@ interface AutoQuoteMeta {
   estimateLow?: number;
   estimateHigh?: number;
   factors?: string[];
+  /** Which engine priced it, and why the AI path was skipped if it was. */
+  engine?: 'ai' | 'rules';
+  fallbackReason?: string | null;
   inputs?: {
     serviceName?: string;
     variantLabel?: string;
@@ -452,6 +455,16 @@ export default function DocumentsAdminPage() {
                             {(doc.meta?.factors?.length ?? 0) > 0 && (
                               <p className="text-xs text-amber-600 mt-0.5">
                                 {doc.meta!.factors!.join(' · ')}
+                              </p>
+                            )}
+                            {doc.meta?.engine && (
+                              <p className="mt-0.5">
+                                <span className={'inline-block rounded px-1.5 py-0.5 text-[10px] font-semibold ' + (doc.meta.engine === 'ai' ? 'bg-violet-100 text-violet-700' : 'bg-slate-100 text-slate-600')}>
+                                  {doc.meta.engine === 'ai' ? 'AI priced' : 'Rule priced'}
+                                </span>
+                                {doc.meta.engine === 'rules' && doc.meta.fallbackReason && (
+                                  <span className="ml-1.5 text-[10px] text-slate-400">{doc.meta.fallbackReason}</span>
+                                )}
                               </p>
                             )}
                             {doc.meta?.inputs?.budgetLabel && (

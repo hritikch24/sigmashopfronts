@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
-import { calculateEstimate, findService, budgetLabel } from '@/lib/estimator';
+import { findService, budgetLabel } from '@/lib/estimator';
+import { estimateWithAI } from '@/lib/estimator-ai';
 import { sendLeadNotification, sendEstimateEmail } from '@/lib/resend';
 import { sendTelegramLeadNotification } from '@/lib/telegram';
 
@@ -102,7 +103,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ success: false, error: 'Unknown service.' }, { status: 400 });
   }
 
-  const estimate = calculateEstimate({
+  // AI first — it can read the customer's free-text notes, which the dropdowns
+  // cannot capture. It falls back to the rule-based engine on any failure, and
+  // the rule-based figure also bounds the AI answer. See lib/estimator-ai.ts.
+  const estimate = await estimateWithAI({
     serviceSlug: String(serviceSlug),
     variantId: String(variantId),
     quantity: Number(quantity) || 1,
@@ -110,7 +114,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     difficultAccess: Boolean(difficultAccess),
     removalRequired: Boolean(removalRequired),
     outOfHours: Boolean(outOfHours),
+    notes: String(notes || ''),
   });
+
+  if (estimate && estimate.engine === 'rules' && estimate.fallbackReason) {
+    console.warn('[instant-quote] rule-based fallback:', estimate.fallbackReason);
+  }
 
   if (!estimate) {
     return NextResponse.json(
@@ -157,6 +166,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           estimateLow: estimate.low,
           estimateHigh: estimate.high,
           factors: estimate.factors,
+          engine: estimate.engine,
+          fallbackReason: estimate.fallbackReason ?? null,
           inputs: {
             serviceSlug: String(serviceSlug),
             serviceName: estimate.serviceName,
