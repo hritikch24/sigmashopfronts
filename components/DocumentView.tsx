@@ -182,7 +182,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
             )}
 
             {/* ── Line Items Table ── */}
-            <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 8 }}>
+            <table className="doc-table" style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 8 }}>
               <thead>
                 <tr>
                   <th style={{ background: C.brand, color: '#fff', padding: '10px 14px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', width: 44 }}>#</th>
@@ -216,7 +216,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
             {/* ── Totals + Terms ── */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: 32, marginTop: 24, marginBottom: 32 }}>
               <div>
-                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: C.brand, marginBottom: 8 }}>Terms &amp; Conditions</p>
+                <p className="doc-heading" style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: C.brand, marginBottom: 8 }}>Terms &amp; Conditions</p>
                 <ol style={{ margin: 0, paddingLeft: 16, fontSize: 12, color: C.textMuted, lineHeight: 1.8 }}>
                   {terms.map((t, i) => <li key={i}>{t}</li>)}
                 </ol>
@@ -229,7 +229,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
               </div>
 
               <div style={{ border: `1px solid ${C.border}`, borderRadius: 8, overflow: 'hidden' }}>
-                <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${C.borderAlt}` }}>
+                <div className="doc-keep" style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${C.borderAlt}` }}>
                   <span style={{ fontSize: 13, color: C.textMuted }}>Subtotal</span>
                   <span style={{ fontSize: 13, fontWeight: 600 }}>{gbp(doc.subtotal)}</span>
                 </div>

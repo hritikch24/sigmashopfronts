@@ -188,6 +188,32 @@
     .no-print {
       display: none !important;
     }
+
+    /* Quotes and invoices are printed and emailed as PDFs. Without these
+       rules the browser slices wherever the page happens to end — a real
+       quote went out with the Subtotal row cut in half across pages 1 and 2.
+       Each block below must survive the page break intact. */
+    .doc-keep {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    /* A heading must never be the last thing on a page. */
+    .doc-heading {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    /* Table rows and their header should not split mid-row. */
+    .doc-table tr,
+    .doc-table thead {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .doc-table thead {
+      display: table-header-group;
+    }
+    .doc-table tfoot {
+      display: table-footer-group;
+    }
   }
 
   /* ── Futuristic Text Effects ──────────────────────────────────────────── */
