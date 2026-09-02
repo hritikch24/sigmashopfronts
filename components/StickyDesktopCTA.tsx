@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function PhoneIcon() {
   return (
@@ -31,8 +32,22 @@ export default function StickyDesktopCTA() {
       <div className="bg-navy/95 backdrop-blur-md border-b border-navy-light shadow-lg">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-12 flex items-center justify-between gap-6">
           <div className="flex items-center gap-6">
-            <span className="font-heading font-bold text-gold text-sm tracking-wide">
-              SIGMA SHOP FRONTS
+            {/* Mark only, not the lockup: this bar is 48px tall and the
+                lockup's tagline stops resolving below about 36px. The tiled
+                icon rather than the bare mark, because at this size the bare
+                mark's dark facade sinks into the navy bar behind it. */}
+            <span className="flex items-center gap-2.5">
+              <Image
+                src="/assets/sigma-icon-64.png"
+                alt=""
+                width={64}
+                height={64}
+                sizes="26px"
+                className="h-[26px] w-[26px] rounded-[5px]"
+              />
+              <span className="font-heading font-bold text-gold text-sm tracking-wide">
+                SIGMA SHOP FRONTS
+              </span>
             </span>
             <span className="text-grey-500 text-xs hidden lg:block">
               Professional Shop Front Specialists

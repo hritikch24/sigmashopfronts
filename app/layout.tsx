@@ -85,10 +85,13 @@ export const metadata: Metadata = {
       'Affordable shopfront installation & shutter specialists across the UK. Aluminium shopfronts, roller shutters, security doors, automatic doors & emergency repairs. Competitive prices, free site surveys.',
     images: [
       {
-        url: `${siteUrl}/assets/sigma-hero-1.jpeg`,
+        // Was pointed at sigma-hero-1.jpeg, which is 1600x1200 despite being
+        // declared 1200x630 here — so shares were cropped to a shape no one
+        // had composed for. This card is genuinely 1200x630.
+        url: `${siteUrl}/assets/sigma-og.png`,
         width: 1200,
         height: 630,
-        alt: 'Sigma Shop Fronts — Affordable Shopfront Installation UK',
+        alt: 'Sigma Shop Fronts — install, repair, transform, across the UK',
       },
     ],
   },
@@ -97,7 +100,7 @@ export const metadata: Metadata = {
     title: 'Sigma Shop Fronts | Affordable Shopfront Installation UK',
     description:
       'Affordable shopfront installation & shutter specialists across the UK. Aluminium shopfronts, roller shutters, security doors & emergency repairs. Free site surveys.',
-    images: [`${siteUrl}/assets/sigma-hero-1.jpeg`],
+    images: [`${siteUrl}/assets/sigma-og.png`],
   },
   robots: {
     index: true,
@@ -154,6 +157,34 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* The WebSite entity above names this as its publisher, but nothing
+            ever defined it, so the reference dangled. Defining it also gives
+            Google somewhere to read the logo from, which is what populates the
+            brand image in a knowledge panel. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://www.sigmashopfronts.com/#organization",
+              "name": "Sigma Shop Fronts",
+              "legalName": "Sigma Shop Fronts Ltd",
+              "url": "https://www.sigmashopfronts.com",
+              "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.sigmashopfronts.com/#logo",
+                "url": "https://www.sigmashopfronts.com/assets/sigma-logo-square-white.png",
+                "width": 1024,
+                "height": 1024,
+                "caption": "Sigma Shop Fronts"
+              },
+              "image": {"@id": "https://www.sigmashopfronts.com/#logo"},
+              "slogan": "Install, repair, transform",
+              "areaServed": {"@type": "Country", "name": "United Kingdom"}
+            }),
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -178,8 +209,13 @@ export default function RootLayout({
           }}
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/assets/sigma-icon-512.png" />
+        {/* Sized PNGs rather than one large icon: the mark carries fine detail
+            that turns to mush when the browser downscales 512px to 16px, so
+            each size is rendered from the source instead. */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/sigma-icon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/sigma-icon-16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/sigma-icon-180.png" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {gtmId && (

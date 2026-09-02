@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const services = [
   { label: 'Aluminium Shop Fronts', href: '/services/aluminium-shopfronts' },
@@ -115,10 +116,19 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            <Link href="/" className="flex-shrink-0 group">
-              <span className="font-heading font-bold text-lg lg:text-xl tracking-[0.2em] text-gradient-future drop-shadow-[0_0_12px_rgba(0,229,255,0.3)]">
-                SIGMA SHOP FRONTS
-              </span>
+            <Link href="/" className="flex-shrink-0 group" aria-label="Sigma Shop Fronts — home">
+              {/* The horizontal lockup rather than the stacked one: the bar is
+                  64px tall, and the stacked version's tagline is unreadable
+                  below about 60px. */}
+              <Image
+                src="/assets/sigma-logo-horizontal.png"
+                alt="Sigma Shop Fronts — install, repair, transform"
+                width={900}
+                height={245}
+                priority
+                sizes="(max-width: 1023px) 132px, 162px"
+                className="h-9 lg:h-11 w-auto transition-opacity duration-300 group-hover:opacity-85"
+              />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const services = [
   { label: 'Aluminium Shop Fronts', href: '/services/aluminium-shopfronts' },
@@ -74,10 +75,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4 group">
-              <span className="font-heading font-bold text-xl tracking-[0.2em] text-gradient-future">
-                SIGMA SHOP FRONTS
-              </span>
+            <Link href="/" className="inline-block mb-5 group" aria-label="Sigma Shop Fronts — home">
+              <Image
+                src="/assets/sigma-logo-horizontal.png"
+                alt="Sigma Shop Fronts — install, repair, transform"
+                width={900}
+                height={245}
+                sizes="184px"
+                className="h-12 w-auto transition-opacity duration-300 group-hover:opacity-85"
+              />
             </Link>
             <p className="text-grey-400 text-sm leading-relaxed mb-4">
               Professional shop front installation and repair specialists. Serving businesses across the UK with quality aluminium shop fronts, roller shutters, security doors and more.

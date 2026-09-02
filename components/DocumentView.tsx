@@ -127,7 +127,10 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 24 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={LOGO_SRC} alt="" style={{ width: 56, height: 56, borderRadius: 10, border: `1px solid ${C.borderAlt}` }} />
+                {/* The icon now ships as a dark tile with its own rounded
+                    corners, so the old 10px radius and border cut across them.
+                    Radius matches the artwork and the border is dropped. */}
+                <img src={LOGO_SRC} alt="" style={{ width: 56, height: 56, borderRadius: 12 }} />
                 <div>
                   <h1 style={{ fontSize: 22, fontWeight: 800, color: C.brand, letterSpacing: '0.5px', margin: 0, lineHeight: 1.2 }}>{COMPANY_NAME}</h1>
                   <p style={{ fontSize: 12, color: C.textMuted, marginTop: 4 }}>{COMPANY_ADDRESS}</p>
