@@ -17,7 +17,10 @@ const defaultLocalBusiness = {
   foundingDate: '2024',
   priceRange: '££',
   image: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
-  logo: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
+  // logo pointed at the same hero photograph as image, because there was no
+  // logo to point it at. Google reads this field for the brand mark shown
+  // beside the business, so a photo of a shopfront was the wrong answer.
+  logo: 'https://www.sigmashopfronts.com/assets/sigma-logo-square-white.png',
   identifier: {
     '@type': 'PropertyValue',
     name: 'Company Number',

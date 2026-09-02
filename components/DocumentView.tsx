@@ -1,6 +1,12 @@
 import PrintButton from './PrintButton';
 
-const COMPANY_NAME = 'SIGMA SHOP FRONTS LTD';
+/* The brand people recognise, and the name the company is actually registered
+   under. They are not the same, and quotes and invoices are exactly the
+   documents that have to carry the registered one — a customer checking
+   Companies House for "Sigma Shop Fronts Ltd" would find nothing. */
+const COMPANY_NAME = 'SIGMA SHOP FRONTS';
+const COMPANY_LEGAL = 'Sigma Shopfronts and Shutter Limited';
+const COMPANY_NUMBER = '16794487';
 const COMPANY_ADDRESS = '4 Thornwood Close, Oldbury, West Midlands, B68 9LX';
 const COMPANY_PHONE = '07414 779594';
 const COMPANY_EMAIL = 'info@sigmashopfronts.com';
@@ -349,7 +355,10 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
           {/* ── Footer ── */}
           <div style={{ background: C.brand, padding: '14px 40px', textAlign: 'center' }}>
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', margin: 0 }}>
-              {COMPANY_NAME} &nbsp;&middot;&nbsp; {COMPANY_ADDRESS}
+              {COMPANY_LEGAL} &nbsp;&middot;&nbsp; Company No. {COMPANY_NUMBER}
+            </p>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 2 }}>
+              {COMPANY_ADDRESS}
             </p>
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 2 }}>
               {COMPANY_PHONE} &nbsp;&middot;&nbsp; {COMPANY_EMAIL} &nbsp;&middot;&nbsp; {COMPANY_SITE}

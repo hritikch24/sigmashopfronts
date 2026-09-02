@@ -169,7 +169,11 @@ export default function RootLayout({
               "@type": "Organization",
               "@id": "https://www.sigmashopfronts.com/#organization",
               "name": "Sigma Shop Fronts",
-              "legalName": "Sigma Shop Fronts Ltd",
+              // The registered name at Companies House, which is what the
+              // terms, privacy policy and homepage certificate all state. The
+              // LocalBusiness entity on the homepage declares the same value,
+              // so the two no longer contradict each other.
+              "legalName": "Sigma Shopfronts and Shutter Limited",
               "url": "https://www.sigmashopfronts.com",
               "logo": {
                 "@type": "ImageObject",

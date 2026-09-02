@@ -273,7 +273,7 @@ export async function sendEstimateEmail(data: EstimateEmailData): Promise<void> 
         <hr style="margin: 28px 0; border: none; border-top: 1px solid #e5e7eb;" />
 
         <p style="font-size: 12px; color: #9ca3af; text-align: center; margin: 0;">
-          Sigma Shop Fronts Ltd · Registered in England &amp; Wales<br />
+          Sigma Shopfronts and Shutter Limited · Company No. 16794487 · Registered in England &amp; Wales<br />
           <a href="https://www.sigmashopfronts.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a>
         </p>
       </div>
