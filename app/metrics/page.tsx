@@ -228,7 +228,7 @@ function Funnel({ funnel }: { funnel: NonNullable<NonNullable<MetricsData['dropO
     { key: 'engaged', label: 'Looked at a 2nd page', value: funnel.engaged, note: 'Did not bounce off the landing page' },
     { key: 'saw_offer', label: 'Reached a service or area page', value: funnel.saw_offer, note: 'Found something relevant to them' },
     { key: 'reached_convert', label: 'Opened quote or contact', value: funnel.reached_convert, note: 'Showed real intent' },
-    { key: 'acted', label: 'Tapped call or WhatsApp', value: funnel.acted, note: 'Actually made contact' },
+    { key: 'acted', label: 'Tapped call, WhatsApp or email', value: funnel.acted, note: 'Actually made contact' },
   ];
   const top = Math.max(funnel.sessions, 1);
 
@@ -906,7 +906,7 @@ export default function MetricsPage() {
               <StatCard label="Pages / Session" value={stats.pps} />
               <StatCard label="Total Leads" value={data.leads.total} sub={PERIODS[period]} icon={icons.leads} />
               <StatCard label="Conversion" value={`${stats.convRate}%`} sub="Leads / Sessions" icon={icons.trend} accent />
-              <StatCard label="Call Clicks" value={data.callClicks?.total || 0} sub="Phone taps" icon={icons.phone} />
+              <StatCard label="Contact Clicks" value={data.callClicks?.total || 0} sub="Call, chat or email" icon={icons.phone} />
             </div>
 
             {/* Drop-off comes first: it is the question the dashboard exists
@@ -1162,9 +1162,9 @@ export default function MetricsPage() {
         {(activeTab === 'overview' || activeTab === 'calls') && data.callClicks && (
           <div className={`space-y-6 ${activeTab === 'overview' ? 'mt-8' : ''}`}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <StatCard label="Call Clicks" value={data.callClicks.total} sub={PERIODS[period]} icon={icons.phone} accent />
-              <StatCard label="Calls / Day" value={data.callClicks.daily.length > 0 ? (data.callClicks.total / data.callClicks.daily.length).toFixed(1) : '0'} sub="Average" />
-              <StatCard label="Call Rate" value={data.traffic.uniqueSessions > 0 ? `${((data.callClicks.total / data.traffic.uniqueSessions) * 100).toFixed(1)}%` : '0%'} sub="Clicks / Sessions" />
+              <StatCard label="Contact Clicks" value={data.callClicks.total} sub={PERIODS[period]} icon={icons.phone} accent />
+              <StatCard label="Contacts / Day" value={data.callClicks.daily.length > 0 ? (data.callClicks.total / data.callClicks.daily.length).toFixed(1) : '0'} sub="Average" />
+              <StatCard label="Contact Rate" value={data.traffic.uniqueSessions > 0 ? `${((data.callClicks.total / data.traffic.uniqueSessions) * 100).toFixed(1)}%` : '0%'} sub="Clicks / Sessions" />
               <StatCard label="Top Page" value={data.callClicks.byPage[0]?.page || '--'} sub={data.callClicks.byPage[0] ? `${data.callClicks.byPage[0].count} clicks` : ''} />
             </div>
 
@@ -1176,7 +1176,7 @@ export default function MetricsPage() {
                 <BarChart
                   data={(data.callClicks.byAction || []).map(a => ({
                     ...a,
-                    action: a.action === 'whatsapp_click' ? 'WhatsApp' : a.action === 'phone_copy' ? 'Phone Copy' : 'Call Click'
+                    action: a.action === 'whatsapp_click' ? 'WhatsApp' : a.action === 'email_click' ? 'Email' : a.action === 'phone_copy' ? 'Phone Copy' : 'Call Click'
                   }))}
                   labelKey="action" valueKey="count" color="orange"
                 />
@@ -1210,10 +1210,11 @@ export default function MetricsPage() {
                           <td className="py-3 px-4">
                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold ${
                               click.action === 'whatsapp_click' ? 'bg-green-500/15 text-green-400' :
+                              click.action === 'email_click' ? 'bg-violet-500/15 text-violet-400' :
                               click.action === 'phone_copy' ? 'bg-amber-500/15 text-amber-400' :
                               'bg-blue-500/15 text-blue-400'
                             }`}>
-                              {click.action === 'whatsapp_click' ? 'WhatsApp' : click.action === 'phone_copy' ? 'Copied' : 'Called'}
+                              {click.action === 'whatsapp_click' ? 'WhatsApp' : click.action === 'email_click' ? 'Email' : click.action === 'phone_copy' ? 'Copied' : 'Called'}
                             </span>
                           </td>
                           <td className="py-3 px-4 text-sm font-medium text-white">{click.phone}</td>

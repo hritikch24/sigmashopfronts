@@ -96,6 +96,19 @@ export default function CallTracker() {
         sendTrackEvent('whatsapp_click', phone, pathname, searchParams);
         return;
       }
+
+      // mailto: link click. The address has always been on the page but taps on
+      // it were never recorded, so anyone who preferred email over the phone
+      // showed up in the funnel as a silent drop-out. We store the local part
+      // rather than the whole address: it distinguishes info@ from sales@ and
+      // fits the column without being truncated mid-domain.
+      const mailAnchor = target.closest('a[href^="mailto:"]') as HTMLAnchorElement | null;
+      if (mailAnchor) {
+        const address = mailAnchor.href.replace(/^mailto:/, '').split('?')[0];
+        const localPart = address.split('@')[0].slice(0, 20) || 'email';
+        sendTrackEvent('email_click', localPart, pathname, searchParams);
+        return;
+      }
     }
 
     // 2. Track phone number copy events
