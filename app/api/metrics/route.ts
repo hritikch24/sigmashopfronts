@@ -182,6 +182,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
           CASE
             WHEN gclid IS NOT NULL AND gclid != '' THEN 'Google Ads'
             WHEN utm_medium IN ('cpc','ppc','paid') THEN 'Google Ads'
+            WHEN utm_source = 'gbp' THEN 'Google Business Profile'
             WHEN (referrer IS NULL OR referrer = '') AND utm_source IS NULL THEN 'Direct'
             WHEN referrer ILIKE '%google.%' THEN 'Google Organic'
             WHEN referrer ILIKE '%bing.%' OR referrer ILIKE '%msn.%' THEN 'Bing'
@@ -212,6 +213,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
           CASE
             WHEN gclid IS NOT NULL AND gclid != '' THEN 'Google Ads'
             WHEN utm_medium IN ('cpc','ppc','paid') THEN 'Google Ads'
+            WHEN utm_source = 'gbp' THEN 'Google Business Profile'
             WHEN (referrer IS NULL OR referrer = '') AND utm_source IS NULL THEN 'Direct'
             WHEN referrer ILIKE '%google.%' THEN 'Google Organic'
             WHEN referrer ILIKE '%bing.%' OR referrer ILIKE '%msn.%' THEN 'Bing'
