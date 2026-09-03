@@ -184,15 +184,83 @@ function slugsFrom(file) {
   if (tpl) {
     const suffix = tpl[1].replace('%s', '').trim();
     const dupes = [];
+    const brand = suffix.replace(/^\|\s*/, '').trim();
+
+    // A nested layout that sets `title` as a plain string rather than as
+    // { template, default } replaces the inherited template for its whole
+    // subtree, so the root suffix never reaches those pages and they have to
+    // carry the brand themselves. app/gallery/layout.tsx does exactly this.
+    // Without this the check reports a fault on titles that are already right.
+    function templateReaches(pageFile) {
+      let dir = join(pageFile, '..');
+      const appDir = join(ROOT, 'app');
+      while (dir.startsWith(appDir) && dir !== appDir) {
+        const lay = join(dir, 'layout.tsx');
+        if (existsSync(lay)) {
+          const l = read(lay);
+          const t = l.match(/^\s*title:\s*(['"`])/m);
+          if (t && !/title:\s*\{/.test(l)) return false;
+        }
+        dir = join(dir, '..');
+      }
+      return true;
+    }
+
     for (const f of walk(join(ROOT, 'app'), /page\.tsx$/)) {
       // The root segment is exempt: title.template does not apply to it, so
       // app/page.tsx must repeat the brand. Checked separately in 5c.
       if (relative(ROOT, f) === 'app/page.tsx') continue;
+      if (!templateReaches(f)) continue;
       const src = read(f);
-      const m = src.match(/^\s*title:\s*'([^']+)'/m);
-      const brand = suffix.replace(/^\|\s*/, '').trim();
-      if (m && brand && m[1].trim().endsWith(brand)) {
-        dupes.push(`${relative(ROOT, f)} — "${m[1]}" already contains the layout suffix`);
+      if (!brand) continue;
+
+      // Strip comments first, so a comment that quotes the doubled title as an
+      // explanation is not itself reported as the fault.
+      let code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+
+      // Then remove openGraph/twitter blocks entirely. Their titles are
+      // *required* to end with the brand — that is check 5b — so leaving them
+      // in makes this check contradict its sibling. Brace-counted rather than
+      // regex-matched, because these blocks nest.
+      for (const key of ['openGraph', 'twitter']) {
+        let at;
+        while ((at = code.indexOf(`${key}:`)) !== -1) {
+          const open = code.indexOf('{', at);
+          if (open === -1) break;
+          let depth = 0, end = open;
+          for (let i = open; i < code.length; i++) {
+            if (code[i] === '{') depth++;
+            else if (code[i] === '}') { depth--; if (depth === 0) { end = i; break; } }
+          }
+          if (end <= open) break;
+          code = code.slice(0, at) + code.slice(end + 1);
+        }
+      }
+
+      // The title may be a quoted string, a backtick template literal, or a
+      // variable assigned earlier — the original check only understood the
+      // first, which is how ~615 pages per site kept a doubled brand while
+      // this test reported green.
+      const seen = new Set();
+      for (const m of code.matchAll(/(^|[^\w.])title:\s*(['"`])((?:\\.|(?!\2)[\s\S])*)\2/g)) {
+        seen.add(m[3]);
+      }
+      for (const m of code.matchAll(/(^|[^\w.])title:\s*([A-Za-z_$][\w$]*)\s*[,\n]/g)) {
+        const varName = m[2];
+        // Only the page title matters here; social titles are checked in 5b and
+        // are *required* to carry the brand.
+        const assign = code.match(
+          new RegExp(`\\b(?:const|let|var)\\s+${varName}\\s*=\\s*(['"\`])((?:\\\\.|(?!\\1)[\\s\\S])*)\\1`)
+        );
+        if (assign) seen.add(assign[2]);
+      }
+
+      for (const raw of seen) {
+        // A template literal ends with the brand even with ${...} earlier in it.
+        if (raw.trim().endsWith(brand)) {
+          dupes.push(`${relative(ROOT, f)} — "${raw.trim().slice(-70)}" already ends with the layout suffix`);
+          break;
+        }
       }
     }
     if (dupes.length === 0) ok('page titles — no duplicated brand suffix');

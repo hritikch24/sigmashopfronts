@@ -81,7 +81,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const siteUrl = 'https://www.sigmashopfronts.com';
   const geo = cityGeo[citySlug] || { addressLocality: city.name, addressRegion: '', postalCode: '', latitude: 51.5074, longitude: -0.1278 };
 
-  const enhancedTitle = `Shopfront Installation ${city.name} | Affordable Prices | Sigma Shop Fronts`;
+  // Two titles, not one. The page title omits the brand because the layout's
+  // title.template appends it; sharing one string with openGraph below is what
+  // produced the doubled brand. The social title must carry it itself, since
+  // the template never applies there.
+  const enhancedTitle = `Shopfront Installation ${city.name} | Affordable Prices`;
+  const socialTitle = `${enhancedTitle} | Sigma Shop Fronts`;
   const enhancedDescription = `Affordable shopfront installation & repairs in ${city.name}. Aluminium shopfronts, roller shutters, security doors & more. Free site surveys, competitive prices. Call 07414 779594.`;
 
   return {
@@ -89,7 +94,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: enhancedDescription,
     alternates: { canonical: `${siteUrl}/areas/${citySlug}` },
     openGraph: {
-      title: enhancedTitle,
+      title: socialTitle,
       description: enhancedDescription,
       url: `${siteUrl}/areas/${citySlug}`,
       type: 'website',

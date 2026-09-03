@@ -276,7 +276,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const topAreas = city.areas.slice(0, 3).join(', ');
 
   return {
-    title: `${service.name} in ${city.name} | Affordable Prices | Sigma Shop Fronts`,
+    // No brand here — the layout's title.template appends it. Including it
+    // produced the brand twice and pushed the title past the ~60 characters
+    // Google shows, cutting off the words that earn the click. The openGraph
+    // title below keeps it: the template never applies to social tags.
+    title: `${service.name} in ${city.name} | Affordable Prices`,
     description: `Affordable ${service.name.toLowerCase()} in ${city.name} — competitive prices, free site survey & no-obligation quotes. Covering ${topAreas} and surrounding areas. Same-day response available. Call 07414 779594.`,
     alternates: { canonical: `${siteUrl}/services/${slug}/${citySlug}` },
     openGraph: {
