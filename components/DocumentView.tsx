@@ -11,7 +11,12 @@ const COMPANY_ADDRESS = '4 Thornwood Close, Oldbury, West Midlands, B68 9LX';
 const COMPANY_PHONE = '07414 779594';
 const COMPANY_EMAIL = 'info@sigmashopfronts.com';
 const COMPANY_SITE = 'www.sigmashopfronts.com';
-const LOGO_SRC = '/assets/sigma-icon-512.png';
+/* Deliberately a filename that has never been served before. The previous icon
+   lived at sigma-icon-512.png and was replaced in place; that path goes out
+   with cache-control: immutable for a year, so every browser holding the old
+   bytes kept showing them on quotes and invoices no matter what was deployed.
+   Renaming is the only thing that actually reaches those clients. */
+const LOGO_SRC = '/assets/sigma-appicon-512.png';
 
 /* Hardcoded — independent of site theme so documents print correctly */
 const C = {
