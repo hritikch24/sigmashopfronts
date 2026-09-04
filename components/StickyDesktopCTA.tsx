@@ -54,6 +54,9 @@ export default function StickyDesktopCTA() {
             </span>
           </div>
 
+          {/* Both numbers are labelled. They sat side by side here with
+              nothing to tell them apart, so a visitor ready to call had to
+              guess which one to use. The footer already distinguishes them. */}
           <div className="flex items-center gap-4">
             <a
               href="tel:07414779594"
@@ -61,7 +64,7 @@ export default function StickyDesktopCTA() {
               tabIndex={visible ? 0 : -1}
             >
               <PhoneIcon />
-              07414 779594
+              07414 779594 <span className="text-grey-500 text-xs">(office)</span>
             </a>
             <a
               href="tel:07397066538"
@@ -69,7 +72,7 @@ export default function StickyDesktopCTA() {
               tabIndex={visible ? 0 : -1}
             >
               <PhoneIcon />
-              07397 066538
+              07397 066538 <span className="text-grey-500 text-xs">(mobile)</span>
             </a>
             <Link
               href="/contact"
