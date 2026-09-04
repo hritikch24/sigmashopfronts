@@ -110,6 +110,33 @@ const regionTraits: Record<RegionGroup, { climate: string; commercial: string; p
   },
 };
 
+/**
+ * The city's own local paragraphs, rotated by service so that the fourteen
+ * service pages within a city do not repeat one another. Falls back to the
+ * generated copy when a city's description is too short to slice.
+ */
+function getLocalProse(
+  cityDescription: string,
+  serviceSlug: string,
+  take = 2,
+): string[] | null {
+  const paras = cityDescription
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter((p) => p.length > 80);
+  if (paras.length < 3) return null;
+
+  // Skip the opening paragraph: the /areas page leads with it, and repeating
+  // it here would reintroduce duplication between those two pages.
+  const pool = paras.slice(1);
+  const start = simpleHash(serviceSlug) % pool.length;
+  const out: string[] = [];
+  for (let i = 0; i < Math.min(take, pool.length); i++) {
+    out.push(pool[(start + i) % pool.length]);
+  }
+  return out;
+}
+
 function getCityLocalContent(cityName: string, region: string, serviceName: string, areas: string[], postcodeAreas: string[]): { heading: string; paragraphs: string[] } {
   const rg = getRegionGroup(region);
   const traits = regionTraits[rg];
@@ -309,7 +336,13 @@ export default async function ServiceCityPage({ params }: PageProps) {
   const geo = cityGeo[citySlug] || { latitude: 51.5074, longitude: -0.1278 };
 
   const introParagraphs = getServiceIntro(service.slug, service.name, city.name, city.region, city.areas);
-  const localContent = getCityLocalContent(city.name, city.region, service.name, city.areas, city.postcodeAreas);
+  const generatedLocal = getCityLocalContent(city.name, city.region, service.name, city.areas, city.postcodeAreas);
+  const realProse = getLocalProse(city.description, service.slug);
+  // Real local writing wins where it exists; the generated copy is the
+  // fallback, not the default.
+  const localContent = realProse
+    ? { heading: `${service.name} in ${city.name}: Local Considerations`, paragraphs: realProse }
+    : generatedLocal;
   const benefitsSubtitle = getBenefitsSubtitle(city.name, service.name);
   const areasSubtitle = getAreasSubtitle(city.name, service.name, city.region);
 
