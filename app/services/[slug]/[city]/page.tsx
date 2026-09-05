@@ -282,6 +282,14 @@ function getServiceIntro(serviceSlug: string, serviceName: string, cityName: str
   }
 }
 
+/**
+ * The params below are the complete set — every city, service and combination
+ * comes from local data, not a CMS. Anything outside it is a bad link or a
+ * scraper, so it should 404 at the router rather than invoke a render and
+ * write the result into the ISR cache.
+ */
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const params: { slug: string; city: string }[] = [];
   for (const service of services) {
