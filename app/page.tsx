@@ -245,84 +245,104 @@ export default function HomePage() {
           className="object-cover object-center opacity-30"
           sizes="100vw"
         />
-        {/* Deep space overlay with mesh grid */}
-        <div className="absolute inset-0 bg-gradient-to-b from-space/95 via-space/90 to-space" />
-        <div className="absolute inset-0 bg-mesh-grid" />
+        {/* Overlay. The two ambient orbs that sat here are removed — a blurred
+            colour circle behind a centred headline is the single most common
+            tell of a generated page, and this site can carry a product layout
+            instead. The grid stays: it reads as a technical drawing ground. */}
+        <div className="absolute inset-0 bg-gradient-to-br from-space/96 via-space/92 to-space" />
+        <div className="absolute inset-0 bg-mesh-grid opacity-70" />
 
-        {/* Ambient orbs */}
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-cyan/5 blur-[120px] animate-glow-pulse pointer-events-none" />
-        <div className="absolute bottom-1/4 -left-32 w-[400px] h-[400px] rounded-full bg-violet/5 blur-[120px] animate-glow-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
+        <div className="relative z-10 w-full max-w-[1320px] mx-auto px-5 sm:px-8 pt-28 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-28 pb-16 flex flex-col items-center text-center">
-          <div className="max-w-4xl mx-auto">
-            {/* Eyebrow */}
-            <p className="inline-flex items-center gap-2 bg-cyan/5 border border-cyan/20 text-cyan text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan inline-block animate-glow-pulse" />
-              Nationwide UK Shopfront Specialists
-            </p>
+            {/* Left rail — left-aligned, never centred */}
+            <div className="lg:col-span-7">
+              <p className="inline-flex items-center gap-2.5 text-cyan text-[11px] font-semibold tracking-[0.24em] uppercase mb-7">
+                <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan" />
+                </span>
+                Nationwide UK shopfront specialists
+              </p>
 
-            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
-              Aluminium Shopfronts,{' '}
-              <span className="text-gradient-gold">Roller Shutters &amp; Security Doors</span>{' '}
-              Across the UK
-            </h1>
+              <h1 className="font-heading text-[2.4rem] sm:text-[3.4rem] lg:text-[4.1rem] font-extrabold text-white leading-[1.02] tracking-[-0.034em] mb-6">
+                Shopfronts, shutters
+                <span className="block text-gradient-future">specified properly</span>
+              </h1>
 
-            <p className="hero-description text-grey-500 text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-12 font-light">
-              Professional aluminium shopfront installation, roller shutter fitting and security door supply across England, Scotland and Wales. We handle design, fabrication and installation with rapid nationwide response and 24/7 emergency cover for commercial premises.
-            </p>
+              <p className="text-grey-500 text-base lg:text-[1.12rem] leading-[1.7] max-w-[52ch] mb-9">
+                Aluminium shopfronts, roller shutters and security doors installed
+                across the UK — quoted against real specifications rather than a
+                guess, with the numbers set out before anyone commits.
+              </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Link
-                href="/instant-quote"
-                className="btn-gold text-base sm:text-lg px-8 py-4"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-                Get an Instant Price
-              </Link>
-              <Link
-                href="/contact"
-                className="btn-outline text-base sm:text-lg px-8 py-4"
-              >
-                Book a Free Site Survey
-              </Link>
-              <a
-                href="tel:07414779594"
-                className="btn-outline text-base sm:text-lg px-8 py-4"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-                Call Now: 07414 779594
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3 mb-11">
+                <Link href="/instant-quote" className="btn-gold text-base px-7 py-3.5 whitespace-nowrap">
+                  Get an Instant Price
+                </Link>
+                <a href="tel:07414779594" className="btn-outline text-base px-7 py-3.5 whitespace-nowrap">
+                  Call 07414 779594
+                </a>
+              </div>
+
+              {/* Inline capability strip — dense, tabular, no icon-heading-text
+                  card formula */}
+              <ul className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 border-t border-white/[0.07] pt-6">
+                {[
+                  ['Lead time', '2–3 weeks'],
+                  ['Survey', 'Free, on site'],
+                  ['Callout', '24/7'],
+                  ['Registered', 'No. 16794487'],
+                ].map(([k, v]) => (
+                  <li key={k} className="group">
+                    <span className="block text-grey-500 text-[0.68rem] tracking-[0.16em] uppercase">{k}</span>
+                    <span className="block text-white text-sm font-semibold mt-1 transition-colors duration-300 group-hover:text-cyan">{v}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Trust badges — glass pills */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              {[
-                { icon: '⚡', label: 'Fast Lead Times' },
-                { icon: '🌍', label: 'Nationwide Teams' },
-                { icon: '🕐', label: '24/7 Callouts' },
-                { icon: '✓', label: 'Companies House Registered' },
-              ].map(({ icon, label }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-2 bg-white/[0.03] backdrop-blur-md border border-white/[0.06] rounded-full px-4 py-2 text-grey-500 text-xs sm:text-sm font-medium hover:border-cyan/20 hover:text-cyan transition-all duration-300"
-                >
-                  <span aria-hidden="true">{icon}</span>
-                  {label}
+            {/* Right rail — a floating spec panel. Glass is confined to this one
+                structural widget rather than smeared across the page. */}
+            <aside className="lg:col-span-5 lg:sticky lg:top-28">
+              <div
+                className="rounded-2xl border border-white/[0.09] overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.032)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
+              >
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.07]">
+                  <span className="text-white text-[0.78rem] font-semibold tracking-wide">Indicative pricing</span>
+                  <span className="text-cyan text-[0.62rem] tracking-[0.18em] uppercase px-2 py-0.5 rounded border border-cyan/25">Live</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Scroll cue — pulsing line */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-          <span className="text-grey-500 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-cyan/50 to-transparent animate-bounce" />
+                <dl className="divide-y divide-white/[0.06]">
+                  {[
+                    ['Manual roller shutter', 'up to 3m', '£800 – £1,500'],
+                    ['Electric roller shutter', 'up to 3m', '£1,500 – £3,000'],
+                    ['Aluminium shopfront', 'single bay', '£2,000 – £5,000'],
+                    ['Fire-rated shutter', 'BS EN 1634-1', '£3,000 – £6,000'],
+                  ].map(([item, spec, price]) => (
+                    <div
+                      key={item}
+                      className="flex items-baseline justify-between gap-4 px-5 py-3.5 transition-colors duration-200 hover:bg-white/[0.035]"
+                    >
+                      <dt className="min-w-0">
+                        <span className="block text-white text-[0.83rem] font-medium truncate">{item}</span>
+                        <span className="block text-grey-500 text-[0.68rem] mt-0.5">{spec}</span>
+                      </dt>
+                      <dd className="text-cyan font-heading text-[0.88rem] font-bold whitespace-nowrap tabular-nums">{price}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="px-5 py-3.5 border-t border-white/[0.07] flex items-center justify-between">
+                  <span className="text-grey-500 text-[0.68rem]">Excludes VAT · confirmed on survey</span>
+                  <Link href="/cost-guide" className="text-cyan text-[0.72rem] font-semibold hover:underline whitespace-nowrap">
+                    Full cost guide →
+                  </Link>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
