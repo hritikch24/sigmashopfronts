@@ -12,7 +12,6 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Analytics from '@/components/Analytics';
 import CallTracker from '@/components/CallTracker';
 import SiteChrome from '@/components/SiteChrome';
-import OfferBanner from '@/components/OfferBanner';
 import { Suspense } from 'react';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -293,7 +292,12 @@ function gtag_report_conversion(url) {
           </noscript>
         )}
         <SiteChrome>
-          <OfferBanner />
+          {/* OfferBanner removed. It advertised a "Summer 2026 Offer" of a free site
+              survey plus 10% off, still running in September — a promotion whose own
+              name says it has expired reads as an unattended site. The free survey it
+              offered is already stated as standard on every page. The component is
+              kept for a future dated promotion; both sibling sites carry the same
+              file and never mounted it. */}
           <Header />
         </SiteChrome>
         <main className="flex-1">{children}</main>
