@@ -33,7 +33,10 @@ const INPUT_ROUTES = [
 /** Routes where the visitor is reading at length — never interrupt. */
 const READING_ROUTES = [
   '/blog',
-  '/cost-guide',
+  // '/cost-guide' deliberately not listed. Someone reading the price guide
+  // is comparing numbers, which is the highest intent on the site and the
+  // exact moment an instant estimate answers the question they came with.
+  // The other pages here are genuinely long-form reading.
   '/glossary',
   '/faq',
   '/terms',
