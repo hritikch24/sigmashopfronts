@@ -32,8 +32,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const siteUrl = 'https://www.sigmashopfronts.com';
 
-  const enhancedTitle = `${service.metaTitle} | Affordable Prices & Free Quotes`;
-  const enhancedDescription = `${service.metaDescription} Competitive prices, free site surveys, and no-obligation quotes available.`;
+  // The metaTitle in data/services.ts is already a complete, well-formed
+  // title of about 42 characters. Appending 34 more, then the brand suffix
+  // from the layout template, produced titles of 94 to 108 characters —
+  // Google cuts at roughly 60, so every one of these lost its tail and the
+  // words that earn the click were never shown.
+  const enhancedTitle = service.metaTitle;
+  // Same fault: the description was already at the limit before 74 characters
+  // of generic filler were added, taking it past 250 against a ~155 cut.
+  const enhancedDescription = service.metaDescription;
 
   return {
     title: enhancedTitle,

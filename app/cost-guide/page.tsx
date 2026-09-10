@@ -4,9 +4,9 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'How Much Does a Shopfront Cost in 2026? UK Price Guide',
+  title: 'Shopfront Cost Guide 2026 — UK Prices',
   description:
-    'Transparent UK shopfront installation prices for 2026. Aluminium shopfronts from £2,000, roller shutters from £800, security doors, automatic doors, bi-fold doors, and fire doors. Free quotes nationwide.',
+    'What a shopfront actually costs in 2026. Aluminium fronts from £2,000, roller shutters from £800, with the factors that move the price.',
   alternates: { canonical: 'https://www.sigmashopfronts.com/cost-guide' },
   openGraph: {
     title: 'How Much Does a Shopfront Cost in 2026? UK Price Guide | Sigma Shop Fronts',

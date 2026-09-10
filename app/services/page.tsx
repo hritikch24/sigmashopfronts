@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'All Shopfront & Security Services',
   description:
-    'Explore our full range of commercial shopfront services: aluminium shopfronts, roller shutters, security doors, automatic doors, bi-fold doors, fire doors, repairs and 24/7 emergency callout.',
+    'Aluminium shopfronts, roller shutters, security doors, automatic and fire doors, plus repairs and emergency callout across the UK.',
   alternates: { canonical: 'https://www.sigmashopfronts.com/services' },
 };
 

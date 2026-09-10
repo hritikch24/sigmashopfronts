@@ -93,9 +93,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // title.template appends it; sharing one string with openGraph below is what
   // produced the doubled brand. The social title must carry it itself, since
   // the template never applies there.
-  const enhancedTitle = `Shopfront Installation ${city.name} | Affordable Prices`;
+  const enhancedTitle = `Shopfront Installation in ${city.name}`;
   const socialTitle = `${enhancedTitle} | Sigma Shop Fronts`;
-  const enhancedDescription = `Affordable shopfront installation & repairs in ${city.name}. Aluminium shopfronts, roller shutters, security doors & more. Free site surveys, competitive prices. Call 07414 779594.`;
+  // Trimmed to fit the ~155 characters Google shows. The previous version
+  // ran to 174 and opened on "Affordable", which is a price signal rather
+  // than an answer to what was searched.
+  const enhancedDescription = `Shopfronts, roller shutters and security doors fitted in ${city.name}. Free site survey and a written quote. Call 07414 779594.`;
 
   return {
     title: enhancedTitle,

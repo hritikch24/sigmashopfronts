@@ -7,7 +7,7 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact Sigma Shop Fronts for a free site survey and quotation. Call 07414 779594, WhatsApp +44 7397 066538, or email sales@sigmashopfronts.com. West Midlands, UK.',
+    'Talk to us about a shopfront, shutter or security door in the UK. Free site survey and a written quote. Call 07414 779594.',
   alternates: {
     canonical: '/contact',
   },

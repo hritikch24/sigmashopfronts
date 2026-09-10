@@ -51,9 +51,9 @@ export const services: Service[] = [
       'Bespoke aluminium shopfront systems engineered for durability and kerb appeal. Thermally broken frames, toughened glazing, and powder-coat finishes to your specification.',
     heroImage: 'aluminium-shopfront-1.jpeg',
     primaryKeyword: 'aluminium shopfronts',
-    metaTitle: 'Aluminium Shopfronts UK | Supply & Install',
+    metaTitle: 'Aluminium Shopfronts — Supply & Install',
     metaDescription:
-      'Toughened glass shopfronts with thermally broken aluminium frames. DDA-compliant entrances, powder-coat finishes, BS EN 12150 safety glazing. Free site survey — call 07414 779594.',
+      'Toughened glass shopfronts with thermally broken aluminium frames. DDA-compliant entrances, powder-coat finishes, BS EN 12150 safety glazing. Free site.',
     description: `Aluminium has become the material of choice for commercial shopfront construction across the UK, and for good reason. When specified and installed correctly, an aluminium shopfront system offers an outstanding combination of structural rigidity, weather resistance, design flexibility, and long service life that no other material can match at a comparable price point.
 
 At Sigma Shop Fronts, we design and install aluminium shopfronts to suit everything from a single independent retailer to a multi-unit retail parade or commercial development. Our systems are sourced from leading European fabricators and conform to the relevant British Standards, including BS 6375 for the performance of windows and doors, and BS EN 14351-1, which governs the CE marking requirements for aluminium entrance doors.
@@ -205,7 +205,7 @@ Every installation begins with a measured survey of the existing opening or stru
       'Commercial roller shutters for retail, industrial, and warehouse premises. Manual, electric, and fire-rated options with LPS 1175 security-rated curtains available.',
     heroImage: 'roller-shutter-1.jpeg',
     primaryKeyword: 'roller shutters',
-    metaTitle: 'Roller Shutters UK | Commercial Installation',
+    metaTitle: 'Roller Shutters — Commercial Installation',
     metaDescription:
       'Commercial roller shutter installation across the UK. Manual, electric & fire-rated shutters. LPS 1175 security-rated. Free survey. Nationwide coverage.',
     description: `Roller shutters are one of the most practical and cost-effective security solutions available to commercial and industrial property owners. When correctly specified for the application, a roller shutter provides reliable overnight security, weather protection, and where required, fire containment — all within a compact, retractable assembly that does not impede the operation of the premises during trading hours.
@@ -983,9 +983,9 @@ The Fire Safety (England) Regulations 2022 — introduced following the Grenfell
       'Fast, professional repairs to damaged shopfronts, roller shutters, and entrance doors. Boarding, glazing replacement, frame straightening, and hardware repair across the UK.',
     heroImage: 'shopfront-2.jpeg',
     primaryKeyword: 'shopfront repairs',
-    metaTitle: 'Shopfront Repairs UK | Same-Day Service',
+    metaTitle: 'Shopfront Repairs — Same-Day Service',
     metaDescription:
-      'Professional shopfront repair service across the UK. Broken glazing, damaged frames, bent shutters, faulty hardware. Fast response. Insurance work accepted.',
+      'Professional shopfront repair service across the UK. Broken glazing, damaged frames, bent shutters, faulty hardware. Fast response. Insurance work.',
     description: `A damaged shopfront is both a security risk and a commercial liability. Broken glazing exposes the interior of your premises to the elements and to opportunistic theft. A bent shutter that will not close fully negates your overnight security. A failed door closer or broken lock hardware compromises the integrity of your access control. In every case, the damage needs to be addressed quickly, competently, and with materials that match the original installation.
 
 Sigma Shop Fronts operates a dedicated shopfront repair service across the UK, handling everything from a single broken glass panel to extensive impact damage requiring frame replacement and structural repairs. We carry a stock of commonly needed materials — glazing, frame sections, shutter laths, locking hardware — to enable same-day or next-day response to most repair requirements.
@@ -1465,7 +1465,7 @@ Our shutter maintenance programme includes lubrication of all moving parts, insp
     primaryKeyword: 'commercial glass replacement',
     metaTitle: 'Glass Replacement UK | Shopfront Glazing',
     metaDescription:
-      'Commercial glass replacement for shopfronts and premises. Toughened safety glass, laminated, DGUs, PAS 24 security glazing. Fast turnaround. UK-wide service.',
+      'Commercial glass replacement for shopfronts and premises. Toughened safety glass, laminated, DGUs, PAS 24 security glazing. Fast turnaround. UK-wide.',
     description: `Glass is the defining element of any commercial shopfront. It provides visibility, natural light, and street presence — but it is also the most vulnerable component of the building envelope. Whether the damage is caused by vandalism, accidental impact, attempted burglary, storm debris, or the gradual failure of a sealed double-glazed unit, the result is the same: a compromised frontage that affects security, weather protection, energy performance, and the professional appearance of your premises.
 
 Sigma Shop Fronts provides a comprehensive commercial glass replacement service covering the full range of glazing types used in modern shopfront, curtain wall, and commercial entrance systems. We measure, specify, source, and install replacement glass to the correct standard — not simply the nearest available alternative — ensuring that the repaired installation performs exactly as the original was designed to.
@@ -1641,7 +1641,7 @@ We communicate expected lead times clearly at the point of order and keep you in
     primaryKeyword: 'aluminium doors commercial',
     metaTitle: 'Aluminium Doors UK | Commercial Supply & Install',
     metaDescription:
-      'Commercial aluminium door installation across the UK. Thermally broken frames, PAS 24 security, DDA-compliant. Hinged, pivot & double leaf options. Free survey.',
+      'Commercial aluminium door installation across the UK. Thermally broken frames, PAS 24 security, DDA-compliant. Hinged, pivot & double leaf options.',
     description: `Aluminium doors are the standard entrance solution for commercial buildings across the UK, from high-street retail units and office reception areas to warehouses, schools, and healthcare facilities. When correctly specified, an aluminium entrance door delivers the combination of structural strength, slim sightlines, weather resistance, and design versatility that commercial environments demand — at a price point that makes economic sense over a 25-year service life.
 
 Sigma Shop Fronts supplies and installs commercial aluminium doors as standalone entrance systems and as integrated elements within larger shopfront, curtain walling, and glazed screen installations. We work with hinged, pivot, and double-leaf configurations, using profile systems from leading European fabricators that are independently tested and CE-marked to BS EN 14351-1.
@@ -1791,7 +1791,7 @@ All aluminium door sections are powder-coated to BS EN 12206-1 in any RAL Classi
     primaryKeyword: 'aluminium windows commercial',
     metaTitle: 'Aluminium Windows UK | Commercial Installation',
     metaDescription:
-      'Commercial aluminium window installation across the UK. Thermally broken frames, toughened glazing, BS 6375 weather rated. Fixed, casement & tilt-and-turn options.',
+      'Commercial aluminium window installation across the UK. Thermally broken frames, toughened glazing, BS 6375 weather rated. Fixed, casement &.',
     description: `Commercial aluminium windows are a core element of modern retail, office, and industrial building envelopes. Whether installed as part of a shopfront system, within a curtain wall assembly, or as standalone window units in a commercial facade, aluminium windows deliver the combination of structural rigidity, slim profiles, large glazed areas, and long-term durability that commercial specifications demand.
 
 Sigma Shop Fronts designs and installs commercial aluminium window systems across the UK, working with fixed-light, top-hung (awning), side-hung (casement), and tilt-and-turn configurations from leading profile fabricators. All our window systems are CE-marked to BS EN 14351-1 and independently tested for air permeability, watertightness, and wind resistance to BS 6375.
@@ -1947,7 +1947,7 @@ All aluminium window sections are powder-coated to BS EN 12206-1 in any RAL Clas
     primaryKeyword: 'curtain walling UK',
     metaTitle: 'Curtain Walling UK | Aluminium Facade Systems',
     metaDescription:
-      'Aluminium curtain walling design and installation for commercial buildings. Stick-built & unitised systems, structural glazing, BS EN 13830 tested. UK-wide service.',
+      'Aluminium curtain walling design and installation for commercial buildings. Stick-built & unitised systems, structural glazing, BS EN 13830 tested.',
     description: `Curtain walling is a non-load-bearing facade system that spans between floor slabs or structural frames, creating a continuous glazed or panelled envelope around a commercial building. Unlike a traditional shopfront — which is installed within a single-storey structural opening — a curtain wall can extend across multiple storeys and is designed to resist wind loads, support its own dead weight, accommodate thermal and structural movement, and provide weather exclusion, thermal insulation, and acoustic attenuation for the entire building envelope.
 
 Sigma Shop Fronts designs and installs aluminium curtain wall systems for a range of commercial applications: multi-storey office buildings, retail developments, mixed-use schemes, hotels, educational buildings, and healthcare facilities. We work with stick-built and unitised curtain wall systems, using profiles from established fabricators whose products are tested and certified to BS EN 13830 — the European standard for curtain walling.
@@ -2107,7 +2107,7 @@ Where a curtain wall passes across a fire compartment boundary — typically at 
     primaryKeyword: 'glass shopfronts',
     metaTitle: 'Glass Shopfronts UK | Frameless & Structural',
     metaDescription:
-      'Toughened glass shopfronts — frameless and structural glass installations across the UK. BS EN 12150 safety glass, patch fittings, minimal framing. Maximum visibility.',
+      'Toughened glass shopfronts — frameless and structural glass installations across the UK. BS EN 12150 safety glass, patch fittings, minimal framing.',
     description: `Glass shopfronts — also known as frameless shopfronts or structural glass facades — use minimal or no visible aluminium framing to create the most transparent possible retail entrance. Where a traditional aluminium shopfront uses mullions and transoms to support the glazing, a glass shopfront relies on the structural capacity of the toughened glass itself, supported by patch fittings, point fixings, or slender stainless-steel hardware that is visually unobtrusive.
 
 The result is a shopfront with maximum transparency: an uninterrupted view of the retail interior from the street, maximum natural light penetration, and a contemporary, high-end aesthetic that communicates quality and openness to prospective customers.
