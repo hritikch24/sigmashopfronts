@@ -19,7 +19,8 @@ const serviceSlugs = [
   'glass-shopfronts',
 ];
 
-// All cities — every service+city combo is now indexed
+// Cities that have their own /areas/<city> page. The service x city
+// cross-product built from these is no longer submitted; see below.
 const citySlugs = [
   'london', 'birmingham', 'manchester', 'leeds', 'liverpool', 'bristol',
   'sheffield', 'glasgow', 'cardiff', 'newcastle', 'nottingham', 'leicester',
@@ -79,15 +80,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // All city combo pages (41 cities × 10 services = 410 pages)
-  const serviceCityPages: MetadataRoute.Sitemap = serviceSlugs.flatMap((service) =>
-    citySlugs.map((city) => ({
-      url: `${siteUrl}/services/${service}/${city}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
-  );
+  // The 574 service x city pages carry `robots: noindex` (see
+  // app/services/[slug]/[city]/page.tsx for why), so submitting them here
+  // would ask Google to crawl pages it is being told not to index. They stay
+  // reachable and internally linked; they are just not advertised.
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${siteUrl}/blog/${slug}`,
@@ -96,5 +92,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages, ...serviceCityPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...cityPages, ...blogPages];
 }

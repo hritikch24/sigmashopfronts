@@ -300,6 +300,28 @@ export async function generateStaticParams() {
   return params;
 }
 
+/**
+ * The 14 services x 41 cities cross-product is 574 of this site's 654
+ * indexable URLs: 88% of the index, for pages that share 84% of their
+ * eight-word phrasing with the two sibling sites, which publish the same
+ * matrix at the same paths under different brands.
+ *
+ * On 21 August 2026 Search dropped the entire cluster. Impressions went from
+ * 1,091 the day before to 43, and have stayed at that level for three weeks,
+ * while every hand-written page kept ranking -- the homepage still converts
+ * at ~10% CTR. Nothing was deindexed and there is no manual action: these
+ * pages still report "indexed, Google-selected canonical = inspected URL".
+ * They are simply no longer served. That is a scaled-content classifier seen
+ * from the inside, and the cross-product is what it fires on.
+ *
+ * So the cluster comes out of the index. The pages still render, stay linked
+ * from the service and area hubs, and remain valid Ads landing pages;
+ * `follow` keeps their internal links flowing. They currently earn about one
+ * impression a week between all 574, so removing them forfeits no traffic
+ * that presently exists -- and restoring them is this one constant.
+ */
+const INDEX_SERVICE_CITY_PAGES = false;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, city: citySlug } = await params;
   const service = services.find((s) => s.slug === slug);
@@ -321,6 +343,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // length out and is already on the page itself.
     description: `${service.name} in ${city.name}. Supplied, fitted and maintained by our own team. Free site survey, written quote. Call 07414 779594.`,
     alternates: { canonical: `${siteUrl}/services/${slug}/${citySlug}` },
+    // Out of the index while the cluster is suppressed; see the note above.
+    ...(INDEX_SERVICE_CITY_PAGES ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${service.name} in ${city.name} | Affordable Prices | Sigma Shop Fronts`,
       description: `Affordable ${service.name.toLowerCase()} in ${city.name} — competitive prices, free site survey & no-obligation quotes. Covering ${topAreas} and surrounding areas.`,

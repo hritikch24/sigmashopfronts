@@ -93,13 +93,21 @@ for (const path of ['/', '/cost-guide', '/glossary', '/terms']) {
   }
 }
 
-// ── 5. Sitemap is present and has not collapsed ──────────────────────────
+// ── 5. Sitemap is present, and advertises only indexable pages ───────────
 {
   try {
     const { status, body } = await get('/sitemap.xml');
     const count = (body.match(/<loc>/g) || []).length;
     record('sitemap reachable', status === 200, `HTTP ${status}`);
-    record('sitemap size', count >= 500, `${count} URLs (expect 500+)`);
+    // Was 500+, back when the service x city cross-product was submitted.
+    // Those 574 pages now carry noindex, so the sitemap is the ~80 pages
+    // that are actually meant to rank. A collapse below this means the
+    // hand-written pages have gone missing, which is the real risk.
+    record('sitemap size', count >= 70, `${count} URLs (expect 70+)`);
+    // A noindexed URL in the sitemap asks Google to crawl what it is told
+    // not to index — the contradiction this change exists to remove.
+    const serviceCity = (body.match(/<loc>[^<]*\/services\/[^<\/]+\/[^<\/]+<\/loc>/g) || []).length;
+    record('sitemap excludes noindexed city pages', serviceCity === 0, `${serviceCity} present`);
     record('sitemap host', !body.includes('grewal') || SITE.key === 'grewal', 'no foreign host');
   } catch (e) {
     record('sitemap', false, e.message);
