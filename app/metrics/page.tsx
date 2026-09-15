@@ -12,6 +12,7 @@ interface MetricsData {
     devices: { device: string; count: number }[];
     browsers: { browser: string; count: number }[];
     countries: { country: string; count: number }[];
+    cities: { city: string; count: number }[];
     ips: { ip: string; count: number }[];
     utmSources: { utm_source: string; count: number }[];
     daily: { date: string; views: number }[];
@@ -1001,6 +1002,7 @@ export default function MetricsPage() {
                 <SectionCard title="Devices"><BarChart data={data.traffic.devices} labelKey="device" valueKey="count" color="amber" /></SectionCard>
                 <SectionCard title="Browsers"><BarChart data={data.traffic.browsers} labelKey="browser" valueKey="count" color="indigo" /></SectionCard>
                 <SectionCard title="Countries"><BarChart data={data.traffic.countries} labelKey="country" valueKey="count" color="sky" /></SectionCard>
+                <SectionCard title="Cities"><BarChart data={data.traffic.cities} labelKey="city" valueKey="count" color="emerald" /></SectionCard>
                 <SectionCard title="Top IPs"><BarChart data={data.traffic.ips} labelKey="ip" valueKey="count" color="violet" /></SectionCard>
               </div>
             )}

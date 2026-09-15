@@ -46,6 +46,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       deviceBreakdown,
       browserBreakdown,
       countryBreakdown,
+      cityBreakdown,
       ipBreakdown,
       utmSources,
       dailyViews,
@@ -100,6 +101,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
       prisma.$queryRawUnsafe<{ country: string; count: bigint }[]>(
         `SELECT COALESCE(country, 'unknown') as country, COUNT(*)::bigint as count FROM page_views WHERE "createdAt" >= $1 GROUP BY country ORDER BY count DESC LIMIT 15`,
+        since
+      ),
+
+      // Only rows that actually carry a city are counted: before this column
+      // existed every visit was null, and folding those into an "unknown" bar
+      // would have dwarfed the real cities for weeks.
+      prisma.$queryRawUnsafe<{ city: string; count: bigint }[]>(
+        `SELECT city, COUNT(*)::bigint as count FROM page_views WHERE "createdAt" >= $1 AND city IS NOT NULL AND city <> '' GROUP BY city ORDER BY count DESC LIMIT 15`,
         since
       ),
 
@@ -343,6 +352,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         devices: serialize(deviceBreakdown),
         browsers: serialize(browserBreakdown),
         countries: serialize(countryBreakdown),
+        cities: serialize(cityBreakdown),
         ips: serialize(ipBreakdown),
         utmSources: serialize(utmSources),
         daily: serialize(dailyViews),

@@ -16,6 +16,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const geo = request.headers.get('x-vercel-ip-country') || null;
+    // Vercel percent-encodes this one, so "Stoke-on-Trent" arrives as
+    // "Stoke-on-Trent" but anything with a space does not. Decoding failures
+    // fall back to the raw value rather than dropping the visit.
+    const rawCity = request.headers.get('x-vercel-ip-city');
+    let city: string | null = null;
+    if (rawCity) {
+      try { city = decodeURIComponent(rawCity); } catch { city = rawCity; }
+    }
     const forwarded = request.headers.get('x-forwarded-for');
     const realIp = request.headers.get('x-real-ip');
     const ip = forwarded ? forwarded.split(',')[0].trim() : (realIp || null);
@@ -31,6 +39,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         device: device ? String(device).slice(0, 50) : null,
         browser: browser ? String(browser).slice(0, 50) : null,
         country: geo,
+        city: city ? city.slice(0, 100) : null,
         ip: ip ? String(ip).slice(0, 45) : null,
         sessionId: String(sessionId).slice(0, 100),
       },
