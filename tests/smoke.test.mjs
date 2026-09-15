@@ -109,6 +109,14 @@ for (const path of ['/', '/cost-guide', '/glossary', '/terms']) {
     const serviceCity = (body.match(/<loc>[^<]*\/services\/[^<\/]+\/[^<\/]+<\/loc>/g) || []).length;
     record('sitemap excludes noindexed city pages', serviceCity === 0, `${serviceCity} present`);
     record('sitemap host', !body.includes('grewal') || SITE.key === 'grewal', 'no foreign host');
+    // The retirement sitemap must still list them, or Google never recrawls
+    // the pages and never sees the noindex that retires them.
+    if (SITE.key === 'sigma') {
+      const r = await get('/sitemap-retire.xml');
+      const retiring = (r.body.match(/<loc>/g) || []).length;
+      record('retire sitemap serves', r.status === 200, `HTTP ${r.status}`);
+      record('retire sitemap lists the cluster', retiring >= 500, `${retiring} URLs`);
+    }
   } catch (e) {
     record('sitemap', false, e.message);
   }

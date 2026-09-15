@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 const siteUrl = 'https://www.sigmashopfronts.com';
 
-const serviceSlugs = [
+export const serviceSlugs = [
   'aluminium-shopfronts',
   'roller-shutters',
   'security-doors',
@@ -21,7 +21,7 @@ const serviceSlugs = [
 
 // Cities that have their own /areas/<city> page. The service x city
 // cross-product built from these is no longer submitted; see below.
-const citySlugs = [
+export const citySlugs = [
   'london', 'birmingham', 'manchester', 'leeds', 'liverpool', 'bristol',
   'sheffield', 'glasgow', 'cardiff', 'newcastle', 'nottingham', 'leicester',
   'edinburgh', 'southampton', 'brighton', 'coventry', 'reading',
