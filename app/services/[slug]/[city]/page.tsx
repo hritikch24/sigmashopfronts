@@ -330,9 +330,9 @@ const INDEX_SERVICE_CITY_PAGES = false;
  *
  * So the qualifier is appended only when the finished title still fits. Short
  * combinations carry this site's angle; long ones stay clean and uncut. The
- * qualifier differs per site on purpose -- Sigma, Urban and Grewal published
- * identical titles for the same URL on three domains, which is what Google
- * deduplicates.
+ * wording here is deliberately this site's own: the same URL was publishing a
+ * byte-identical title on more than one domain, which is what Google
+ * deduplicates -- and this is the domain that lost its rankings over it.
  */
 const TITLE_QUALIFIER = ' | Made & Fitted';
 const BRAND_SUFFIX = ' | Sigma Shop Fronts';
