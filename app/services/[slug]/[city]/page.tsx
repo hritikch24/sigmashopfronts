@@ -322,6 +322,25 @@ export async function generateStaticParams() {
  */
 const INDEX_SERVICE_CITY_PAGES = false;
 
+/**
+ * Google shows roughly 60 characters of a title. "Aluminium Shopfronts in
+ * Stoke-on-Trent" already spends 38 of them before the brand suffix, so a
+ * fixed qualifier pushes the longest combinations well past the cut and the
+ * words that earn the click are what get dropped.
+ *
+ * So the qualifier is appended only when the finished title still fits. Short
+ * combinations carry this site's angle; long ones stay clean and uncut. The
+ * qualifier differs per site on purpose -- Sigma, Urban and Grewal published
+ * identical titles for the same URL on three domains, which is what Google
+ * deduplicates.
+ */
+const TITLE_QUALIFIER = ' | Made & Fitted';
+const BRAND_SUFFIX = ' | Sigma Shop Fronts';
+
+function cityTitle(base: string) {
+  return (base + TITLE_QUALIFIER + BRAND_SUFFIX).length <= 60 ? base + TITLE_QUALIFIER : base;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, city: citySlug } = await params;
   const service = services.find((s) => s.slug === slug);
@@ -337,17 +356,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // produced the brand twice and pushed the title past the ~60 characters
     // Google shows, cutting off the words that earn the click. The openGraph
     // title below keeps it: the template never applies to social tags.
-    title: `${service.name} in ${city.name} | Affordable Prices`,
+    title: cityTitle(`${service.name} in ${city.name}`),
     // 219 characters against a ~155 cut, so the phone number and half the
     // sentence never appeared in results. Area list dropped: it pushed the
     // length out and is already on the page itself.
-    description: `${service.name} in ${city.name}. Supplied, fitted and maintained by our own team. Free site survey, written quote. Call 07414 779594.`,
+    description: `Made-to-measure ${service.name.toLowerCase()} for ${city.name}. Manufactured and fitted by our own team. Free survey and written quote. Call 07414 779594.`,
     alternates: { canonical: `${siteUrl}/services/${slug}/${citySlug}` },
     // Out of the index while the cluster is suppressed; see the note above.
     ...(INDEX_SERVICE_CITY_PAGES ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
-      title: `${service.name} in ${city.name} | Affordable Prices | Sigma Shop Fronts`,
-      description: `Affordable ${service.name.toLowerCase()} in ${city.name} — competitive prices, free site survey & no-obligation quotes. Covering ${topAreas} and surrounding areas.`,
+      title: `${service.name} in ${city.name} | Made & Fitted | Sigma Shop Fronts`,
+      description: `Made-to-measure ${service.name.toLowerCase()} for ${city.name} — aluminium frames and toughened glass, manufactured and fitted by our own team. Covering ${topAreas} and nearby.`,
       url: `${siteUrl}/services/${slug}/${citySlug}`,
       type: 'website',
       images: [{ url: `/assets/${service.heroImage}`, width: 1200, height: 630 }],
