@@ -23,13 +23,18 @@ export const dynamic = 'force-static';
 export const revalidate = 86400;
 
 export function GET() {
-  const lastmod = new Date().toISOString();
+  // The date these pages were actually noindexed, not the build time. It was
+  // `new Date()`, so every deploy re-stamped all 574 URLs as "changed just now"
+  // and asked Google to recrawl pages we are trying to retire. A retirement
+  // sitemap needs a stable, past date or it competes with the live sitemap for
+  // crawl budget.
+  const lastmod = '2026-09-11T00:00:00.000Z';
 
   const urls = serviceSlugs
     .flatMap((service) => citySlugs.map((city) => `${siteUrl}/services/${service}/${city}`))
     .map(
       (url) =>
-        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>daily</changefreq>\n  </url>`
+        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
     )
     .join('\n');
 

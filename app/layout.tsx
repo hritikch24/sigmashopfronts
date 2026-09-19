@@ -116,6 +116,16 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   metadataBase: new URL(siteUrl),
+  // These were hard-coded <meta> tags in <head>, which append rather than
+  // replace: a city page emitted its own geo block and the page shipped both
+  // Oldbury and, say, London. Declared as metadata instead, so a child route's
+  // `other` overrides these by key rather than duplicating them.
+  other: {
+    'geo.region': 'GB',
+    'geo.placename': 'Oldbury, West Midlands, United Kingdom',
+    'geo.position': '52.4912;-2.0150',
+    'ICBM': '52.4912, -2.0150',
+  },
 };
 
 export const viewport: Viewport = {
@@ -124,7 +134,13 @@ export const viewport: Viewport = {
   themeColor: '#1a1a2e',
 };
 
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+// The production env var was set to the two-character string `""` — copied
+// from .env.example with its quotes. That is truthy, so the tag rendered as
+// `gtm.js?id=%22%22` and GTM never loaded. Strip quotes/whitespace and require
+// a real container id, so a malformed value disables the tag instead of
+// emitting a broken one.
+const rawGtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim().replace(/^["']|["']$/g, '');
+const gtmId = rawGtmId && /^GTM-[A-Z0-9]+$/i.test(rawGtmId) ? rawGtmId : undefined;
 
 export default function RootLayout({
   children,
@@ -275,10 +291,6 @@ function gtag_report_conversion(url) {
 }`,
           }}
         />
-        <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="Oldbury, West Midlands, United Kingdom" />
-        <meta name="geo.position" content="52.4912;-2.0150" />
-        <meta name="ICBM" content="52.4912, -2.0150" />
       </head>
       <body className="min-h-full flex flex-col font-body bg-obsidian text-charcoal">
         {gtmId && (
