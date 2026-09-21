@@ -200,7 +200,8 @@ export default function RootLayout({
               },
               "image": {"@id": "https://www.sigmashopfronts.com/#logo"},
               "slogan": "Install, repair, transform",
-              "areaServed": {"@type": "Country", "name": "United Kingdom"}
+              "areaServed": {"@type": "Country", "name": "United Kingdom"},
+              "sameAs": ["https://www.instagram.com/sigmashopfrontsuk/"]
             }),
           }}
         />

@@ -180,11 +180,16 @@ const defaultLocalBusiness = {
   paymentAccepted: 'Cash, Bank Transfer, Card',
   currenciesAccepted: 'GBP',
   isicV4: '4330',
+  // sameAs asserts "these profiles are this same business". A URL that 404s
+  // is an assertion Google can check and find false, so only live profiles
+  // belong here. linkedin.com/company/sigma-shop-fronts and
+  // g.co/kgs/sigmashopfronts both returned 404 and were removed — the latter
+  // was never plausible, since g.co/kgs links are opaque hashes rather than
+  // readable slugs.
   sameAs: [
     'https://wa.me/447397066538',
+    'https://www.instagram.com/sigmashopfrontsuk/',
     'https://www.facebook.com/sigmashopfronts',
-    'https://www.linkedin.com/company/sigma-shop-fronts',
-    'https://g.co/kgs/sigmashopfronts',
     'https://www.yell.com/biz/sigma-shop-fronts',
     'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
