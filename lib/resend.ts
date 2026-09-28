@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { SITE_URL } from '@/lib/site';
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
@@ -154,7 +155,7 @@ export async function sendAutoReply(
         </div>
 
         <div style="text-align: center;">
-          <a href="https://www.sigmashopfronts.com/gallery"
+          <a href="${SITE_URL}/gallery"
              style="display: inline-block; background: #d4a843; color: #1a1a2e; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px;">
             View Our Work
           </a>
@@ -164,7 +165,7 @@ export async function sendAutoReply(
 
         <p style="font-size: 12px; color: #9ca3af; text-align: center; margin: 0;">
           SigmaShopfronts Ltd · Registered in England &amp; Wales<br />
-          <a href="https://www.sigmashopfronts.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a>
+          <a href="${SITE_URL}/unsubscribe" style="color: #9ca3af;">Unsubscribe</a>
         </p>
       </div>
     </div>
@@ -265,16 +266,16 @@ export async function sendEstimateEmail(data: EstimateEmailData): Promise<void> 
         </div>
 
         <div style="text-align: center;">
-          <a href="https://www.sigmashopfronts.com/gallery" style="color: #6b7280; font-size: 13px;">See recent projects</a>
+          <a href="${SITE_URL}/gallery" style="color: #6b7280; font-size: 13px;">See recent projects</a>
           <span style="color: #d1d5db;"> · </span>
-          <a href="https://www.sigmashopfronts.com/reviews" style="color: #6b7280; font-size: 13px;">Read reviews</a>
+          <a href="${SITE_URL}/reviews" style="color: #6b7280; font-size: 13px;">Read reviews</a>
         </div>
 
         <hr style="margin: 28px 0; border: none; border-top: 1px solid #e5e7eb;" />
 
         <p style="font-size: 12px; color: #9ca3af; text-align: center; margin: 0;">
           Sigma Shopfronts and Shutter Limited · Company No. 16794487 · Registered in England &amp; Wales<br />
-          <a href="https://www.sigmashopfronts.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a>
+          <a href="${SITE_URL}/unsubscribe" style="color: #9ca3af;">Unsubscribe</a>
         </p>
       </div>
     </div>

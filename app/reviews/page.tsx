@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE_URL } from '@/lib/site';
 
 
 const COMPANY = 'Sigma Shop Fronts';
-const SITE = 'https://www.sigmashopfronts.com';
+const SITE = `${SITE_URL}`;
 
 export const metadata: Metadata = {
   title: `Customer Reviews | ${COMPANY} — Rated 5.0`,

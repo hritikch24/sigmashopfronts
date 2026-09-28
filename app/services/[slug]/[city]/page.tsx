@@ -8,6 +8,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQSection from '@/components/FAQSection';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import ContactForm from '@/components/ContactForm';
+import { SITE_URL } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string; city: string }>;
@@ -347,7 +348,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const city = cities.find((c) => c.slug === citySlug);
   if (!service || !city) return {};
 
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
   const geo = cityGeo[citySlug] || { latitude: 51.5074, longitude: -0.1278 };
   const topAreas = city.areas.slice(0, 3).join(', ');
 
@@ -386,7 +387,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
   const city = cities.find((c) => c.slug === citySlug);
   if (!service || !city) notFound();
 
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
   const geo = cityGeo[citySlug] || { latitude: 51.5074, longitude: -0.1278 };
 
   const introParagraphs = getServiceIntro(service.slug, service.name, city.name, city.region, city.areas);

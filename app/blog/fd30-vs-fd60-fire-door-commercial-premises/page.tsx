@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import BlogPostSchema from '@/components/BlogPostSchema';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'FD30 vs FD60 Fire Doors: Which Does Your Business Need?',
   description:
     'Understand the difference between FD30 and FD60 fire doors, UK Building Regulations requirements, and how to choose the correct fire resistance rating for commercial premises.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog/fd30-vs-fd60-fire-door-commercial-premises',
+    canonical: `${SITE_URL}/blog/fd30-vs-fd60-fire-door-commercial-premises`,
   },
 };
 

@@ -5,6 +5,7 @@ import ServiceCard from '@/components/ServiceCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   // The root layout's title.template does NOT apply to this segment, so the
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Commercial shopfronts, roller shutters and security doors installed UK-wide. Priced from published rates, not guesswork. Free site survey.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com',
+    canonical: `${SITE_URL}`,
   },
 };
 
@@ -217,19 +218,19 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebPage',
-            '@id': 'https://www.sigmashopfronts.com/#webpage',
+            '@id': `${SITE_URL}/#webpage`,
             name: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
-            url: 'https://www.sigmashopfronts.com',
-            isPartOf: { '@id': 'https://www.sigmashopfronts.com/#website' },
-            about: { '@id': 'https://www.sigmashopfronts.com/#organization' },
+            url: `${SITE_URL}`,
+            isPartOf: { '@id': `${SITE_URL}/#website` },
+            about: { '@id': `${SITE_URL}/#organization` },
             speakable: {
               '@type': 'SpeakableSpecification',
               cssSelector: ['h1', '.hero-description', '.services-section h2'],
             },
             significantLink: [
-              'https://www.sigmashopfronts.com/services',
-              'https://www.sigmashopfronts.com/contact',
-              'https://www.sigmashopfronts.com/areas',
+              `${SITE_URL}/services`,
+              `${SITE_URL}/contact`,
+              `${SITE_URL}/areas`,
             ],
           }),
         }}

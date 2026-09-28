@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { cities } from '@/data/cities';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Shopfront Installation Areas Across the UK',
   description:
     'Sigma Shop Fronts operates across 16 major UK cities. Find your local shopfront installation team in London, Birmingham, Manchester, Leeds, and more.',
-  alternates: { canonical: 'https://www.sigmashopfronts.com/areas' },
+  alternates: { canonical: `${SITE_URL}/areas` },
 };
 
 export default function AreasPage() {

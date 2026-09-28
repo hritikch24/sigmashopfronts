@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/site';
 interface BlogPostSchemaProps {
   title: string;
   description: string;
@@ -8,7 +9,7 @@ interface BlogPostSchemaProps {
 }
 
 export default function BlogPostSchema({ title, description, slug, datePublished, dateModified, wordCount }: BlogPostSchemaProps) {
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',

@@ -13,6 +13,7 @@ import Analytics from '@/components/Analytics';
 import CallTracker from '@/components/CallTracker';
 import SiteChrome from '@/components/SiteChrome';
 import { Suspense } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -28,7 +29,7 @@ const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700'],
 });
 
-const siteUrl = 'https://www.sigmashopfronts.com';
+const siteUrl = `${SITE_URL}`;
 
 export const metadata: Metadata = {
   title: {
@@ -159,14 +160,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": "https://www.sigmashopfronts.com/#website",
+              "@id": `${SITE_URL}/#website`,
               "name": "Sigma Shop Fronts",
-              "url": "https://www.sigmashopfronts.com",
-              "publisher": {"@id": "https://www.sigmashopfronts.com/#organization"},
+              "url": `${SITE_URL}`,
+              "publisher": {"@id": `${SITE_URL}/#organization`},
               "inLanguage": "en-GB",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": {"@type": "EntryPoint", "urlTemplate": "https://www.sigmashopfronts.com/services?q={search_term_string}"},
+                "target": {"@type": "EntryPoint", "urlTemplate": `${SITE_URL}/services?q={search_term_string}`},
                 "query-input": "required name=search_term_string"
               }
             }),
@@ -182,23 +183,23 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "@id": "https://www.sigmashopfronts.com/#organization",
+              "@id": `${SITE_URL}/#organization`,
               "name": "Sigma Shop Fronts",
               // The registered name at Companies House, which is what the
               // terms, privacy policy and homepage certificate all state. The
               // LocalBusiness entity on the homepage declares the same value,
               // so the two no longer contradict each other.
               "legalName": "Sigma Shopfronts and Shutter Limited",
-              "url": "https://www.sigmashopfronts.com",
+              "url": `${SITE_URL}`,
               "logo": {
                 "@type": "ImageObject",
-                "@id": "https://www.sigmashopfronts.com/#logo",
-                "url": "https://www.sigmashopfronts.com/assets/sigma-logo-square-white.png",
+                "@id": `${SITE_URL}/#logo`,
+                "url": `${SITE_URL}/assets/sigma-logo-square-white.png`,
                 "width": 1024,
                 "height": 1024,
                 "caption": "Sigma Shop Fronts"
               },
-              "image": {"@id": "https://www.sigmashopfronts.com/#logo"},
+              "image": {"@id": `${SITE_URL}/#logo`},
               "slogan": "Install, repair, transform",
               "areaServed": {"@type": "Country", "name": "United Kingdom"},
               "sameAs": ["https://www.instagram.com/sigmashopfrontsuk/"]
@@ -211,19 +212,19 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SiteNavigationElement",
-              "@id": "https://www.sigmashopfronts.com/#navigation",
+              "@id": `${SITE_URL}/#navigation`,
               "name": "Main Navigation",
-              "url": "https://www.sigmashopfronts.com",
+              "url": `${SITE_URL}`,
               "hasPart": [
-                {"@type": "SiteNavigationElement", "name": "Services", "url": "https://www.sigmashopfronts.com/services"},
-                {"@type": "SiteNavigationElement", "name": "Areas We Cover", "url": "https://www.sigmashopfronts.com/areas"},
-                {"@type": "SiteNavigationElement", "name": "About Us", "url": "https://www.sigmashopfronts.com/about"},
-                {"@type": "SiteNavigationElement", "name": "Gallery", "url": "https://www.sigmashopfronts.com/gallery"},
-                {"@type": "SiteNavigationElement", "name": "Blog", "url": "https://www.sigmashopfronts.com/blog"},
-                {"@type": "SiteNavigationElement", "name": "Cost Guide", "url": "https://www.sigmashopfronts.com/cost-guide"},
-                {"@type": "SiteNavigationElement", "name": "FAQ", "url": "https://www.sigmashopfronts.com/faq"},
-                {"@type": "SiteNavigationElement", "name": "Reviews", "url": "https://www.sigmashopfronts.com/reviews"},
-                {"@type": "SiteNavigationElement", "name": "Contact", "url": "https://www.sigmashopfronts.com/contact"}
+                {"@type": "SiteNavigationElement", "name": "Services", "url": `${SITE_URL}/services`},
+                {"@type": "SiteNavigationElement", "name": "Areas We Cover", "url": `${SITE_URL}/areas`},
+                {"@type": "SiteNavigationElement", "name": "About Us", "url": `${SITE_URL}/about`},
+                {"@type": "SiteNavigationElement", "name": "Gallery", "url": `${SITE_URL}/gallery`},
+                {"@type": "SiteNavigationElement", "name": "Blog", "url": `${SITE_URL}/blog`},
+                {"@type": "SiteNavigationElement", "name": "Cost Guide", "url": `${SITE_URL}/cost-guide`},
+                {"@type": "SiteNavigationElement", "name": "FAQ", "url": `${SITE_URL}/faq`},
+                {"@type": "SiteNavigationElement", "name": "Reviews", "url": `${SITE_URL}/reviews`},
+                {"@type": "SiteNavigationElement", "name": "Contact", "url": `${SITE_URL}/contact`}
               ]
             }),
           }}

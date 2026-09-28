@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import BlogPostSchema from '@/components/BlogPostSchema';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'What Is the LPS 1175 Security Rating? A Business Owner\'s Guide',
   description:
     'Learn what the LPS 1175 security rating means, how the rating levels work, what insurers require, and how to choose the right security door for your commercial premises.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog/what-is-lps-1175-security-rating',
+    canonical: `${SITE_URL}/blog/what-is-lps-1175-security-rating`,
   },
 };
 

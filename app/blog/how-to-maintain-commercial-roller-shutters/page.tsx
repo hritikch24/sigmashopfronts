@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import BlogPostSchema from '@/components/BlogPostSchema';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'How to Maintain Commercial Roller Shutters: A Complete Guide',
   description:
     'Learn how to maintain commercial roller shutters with our complete guide covering inspection schedules, lubrication, cleaning, common faults, and when to call a professional.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog/how-to-maintain-commercial-roller-shutters',
+    canonical: `${SITE_URL}/blog/how-to-maintain-commercial-roller-shutters`,
   },
 };
 

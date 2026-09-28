@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { services } from '@/data/services';
 import { cities } from '@/data/cities';
+import { SITE_URL } from '@/lib/site';
 
 const INDEXNOW_KEY = '7ce4a41892d54f238305d3a7ae5af32c';
-const SITE_URL = 'https://www.sigmashopfronts.com';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

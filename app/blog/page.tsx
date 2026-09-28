@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Shopfront Installation Guides & Articles',
   description:
     'Expert guides on shopfront maintenance, planning permission, fire doors, security ratings, and emergency boarding from Sigma Shop Fronts.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog',
+    canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
     title: 'Shopfront Installation Guides & Articles | Sigma Shop Fronts',
     description:
       'Expert guides on shopfront maintenance, planning permission, fire doors, security ratings, and emergency boarding from Sigma Shop Fronts.',
-    url: 'https://www.sigmashopfronts.com/blog',
+    url: `${SITE_URL}/blog`,
   },
 };
 
@@ -83,7 +84,7 @@ const posts = [
 export default function BlogIndex() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.sigmashopfronts.com/blog' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` }] }) }} />
       <section className="section-padding bg-obsidian-light">
         <div className="container-max">
           <Breadcrumbs

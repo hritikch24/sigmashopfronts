@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import BlogPostSchema from '@/components/BlogPostSchema';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Emergency Shopfront Boarding: What to Do When Your Shop Is Broken Into',
   description:
     'Step-by-step guide on what to do after a shopfront break-in, including securing your premises with emergency boarding, dealing with police and insurers, and arranging permanent repairs.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog/emergency-shopfront-boarding-what-to-do',
+    canonical: `${SITE_URL}/blog/emergency-shopfront-boarding-what-to-do`,
   },
 };
 

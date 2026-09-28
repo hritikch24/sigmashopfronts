@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/site';
 interface SchemaMarkupProps {
   type: 'LocalBusiness' | 'Service' | 'FAQPage';
   data?: Record<string, unknown>;
@@ -6,21 +7,21 @@ interface SchemaMarkupProps {
 const defaultLocalBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://www.sigmashopfronts.com/#localbusiness',
+  '@id': `${SITE_URL}/#localbusiness`,
   name: 'Sigma Shop Fronts',
   legalName: 'Sigma Shopfronts and Shutter Limited',
   description:
     'Professional shop front installation and repair specialists. We provide aluminium shop fronts, roller shutters, security doors, automatic doors, bi-fold doors, fire doors, and emergency callout services across the UK.',
-  url: 'https://www.sigmashopfronts.com',
+  url: `${SITE_URL}`,
   telephone: ['+447414779594', '+447397066538'],
   email: 'sales@sigmashopfronts.com',
   foundingDate: '2024',
   priceRange: '££',
-  image: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
+  image: `${SITE_URL}/assets/sigma-hero-1.jpeg`,
   // logo pointed at the same hero photograph as image, because there was no
   // logo to point it at. Google reads this field for the brand mark shown
   // beside the business, so a photo of a shopfront was the wrong answer.
-  logo: 'https://www.sigmashopfronts.com/assets/sigma-logo-square-white.png',
+  logo: `${SITE_URL}/assets/sigma-logo-square-white.png`,
   identifier: {
     '@type': 'PropertyValue',
     name: 'Company Number',
@@ -140,16 +141,16 @@ const defaultLocalBusiness = {
     '@type': 'OfferCatalog',
     name: 'Shop Front Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aluminium Shop Fronts', url: 'https://www.sigmashopfronts.com/services/aluminium-shopfronts' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roller Shutters', url: 'https://www.sigmashopfronts.com/services/roller-shutters' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Security Doors', url: 'https://www.sigmashopfronts.com/services/security-doors' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automatic Doors', url: 'https://www.sigmashopfronts.com/services/automatic-doors' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Bi-Fold Doors', url: 'https://www.sigmashopfronts.com/services/bi-fold-doors' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fire Doors', url: 'https://www.sigmashopfronts.com/services/fire-doors' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shop Front Repairs', url: 'https://www.sigmashopfronts.com/services/shopfront-repairs' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Callout', url: 'https://www.sigmashopfronts.com/services/emergency-callout' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shutter Repair', url: 'https://www.sigmashopfronts.com/services/shutter-repair' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Replacement', url: 'https://www.sigmashopfronts.com/services/glass-replacement' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aluminium Shop Fronts', url: `${SITE_URL}/services/aluminium-shopfronts` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roller Shutters', url: `${SITE_URL}/services/roller-shutters` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Security Doors', url: `${SITE_URL}/services/security-doors` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automatic Doors', url: `${SITE_URL}/services/automatic-doors` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Bi-Fold Doors', url: `${SITE_URL}/services/bi-fold-doors` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fire Doors', url: `${SITE_URL}/services/fire-doors` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shop Front Repairs', url: `${SITE_URL}/services/shopfront-repairs` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Callout', url: `${SITE_URL}/services/emergency-callout` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shutter Repair', url: `${SITE_URL}/services/shutter-repair` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Replacement', url: `${SITE_URL}/services/glass-replacement` } },
     ],
   },
   knowsAbout: [
@@ -194,19 +195,19 @@ const defaultLocalBusiness = {
     'https://www.checkatrade.com/trades/sigmashopfronts',
   ],
   hasMap: 'https://maps.google.com/?q=4+Thornwood+Close+Oldbury+B68+9LX',
-  parentOrganization: { '@id': 'https://www.sigmashopfronts.com/#organization' },
+  parentOrganization: { '@id': `${SITE_URL}/#organization` },
   additionalType: 'https://en.wikipedia.org/wiki/Shopfront',
 };
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://www.sigmashopfronts.com/#organization',
+  '@id': `${SITE_URL}/#organization`,
   name: 'Sigma Shop Fronts',
   legalName: 'Sigma Shopfronts and Shutter Limited',
-  url: 'https://www.sigmashopfronts.com',
-  logo: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
-  image: 'https://www.sigmashopfronts.com/assets/sigma-hero-1.jpeg',
+  url: `${SITE_URL}`,
+  logo: `${SITE_URL}/assets/sigma-hero-1.jpeg`,
+  image: `${SITE_URL}/assets/sigma-hero-1.jpeg`,
   description: defaultLocalBusiness.description,
   telephone: defaultLocalBusiness.telephone,
   email: defaultLocalBusiness.email,
@@ -249,7 +250,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       provider: {
         '@type': 'LocalBusiness',
         name: 'Sigma Shop Fronts',
-        url: 'https://www.sigmashopfronts.com',
+        url: `${SITE_URL}`,
         telephone: '+447414779594',
         address: defaultLocalBusiness.address,
         geo: defaultLocalBusiness.geo,

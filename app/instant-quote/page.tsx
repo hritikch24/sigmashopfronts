@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import InstantQuoteForm from '@/components/InstantQuoteForm';
+import { SITE_URL } from '@/lib/site';
 
-const siteUrl = 'https://www.sigmashopfronts.com';
+const siteUrl = `${SITE_URL}`;
 
 export const metadata: Metadata = {
   // The root layout appends " | Sigma Shop Fronts" via its title template.

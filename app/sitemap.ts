@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
 
-const siteUrl = 'https://www.sigmashopfronts.com';
+const siteUrl = `${SITE_URL}`;
 
 export const serviceSlugs = [
   'aluminium-shopfronts',

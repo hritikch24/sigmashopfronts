@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 const slug = 'shopfront-design-trends-uk-2026';
 const pageTitle = 'Shopfront Design Trends for 2026: What\'s Changing in UK Retail';
@@ -10,8 +11,8 @@ const pageDesc = 'Discover the biggest shopfront design trends shaping UK high s
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDesc,
-  alternates: { canonical: `https://www.sigmashopfronts.com/blog/${slug}` },
-  openGraph: { title: pageTitle, description: pageDesc, url: `https://www.sigmashopfronts.com/blog/${slug}`, type: 'article' },
+  alternates: { canonical: `${SITE_URL}/blog/${slug}` },
+  openGraph: { title: pageTitle, description: pageDesc, url: `${SITE_URL}/blog/${slug}`, type: 'article' },
 };
 
 const faqs = [
@@ -55,10 +56,10 @@ export default function ShopfrontDesignTrendsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org', '@type': 'BlogPosting', headline: pageTitle, description: pageDesc,
-            url: `https://www.sigmashopfronts.com/blog/${slug}`, datePublished: '2026-06-14', dateModified: '2026-06-14',
-            author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
-            publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com', logo: { '@type': 'ImageObject', url: 'https://www.sigmashopfronts.com/assets/shopfront-2.jpeg' } },
-            mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.sigmashopfronts.com/blog/${slug}` },
+            url: `${SITE_URL}/blog/${slug}`, datePublished: '2026-06-14', dateModified: '2026-06-14',
+            author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: `${SITE_URL}` },
+            publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: `${SITE_URL}`, logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/shopfront-2.jpeg` } },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
           }),
         }}
       />

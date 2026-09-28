@@ -2,19 +2,20 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Why Choose Sigma Shop Fronts | Best UK Shopfront Company',
   description:
     'Discover why Sigma Shop Fronts is the best shopfront company in the UK. Companies House registered, 10+ years combined experience, nationwide coverage across 16 cities, and 24/7 emergency response.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/why-choose-us',
+    canonical: `${SITE_URL}/why-choose-us`,
   },
   openGraph: {
     title: 'Why Choose Sigma Shop Fronts | Best UK Shopfront Company',
     description:
       'Companies House registered shopfront installers with 500+ completed projects, 16-city coverage, and a 5.0 customer rating. Free surveys, written guarantees, no middlemen.',
-    url: 'https://www.sigmashopfronts.com/why-choose-us',
+    url: `${SITE_URL}/why-choose-us`,
   },
 };
 
@@ -62,7 +63,7 @@ export default function WhyChooseUsPage() {
   return (
     <>
       <SchemaMarkup type="LocalBusiness" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Why Choose Us', item: 'https://www.sigmashopfronts.com/why-choose-us' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}` }, { '@type': 'ListItem', position: 2, name: 'Why Choose Us', item: `${SITE_URL}/why-choose-us` }] }) }} />
 
       {/* Hero */}
       <section className="section-padding bg-gradient-dark">

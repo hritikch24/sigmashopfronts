@@ -1,6 +1,7 @@
 import { serviceSlugs, citySlugs } from '../sitemap';
+import { SITE_URL } from '@/lib/site';
 
-const siteUrl = 'https://www.sigmashopfronts.com';
+const siteUrl = `${SITE_URL}`;
 
 /**
  * A retirement sitemap — temporary, and deliberately not part of sitemap.xml.

@@ -9,6 +9,7 @@ import FAQSection from '@/components/FAQSection';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import { SITE_URL } from '@/lib/site';
 
 const allServices = [
   { name: 'Aluminium Shopfronts', slug: 'aluminium-shopfronts', image: 'aluminium-shopfront-1.jpeg' },
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const city = cities.find((c) => c.slug === citySlug);
   if (!city) return {};
 
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
   const geo = cityGeo[citySlug] || { addressLocality: city.name, addressRegion: '', postalCode: '', latitude: 51.5074, longitude: -0.1278 };
 
   // Two titles, not one. The page title omits the brand because the layout's
@@ -127,7 +128,7 @@ export default async function CityPage({ params }: PageProps) {
   const city = cities.find((c) => c.slug === citySlug);
   if (!city) notFound();
 
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
 
   const geo = cityGeo[citySlug] || { addressLocality: city.name, addressRegion: city.region, postalCode: '', latitude: 51.5074, longitude: -0.1278 };
 

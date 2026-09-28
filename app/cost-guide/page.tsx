@@ -2,16 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Shopfront Cost Guide 2026 — UK Prices',
   description:
     'What a shopfront actually costs in 2026. Aluminium fronts from £2,000, roller shutters from £800, with the factors that move the price.',
-  alternates: { canonical: 'https://www.sigmashopfronts.com/cost-guide' },
+  alternates: { canonical: `${SITE_URL}/cost-guide` },
   openGraph: {
     title: 'How Much Does a Shopfront Cost in 2026? UK Price Guide | Sigma Shop Fronts',
     description: 'Detailed UK shopfront cost breakdown — aluminium fronts, roller shutters, security doors, automatic doors, bi-folds, and fire doors. Realistic 2026 prices from Sigma Shop Fronts.',
-    url: 'https://www.sigmashopfronts.com/cost-guide',
+    url: `${SITE_URL}/cost-guide`,
   },
 };
 
@@ -40,9 +41,9 @@ const blogPosting = {
   headline: 'How Much Does a Shopfront Cost in 2026? UK Price Guide',
   datePublished: '2026-06-14',
   dateModified: '2026-06-14',
-  author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
-  publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: 'https://www.sigmashopfronts.com' },
-  mainEntityOfPage: 'https://www.sigmashopfronts.com/cost-guide',
+  author: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: `${SITE_URL}` },
+  publisher: { '@type': 'Organization', name: 'Sigma Shop Fronts', url: `${SITE_URL}` },
+  mainEntityOfPage: `${SITE_URL}/cost-guide`,
 };
 
 function PriceCard({ title, price, note }: { title: string; price: string; note?: string }) {

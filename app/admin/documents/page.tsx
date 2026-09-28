@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 interface LineItem {
   description: string;
@@ -63,7 +64,6 @@ interface CustomerLite {
 }
 
 const WA_NUMBER = '447397066538';
-const SITE_URL = 'https://www.sigmashopfronts.com';
 
 const QUOTE_STATUSES = [
   { value: 'sent', label: 'Sent', color: 'bg-blue-100 text-blue-700' },

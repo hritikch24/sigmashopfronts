@@ -1,4 +1,5 @@
 import PrintButton from './PrintButton';
+import { SITE_HOST } from '@/lib/site';
 
 /* The brand people recognise, and the name the company is actually registered
    under. They are not the same, and quotes and invoices are exactly the
@@ -10,7 +11,7 @@ const COMPANY_NUMBER = '16794487';
 const COMPANY_ADDRESS = '4 Thornwood Close, Oldbury, West Midlands, B68 9LX';
 const COMPANY_PHONE = '07414 779594';
 const COMPANY_EMAIL = 'info@sigmashopfronts.com';
-const COMPANY_SITE = 'www.sigmashopfronts.com';
+const COMPANY_SITE = SITE_HOST;
 /* Deliberately a filename that has never been served before. The previous icon
    lived at sigma-icon-512.png and was replaced in place; that path goes out
    with cache-control: immutable for a year, so every browser holding the old

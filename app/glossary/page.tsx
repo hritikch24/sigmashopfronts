@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Shopfront Glossary',
   description:
     'Definitions of common shopfront industry terms including aluminium extrusion, thermal breaks, fire ratings, security standards, and glazing specifications. A reference guide from Sigma Shop Fronts.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/glossary',
+    canonical: `${SITE_URL}/glossary`,
   },
   openGraph: {
     title: 'Shopfront Glossary | Sigma Shop Fronts',
     description:
       'A comprehensive glossary of shopfront, glazing, and commercial door terminology used across the UK industry.',
-    url: 'https://www.sigmashopfronts.com/glossary',
+    url: `${SITE_URL}/glossary`,
   },
 };
 
@@ -205,11 +206,11 @@ export default function GlossaryPage() {
   const schemaData = {
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
-    '@id': 'https://www.sigmashopfronts.com/glossary#termset',
+    '@id': `${SITE_URL}/glossary#termset`,
     name: 'Shopfront Industry Glossary',
     description:
       'Definitions of common shopfront, glazing, and commercial door industry terms used across the UK.',
-    url: 'https://www.sigmashopfronts.com/glossary',
+    url: `${SITE_URL}/glossary`,
     hasDefinedTerm: glossaryTerms.map((t) => ({
       '@type': 'DefinedTerm',
       name: t.term,
@@ -226,8 +227,8 @@ export default function GlossaryPage() {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' },
-              { '@type': 'ListItem', position: 2, name: 'Glossary', item: 'https://www.sigmashopfronts.com/glossary' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}` },
+              { '@type': 'ListItem', position: 2, name: 'Glossary', item: `${SITE_URL}/glossary` },
             ],
           }),
         }}

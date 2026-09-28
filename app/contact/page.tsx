@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -61,7 +62,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.sigmashopfronts.com/contact' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}` }, { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_URL}/contact` }] }) }} />
       <SchemaMarkup type="LocalBusiness" />
 
       {/* Hero */}

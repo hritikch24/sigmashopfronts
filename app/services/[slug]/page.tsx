@@ -8,6 +8,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQSection from '@/components/FAQSection';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import ContactForm from '@/components/ContactForm';
+import { SITE_URL } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
 
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
 
   // The metaTitle in data/services.ts is already a complete, well-formed
   // title of about 42 characters. Appending 34 more, then the brand suffix
@@ -62,7 +63,7 @@ export default async function ServicePage({ params }: PageProps) {
   if (!service) notFound();
 
   const related = services.filter((s) => service.relatedServices.includes(s.slug));
-  const siteUrl = 'https://www.sigmashopfronts.com';
+  const siteUrl = `${SITE_URL}`;
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -163,7 +164,7 @@ export default async function ServicePage({ params }: PageProps) {
     '@id': `${siteUrl}/services/${slug}/#webpage`,
     name: service.metaTitle,
     url: `${siteUrl}/services/${slug}`,
-    isPartOf: { '@id': 'https://www.sigmashopfronts.com/#website' },
+    isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${siteUrl}/services/${slug}/#service` },
     speakable: {
       '@type': 'SpeakableSpecification',

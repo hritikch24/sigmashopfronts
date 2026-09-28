@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -16,8 +17,8 @@ export default function robots(): MetadataRoute.Robots {
     // noindexed service x city pages and drops them. Remove both it and this
     // line once they are out of the index.
     sitemap: [
-      'https://www.sigmashopfronts.com/sitemap.xml',
-      'https://www.sigmashopfronts.com/sitemap-retire.xml',
+      `${SITE_URL}/sitemap.xml`,
+      `${SITE_URL}/sitemap-retire.xml`,
     ],
   };
 }

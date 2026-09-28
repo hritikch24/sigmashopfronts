@@ -306,10 +306,20 @@ function slugsFrom(file) {
 // ── 6. Canonical host matches this site ──────────────────────────────────
 {
   const layout = read(join(ROOT, 'app/layout.tsx'));
-  const m = layout.match(/const siteUrl = '([^']+)'/);
-  if (!m) fail('canonical', 'no siteUrl found in app/layout.tsx');
-  else if (!m[1].includes(SITE.domain)) fail('canonical', `siteUrl is ${m[1]}, expected ${SITE.domain}`);
-  else ok(`canonical — siteUrl is ${m[1]}`);
+  // The origin now lives in lib/site.ts, not in a literal in layout.tsx, so a
+  // domain move is one edit rather than a 45-file find-and-replace. Check the
+  // fallback there, and that layout consumes it rather than reintroducing a
+  // hardcoded domain.
+  const site = read('lib/site.ts');
+  const m = site.match(/'(https:\/\/[^']+)',?\s*\n\);/);
+  if (!m) fail('canonical', 'no SITE_URL fallback found in lib/site.ts');
+  else if (!m[1].includes(SITE.domain)) fail('canonical', `SITE_URL fallback is ${m[1]}, expected ${SITE.domain}`);
+  else ok(`canonical — SITE_URL fallback is ${m[1]}`);
+
+  // Only this site's own origin — third-party hosts (GTM, Instagram) are fine.
+  if (layout.includes(`https://${SITE.domain}`)) {
+    fail('canonical', 'app/layout.tsx has a hardcoded origin again — it must import SITE_URL');
+  } else ok('canonical — layout has no hardcoded origin');
 
   if (/hrefLang/.test(layout)) {
     fail('hreflang', 'hardcoded hrefLang in layout points every page at one URL — remove it');

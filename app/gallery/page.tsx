@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Project Gallery',
@@ -124,7 +125,7 @@ export default function GalleryPage() {
   return (
     <>
       <SchemaMarkup type="LocalBusiness" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sigmashopfronts.com' }, { '@type': 'ListItem', position: 2, name: 'Gallery', item: 'https://www.sigmashopfronts.com/gallery' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}` }, { '@type': 'ListItem', position: 2, name: 'Gallery', item: `${SITE_URL}/gallery` }] }) }} />
 
       {/* Hero */}
       <section className="bg-gradient-dark section-padding">

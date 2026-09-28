@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { prisma } from '@/lib/prisma';
+import { SITE_URL } from '@/lib/site';
 
 /* ── Auth ─────────────────────────────────────────────────────────────── */
 
@@ -110,7 +111,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           <hr style="margin:28px 0;border:none;border-top:1px solid #e5e7eb;"/>
           <p style="font-size:12px;color:#9ca3af;text-align:center;margin:0;">
             Sigma Shopfronts · 07414 779594 · sales@sigmashopfronts.com<br/>
-            <a href="https://www.sigmashopfronts.com" style="color:#9ca3af;">www.sigmashopfronts.com</a>
+            <a href="${SITE_URL}" style="color:#9ca3af;">www.sigmashopfronts.com</a>
           </p>
         </div>
       </div>

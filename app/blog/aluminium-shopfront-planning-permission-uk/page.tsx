@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import BlogPostSchema from '@/components/BlogPostSchema';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Do You Need Planning Permission for an Aluminium Shopfront?',
   description:
     'Find out whether your aluminium shopfront project needs planning permission in the UK, including rules for conservation areas, listed buildings, and the application process.',
   alternates: {
-    canonical: 'https://www.sigmashopfronts.com/blog/aluminium-shopfront-planning-permission-uk',
+    canonical: `${SITE_URL}/blog/aluminium-shopfront-planning-permission-uk`,
   },
 };
 

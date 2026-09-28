@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'All Shopfront & Security Services',
   description:
     'Aluminium shopfronts, roller shutters, security doors, automatic and fire doors, plus repairs and emergency callout across the UK.',
-  alternates: { canonical: 'https://www.sigmashopfronts.com/services' },
+  alternates: { canonical: `${SITE_URL}/services` },
 };
 
 const services = [
@@ -29,16 +30,16 @@ const itemListSchema = {
   name: 'Sigma Shop Fronts Services',
   numberOfItems: 10,
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Aluminium Shopfronts', url: 'https://www.sigmashopfronts.com/services/aluminium-shopfronts' },
-    { '@type': 'ListItem', position: 2, name: 'Roller Shutters', url: 'https://www.sigmashopfronts.com/services/roller-shutters' },
-    { '@type': 'ListItem', position: 3, name: 'Security Doors', url: 'https://www.sigmashopfronts.com/services/security-doors' },
-    { '@type': 'ListItem', position: 4, name: 'Automatic Doors', url: 'https://www.sigmashopfronts.com/services/automatic-doors' },
-    { '@type': 'ListItem', position: 5, name: 'Bi-Fold Doors', url: 'https://www.sigmashopfronts.com/services/bi-fold-doors' },
-    { '@type': 'ListItem', position: 6, name: 'Fire Doors', url: 'https://www.sigmashopfronts.com/services/fire-doors' },
-    { '@type': 'ListItem', position: 7, name: 'Shopfront Repairs', url: 'https://www.sigmashopfronts.com/services/shopfront-repairs' },
-    { '@type': 'ListItem', position: 8, name: 'Emergency Callout', url: 'https://www.sigmashopfronts.com/services/emergency-callout' },
-    { '@type': 'ListItem', position: 9, name: 'Shutter Repair', url: 'https://www.sigmashopfronts.com/services/shutter-repair' },
-    { '@type': 'ListItem', position: 10, name: 'Glass Replacement', url: 'https://www.sigmashopfronts.com/services/glass-replacement' },
+    { '@type': 'ListItem', position: 1, name: 'Aluminium Shopfronts', url: `${SITE_URL}/services/aluminium-shopfronts` },
+    { '@type': 'ListItem', position: 2, name: 'Roller Shutters', url: `${SITE_URL}/services/roller-shutters` },
+    { '@type': 'ListItem', position: 3, name: 'Security Doors', url: `${SITE_URL}/services/security-doors` },
+    { '@type': 'ListItem', position: 4, name: 'Automatic Doors', url: `${SITE_URL}/services/automatic-doors` },
+    { '@type': 'ListItem', position: 5, name: 'Bi-Fold Doors', url: `${SITE_URL}/services/bi-fold-doors` },
+    { '@type': 'ListItem', position: 6, name: 'Fire Doors', url: `${SITE_URL}/services/fire-doors` },
+    { '@type': 'ListItem', position: 7, name: 'Shopfront Repairs', url: `${SITE_URL}/services/shopfront-repairs` },
+    { '@type': 'ListItem', position: 8, name: 'Emergency Callout', url: `${SITE_URL}/services/emergency-callout` },
+    { '@type': 'ListItem', position: 9, name: 'Shutter Repair', url: `${SITE_URL}/services/shutter-repair` },
+    { '@type': 'ListItem', position: 10, name: 'Glass Replacement', url: `${SITE_URL}/services/glass-replacement` },
   ],
 };
 
