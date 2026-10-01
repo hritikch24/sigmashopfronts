@@ -163,30 +163,6 @@ const galleryImages = [
   { src: '/assets/shopfront-7.jpeg', alt: 'Bespoke aluminium shopfront with signage zone' },
 ];
 
-const testimonials = [
-  {
-    name: 'James Whitfield',
-    business: 'Whitfield & Sons Butchers',
-    location: 'Leeds',
-    rating: 5,
-    text: 'Sigma replaced our old roller shutter in under a day. The team was professional from first contact to final sign-off. Genuinely one of the best trade experiences we have had as a business.',
-  },
-  {
-    name: 'Daniel O\'Brien',
-    business: 'O\'Brien Electronics',
-    location: 'Manchester',
-    rating: 5,
-    text: 'Called Sigma at 2am after our shutter was forced open during a break-in. They had a team on site within the hour, secured the premises and followed up with a full replacement the next morning.',
-  },
-  {
-    name: 'Sarah Hennessy',
-    business: 'The Brasserie Bar & Kitchen',
-    location: 'Bristol',
-    rating: 5,
-    text: 'Our new bi-fold shopfront has completely transformed the front of the restaurant. Footfall is up and the fit and finish are outstanding. Would highly recommend Sigma to any business owner.',
-  },
-];
-
 const serviceAreas = [
   { city: 'London', slug: 'london' },
   { city: 'Birmingham', slug: 'birmingham' },
@@ -497,31 +473,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Testimonials ─────────────────────────────────────────────────── */}
-      <section className="section-padding bg-space-light relative" aria-labelledby="testimonials-heading">
-        <div className="absolute inset-0 bg-mesh-grid pointer-events-none opacity-50" />
-        <div className="container-max relative z-10">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 id="testimonials-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              What Our Clients Say
-            </h2>
-          </div>
-
-          <TestimonialCarousel testimonials={testimonials} />
-
-          {/* Star summary */}
-          <div className="flex items-center justify-center gap-3 mt-10">
-            <div className="flex items-center gap-0.5" aria-label="5 out of 5 stars average">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#00e5ff" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
-            <span className="text-grey-500 text-sm font-medium">5.0 average from verified reviews</span>
-          </div>
-        </div>
-      </section>
 
       {/* ── Service Areas ─────────────────────────────────────────────────── */}
       <section className="section-padding bg-space relative" aria-labelledby="areas-heading">

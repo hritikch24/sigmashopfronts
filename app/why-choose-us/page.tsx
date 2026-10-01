@@ -46,13 +46,6 @@ const comparisons = [
   { sigma: 'Post-installation inspection and sign-off', typical: 'Walk away once fitted' },
 ];
 
-const testimonials = [
-  { name: 'James Whitfield', business: 'Whitfield & Sons Butchers', location: 'Leeds', quote: 'Sigma replaced our roller shutter in under a day. Genuinely one of the best trade experiences we have had.' },
-  { name: 'Priya Sharma', business: 'Prestige Dental Clinic', location: 'Birmingham', quote: 'Surveyed within 48 hours, competitive quote, installed within the week. Exceptional service.' },
-  { name: 'Daniel O\'Brien', business: 'O\'Brien Electronics', location: 'Manchester', quote: 'Called at 2am after a break-in. Team on site within the hour, premises secured, full replacement next morning.' },
-  { name: 'Fiona Campbell', business: 'Campbell Opticians', location: 'Edinburgh', quote: 'Listed building constraints made this tricky. Sigma navigated planning approval and delivered beautifully.' },
-];
-
 const standards = [
   'BS 6375 — Weather Performance', 'BS EN 12150 — Toughened Safety Glass', 'BS EN 16005 — Automatic Door Safety',
   'BS EN 1634-1 — Fire Resistance', 'PAS 24 — Enhanced Security', 'LPS 1175 — Physical Security',
@@ -135,23 +128,6 @@ export default function WhyChooseUsPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section-padding">
-        <div className="container-max">
-          <h2 className="font-heading text-white" style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '2rem' }}>Trusted by Businesses Across the UK</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {testimonials.map((t) => (
-              <blockquote key={t.name} className="card-surface" style={{ padding: '1.5rem', margin: 0 }}>
-                <p className="text-charcoal" style={{ fontSize: '0.95rem', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '1rem' }}>&ldquo;{t.quote}&rdquo;</p>
-                <footer>
-                  <strong className="text-white" style={{ display: 'block' }}>{t.name}</strong>
-                  <span className="text-grey-600" style={{ fontSize: '0.875rem' }}>{t.business}, {t.location}</span>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Accreditations */}
       <section className="section-padding bg-grey-50">

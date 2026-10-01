@@ -3,146 +3,149 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE_URL } from '@/lib/site';
 
-
 const COMPANY = 'Sigma Shop Fronts';
-const SITE = `${SITE_URL}`;
+
+/**
+ * This page previously displayed five invented customer reviews with made-up
+ * names, and its metadata claimed a "Rated 5.0" average from "verified"
+ * customers. None of it was real, and publishing a consumer review that is not
+ * genuine is an offence under the Digital Markets, Competition and Consumers
+ * Act 2024.
+ *
+ * It now sets out what a buyer can actually verify about this company —
+ * registration, insurance, certification, standards — which is more use to a
+ * commercial client than a wall of quotes anyway. Real reviews live on the
+ * Google Business Profile; link it below once the URL is supplied.
+ *
+ * Do not add review content here unless a real customer gave it and agreed to
+ * it being published, and never add aggregateRating schema without genuine
+ * underlying reviews.
+ */
 
 export const metadata: Metadata = {
-  title: `Customer Reviews | ${COMPANY} — Rated 5.0`,
-  description: `Read verified customer reviews of ${COMPANY}. Rated 5.0 by businesses across the UK for shopfront installations, roller shutters, security doors, and emergency repairs.`,
-  alternates: { canonical: `${SITE}/reviews` },
+  title: `Checks & Credentials | ${COMPANY}`,
+  description:
+    'How to verify Sigma Shop Fronts before you commit: company registration, insurance, CSCS-carded installers and the British Standards our work is specified against.',
+  alternates: { canonical: `${SITE_URL}/reviews` },
   openGraph: {
-    title: `Customer Reviews | ${COMPANY}`,
-    description: `See what UK businesses say about ${COMPANY}. 5-star rated shopfront installers with nationwide coverage.`,
-    url: `${SITE}/reviews`,
+    title: `Checks & Credentials | ${COMPANY}`,
+    description:
+      'Company registration, insurance, certification and the standards we build to — the things worth checking before you appoint a shopfront contractor.',
+    url: `${SITE_URL}/reviews`,
   },
 };
 
-const reviews = [
+const checks = [
   {
-    name: 'James Thornton',
-    location: 'Birmingham',
-    service: 'Aluminium Shopfront',
-    rating: 5,
-    date: '2026-03-14',
-    text: 'Had a full aluminium shopfront installed for our new barbershop. The lads were professional from start to finish — turned up on time, kept the area tidy, and the end result looks brilliant. Customers have commented on how sharp it looks. Would absolutely use again.',
+    title: 'Companies House registration',
+    body: `${COMPANY} trades as Sigma Shopfronts and Shutter Limited, company number 16794487. Search it on the Companies House register before you pay a deposit — it costs nothing and tells you who you are actually contracting with.`,
   },
   {
-    name: 'Sarah Hussain',
-    location: 'London',
-    service: 'Roller Shutter',
-    rating: 5,
-    date: '2026-01-22',
-    text: 'We needed a new electric roller shutter after our old one was damaged in a break-in. Sigma came out the next day for a survey, gave us a fair price, and had it fitted within the week. The shutter works perfectly and we feel much more secure now.',
+    title: 'Public liability insurance',
+    body: 'Ask for the certificate, not a verbal assurance, and check the expiry date and the indemnity limit. Any contractor working on a commercial frontage should carry cover proportionate to the value of the premises and the stock behind it.',
   },
   {
-    name: 'David Clarke',
-    location: 'Manchester',
-    service: 'Automatic Doors',
-    rating: 5,
-    date: '2025-11-08',
-    text: 'Automatic sliding doors fitted to our convenience store entrance. Really pleased with how smooth they operate. The team explained everything clearly and left the site spotless. Good value for money compared to other quotes we got.',
+    title: 'CSCS-carded installers',
+    body: 'Our installation teams carry CSCS cards. On a managed site or inside a shopping centre you will usually be asked to evidence this before access is granted, so it is worth confirming for any contractor you appoint.',
   },
   {
-    name: 'Priya Patel',
-    location: 'Leicester',
-    service: 'Security Door',
-    rating: 5,
-    date: '2026-05-02',
-    text: 'Steel security door installed at the back of our retail unit. Solid piece of kit and the multi-point locking gives us real peace of mind. Installation was quick and they sorted the frame perfectly into our existing opening.',
-  },
-  {
-    name: 'Mark Edwards',
-    location: 'Leeds',
-    service: 'Emergency Callout',
-    rating: 5,
-    date: '2026-04-19',
-    text: 'Called at 11pm after someone put a brick through our shop window. An engineer was with us within two hours and had it boarded securely. Replacement glass was fitted three days later. Genuinely grateful for the fast response.',
+    title: 'Written quotations',
+    body: 'Everything we price is set out in writing against a specification, with the exclusions stated. A number given over the phone with no scope attached is not a quotation and should not be treated as one.',
   },
 ];
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} className={`w-5 h-5 ${i < rating ? 'text-amber-400' : 'text-grey-300'}`} fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.176 0l-3.37 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
+const standards = [
+  { code: 'BS EN 12150', what: 'Toughened safety glass' },
+  { code: 'BS EN 14449', what: 'Laminated safety glass' },
+  { code: 'BS EN 1634-1', what: 'Fire resistance testing for doorsets' },
+  { code: 'BS EN 16005', what: 'Power-operated pedestrian doorsets — safety' },
+  { code: 'BS 6375', what: 'Weather performance of windows and doors' },
+  { code: 'PAS 24', what: 'Enhanced security performance' },
+  { code: 'LPS 1175', what: 'Loss Prevention Standard — physical security ratings' },
+  { code: 'Approved Document M', what: 'Accessible thresholds, opening forces, manifestation' },
+];
 
 export default function ReviewsPage() {
-  const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
-
-  const reviewSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: COMPANY,
-    url: SITE,
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+              { '@type': 'ListItem', position: 2, name: 'Checks & Credentials', item: `${SITE_URL}/reviews` },
+            ],
+          }),
+        }}
+      />
 
-      <section className="bg-navy pt-28 pb-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Reviews' }]} />
-          <h1 className="text-3xl md:text-4xl font-bold text-white mt-4">Customer Reviews</h1>
-          <p className="text-grey-300 mt-3 max-w-2xl text-lg">
-            What UK businesses say about working with {COMPANY}.
+      <section className="section-padding bg-gradient-dark">
+        <div className="container-max">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Checks & Credentials' }]} />
+          <h1 className="font-heading text-white font-bold text-3xl sm:text-4xl lg:text-5xl mt-6 mb-5">
+            What to check before you appoint anyone
+          </h1>
+          <p className="text-charcoal max-w-3xl" style={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
+            A shopfront is a five-figure decision on a building you probably lease, fitted by
+            people you have not met. Quotes from a page of glowing testimonials are worth very
+            little — anyone can write those. Below is what is actually checkable about us, and
+            what you should be asking any contractor who quotes for this work.
           </p>
         </div>
       </section>
 
-      {/* Summary bar */}
-      <section className="bg-obsidian-light border-b border-grey-100">
-        <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center gap-6">
-          <div className="text-center sm:text-left">
-            <p className="text-5xl font-bold text-white">{avgRating}</p>
-            <StarRating rating={Math.round(Number(avgRating))} />
-          </div>
-          <div className="text-center sm:text-left">
-            <p className="text-grey-600 text-sm">Based on <span className="font-semibold text-white">{reviews.length} verified reviews</span></p>
-            <p className="text-grey-500 text-sm mt-1">All reviews are from real customers who used our services.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews grid */}
-      <section className="bg-grey-50 py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((r, i) => (
-              <div key={i} className="bg-grey-100 rounded-2xl p-6 shadow-sm border border-grey-100 flex flex-col">
-                <StarRating rating={r.rating} />
-                <p className="text-grey-700 mt-4 flex-1 leading-relaxed">&ldquo;{r.text}&rdquo;</p>
-                <div className="mt-5 pt-4 border-t border-grey-100">
-                  <p className="font-semibold text-white">{r.name}</p>
-                  <p className="text-sm text-grey-500">{r.service} — {r.location}</p>
-                  <p className="text-xs text-grey-400 mt-1">{new Date(r.date).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</p>
-                </div>
+      <section className="section-padding">
+        <div className="container-max">
+          <h2 className="font-heading text-white font-bold text-2xl sm:text-3xl mb-8">
+            Four things worth verifying
+          </h2>
+          <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            {checks.map((c) => (
+              <div key={c.title} className="card-surface" style={{ padding: '1.6rem' }}>
+                <h3 className="font-heading text-white font-semibold mb-3" style={{ fontSize: '1.1rem' }}>
+                  {c.title}
+                </h3>
+                <p className="text-charcoal" style={{ fontSize: '0.95rem', lineHeight: 1.7 }}>{c.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-navy py-16">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-white">Ready to join our satisfied customers?</h2>
-          <p className="text-grey-300 mt-3">Get a free, no-obligation quote for your shopfront project.</p>
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <Link href="/contact" className="inline-block bg-gold text-navy font-bold py-3 px-8 rounded-lg hover:bg-gold/90 transition-colors">
-              Get a Free Quote
-            </Link>
-            <Link href="/services" className="inline-block border border-grey-400 text-white font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-colors">
-              Our Services
-            </Link>
+      <section className="section-padding bg-space-light">
+        <div className="container-max">
+          <h2 className="font-heading text-white font-bold text-2xl sm:text-3xl mb-4">
+            The standards we specify against
+          </h2>
+          <p className="text-charcoal mb-8 max-w-3xl" style={{ lineHeight: 1.7 }}>
+            These are the references that appear on our drawings and quotations. If a contractor
+            cannot tell you which standard a product is tested to, that is worth noticing.
+          </p>
+          <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+            {standards.map((s) => (
+              <div key={s.code} className="flex gap-4 items-baseline" style={{ padding: '0.85rem 0', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                <code className="text-cyan font-mono" style={{ fontSize: '0.85rem', flexShrink: 0, minWidth: '9.5rem' }}>{s.code}</code>
+                <span className="text-charcoal" style={{ fontSize: '0.95rem' }}>{s.what}</span>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-max text-center">
+          <h2 className="font-heading text-white font-bold text-2xl sm:text-3xl mb-4">
+            Ask us for references
+          </h2>
+          <p className="text-charcoal max-w-2xl mx-auto mb-8" style={{ lineHeight: 1.7 }}>
+            We would rather put you in touch with a client whose frontage you can go and look at
+            than publish quotes you have no way of checking. Tell us what you are planning and
+            we will point you at comparable work.
+          </p>
+          <Link href="/contact" className="btn-gold">Request references</Link>
         </div>
       </section>
     </>

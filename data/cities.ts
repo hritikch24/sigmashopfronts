@@ -1,3 +1,15 @@
+/**
+ * Customer testimonials.
+ *
+ * EMPTY ON PURPOSE. This file previously carried 101 invented testimonials
+ * attributed to named people and named businesses, 94 of which also appeared
+ * on two sibling sites — the same fictional customer praising three competing
+ * firms.
+ *
+ * Publishing a consumer review that is not genuine is an offence under the
+ * Digital Markets, Competition and Consumers Act 2024. Only add entries here
+ * for reviews a real customer actually gave, with their permission.
+ */
 export interface CityTestimonial {
   name: string;
   business: string;
@@ -60,29 +72,7 @@ South London presents its own character. Brixton's covered market and independen
 In Stratford and the wider east London corridor — which has seen sustained commercial investment since the 2012 Olympic development — we work regularly on new-build retail units within mixed-use schemes, coordinating directly with developers' project managers and the principal contractors responsible for base-build delivery.
 
 Planning requirements in London are layered and sometimes unpredictable. The City of London, the Royal Borough of Kensington and Chelsea, and the London Borough of Camden all have conservation area guidance and supplementary planning documents that go well beyond the national framework. We have extensive experience in preparing shopfront design and access statements, working with planning consultants, and — where required — appearing as a technical expert at planning hearings. We also understand the specific requirements that apply to listed buildings and those in the curtilage of listed buildings, and we have sourced specialist slimline profiles and heritage hardware for installations where a standard commercial product would not receive approval.`,
-    testimonials: [
-      {
-        name: 'Marcus Osei',
-        business: 'Osei & Co. Barbershop',
-        location: 'Peckham',
-        rating: 5,
-        text: "We needed the installation done over a weekend because we can't afford to close during the week. Sigma had the whole front stripped and reinstalled by Sunday afternoon. The new aluminium frame looks the part and the glazing is crystal clear. Customers noticed immediately.",
-      },
-      {
-        name: 'Priya Sharma',
-        business: 'Darjeeling House Tea Room',
-        location: 'Islington',
-        rating: 5,
-        text: 'Getting planning sign-off in our conservation area was the bit I was dreading, but Sigma sorted the design statement and we got approval without needing a meeting. The bi-fold doors have transformed the café in summer — we can open the whole front onto the pavement.',
-      },
-      {
-        name: 'James Whitfield',
-        business: 'Whitfield & Sons Jewellers',
-        location: 'Hatton Garden',
-        rating: 4,
-        text: 'Our insurers required LPS 1175 SR3 rated shutters and a security door at the rear. Sigma understood exactly what was needed without us having to explain it. Documentation was complete and our insurer accepted it straight away. Solid work.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do I need planning permission to replace a shopfront in London?',
@@ -134,29 +124,7 @@ Digbeth's evolving commercial scene presents a different challenge. The conversi
 The Bullring and Grand Central area represents Birmingham's highest-footfall retail environment, and the tenants and managing agents operating here have demanding technical and design standards. We have worked on shopfront installations within both the Bullring and the wider New Street development, coordinating with the centre management team and complying with the specific contractor management requirements of the shopping centre environment.
 
 Across the wider city — in Erdington, Handsworth, Harborne, and the Sutton Coldfield town centre — we serve the diverse independent retail community that makes up the commercial backbone of Birmingham's neighbourhoods. These are often smaller-scale installations — single retail units requiring a replacement shopfront and shutter — but they benefit from the same level of technical expertise and the same quality of product that we apply to more complex commercial projects.`,
-    testimonials: [
-      {
-        name: 'Tariq Hussain',
-        business: 'Hussain Brothers Food Hall',
-        location: 'Handsworth',
-        rating: 5,
-        text: "We had a shutter that hadn't closed properly for six months and three different companies couldn't fix it. Sigma's engineer came out, diagnosed a worn drive gear, and had it working the same afternoon. We've since had them back to install new sliding doors at the front.",
-      },
-      {
-        name: 'Rachel Jennings',
-        business: 'Forge & Bloom Florist',
-        location: 'Jewellery Quarter',
-        rating: 5,
-        text: "Planning in the JQ is tricky, but Sigma had clearly done it before. They knew which profiles the conservation officer would accept and helped us choose a colour that got approved first time. The shopfront looks exactly right for the building and we get compliments on it constantly.",
-      },
-      {
-        name: 'Dev Patel',
-        business: 'Patel Electronics',
-        location: 'Erdington',
-        rating: 4,
-        text: 'Competitive price, turned up when they said they would, and the installation was neat. The automatic door has made a real difference for deliveries — we can get trolleys in without someone having to hold the door. Would recommend.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you work within Birmingham city centre managed sites like the Bullring?',
@@ -208,29 +176,7 @@ Ancoats has undergone a remarkable transformation from derelict textile mill ter
 Salford Quays and MediaCityUK bring a different context again: purpose-built commercial and broadcast facilities on a large, managed estate with its own design code and technical requirements. We work with tenants and the estate management team on shopfront installations that comply with the Quays' specific standards.
 
 In the residential suburbs — Didsbury, Chorlton, Withington — the independent high streets have a character that differs markedly from the city centre. These are communities where the shopfront is a long-term investment by an independent owner-occupier, and where the relationship between the installer and the client is personal. We have built long-standing relationships with businesses across these neighbourhoods, returning for maintenance, repairs, and new installations as they expand or refresh their premises.`,
-    testimonials: [
-      {
-        name: 'Sophie Hartley',
-        business: 'Hartley Books & Coffee',
-        location: 'Northern Quarter',
-        rating: 5,
-        text: "We had a very specific idea about what we wanted — a black frame with wide panes and integrated fanlight opening sections — and Sigma fabricated exactly that. The planning officer raised a couple of points and Sigma resolved them without any drama. Six months on and we're very happy.",
-      },
-      {
-        name: 'Cormac Walsh',
-        business: "Walsh's Bar & Kitchen",
-        location: 'Ancoats',
-        rating: 5,
-        text: "Listed building in a conservation area — we thought it was going to be a nightmare. Sigma obviously knows the Ancoats planning requirements and they guided us through the whole process. The bi-fold doors are perfect for the summer and the building looks better than it has in years.",
-      },
-      {
-        name: 'Linda Barclay',
-        business: 'Barclay & Park Dental Practice',
-        location: 'Didsbury',
-        rating: 4,
-        text: `The automatic door has made a real difference for patients arriving in wheelchairs. Sigma's installation team was efficient and tidy, and the door has worked perfectly since day one. Annual service visit was similarly straightforward.`,
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you have experience with listed building shopfront installations in Manchester?',
@@ -282,29 +228,7 @@ Headingley presents a very different character: a dense independent high street 
 Holbeck Urban Village — the converted Victorian cloth mill and industrial district south of the city centre — has attracted a cluster of architecture, design, and technology firms whose workspace requirements include contemporary entrance treatments that reflect their brand identity. We have installed automatic sliding entrances, glazed aluminium screens, and security door systems in this part of Leeds.
 
 Chapel Allerton's thriving independent village and the suburban retail strips of Horsforth and Morley round out the landscape. These are the neighbourhood commercial centres where the quality of a shopfront directly influences how a business is perceived by its local community, and where investment in a well-designed, well-installed front makes a tangible commercial difference.`,
-    testimonials: [
-      {
-        name: 'Alison Greenwood',
-        business: 'Greenwood & Bell Interiors',
-        location: 'Chapel Allerton',
-        rating: 5,
-        text: "We run a design-led business, so the shopfront had to reflect that. Sigma understood the brief and fabricated a slimline aluminium frame in a specific dark bronze powder coat that looked exactly right. The glazing is immaculate and they left the site spotless.",
-      },
-      {
-        name: 'Phil Stanway',
-        business: 'Stanway Cycles',
-        location: 'Headingley',
-        rating: 5,
-        text: `Our old shopfront had been there since the 1980s and was letting in a draught. The new thermally broken aluminium system has made a noticeable difference to the temperature inside and the place looks ten times better. Sigma's team was professional start to finish.`,
-      },
-      {
-        name: 'Karen Liu',
-        business: 'Lotus & Petal Beauty Studio',
-        location: 'Horsforth',
-        rating: 4,
-        text: 'Good communication, fair price, and the installation was done in a day. We had the roller shutter installed at the same time and everything was coordinated neatly. Happy to recommend.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you install shopfronts within Leeds Kirkgate Market?',
@@ -356,29 +280,7 @@ The Baltic Triangle is Liverpool's equivalent of Manchester's Northern Quarter o
 Liverpool ONE — the massive open-air retail quarter between the city centre and the waterfront — represents a different discipline entirely. As a privately managed retail estate with its own design code and contractor management framework, installations within Liverpool ONE require close coordination with the estate management team and compliance with their technical and commercial standards. We have worked on shopfront and entrance installations within the estate.
 
 Across the north Liverpool suburbs — Kirkby, Bootle, Crosby, and Seaforth — the commercial offer is more modest but no less important to the communities they serve. Local parades and neighbourhood shopping centres here are the lifeblood of the area, and a quality shopfront installation by a contractor who turns up on time and does the job properly is genuinely valued.`,
-    testimonials: [
-      {
-        name: 'Tommy Cavanagh',
-        business: `Cavanagh's Delicatessen`,
-        location: 'Bold Street',
-        rating: 5,
-        text: "We've been on Bold Street for twelve years and this is the first time we've properly invested in the front of the shop. Sigma advised us on a frame profile that suited the building and got planning approval sorted without any fuss. The result is a shopfront we're genuinely proud of.",
-      },
-      {
-        name: 'Abi Nwosu',
-        business: 'Nwosu Creative Studio',
-        location: 'Baltic Triangle',
-        rating: 5,
-        text: 'Industrial space, industrial door. Sigma installed a heavy-duty sliding steel door at the entrance and an automatic pedestrian door for client visits. Both work perfectly together and look exactly right for the building.',
-      },
-      {
-        name: 'Ian McLaughlin',
-        business: 'McLaughlin Pharmacy',
-        location: 'Crosby',
-        rating: 4,
-        text: 'The automatic door was the main thing we needed for our older and disabled customers. Sigma installed it promptly and the annual maintenance is also done by them, which keeps things simple. No problems at all.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: `Do you work in Liverpool's conservation areas and with listed buildings?`,
@@ -430,29 +332,7 @@ The Harbourside has been transformed from post-industrial wasteland into Bristol
 Bedminster and its developing independent retail and hospitality scene — centred on North Street and Bedminster Parade — is increasingly attracting investment as businesses seek alternatives to the higher costs of the north Bristol commercial areas. We have worked on numerous shopfront installations here as the area has grown in commercial importance.
 
 The suburban retail centres — Westbury-on-Trym, Fishponds, Keynsham — serve their communities with a mix of long-established independent businesses and local franchise operators. In all of these locations, a quality shopfront installation is a meaningful investment that typically remains in place for 15–25 years and defines how the premises is perceived throughout that period.`,
-    testimonials: [
-      {
-        name: 'Freya Jenkins',
-        business: 'Fernwood Plant Studio',
-        location: 'Montpelier',
-        rating: 5,
-        text: "We needed something that looked in keeping with the street but was still secure. Sigma found a profile and finish that the conservation officer was happy with, and the shopfront has been complimented by the planning officer themselves when they walked past. Couldn't ask for more.",
-      },
-      {
-        name: 'Dan Kowalski',
-        business: 'Kowalski Kitchen',
-        location: 'Bedminster',
-        rating: 5,
-        text: "Sigma installed the new shopfront and a bi-fold door system at the front of the restaurant. Having the full width open on summer evenings has made a real difference to our covers. The quality of the glazing and the frame finish is excellent.",
-      },
-      {
-        name: 'Sarah Oates',
-        business: 'Oates & Partners Solicitors',
-        location: 'Clifton',
-        rating: 4,
-        text: 'Professional from start to finish. They understood the listed building constraints without us having to educate them, came up with a design that worked, and installed it without any mess or fuss. Exactly what we needed.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: `Are there specific design requirements for shopfronts in Bristol\'s conservation areas?`,
@@ -504,29 +384,7 @@ Fargate and the wider city centre pedestrian zone is Sheffield's prime retail pi
 Attercliffe — once the heart of Sheffield's steel production — is undergoing gradual regeneration as a sports, leisure, and light industrial corridor. The new Sheffield Olympic Legacy Park and the redevelopment of former industrial sites are bringing new commercial tenants to an area where shopfronts had deteriorated significantly. We have worked on shopfront installations in this corridor as part of regeneration projects.
 
 Hillsborough, Chapeltown, and Woodseats serve their local communities with neighbourhood retail that has real longevity. Many of the businesses in these areas have occupied their premises for decades, and a shopfront investment here is a long-term commitment to the community rather than a short-term commercial calculation.`,
-    testimonials: [
-      {
-        name: 'Gaz Thornton',
-        business: 'Thornton & Wolfe Brewing Co.',
-        location: 'Kelham Island',
-        rating: 5,
-        text: "The taproom needed something that felt right for the building — we didn't want to put a corporate shopfront on a 1920s steel workshop. Sigma came up with a steel-framed sliding door arrangement that looks like it belongs there. Brilliant job.",
-      },
-      {
-        name: 'Naomi Ashworth',
-        business: 'Ashworth & Co. Accountants',
-        location: 'Broomhill',
-        rating: 4,
-        text: "Replaced a rotting timber shopfront with a thermally broken aluminium system. The difference in the comfort of the office in winter is noticeable. Sigma's quote was competitive and the installation was on time and on budget.",
-      },
-      {
-        name: 'Leila Hassan',
-        business: 'Oasis Fashion & Accessories',
-        location: 'Meadowhall',
-        rating: 5,
-        text: 'We had a tight handover programme within the shopping centre fit-out and Sigma delivered on time. Their familiarity with the Meadowhall contractor requirements made the management side of it straightforward.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you have experience with industrial-aesthetic shopfronts in Kelham Island?',
@@ -578,29 +436,7 @@ The West End — centred on Byres Road and the streets radiating from it towards
 In Scotland, building regulations are administered separately from England and Wales under the Building (Scotland) Act 2003 and the Building (Scotland) Regulations 2004. All building work — including shopfront installations that involve structural alterations — requires a building warrant from the relevant local authority, and the compliance is verified through an inspection process leading to a completion certificate. We are fully familiar with the Scottish building warrant process and manage applications on behalf of our clients throughout Scotland.
 
 Shawlands, Partick, Govan, and Springburn all have neighbourhood commercial centres that provide daily retail and service needs for their communities. These are the areas where a shopfront replacement by a contractor who understands value for money, practical specification, and reliable delivery makes the most difference.`,
-    testimonials: [
-      {
-        name: 'Fiona McAllister',
-        business: 'McAllister & Co. Wine Bar',
-        location: 'Finnieston',
-        rating: 5,
-        text: "We wanted a shopfront that reflected the neighbourhood — unpretentious but well-made. Sigma specified a steel-framed sliding entrance with bronze powder-coated aluminium inserts that looks spot-on for the building and the street. Very pleased.",
-      },
-      {
-        name: 'Jamie Donaldson',
-        business: 'Donaldson Opticians',
-        location: 'Byres Road',
-        rating: 5,
-        text: "The building warrant process is something I dread, but Sigma handled everything. From the structural engineer coordination to the completion certificate, it was all managed without me having to chase anyone. The shopfront itself is excellent quality.",
-      },
-      {
-        name: 'Agnes Park',
-        business: 'Park Convenience Store',
-        location: 'Shawlands',
-        rating: 4,
-        text: 'Replaced an old roller shutter and the security door at the same time. Both are working well and the new door is much easier to open and close. The team was quick and professional.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do Scottish building regulations apply differently to shopfront installations?',
@@ -652,29 +488,7 @@ Roath and Canton have developed into Cardiff's most vibrant independent retail a
 In Wales, planning policy is set by the Welsh Government through Planning Policy Wales and the associated Technical Advice Notes (TANs), administered through local planning authorities. Cardiff Council has produced supplementary planning guidance on shopfront design that reflects Welsh Government policy. We are familiar with the Welsh planning framework and work within it on every project.
 
 Penarth, Whitchurch, and the wider Vale of Glamorgan area have active neighbourhood commercial centres where we provide the same quality of shopfront installation as in the city centre, tailored to the scale and character of each location.`,
-    testimonials: [
-      {
-        name: 'Rhiannon Davies',
-        business: 'Ty Coffi Coffee House',
-        location: 'Pontcanna',
-        rating: 5,
-        text: "Sigma understood exactly what the street needs — something that feels settled and quality without being over-designed. The new shopfront has doubled the number of compliments we get from customers. The installation team was tidy and considerate.",
-      },
-      {
-        name: 'Gareth Williams',
-        business: "Williams & Son's Ironmongery",
-        location: 'Roath',
-        rating: 4,
-        text: "We've been on Wellfield Road for thirty years and this is the first major shopfront work we've done. Sigma gave us a realistic price, delivered what they promised, and the new roller shutter is a huge improvement on the old one.",
-      },
-      {
-        name: 'Carys Thomas',
-        business: 'Bay View Bistro',
-        location: 'Cardiff Bay',
-        rating: 5,
-        text: 'The automatic door has been brilliant for us — especially in winter when customers arrive wet from the bay walk. The installation was done overnight to avoid disrupting service and everything was perfect by the time we opened the next morning.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you understand the Welsh Government planning framework for shopfronts?',
@@ -726,29 +540,7 @@ Jesmond is Newcastle's prosperous inner suburb, with a strong independent high s
 Gateshead Quays — the southern bank of the Tyne, anchored by the Baltic Centre for Contemporary Art, the Sage Gateshead (now the Glasshouse), and the Millennium Bridge — has attracted a concentration of cultural, hospitality, and creative businesses whose shopfront requirements reflect the prestige of the surrounding architecture. We work across both sides of the Tyne and are familiar with the requirements of both Newcastle City Council and Gateshead Council.
 
 In the wider Tyne and Wear area — Wallsend, Byker, Fenham, and Gosforth — we serve a diverse client base across a wide range of commercial property types, from purpose-built retail parades to converted Victorian terraces.`,
-    testimonials: [
-      {
-        name: 'Charlotte Mason',
-        business: 'Mason & Webb Gallery',
-        location: 'Grainger Town',
-        rating: 5,
-        text: "Getting a shopfront approved in Grainger Town is not straightforward, and we needed an installer who knew that going in. Sigma prepared the design statement, had a productive conversation with the conservation officer, and delivered a shopfront that we're immensely proud of. Worth every penny.",
-      },
-      {
-        name: 'Baz Ferreira',
-        business: 'The Boiler Room Bar',
-        location: 'Ouseburn',
-        rating: 5,
-        text: "We needed a door that could handle 400 people a night and still look good in the morning. Sigma installed a heavy-duty sliding security door with a smart-lock system that's been completely reliable since day one. They know their stuff.",
-      },
-      {
-        name: 'Elaine Thorpe',
-        business: 'Thorpe Florists',
-        location: 'Jesmond',
-        rating: 4,
-        text: 'Quick survey, fair quote, and a clean installation. The new shopfront has refreshed the whole look of the business. Good communication throughout and a tidy finish.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you understand the Grainger Town conservation area requirements?',
@@ -800,29 +592,7 @@ West Bridgford, on the south bank of the Trent, is Nottingham's most affluent su
 Beeston's town centre has benefited from sustained investment and the arrival of the NET (Nottingham Express Transit) tram connection, which has brought Beeston closer to the city centre in journey-time terms. The increased footfall has encouraged shopfront investment, and we have worked on a number of installations in the Beeston retail zone.
 
 Across the wider city — Arnold, Carlton, Bulwell, and Long Eaton — we serve the neighbourhood commercial centres that provide everyday retail for Nottingham's residential communities.`,
-    testimonials: [
-      {
-        name: 'Ben Holloway',
-        business: 'Thread & Needle Clothing',
-        location: 'Hockley',
-        rating: 5,
-        text: "We wanted something bold — deep navy frame with integrated LED reveals — and Sigma made it work. The lead time was as quoted, the installation was efficient, and the finished shopfront is exactly what we had in mind. Loads of people comment on it.",
-      },
-      {
-        name: 'Sandra Booth',
-        business: 'Booth & Partners Architects',
-        location: 'Lace Market',
-        rating: 5,
-        text: "As architects, we're obviously particular about this sort of thing. Sigma's fabrication was precise, the installation was tidy, and the conservation officer feedback on our proposal was positive. We've since recommended them to two clients.",
-      },
-      {
-        name: 'Raj Mehta',
-        business: 'Mehta Pharmacy',
-        location: 'Beeston',
-        rating: 4,
-        text: 'The automatic door was overdue — our elderly patients were struggling with the old one. Installation was clean and quick, and the door has worked without any issues since. Annual service booked.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you work in the Lace Market Conservation Area?',
@@ -874,29 +644,7 @@ Humberstone Gate and the surrounding city-centre streets form the more tradition
 Narborough Road is frequently cited as one of the UK's most diverse single streets, with an extraordinary range of independent businesses from dozens of different cultural communities. The shopfront environment here reflects this diversity: colourful, varied, and individual. We have worked with many businesses along Narborough Road, providing straightforward, practical shopfront installations that deliver value for money and durability.
 
 Oadby, Wigston, and Birstall serve the prosperous southern and eastern suburbs of Leicester with neighbourhood commercial centres that have a different character from the city centre. Here, reliable quality and efficient delivery are what clients value, and our track record in these areas reflects that straightforward brief well.`,
-    testimonials: [
-      {
-        name: 'Sunita Patel',
-        business: 'Patel Jewellers',
-        location: 'Belgrave',
-        rating: 5,
-        text: "Security is the first thing for us. Sigma specified and installed a complete security package — LPS 1175 rated shutters, security door at the rear, and laminated glass throughout — that our insurer was happy with. Professional, knowledgeable, and competitive.",
-      },
-      {
-        name: 'Mohammed Iqbal',
-        business: 'Spice Garden Restaurant',
-        location: 'Narborough Road',
-        rating: 5,
-        text: "We wanted the whole front to open for the summer. Sigma installed a four-panel bi-fold system that gives us a completely open front when it's warm. Works brilliantly and the quality is excellent for the price.",
-      },
-      {
-        name: 'Clare Dixon',
-        business: 'Dixon & Son Opticians',
-        location: 'Oadby',
-        rating: 4,
-        text: 'Good value, no nonsense installation. They arrived when they said they would, did a clean job, and cleared up after themselves. The new aluminium shopfront has smartened up the premises considerably.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you have experience with security-intensive shopfront installations for jewellers and high-value retailers?',
@@ -948,29 +696,7 @@ Stockbridge is Edinburgh's most charming village-within-a-city commercial area. 
 Morningside, Bruntsfield, and Newington serve Edinburgh's prosperous southern suburbs. These are areas of Victorian tenement streets with active neighbourhood commercial strips where investment in a quality shopfront is both a pride of ownership and a sound business decision.
 
 The building warrant requirements in Scotland, as noted in our Glasgow entry, apply equally in Edinburgh. We manage warrant applications, coordinate structural engineering input where needed, and obtain completion certificates as a standard part of our Edinburgh project delivery.`,
-    testimonials: [
-      {
-        name: 'Dr Alistair Murray',
-        business: 'Murray & Finch GP Practice',
-        location: 'Stockbridge',
-        rating: 5,
-        text: "The automatic door was essential for patient access, and getting it approved on a listed building took persistence. Sigma knew exactly how to present the application to satisfy Historic Environment Scotland and we got consent on the first application. The installation is impeccable.",
-      },
-      {
-        name: 'Catriona McLean',
-        business: "McLean's Delicatessen",
-        location: 'Bruntsfield',
-        rating: 5,
-        text: "We'd been trying to get a new shopfront for two years before we found Sigma. They sorted the listed building consent, specified a slimline frame that the conservation officer accepted, and delivered a shopfront that looks like it always belonged to the building. Genuinely delighted.",
-      },
-      {
-        name: 'Tom Rafferty',
-        business: 'Rafferty Vintners',
-        location: 'Leith Walk',
-        rating: 4,
-        text: 'Solid work. The new aluminium front looks much smarter than the old shop and the roller shutter is much quieter than the previous one. Building warrant was handled by Sigma and came through without any problems.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'How does UNESCO World Heritage Site status affect shopfront planning in Edinburgh?',
@@ -1024,29 +750,7 @@ Shirley is Southampton's busiest suburban retail centre and serves as the commer
 Ocean Village — the marina and leisure development on the eastern waterfront — houses hospitality and retail businesses in a managed waterfront environment. The marine exposure requires careful attention to corrosion protection: we specify marine-grade aluminium alloys, stainless steel fixings, and powder-coat finishes with enhanced adhesion primers for all work in this location.
 
 Eastleigh, Hedge End, and Totton are the key satellite commercial centres in the Southampton travel-to-work area, each serving their own distinct community and commercial base. We cover all of these areas as standard within our Southampton and Hampshire service zone.`,
-    testimonials: [
-      {
-        name: 'Mike Denning',
-        business: "Denning's Kitchen & Bar",
-        location: 'Bedford Place',
-        rating: 5,
-        text: "The bi-fold doors have transformed the front of the restaurant. On a warm evening we can open the whole street frontage and it completely changes the atmosphere. Sigma delivered on time and on budget — which doesn't always happen in the hospitality fit-out world.",
-      },
-      {
-        name: 'Yasmin Shah',
-        business: 'Shah Bridal & Occasion',
-        location: 'Shirley',
-        rating: 5,
-        text: "Bridal retail is very visual, and the shopfront is the first impression. Sigma installed a wide-pane glazed front with LED reveal lighting that makes our displays look incredible at night. Very professional from start to finish.",
-      },
-      {
-        name: 'Robert Chalcott',
-        business: 'Chalcott Marine Services',
-        location: 'Ocean Village',
-        rating: 4,
-        text: 'Sigma understood the corrosion issue without being prompted — they specified stainless fixings and a marine-grade finish as standard. Two years later and everything still looks as good as the day it was installed.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the Isle of Wight from your Southampton base?',
@@ -1098,29 +802,7 @@ Kemptown's commercial strip along St George's Road and the surrounding streets s
 Hove's Church Road and the surrounding shopping streets have a quieter, more residential character than central Brighton. The Edwardian and inter-war commercial buildings along Church Road create a modest, well-mannered commercial environment where quality and durability are the primary considerations. We have completed numerous installations in Hove for long-established independent businesses investing in their premises for the long term.
 
 Brighton's coastal exposure is a significant factor in shopfront specification. Salt-laden air accelerates corrosion of exposed steel elements, and any aluminium frame within a kilometre of the seafront should be specified with enhanced corrosion protection. We routinely apply this to all Brighton installations.`,
-    testimonials: [
-      {
-        name: 'Hugo Brand',
-        business: 'Brand Vintage & Collectables',
-        location: 'North Laine',
-        rating: 5,
-        text: "We wanted something that stood out — a deep teal frame with wide display panes and an oversized door handle. Sigma fabricated exactly what we sketched out and the conservation officer was fine with it. It's become a bit of a local landmark, which is exactly what we wanted.",
-      },
-      {
-        name: 'Angie Morrow',
-        business: 'Morrow Jewellery',
-        location: 'The Lanes',
-        rating: 5,
-        text: "Installing in The Lanes is not straightforward, and several companies didn't want to take it on. Sigma engaged with the conservation officer early, adjusted the design based on the feedback, and we got consent without an appeal. The shopfront is beautiful and exactly right for the building.",
-      },
-      {
-        name: 'Paul Driscoll',
-        business: 'Driscoll & Co. Estate Agents',
-        location: 'Hove',
-        rating: 4,
-        text: "Good quality aluminium shopfront, installed without any fuss. The marine corrosion protection was mentioned proactively — Sigma specified stainless fixings and the right primer without us asking. That kind of professionalism is what you want.",
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: `How strict is the planning guidance for shopfronts in Brighton\'s conservation areas?`,
@@ -1169,22 +851,7 @@ Coventry's City of Culture legacy has accelerated investment in the public realm
 The Foleshill Road corridor north of the city centre is one of the most vibrant and diverse commercial streets in the West Midlands, with a dense concentration of independent retail, food, and service businesses. Shopfront work here is steady and varied, ranging from new aluminium installations to roller shutter replacements and emergency glazing repairs.
 
 We operate across the full Coventry area, including Earlsdon, Tile Hill, Canley, Cheylesmore, Stoke, and the surrounding towns of Bedworth, Nuneaton, and Rugby. Our West Midlands teams are well placed to provide rapid response across the CV postcode area.`,
-    testimonials: [
-      {
-        name: 'Raj Patel',
-        business: 'Patel Convenience',
-        location: 'Foleshill Road',
-        rating: 5,
-        text: 'Sigma replaced our old shopfront and fitted a new roller shutter in a single day. The team arrived on time, worked cleanly, and the finish is excellent. Very competitive price compared to other quotes we received.',
-      },
-      {
-        name: 'Claire Dunn',
-        business: 'Earlsdon Dental Practice',
-        location: 'Earlsdon',
-        rating: 5,
-        text: 'We needed a new automatic entrance door for DDA compliance. Sigma surveyed quickly, provided a clear quote, and installed within the week. The door works perfectly and the patients have noticed the improvement.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Coventry area including Bedworth and Nuneaton?',
@@ -1227,22 +894,7 @@ Sigma Shop Fronts works across Reading and the wider Berkshire area, providing a
 Broad Street and the surrounding city-centre streets house a mix of national retailers and independent businesses. The varied building stock — from Victorian commercial premises to post-war reconstruction and modern development — creates diverse shopfront requirements that we address with appropriately specified aluminium systems, thermally broken profiles, and security solutions tailored to each property.
 
 Caversham and Tilehurst serve their communities with neighbourhood retail strips where independent businesses value reliable, quality shopfront installation at competitive prices. We have completed numerous installations across these areas, building long-term relationships with local business owners who return for maintenance, repairs, and additional services as their premises evolve.`,
-    testimonials: [
-      {
-        name: 'David Hargreaves',
-        business: 'Hargreaves Pharmacy',
-        location: 'Caversham',
-        rating: 5,
-        text: 'Sigma replaced our old shopfront and fitted an automatic door in a single visit. The team was efficient, tidy, and the finish is excellent. Our elderly customers have particularly noticed the improvement.',
-      },
-      {
-        name: 'Nina Kowalczyk',
-        business: 'Kowalczyk Bakery',
-        location: 'Reading Town Centre',
-        rating: 5,
-        text: 'We needed a new aluminium shopfront with wide display windows for our pastry counter. Sigma delivered exactly what we wanted, on time and within budget. The quality of the glazing is superb.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Berkshire area?',
@@ -1285,22 +937,7 @@ Sigma Shop Fronts operates across Wolverhampton and the wider Black Country area
 Bilston, Wednesfield, and Willenhall each have active high streets serving their local communities. These neighbourhood commercial centres are the backbone of the Black Country's retail economy, and a quality shopfront installation here represents a meaningful investment in the long-term appearance and security of the premises.
 
 Tettenhall and Penn serve the more affluent western suburbs with independent retail strips where businesses value quality workmanship and attention to detail. We have built strong relationships with business owners across these areas, returning for maintenance and additional services as their needs evolve.`,
-    testimonials: [
-      {
-        name: 'Steve Cartwright',
-        business: 'Cartwright Motor Spares',
-        location: 'Bilston',
-        rating: 5,
-        text: 'Sigma fitted a new roller shutter and security door at our trade counter. Both are heavy-duty and built to last. The team was professional and the price was very competitive.',
-      },
-      {
-        name: 'Amara Okafor',
-        business: 'Okafor Hair Studio',
-        location: 'Wolverhampton City Centre',
-        rating: 5,
-        text: 'The new aluminium shopfront has completely transformed the look of our salon. Sigma understood what we wanted and delivered a beautiful finish. Highly recommended.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Black Country area?',
@@ -1343,22 +980,7 @@ Sigma Shop Fronts works across Derby and the wider Derbyshire area, providing th
 Normanton Road is one of Derby's most diverse and vibrant commercial streets, with a concentration of independent retail, food, and service businesses serving a multicultural community. Shopfront work here is varied and steady, ranging from new aluminium installations to roller shutter replacements and emergency repairs.
 
 The suburban commercial centres of Allestree, Mickleover, and Chellaston serve their residential communities with neighbourhood retail that values reliability and quality. We provide the same standard of shopfront installation across all of these areas, tailored to the scale and character of each location.`,
-    testimonials: [
-      {
-        name: 'Mark Jenkinson',
-        business: 'Jenkinson & Co. Estate Agents',
-        location: 'Cathedral Quarter',
-        rating: 5,
-        text: 'Sigma installed a new aluminium shopfront with integrated signage zone that looks perfect for the building. The conservation officer was satisfied first time, which saved us weeks on the programme.',
-      },
-      {
-        name: 'Fatima Ali',
-        business: 'Ali Food Store',
-        location: 'Normanton',
-        rating: 5,
-        text: 'Good price, quick installation, and the new roller shutter works smoothly every time. Sigma also fitted a security door at the back which has given us much better peace of mind.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Derbyshire area?',
@@ -1401,22 +1023,7 @@ Sigma Shop Fronts operates across Northampton and the wider Northamptonshire are
 Wellingborough Road is one of Northampton's most characterful commercial streets, with a concentration of independent cafes, restaurants, and specialist retailers. The varied building stock along this corridor creates interesting shopfront requirements that we address with appropriately specified solutions.
 
 Kingsthorpe, Weston Favell, and Duston serve their suburban communities with active neighbourhood retail centres. We provide reliable, quality shopfront installation across all of these areas, building long-term relationships with local business owners.`,
-    testimonials: [
-      {
-        name: 'Paul Atkinson',
-        business: 'Atkinson Hardware',
-        location: 'Kingsthorpe',
-        rating: 5,
-        text: 'Sigma replaced our ageing shopfront with a smart new aluminium system and fitted a roller shutter at the same time. Clean work, competitive price, and they turned up exactly when they said they would.',
-      },
-      {
-        name: 'Sana Begum',
-        business: 'Sana Beauty Lounge',
-        location: 'Wellingborough Road',
-        rating: 5,
-        text: 'The new shopfront has given our salon a completely fresh look. Sigma was easy to deal with and the quality of the installation is excellent. We have had lots of compliments from clients.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Northamptonshire area?',
@@ -1459,22 +1066,7 @@ Sigma Shop Fronts works across Luton and the wider Bedfordshire area, providing 
 Bury Park is one of Luton's most vibrant commercial areas, with a dense concentration of independent retail, food, and textile businesses. Shopfront requirements here are varied and often include wide display windows, integrated lighting, and robust security systems. We have completed numerous installations across this area, working with business owners who value quality and competitive pricing.
 
 Dunstable, Houghton Regis, and the surrounding towns extend our Bedfordshire coverage to the wider area. We provide the same quality of installation and service across all of these locations, with locally based teams who respond quickly to enquiries and callouts.`,
-    testimonials: [
-      {
-        name: 'Tariq Mohammed',
-        business: 'Mohammed Textiles',
-        location: 'Bury Park',
-        rating: 5,
-        text: 'Sigma installed a new aluminium shopfront with wide display windows that really showcase our fabrics. The security shutter gives us peace of mind at night. Excellent service from start to finish.',
-      },
-      {
-        name: 'Karen Bishop',
-        business: 'Bishop Dental Practice',
-        location: 'Dunstable',
-        rating: 5,
-        text: 'We needed an automatic door for accessibility and Sigma delivered exactly what we required. Professional survey, clear quote, and a tidy installation completed in a single day.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Bedfordshire area?',
@@ -1517,22 +1109,7 @@ Sigma Shop Fronts operates across Swindon and the wider Wiltshire area, providin
 Old Town's Wood Street and the surrounding streets house a concentration of independent businesses in buildings with genuine architectural character. Shopfront installations here need to respect the heritage context while delivering modern performance standards for thermal efficiency and security.
 
 The satellite towns of Royal Wootton Bassett, Highworth, and Cricklade each have active high streets where we provide the same quality of shopfront installation as in the town centre, scaled appropriately to the character and requirements of each location.`,
-    testimonials: [
-      {
-        name: 'Graham Perkins',
-        business: 'Perkins & Sons Butchers',
-        location: 'Old Town',
-        rating: 5,
-        text: 'We wanted a traditional-looking shopfront that matched the Old Town character but with modern thermal performance. Sigma specified exactly the right system and the installation was first class.',
-      },
-      {
-        name: 'Lisa Chen',
-        business: 'Chen Noodle Bar',
-        location: 'Swindon Town Centre',
-        rating: 5,
-        text: 'The new shopfront and automatic door have made a huge difference to our restaurant. Sigma was professional, on time, and the price was very fair for the quality delivered.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Wiltshire area?',
@@ -1575,22 +1152,7 @@ Sigma Shop Fronts works across Stoke-on-Trent and the wider Staffordshire area, 
 Burslem, often called the Mother Town of the Potteries, has a particularly strong architectural identity with its Victorian commercial buildings and the ongoing regeneration efforts around the town centre. Shopfront installations here benefit from an understanding of the conservation context and the community's pride in its heritage.
 
 Newcastle-under-Lyme, while technically a separate borough, is closely linked to Stoke-on-Trent commercially and we cover both areas comprehensively. The town centre's independent retail offer and its distinct Georgian and Victorian character create shopfront requirements that differ from the Stoke city centre environment.`,
-    testimonials: [
-      {
-        name: 'Dave Corbishley',
-        business: 'Corbishley Ceramics',
-        location: 'Burslem',
-        rating: 5,
-        text: 'Sigma understood the heritage context of our building and specified a shopfront that the conservation officer approved without any changes. The installation was professional and the finish is outstanding.',
-      },
-      {
-        name: 'Julie Hancock',
-        business: 'Hancock Fish Bar',
-        location: 'Longton',
-        rating: 5,
-        text: 'New shopfront and roller shutter fitted in a day. The team arrived on time, worked efficiently, and left the site spotless. The price was the most competitive we received.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover Newcastle-under-Lyme and the wider Staffordshire area?',
@@ -1635,22 +1197,7 @@ The Barbican is Plymouth's most historic commercial quarter, with the harbour-si
 Plymouth's coastal location is a significant factor in shopfront specification. The marine environment accelerates corrosion, and all our Plymouth installations use marine-grade aluminium alloys, stainless steel fixings, and powder-coat finishes with enhanced corrosion protection as standard.
 
 Mutley Plain, Plympton, and Plymstock serve their communities with active neighbourhood retail strips. We provide the same quality of installation across all of these areas, with specifications adapted for the coastal climate that affects the entire Plymouth area.`,
-    testimonials: [
-      {
-        name: 'Tom Westlake',
-        business: 'Westlake Gallery',
-        location: 'Barbican',
-        rating: 5,
-        text: 'Getting a shopfront approved in the Barbican conservation area required a careful approach. Sigma knew the requirements and delivered a shopfront that the planning officer praised. The marine-grade specification means it should last well in this exposed location.',
-      },
-      {
-        name: 'Sarah Penrose',
-        business: 'Penrose Cafe',
-        location: 'Mutley Plain',
-        rating: 5,
-        text: 'The new bi-fold shopfront has been brilliant for summer trade. Sigma specified the marine corrosion protection without us having to ask, which shows they know the area. Professional service throughout.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover the wider Devon and Cornwall area?',
@@ -1697,29 +1244,7 @@ Saltaire, the UNESCO World Heritage Site on the northern edge of Bradford, prese
 Shipley, Bingley, and Keighley each have active town centres with independent retail communities that benefit from quality shopfront installation. These are market towns with genuine commercial character, and a well-specified shopfront makes a tangible difference to how a business is perceived by its community.
 
 Across the wider Bradford district — Idle, Thornton, Queensbury, and Great Horton — we serve the neighbourhood commercial centres that provide everyday retail and services for Bradford's residential communities.`,
-    testimonials: [
-      {
-        name: 'Imran Malik',
-        business: 'Malik Textiles',
-        location: 'Manningham',
-        rating: 5,
-        text: 'Sigma installed a wide-pane aluminium shopfront with integrated LED lighting and a security shutter. The display looks fantastic and the shutter gives us peace of mind. Very professional service from survey to completion.',
-      },
-      {
-        name: 'Helen Bradshaw',
-        business: 'Bradshaw & Co. Solicitors',
-        location: 'Shipley',
-        rating: 5,
-        text: 'We needed a new shopfront that respected the character of our Victorian building while improving thermal performance. Sigma specified a thermally broken system in a heritage colour that looks exactly right. The office is noticeably warmer too.',
-      },
-      {
-        name: 'Asif Khan',
-        business: 'Khan Jewellers',
-        location: 'Bradford City Centre',
-        rating: 4,
-        text: 'Good quality LPS-rated shutter and laminated glass throughout. Our insurer was happy with the documentation and the installation was completed on time. Competitive price compared to the other quotes we received.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you have experience with shopfronts in Bradford conservation areas?',
@@ -1771,29 +1296,7 @@ Uplands and Mumbles are Swansea's most characterful independent retail areas. Up
 In Wales, planning policy is set by the Welsh Government through Planning Policy Wales and the associated Technical Advice Notes, administered through local planning authorities. Swansea Council has its own supplementary planning guidance on shopfront design, and we are familiar with both the Welsh Government framework and the local authority requirements. Where planning or listed building consent is required, we prepare the relevant applications and liaise with Swansea Council planning officers throughout the process.
 
 Morriston, Gorseinon, and Llansamlet serve their communities with active neighbourhood commercial centres. Neath and Port Talbot, while separate local authority areas, fall within our south Wales service zone and we cover both comprehensively.`,
-    testimonials: [
-      {
-        name: 'Owain Rees',
-        business: 'Rees & Davies Opticians',
-        location: 'Uplands',
-        rating: 5,
-        text: 'Sigma installed a new thermally broken aluminium shopfront with an automatic door for accessibility. The improvement to both the appearance of the practice and the comfort inside has been significant. Professional service from start to finish.',
-      },
-      {
-        name: 'Catrin Morgan',
-        business: 'The Mumbles Kitchen',
-        location: 'Mumbles',
-        rating: 5,
-        text: 'The bi-fold doors have transformed the restaurant front. On a summer evening with the Gower light coming in, the whole atmosphere changes. Sigma specified marine-grade everything without being asked, which tells you they know coastal work.',
-      },
-      {
-        name: 'Darren Howell',
-        business: 'Howell Hardware & DIY',
-        location: 'Morriston',
-        rating: 4,
-        text: 'Straightforward installation — new aluminium shopfront and roller shutter, done in a day. Good communication, fair price, and a clean finish. Would use again.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you understand the Welsh planning framework for shopfronts in Swansea?',
@@ -1842,29 +1345,7 @@ Cowley Road is Oxford's most diverse and energetic independent retail street, ru
 Summertown and Headington serve as Oxford's principal suburban high streets, each with its own character. Summertown has a prosperous village feel with independent retailers alongside national chains, while Headington's London Road corridor mixes retail with the hospitality and service businesses that support the nearby John Radcliffe Hospital and Oxford Brookes University. Both locations have active neighbourhood plans that influence shopfront design decisions, and we consult these documents as part of our survey process.
 
 In the wider Oxfordshire market towns — Abingdon, Witney, Bicester, and Banbury — we install shopfronts in traditional town centre settings where the building scale is smaller and the planning context is typically managed by South Oxfordshire, West Oxfordshire, or Cherwell District Councils. Each has its own supplementary planning guidance on shopfront design, and we navigate these local variations as a matter of routine.`,
-    testimonials: [
-      {
-        name: 'Dr. Helen Cartwright',
-        business: 'Cartwright & Lane Antiquarian Books',
-        location: 'Jericho',
-        rating: 5,
-        text: 'Our Jericho premises is in a conservation area and we needed a shopfront that looked right alongside the Victorian terraces. Sigma sourced slim aluminium profiles and a heritage colour finish that the planning officer approved without amendment. The craftsmanship is excellent.',
-      },
-      {
-        name: 'Kemal Yildiz',
-        business: 'Anatolia Kitchen',
-        location: 'Cowley Road',
-        rating: 5,
-        text: 'We wanted bi-fold doors to open the restaurant onto Cowley Road in summer. Sigma handled the planning application and installation seamlessly. The whole front opens up now and the footfall increase has been noticeable from day one.',
-      },
-      {
-        name: 'Sarah Nguyen',
-        business: 'Summertown Pharmacy',
-        location: 'Summertown',
-        rating: 4,
-        text: 'Professional job replacing our old timber shopfront with a modern aluminium system. They matched the proportions of the existing frontage to satisfy the neighbourhood plan guidance. Completed on schedule and left the site clean.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you work on shopfronts in Oxford\'s conservation areas?',
@@ -1913,29 +1394,7 @@ Mill Road is Cambridge's equivalent of Oxford's Cowley Road — a long, diverse 
 The Cambridge science park, business park, and biomedical campus environments present very different requirements. These are modern commercial developments where the shopfront and entrance specifications are driven by the building's design code, fire strategy, and DDA requirements rather than conservation considerations. We are equally comfortable working to developer specifications and coordinating with principal contractors on phased handover programmes.
 
 Beyond the city, we cover the wider Cambridgeshire area including Ely, Huntingdon, St Neots, and the growing towns along the A14 corridor. Each has its own planning authority — East Cambridgeshire, Huntingdonshire, South Cambridgeshire — and we navigate the relevant local plan policies and design guidance for each area.`,
-    testimonials: [
-      {
-        name: 'Fiona MacLeod',
-        business: 'Riverside Cycle Workshop',
-        location: 'Mill Road',
-        rating: 5,
-        text: 'Sigma replaced our tired old shopfront with a clean aluminium system that matches the character of Mill Road. They dealt with the conservation area application themselves and had it approved within six weeks. Very smooth process.',
-      },
-      {
-        name: 'Tom Bradley',
-        business: 'Bradley\'s Wine Bar',
-        location: 'Cambridge City Centre',
-        rating: 5,
-        text: 'Getting a bi-fold frontage approved in the city centre was not straightforward, but Sigma\'s design statement addressed every concern the conservation officer raised. The finished installation is stunning and the system operates perfectly.',
-      },
-      {
-        name: 'Ravi Patel',
-        business: 'CamTech Print & Copy',
-        location: 'Chesterton',
-        rating: 4,
-        text: 'New aluminium shopfront and roller shutter fitted over a weekend. Clean installation, everything works as it should. Competitive quote and no hidden extras. Happy with the result.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you handle conservation area applications in Cambridge?',
@@ -1984,29 +1443,7 @@ Coney Street and Parliament Street form the main commercial spine of modern York
 Bishopthorpe Road — known locally as Bishy Road — has established itself as one of the country's most celebrated independent retail streets, winning the Great British High Street of the Year award. The street has a strong community identity and the shopfront aesthetic is carefully maintained. Installations here need to complement the neighbourhood's character, and we approach Bishy Road projects with that understanding.
 
 Acomb, Clifton, and Haxby serve as York's main suburban commercial areas, each with active high streets that support their local communities. In the wider North Yorkshire area, we cover Selby, Tadcaster, Malton, and the market towns of the Vale of York. The rural market town context brings its own planning considerations — often National Park or AONB visibility — and we factor these into our design and specification process.`,
-    testimonials: [
-      {
-        name: 'Catherine Booth',
-        business: 'Booth & Daughter Confectionery',
-        location: 'The Shambles',
-        rating: 5,
-        text: 'Working on a listed building in The Shambles is not something every company can handle. Sigma specified heritage-profile aluminium that the conservation officer approved, and the finished front looks as though it has always been there. Outstanding work.',
-      },
-      {
-        name: 'Ali Hussain',
-        business: 'York Spice Emporium',
-        location: 'Bishopthorpe Road',
-        rating: 5,
-        text: 'Sigma understood exactly what Bishy Road is about. The new shopfront fits the character of the street perfectly and the automatic door has made a real difference for accessibility. Very pleased with the whole experience.',
-      },
-      {
-        name: 'Martin Greaves',
-        business: 'Greaves Electrical Supplies',
-        location: 'Acomb',
-        rating: 4,
-        text: 'Solid installation of a new roller shutter and security door. Sigma came out, surveyed, quoted, and fitted within two weeks. No fuss, no problems. The shutter operates smoothly and quietly.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you install shopfronts on listed buildings in York?',
@@ -2055,29 +1492,7 @@ Walcot Street is Bath's artisan and independent retail quarter, with a more rela
 Southgate is Bath's modern retail quarter, a contemporary development that replaced the 1960s Southgate Centre. The retail units here have a completely different specification from the Georgian city — modern aluminium curtain wall, full-height glazing, and entrance systems designed for high-footfall national retailers. We are comfortable with both the heritage and contemporary ends of Bath's commercial property spectrum.
 
 Beyond the city centre, Moorland Road and Oldfield Park serve Bath's student and residential communities with active neighbourhood high streets. Keynsham and Midsomer Norton, while outside the World Heritage Site boundary, fall within Bath and North East Somerset Council's planning jurisdiction and have their own conservation area designations in their town centres. We cover all of these areas and understand the planning context for each.`,
-    testimonials: [
-      {
-        name: 'Victoria Hargreaves',
-        business: 'The Bath Candle Company',
-        location: 'Walcot Street',
-        rating: 5,
-        text: 'Sigma designed a shopfront that feels perfectly at home on Walcot Street. The heritage green finish on the aluminium frames looks like it has been there for years. The whole process — from listed building consent to final installation — was handled brilliantly.',
-      },
-      {
-        name: 'Jonathan Spicer',
-        business: 'Spicer & Hart Gallery',
-        location: 'Milsom Street',
-        rating: 5,
-        text: 'Working within the World Heritage Site requires a company that truly understands conservation. Sigma\'s design statement was approved without amendment and the finished shopfront is beautiful. The slim profiles maximise the glazing area without compromising the Georgian proportions.',
-      },
-      {
-        name: 'Magda Kowalski',
-        business: 'Moorland Road Deli',
-        location: 'Moorland Road',
-        rating: 4,
-        text: 'Simple but well-executed aluminium shopfront replacement. Sigma were the only company that mentioned the conservation area requirements unprompted, which gave me confidence they knew what they were doing. Clean finish, fair price.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'How does the World Heritage Site status affect shopfront work in Bath?',
@@ -2126,29 +1541,7 @@ George Street and Rosemount run parallel to Union Street and serve as important 
 Aberdeen's climate is a genuine factor in shopfront specification. The combination of North Sea wind, salt air, driving rain, and cold temperatures demands materials and finishes that are built to withstand sustained exposure. We specify marine-grade alloy sections, 316 stainless steel fixings, and high-performance powder coatings on all Aberdeen installations as standard. Thermal performance is also critical — thermally broken aluminium frames are essential in a city where winter heating costs for ground-floor retail premises can be substantial.
 
 Dyce, Westhill, and Bridge of Don serve the energy sector's commercial infrastructure and have active retail centres. Stonehaven, to the south, is a handsome coastal town with a conservation area town centre that requires the same design sensitivity as Aberdeen's historic core. We cover all of Aberdeenshire and understand the Scottish planning framework, including the additional requirements that apply under Scottish planning legislation and Aberdeen City Council's local development plan.`,
-    testimonials: [
-      {
-        name: 'Iain Sutherland',
-        business: 'Sutherland Fine Spirits',
-        location: 'Union Street',
-        rating: 5,
-        text: 'The granite buildings on Union Street demand a shopfront that does them justice. Sigma installed a heritage-profile aluminium system in a dark bronze finish that looks exceptional against the grey granite. The conservation area application went through without issues.',
-      },
-      {
-        name: 'Kirsty MacPherson',
-        business: 'Rosemount Coffee Roasters',
-        location: 'Rosemount',
-        rating: 5,
-        text: 'Sigma fitted our new shopfront and automatic door in a single weekend so we only lost one trading day. The thermal performance improvement has been noticeable — the shop holds its heat much better now, which matters in Aberdeen winters.',
-      },
-      {
-        name: 'Derek Milne',
-        business: 'Bridge of Don Auto Spares',
-        location: 'Bridge of Don',
-        rating: 4,
-        text: 'New roller shutter and security door fitted promptly. Marine-grade specification throughout, which is essential this close to the coast. Good communication and fair pricing.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'What weather protection do you specify for shopfronts in Aberdeen?',
@@ -2197,29 +1590,7 @@ Lisburn Road is Belfast's most established independent retail corridor, running 
 Northern Ireland operates under its own planning legislation — the Planning Act (Northern Ireland) 2011 — and the planning system is administered by the local councils rather than a centralised authority. Belfast City Council's local development plan includes policies on shopfront design, conservation area management, and the protection of listed buildings. The city has extensive conservation area coverage, particularly in the Linen Quarter, Cathedral Quarter, and along parts of the Dublin Road corridor. We understand these regulatory requirements and prepare applications that comply with the Northern Ireland framework.
 
 Security has historically been an important consideration for Belfast's commercial premises, and roller shutters and security doors remain a significant part of our Belfast workload. We install LPS 1175-rated security systems, electrically operated shutters, and access-controlled entrance systems across the city. Beyond Belfast, we cover Lisburn, Bangor, Newtownards, and the wider Greater Belfast area comprehensively.`,
-    testimonials: [
-      {
-        name: 'Ciaran O\'Donnell',
-        business: 'The Linen Quarter Barber',
-        location: 'Belfast City Centre',
-        rating: 5,
-        text: 'Sigma fitted a new aluminium shopfront with an automatic sliding door that has completely modernised the entrance to our premises. The Linen Quarter conservation area approval was handled efficiently and the installation was completed over a single weekend.',
-      },
-      {
-        name: 'Emma Kirkpatrick',
-        business: 'Kirkpatrick Interiors',
-        location: 'Lisburn Road',
-        rating: 5,
-        text: 'The full-height glazed shopfront that Sigma installed has transformed our showroom. The slim aluminium profiles give us maximum display area, and the thermal performance is noticeably better than the old system. Highly recommended.',
-      },
-      {
-        name: 'Paul McVeigh',
-        business: 'McVeigh Hardware & Trade',
-        location: 'East Belfast',
-        rating: 4,
-        text: 'New roller shutter and security door fitted on time and on budget. The electric shutter is smooth and quiet, and the security door meets our insurance requirements. Straightforward company to deal with.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you understand Northern Ireland planning legislation for shopfronts?',
@@ -2268,29 +1639,7 @@ The grid squares beyond CMK each have their own local centre with retail and ser
 However, Milton Keynes is not all modernist grid planning. The historic towns that predated the new city — Bletchley, Stony Stratford, Wolverton, and Newport Pagnell — have traditional high streets with conservation areas, listed buildings, and the same heritage sensitivities as any English market town. Stony Stratford's High Street, in particular, is a handsome Georgian and Victorian streetscape where shopfront proposals must be carefully designed to complement the historic character. We approach these installations with the same conservation expertise we bring to Bath or York.
 
 Milton Keynes Council administers planning across the entire borough, and the local plan includes policies on shopfront design that cover both the modern and historic areas. We are familiar with the full range of planning requirements across the city and we advise businesses on what consents are needed before commencing any work.`,
-    testimonials: [
-      {
-        name: 'Daniel Foster',
-        business: 'Foster & Grey Menswear',
-        location: 'Stony Stratford',
-        rating: 5,
-        text: 'Stony Stratford has strict conservation requirements, and Sigma handled everything from the planning application to the final installation. The heritage-finish aluminium frames look elegant against the Georgian facade. Could not be happier with the result.',
-      },
-      {
-        name: 'Anita Sharma',
-        business: 'Sunrise Tandoori',
-        location: 'Bletchley',
-        rating: 5,
-        text: 'Sigma replaced our entire shopfront including a new automatic door and illuminated fascia sign. The transformation is dramatic — the restaurant looks completely different from the street. The whole job was completed in three days.',
-      },
-      {
-        name: 'Mark Collins',
-        business: 'CMK Business Supplies',
-        location: 'Central Milton Keynes',
-        rating: 4,
-        text: 'Professional installation of a new aluminium shopfront to replace the original 1980s system. The thermal improvement alone has justified the cost. Clean work, minimal disruption, completed on schedule.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you work within the Centre:mk shopping centre and Central Milton Keynes?',
@@ -2339,29 +1688,7 @@ Borough Road and the streets around the railway station contain Middlesbrough's 
 Middlesbrough Council has invested significantly in town centre improvements, and the planning authority is supportive of shopfront upgrades that improve the streetscape. Where premises fall within or adjacent to the Historic Quarter Conservation Area, proposals need to demonstrate sensitivity to the character of the area, but the approach is generally collaborative rather than restrictive. We work with the council's planning and design guidance and prepare applications where formal consent is required.
 
 Across the wider Teesside area, we serve Stockton-on-Tees — where the historic High Street is undergoing major regeneration — Redcar, where the coastal location demands marine-grade specifications, and Guisborough, a traditional market town at the edge of the North York Moors. Each location has its own planning authority and local plan, and we navigate these as part of our service. Security is an important consideration for many Teesside businesses, and roller shutters and security doors form a substantial part of our workload in this area.`,
-    testimonials: [
-      {
-        name: 'Karen Thornton',
-        business: 'Thornton\'s Bridal Boutique',
-        location: 'Linthorpe Road',
-        rating: 5,
-        text: 'Sigma installed a beautiful full-height glazed shopfront that has completely transformed the look of our boutique. The slim aluminium frames let in so much light and the window display area is much larger. Customers have commented on the improvement from day one.',
-      },
-      {
-        name: 'James Okonkwo',
-        business: 'Okonkwo Barber Studio',
-        location: 'Borough Road',
-        rating: 5,
-        text: 'New shopfront, automatic door, and illuminated fascia — all done in two days without any problems. The quality of the finish is excellent and the shop looks completely different. Great value for money.',
-      },
-      {
-        name: 'Dave Robson',
-        business: 'Robson Security Supplies',
-        location: 'Stockton-on-Tees',
-        rating: 4,
-        text: 'Sigma fitted a roller shutter and security door to our trade counter. Solid specification, clean installation, and proper documentation for our insurance company. Will use them again when we fit out the other unit.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you cover Stockton-on-Tees, Redcar, and the wider Teesside area?',
@@ -2410,29 +1737,7 @@ Westbourne is Bournemouth's most desirable independent retail village, with a co
 Charminster, Winton, and Southbourne serve their local communities with active high streets. These suburban corridors contain building stock from across the twentieth century, and the shopfront requirements are practical — aluminium replacements, roller shutters for security, automatic doors for accessibility — rather than heritage-driven.
 
 The coastal location is a genuine factor in our specification approach. Bournemouth's position on the English Channel means that salt air corrosion is a consideration for any metalwork, and we specify marine-grade aluminium and stainless steel fixings as standard across the area. Poole, Christchurch, and the wider BH postcode area all fall within our service zone, and we have established working relationships with the BCP Council planning team.`,
-    testimonials: [
-      {
-        name: 'Lucy Dawson',
-        business: 'Dawson & Co. Hair Studio',
-        location: 'Westbourne',
-        rating: 5,
-        text: 'Sigma installed a gorgeous new shopfront with bi-fold doors that open onto the Westbourne street. The marine-grade specification was included without us needing to ask, which shows they understand coastal work. Beautiful finish.',
-      },
-      {
-        name: 'Chris Taylor',
-        business: 'Boscombe Vintage Market',
-        location: 'Boscombe',
-        rating: 5,
-        text: 'As part of the high street regeneration, we needed a new shopfront that looked distinctive. Sigma designed something that stands out on the parade and the installation was done over a weekend. Excellent service from start to finish.',
-      },
-      {
-        name: 'Trevor Hughes',
-        business: 'Hughes & Son Fishmongers',
-        location: 'Christchurch',
-        rating: 4,
-        text: 'New aluminium shopfront and roller shutter replacing an old steel system that was corroding badly. The new installation is marine-grade throughout and should last properly. Fair price for quality work.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you specify marine-grade materials for Bournemouth installations?',
@@ -2481,29 +1786,7 @@ Gunwharf Quays, the designer outlet and leisure development on the former naval 
 Southsea is the most characterful part of Portsmouth for commercial property. Palmerston Road and Albert Road have distinct identities — Palmerston Road as a suburban shopping street with a mix of independents and chains, Albert Road as a vibrant independent and creative retail corridor. Parts of Southsea fall within conservation areas, and the Victorian and Edwardian building stock along these streets requires shopfront treatments that are sympathetic to the period character. Old Portsmouth, around the cathedral and the harbour entrance, is the most heritage-sensitive area, with listed buildings and a tightly drawn conservation area.
 
 North End, Cosham, and Fratton serve as Portsmouth's principal suburban shopping streets. These are practical, busy commercial corridors where shopfront requirements are driven by functionality, security, and cost rather than heritage considerations. Havant and the wider south-east Hampshire area fall within our service zone and are covered by Hampshire County Council's highways authority and separate district council planning functions. Marine-grade specification — including 316 stainless steel fixings and enhanced corrosion-resistant coatings — is standard on all our Portsmouth installations.`,
-    testimonials: [
-      {
-        name: 'Stuart Marsh',
-        business: 'Marsh Marine Chandlery',
-        location: 'Old Portsmouth',
-        rating: 5,
-        text: 'Sigma installed a new shopfront on our chandlery in Old Portsmouth with full marine-grade specification. They handled the conservation area planning application and the result is a shopfront that looks right in the historic setting while performing properly in the coastal environment.',
-      },
-      {
-        name: 'Naomi Clarke',
-        business: 'Albert Road Art Gallery',
-        location: 'Southsea',
-        rating: 5,
-        text: 'The new full-height glazed shopfront has transformed the gallery\'s street presence. Sigma specified slim aluminium profiles that maximise the display area, and the quality of the powder-coat finish is excellent. We have had so many positive comments from customers.',
-      },
-      {
-        name: 'Paul Robinson',
-        business: 'Robinson\'s Off-Licence',
-        location: 'North End',
-        rating: 4,
-        text: 'New roller shutter and replacement shopfront glazing. Quick, clean installation with no fuss. The shutter is solid and the electric operation is smooth. Good value.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you use marine-grade specifications for all Portsmouth installations?',
@@ -2552,29 +1835,7 @@ Tombland, at the gates of the cathedral, and the surrounding streets contain som
 Magdalen Street and St Benedicts Street are important secondary retail corridors with their own distinctive characters. Magdalen Street runs north from the city centre through Anglia Square — a 1960s development currently the subject of major regeneration proposals — and into a long stretch of Victorian and Edwardian commercial buildings. St Benedicts Street has a village feel with a concentration of independent shops and restaurants. Both streets have conservation area considerations, and we design installations that respond to the specific character of each location.
 
 Norwich serves as the commercial centre for a wide Norfolk catchment area, and we cover the county comprehensively. Great Yarmouth, on the coast, requires marine-grade specifications for its seafront and town centre commercial premises. King\'s Lynn has an impressive historic town centre with listed buildings and conservation areas that demand heritage expertise. The Norfolk Broads towns — Wroxham, Hoveton, Potter Heigham — serve the tourist economy and have seasonal trading patterns that influence installation programming. We understand these local variations and plan our work accordingly.`,
-    testimonials: [
-      {
-        name: 'Richard Hamblin',
-        business: 'Hamblin Rare Books',
-        location: 'Norwich Lanes',
-        rating: 5,
-        text: 'Working on a listed building in the Lanes required real expertise, and Sigma delivered. The heritage-profile aluminium shopfront sits beautifully within the medieval building frame. The conservation officer was satisfied at the first review. Exceptional craftsmanship.',
-      },
-      {
-        name: 'Sophia Bennett',
-        business: 'Bennett & Bloom Florist',
-        location: 'St Benedicts Street',
-        rating: 5,
-        text: 'Sigma designed and installed a shopfront with bi-fold doors that transforms our flower shop in summer. The design respects the character of St Benedicts Street and the thermal performance has noticeably reduced our heating bills.',
-      },
-      {
-        name: 'Gary Pitcher',
-        business: 'Pitcher\'s Fishing Tackle',
-        location: 'Great Yarmouth',
-        rating: 4,
-        text: 'Marine-grade shopfront replacement near the Yarmouth seafront. The old one was corroding badly and needed replacing. Sigma specified everything in marine-grade aluminium with stainless fixings. Solid job at a fair price.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you work on listed buildings in the Norwich Lanes?',
@@ -2623,29 +1884,7 @@ The historic streets that survived the wartime bombing — Fore Street, the Cath
 Sidwell Street runs north-east from the city centre and serves as an important multicultural retail corridor with a diverse mix of independent businesses. Magdalen Road and St Thomas, across the river, have established themselves as popular independent shopping streets with a neighbourhood identity. These locations have varying conservation area considerations, and we design installations that respond to the specific planning context of each site.
 
 Topsham, downstream on the Exe estuary, is a characterful small town with a tightly controlled conservation area and a concentration of independent retailers and restaurants. Exmouth, on the coast, requires marine-grade specifications. Crediton, to the north-west, has a traditional market town centre. We cover the full Devon area and understand the range of planning authorities — Exeter City Council, East Devon, Mid Devon, Teignbridge — that administer the region.`,
-    testimonials: [
-      {
-        name: 'Rebecca Prior',
-        business: 'Prior & Daughter Ceramics',
-        location: 'Fore Street',
-        rating: 5,
-        text: 'Sigma installed a heritage-profile shopfront on our Fore Street gallery that the conservation officer praised at the site inspection. The slim aluminium sections with a hand-finished patina complement the medieval building perfectly. Outstanding attention to detail.',
-      },
-      {
-        name: 'Kwame Asante',
-        business: 'Asante African Kitchen',
-        location: 'Sidwell Street',
-        rating: 5,
-        text: 'Complete shopfront transformation with a new aluminium system, automatic door, and illuminated sign. The restaurant looks completely modern now. Sigma managed everything and the work was done in two days.',
-      },
-      {
-        name: 'John Westlake',
-        business: 'Topsham Chandlery',
-        location: 'Topsham',
-        rating: 4,
-        text: 'Marine-grade aluminium shopfront replacement in the Topsham conservation area. Sigma handled the planning application and specified appropriate materials for the estuary environment. Neat, professional installation.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'How does Exeter\'s wartime history affect shopfront work?',
@@ -2694,29 +1933,7 @@ Beyond the Rows, Chester's wider city centre contains a rich mix of Tudor, Georg
 Foregate Street extends beyond the city walls and transitions into a more typical suburban commercial corridor. Boughton, to the east, has a neighbourhood high street serving the local community. These areas have less onerous heritage constraints but still fall within or adjacent to conservation areas, and we apply appropriate design sensitivity.
 
 The wider Cheshire area includes Ellesmere Port — an industrial town with practical commercial shopfront requirements — and the Wirral peninsula towns of Neston and Parkgate. We cover all of Cheshire West and Chester Council's area and understand the local plan policies that apply across this diverse district. The contrast between the heritage intensity of the city centre and the more straightforward commercial requirements of the wider area means that our Chester team needs to be versatile, and they are.`,
-    testimonials: [
-      {
-        name: 'Elizabeth Talbot',
-        business: 'Talbot Fine Jewellery',
-        location: 'The Rows',
-        rating: 5,
-        text: 'Installing a shopfront within The Rows is a specialist job, and Sigma are one of the few companies we found who had genuine experience in this environment. The finished front sits perfectly within the medieval gallery, and the listed building consent application was approved without amendment.',
-      },
-      {
-        name: 'Gareth Williams',
-        business: 'The Chester Cheese Company',
-        location: 'Eastgate Street',
-        rating: 5,
-        text: 'Sigma replaced our tired shopfront with a heritage-finish aluminium system that looks exceptional alongside the black-and-white Tudor buildings. The thermal improvement has been significant and the whole process was professionally managed.',
-      },
-      {
-        name: 'Mike Dolan',
-        business: 'Dolan\'s Sports Bar',
-        location: 'Foregate Street',
-        rating: 4,
-        text: 'New aluminium shopfront with automatic door, completed over a weekend. Clean installation, everything works properly, and the bar looks much more inviting from the street. Good value for the quality delivered.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you install shopfronts within Chester\'s Rows?',
@@ -2765,29 +1982,7 @@ Gloucester Quays, the designer outlet and leisure development on the Victorian d
 Eastgate Street and Southgate Street are the main retail corridors, with a mix of national chains and independent businesses. The building stock is predominantly Victorian, with some significant earlier buildings, and the city centre conservation area applies throughout. Westgate Street and the streets around the Cross contain the most architecturally important commercial buildings, and installations here require the highest level of design sensitivity.
 
 Barton Street, running east from the city centre, is Gloucester's most diverse community retail area, with a vibrant mix of independent businesses. Quedgeley, to the south, has a modern retail park environment. Cheltenham — just eight miles away — is covered separately in our operations but we serve businesses across the full Gloucestershire area. Stroud, in the Cotswold valleys, has its own distinctive market town character and a strong independent retail identity that we understand and respect.`,
-    testimonials: [
-      {
-        name: 'Caroline Jefferies',
-        business: 'Jefferies & Partners Solicitors',
-        location: 'Westgate Street',
-        rating: 5,
-        text: 'Sigma installed a heritage-profile shopfront on our Westgate Street offices that perfectly complements the Grade II listed building. The conservation team were impressed with the design statement and the installation quality. A company that clearly understands heritage work.',
-      },
-      {
-        name: 'Abdi Hassan',
-        business: 'Barton Street Grocery',
-        location: 'Barton Street',
-        rating: 5,
-        text: 'New aluminium shopfront with roller shutter and automatic door. Sigma transformed the look of our shop and the shutter gives us proper security at night. The whole job was done in two days. Very happy with the service.',
-      },
-      {
-        name: 'Neil Parry',
-        business: 'Parry\'s Cycles',
-        location: 'Quedgeley',
-        rating: 4,
-        text: 'Straightforward shopfront replacement on our retail park unit. Sigma quoted competitively, installed on schedule, and the finished job looks smart. The thermally broken frames have made a noticeable difference to heating costs. Would recommend.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Can you work on listed buildings around Gloucester Cathedral?',
@@ -2836,29 +2031,7 @@ Cathedral Square and the surrounding streets — including the former Westgate a
 Bridge Street and the streets around the river crossing contain a mix of commercial buildings that are gradually being improved as part of the wider city centre regeneration. Lincoln Road, running north from the city centre through Millfield, is Peterborough's most diverse community retail corridor, with a long stretch of independent businesses occupying Victorian and Edwardian terraced shop buildings. The shopfront requirements here are practical — robust aluminium systems, security shutters, automatic doors — and we deliver these at competitive prices without compromising on quality.
 
 Werrington, Bretton, and the other township centres within Peterborough's expanded city boundary have the character of new-town district centres, with purpose-built retail units from the 1970s and 1980s that are now due for refurbishment. Stamford, to the north-west, is one of England's finest stone-built towns, with a tightly controlled conservation area and a concentration of listed buildings that demand the highest standard of heritage shopfront work. We cover Stamford and the wider area around Peterborough, and we adjust our specification and design approach to match the specific context of each location.`,
-    testimonials: [
-      {
-        name: 'Margaret Ashworth',
-        business: 'Ashworth Bridal',
-        location: 'Cathedral Square',
-        rating: 5,
-        text: 'Sigma designed a beautiful shopfront for our premises near the cathedral. The heritage-profile aluminium in a cream finish is perfectly sympathetic to the historic setting. The whole process — from planning application to installation — was handled with real expertise.',
-      },
-      {
-        name: 'Harinder Singh',
-        business: 'Singh\'s Superstore',
-        location: 'Lincoln Road',
-        rating: 5,
-        text: 'Complete shopfront replacement with a new roller shutter, automatic door, and illuminated signage. The shop looks completely modern now and the security shutter gives us peace of mind at night. Sigma were professional throughout and the price was very fair.',
-      },
-      {
-        name: 'Brian Farrow',
-        business: 'Farrow & Son Hardware',
-        location: 'Stamford',
-        rating: 4,
-        text: 'Stamford\'s conservation area rules are strict, but Sigma knew exactly what was required. The new shopfront respects the stone townscape and the conservation officer approved the design without changes. Competent, no-nonsense work.',
-      },
-    ],
+    testimonials: [],
     faqs: [
       {
         question: 'Do you work within the Queensgate shopping centre?',
