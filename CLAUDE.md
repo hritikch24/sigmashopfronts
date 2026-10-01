@@ -1,3 +1,7 @@
+> **Read `~/Projects/seo-plan/SESSION-HANDOFF.md` first.** It carries the
+> cross-site state as of 1 Oct 2026: the live deploy hold, open actions,
+> and the things already ruled out so they are not re-proposed.
+
 # Sigma Shop Fronts — agent notes
 
 Next.js 16 App Router · TypeScript · Tailwind v4 · Prisma + PostgreSQL · Vercel
@@ -236,3 +240,30 @@ are a mail-hosting decision, not a site-origin one.
 **This work sits on branch `site-url-config` and is NOT pushed.** It is held
 behind the September spam update. To ship the domain move later: set
 `NEXT_PUBLIC_SITE_URL` in Vercel and add a path-preserving 301 from the .com.
+
+### Why the move, and why not both domains
+
+The owner's reasoning, in his words: `.co.uk` is native to the UK, and the
+current `.co.uk` runs on a template that will not help SEO, so this Next.js
+build should move onto it. The `.co.uk` is controlled by a different team —
+part of the analysis was to give him a concrete argument for taking it over.
+
+**Running both domains in parallel is the thing to avoid.** Two domains serving
+the same business, same content, same contact email is the clearest duplicate
+signal there is — and this portfolio has already lost 574 pages to a
+duplicate-content enforcement pass. One domain, path-preserving 301 from the
+other. Never both.
+
+**Execution order, once the spam update has finished:**
+
+1. Push `site-url-config`.
+2. Set `NEXT_PUBLIC_SITE_URL=https://sigmashopfrontshutters.co.uk` in Vercel.
+3. Add the domain in Vercel, point DNS.
+4. **Path-preserving 301** from every `.com` path to the same path on the new
+   domain. Never redirect everything to the homepage.
+5. Add the new domain as a GSC property, use the Change of Address tool.
+6. Keep the 301s permanently. Do not let the `.com` serve content again.
+
+Expect a few weeks of fluctuation. If the city-page rewrite is also planned,
+consider doing both in one move rather than two separate disruptions.
+
