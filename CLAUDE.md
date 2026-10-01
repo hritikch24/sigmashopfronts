@@ -155,3 +155,84 @@ dependencies. It reads each site's `/api/metrics` with the site's
   duplication, and the one thing that would let all three rank independently
 - Backlink building — the binding constraint, and nothing else moves it
 - ~20 byte-identical photographs are shared across all three domains
+
+---
+
+# Update — 1 October 2026
+
+Everything below was established after this file was first written and is not
+reflected above. Supporting detail lives in `~/Projects/seo-plan/`.
+
+## The August delisting has a confirmed cause
+
+**Google's August 2026 spam update completed on 21 August 2026** — the exact
+day Sigma's cross-product was delisted. It targeted **scaled content abuse**:
+programmatic pages, AI-generated pages at scale, pages built mainly to rank.
+A SpamBrain enforcement pass on existing policy, global, all languages.
+
+574 templated city x service pages with 84% shared phrasing across three
+domains is a textbook match. The diagnosis is no longer inference from a
+traffic shape; the date and the target both line up.
+
+## A spam update is rolling right now
+
+**September 2026 spam update: started 24 September, roughly two weeks**, so it
+lands around 8 October. Google has not said what it targets.
+
+**Hold every deploy until the Search Status Dashboard marks it complete** —
+not a fixed date, the dashboard. Shipping mid-rollout means any movement is
+unattributable. Draft on a branch; do not push.
+
+## Search Console review found no cross-site duplication
+
+Read-only review of all three properties, 27-28 September
+(`seo-plan/gsc-review.md`):
+
+| | Pages in any duplicate bucket |
+|---|---|
+| Urban | 0 |
+| Sigma | 0 |
+| Grewal | 0 city pages (its 41 are legacy `.php`) |
+
+Top-10 query lists across the three share exactly one term ("shopfronts").
+The sites are **not** cannibalising each other. The problem is position
+(26 / 32 / 52), not suppression — and a 301 carries the ranking assessment
+with it, so **moving URLs does not reset anything**. A URL restructure was
+proposed and dropped on this evidence.
+
+Competitor check: `/services/{service}` is the industry-standard pattern —
+shopfrontsbirmingham.co.uk uses the same shape. The URL structure is normal.
+What no competitor does is a 574-page city x service cross-product.
+
+## The portfolio is now five sites, not three
+
+`~/Projects/seo-plan/portfolio-registry.json` is the authority, and
+`PORTFOLIO-RULES.md` governs additions. Added since this file was written:
+`safe-and-secure-shopfront-shutters` and `highstreet-shopfronts`. Check any
+new site against every registry entry before launch.
+
+## Sigma-specific — the domain move is now prepared in code
+
+Sigma is expected to move to **sigmashopfrontshutters.co.uk** keeping the same
+paths. That is now a one-line change rather than a 45-file edit.
+
+**`lib/site.ts` is the single source of truth for the origin.** It exports
+`SITE_URL` (and `SITE_HOST`), reading `NEXT_PUBLIC_SITE_URL` with the current
+production origin as fallback. 151 hardcoded origins across 37 files were
+replaced — canonicals, og:url, JSON-LD `@id`, sitemap, IndexNow and the HTML
+email templates all derive from it now.
+
+**Nothing else may hardcode the domain.** The sanity suite enforces this: it
+checks the fallback in `lib/site.ts` and fails if `app/layout.tsx` reintroduces
+a literal origin (scoped to this site's own domain, so GTM and Instagram pass).
+
+Verified by building twice — at the default the output is byte-identical
+(all 80 sitemap URLs unchanged); with `NEXT_PUBLIC_SITE_URL` set to the future
+domain, every canonical, `@id` and sitemap entry switches.
+
+**Email addresses were deliberately left hardcoded.** `sales@` and `noreply@`
+are a mail-hosting decision, not a site-origin one.
+
+**This work sits on branch `site-url-config` and is NOT pushed.** It is held
+behind the September spam update. To ship the domain move later: set
+`NEXT_PUBLIC_SITE_URL` in Vercel and add a path-preserving 301 from the .com.
