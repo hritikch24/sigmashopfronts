@@ -1,6 +1,7 @@
-> **Read `~/Projects/seo-plan/SESSION-HANDOFF.md` first.** It carries the
+> **Read `PORTFOLIO-HANDOFF.md` in this repo first.** It carries the
 > cross-site state as of 1 Oct 2026: the live deploy hold, open actions,
 > and the things already ruled out so they are not re-proposed.
+> Evidence lives in `docs/portfolio/`.
 
 # Sigma Shop Fronts — agent notes
 
