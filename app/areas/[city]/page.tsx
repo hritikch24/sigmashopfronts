@@ -264,9 +264,7 @@ export default async function CityPage({ params }: PageProps) {
 
             <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))' }}>
               <div className="card-surface" style={{ padding: '1.6rem' }}>
-                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Planning authority
-                </span>
+                <span className="eyebrow">Planning authority</span>
                 <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
                   {planning.authority}
                 </p>
@@ -278,9 +276,7 @@ export default async function CityPage({ params }: PageProps) {
               </div>
 
               <div className="card-surface" style={{ padding: '1.6rem' }}>
-                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Heritage constraints
-                </span>
+                <span className="eyebrow">Heritage constraints</span>
                 <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
                   {planning.conservation ? 'Conservation area in the retail core' : 'No blanket conservation designation'}
                 </p>
@@ -291,9 +287,7 @@ export default async function CityPage({ params }: PageProps) {
               </div>
 
               <div className="card-surface" style={{ padding: '1.6rem' }}>
-                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Repair coverage
-                </span>
+                <span className="eyebrow">Repair coverage</span>
                 <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
                   {planning.repairRadius === 'local'
                     ? 'Inside the Oldbury repair radius'
@@ -309,9 +303,7 @@ export default async function CityPage({ params }: PageProps) {
 
             {planning.retailStreets.length > 0 && (
               <div className="mt-9">
-                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Where the work is
-                </span>
+                <span className="eyebrow">Where the work is</span>
                 <p className="text-charcoal mt-3 mb-0" style={{ lineHeight: 1.8 }}>
                   Most of what we fit in {city.name} sits on{' '}
                   {planning.retailStreets.slice(0, -1).join(', ')}

@@ -328,9 +328,39 @@
     -webkit-backdrop-filter: blur(12px);
   }
 
+  .card-surface {
+    /* A card should feel like it is sitting on the page, not printed on it.
+       The inset highlight catches the top edge the way real glass does. */
+    position: relative;
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+      0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    transition:
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 220ms ease,
+      background 220ms ease,
+      box-shadow 220ms ease;
+    will-change: transform;
+  }
+
   .card-surface:hover {
-    border-color: rgba(0, 229, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 229, 255, 0.22);
+    background: rgba(255, 255, 255, 0.055);
+    transform: translateY(-3px);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.07) inset,
+      0 18px 40px -16px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(0, 229, 255, 0.06);
+  }
+
+  /* A link that wraps a whole card should not be the only focus affordance. */
+  a.card-surface:focus-visible,
+  .card-surface:focus-within {
+    outline: none;
+    border-color: rgba(0, 229, 255, 0.45);
+    box-shadow:
+      0 0 0 3px rgba(0, 229, 255, 0.18),
+      0 18px 40px -16px rgba(0, 0, 0, 0.75);
   }
 
   /* Glass panel — heavier blur */
@@ -484,5 +514,112 @@
   .hover-glow:hover {
     box-shadow: 0 0 15px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0, 229, 255, 0.03);
     border-color: rgba(0, 229, 255, 0.3) !important;
+  }
+}
+
+@layer components {
+  /* ── Data rows ────────────────────────────────────────────────────────────
+     The town and city pages lead with facts — planning authority, distance,
+     conservation status. Those read better as a quiet technical list than as
+     prose, and the hairline rule does more work than a box would. */
+  .data-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .data-row:last-child { border-bottom: none; }
+
+  .data-label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-grey-600, #8b93a7);
+  }
+
+  .data-value {
+    font-size: 0.93rem;
+    line-height: 1.5;
+    color: var(--color-white);
+  }
+
+  /* ── Eyebrow ──────────────────────────────────────────────────────────────
+     Small cyan label above a heading. Used on every section that leads with a
+     category rather than a sentence. */
+  .eyebrow {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0.65rem;
+  }
+
+  /* ── Accent panel ─────────────────────────────────────────────────────────
+     For a constraint worth noticing — a conservation area, a heritage
+     restriction. Gold rather than cyan, because it is a caution not a feature. */
+  .panel-accent {
+    border-left: 3px solid var(--color-gold);
+    background: linear-gradient(
+      90deg,
+      rgba(240, 180, 41, 0.055) 0%,
+      rgba(240, 180, 41, 0) 60%
+    );
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1.4rem 1.5rem;
+  }
+
+  /* ── Section entrance ─────────────────────────────────────────────────────
+     Content settles in rather than snapping. Disabled entirely for anyone who
+     has asked for reduced motion — this is decoration, not information. */
+  .rise {
+    animation: rise-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Underline that draws ─────────────────────────────────────────────────
+     Inline links in body copy. Cheaper and calmer than a colour change. */
+  .link-underline {
+    position: relative;
+    color: var(--color-cyan);
+    text-decoration: none;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Honour the system setting. Motion here is decoration; none of it carries
+   meaning, so all of it goes. */
+@media (prefers-reduced-motion: reduce) {
+  .card-surface,
+  .card-surface:hover,
+  .link-underline::after {
+    transition: none;
+    transform: none;
+  }
+  .rise {
+    animation: none;
   }
 }

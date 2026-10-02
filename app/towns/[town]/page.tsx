@@ -99,12 +99,10 @@ export default async function TownPage({ params }: PageProps) {
       <section className="section-padding bg-gradient-dark">
         <div className="container-max">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Towns', href: '/towns' }, { label: town.name }]} />
-          <div className="flex flex-wrap items-center gap-3 mt-7 mb-5">
-            <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-              {town.county}
-            </span>
-            <span className="text-grey-600">·</span>
-            <span className="text-grey-600 font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+          <div className="flex flex-wrap items-center gap-3 mt-7">
+            <span className="eyebrow" style={{ marginBottom: 0 }}>{town.county}</span>
+            <span className="text-grey-600" aria-hidden="true">·</span>
+            <span className="eyebrow" style={{ marginBottom: 0, color: 'var(--color-grey-600, #8b93a7)' }}>
               {town.miles} miles from Birmingham
             </span>
           </div>
@@ -124,14 +122,15 @@ export default async function TownPage({ params }: PageProps) {
         <div className="container-max">
           <div className="grid gap-10" style={{ gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)' }}>
             <div>
+              <span className="eyebrow">On the ground</span>
               <h2 className="font-heading text-white font-bold text-2xl sm:text-3xl mb-5">
                 Working in {town.name}
               </h2>
               <p className="text-charcoal mb-7" style={{ fontSize: '1rem', lineHeight: 1.85 }}>{town.note}</p>
 
               {town.conservation && (
-                <div className="card-surface" style={{ padding: '1.5rem', borderLeft: '3px solid var(--color-gold)' }}>
-                  <span className="text-gold font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                <div className="panel-accent rise">
+                  <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>
                     Heritage constraint
                   </span>
                   <p className="text-charcoal mt-3 mb-0" style={{ fontSize: '0.95rem', lineHeight: 1.75 }}>
@@ -147,22 +146,20 @@ export default async function TownPage({ params }: PageProps) {
                   The facts for {town.name}
                 </h3>
                 <dl style={{ margin: 0 }}>
-                  {[
+                  {([
                     ['Planning authority', town.council],
                     ['County', town.county],
                     ['From Birmingham', `${town.miles} miles`],
                     ['Emergency reply', 'Within two hours'],
-                  ].map(([k, v]) => (
-                    <div key={k} style={{ padding: '0.7rem 0', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                      <dt className="text-grey-600 font-mono" style={{ fontSize: '0.68rem', letterSpacing: '0.09em', textTransform: 'uppercase' }}>{k}</dt>
-                      <dd className="text-white mt-1 mb-0" style={{ fontSize: '0.92rem', lineHeight: 1.5 }}>{v}</dd>
+                  ] as const).map(([k, v]) => (
+                    <div key={k} className="data-row">
+                      <dt className="data-label">{k}</dt>
+                      <dd className="data-value" style={{ margin: 0 }}>{v}</dd>
                     </div>
                   ))}
                 </dl>
                 <div style={{ paddingTop: '0.9rem' }}>
-                  <span className="text-grey-600 font-mono" style={{ fontSize: '0.68rem', letterSpacing: '0.09em', textTransform: 'uppercase' }}>
-                    Retail areas
-                  </span>
+                  <span className="data-label">Retail areas</span>
                   <p className="text-charcoal mt-2 mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.7 }}>
                     {town.retail.join(' · ')}
                   </p>
@@ -176,6 +173,7 @@ export default async function TownPage({ params }: PageProps) {
       {/* Services, repair-first */}
       <section className="section-padding bg-space-light">
         <div className="container-max">
+          <span className="eyebrow">Services</span>
           <h2 className="font-heading text-white font-bold text-2xl sm:text-3xl mb-3">
             What we do in {town.name}
           </h2>
