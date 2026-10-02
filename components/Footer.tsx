@@ -16,6 +16,13 @@ const services = [
 ];
 
 const areas = [
+  // Repair towns first — this is the local business, and the towns index is the
+  // only route into 31 pages that would otherwise be reachable from nav alone.
+  { label: 'Towns We Cover', href: '/towns' },
+  { label: 'Dudley', href: '/towns/dudley' },
+  { label: 'Walsall', href: '/towns/walsall' },
+  { label: 'West Bromwich', href: '/towns/west-bromwich' },
+  { label: 'Solihull', href: '/towns/solihull' },
   { label: 'London', href: '/areas/london' },
   { label: 'Birmingham', href: '/areas/birmingham' },
   { label: 'Manchester', href: '/areas/manchester' },

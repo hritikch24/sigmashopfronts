@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { towns } from '@/data/towns';
 import { SITE_URL } from '@/lib/site';
 
 const siteUrl = `${SITE_URL}`;
@@ -93,5 +94,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages, ...blogPages];
+  const townPages: MetadataRoute.Sitemap = [
+    { url: `${siteUrl}/towns`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
+    ...towns.map((t) => ({
+      url: `${siteUrl}/towns/${t.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })),
+  ];
+
+  return [...townPages, ...staticPages, ...servicePages, ...cityPages, ...blogPages];
 }

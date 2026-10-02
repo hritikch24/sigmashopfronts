@@ -24,6 +24,7 @@ const areas = [
   { label: 'Leeds', href: '/areas/leeds' },
   { label: 'Liverpool', href: '/areas/liverpool' },
   { label: 'View All Areas', href: '/areas' },
+  { label: 'Towns We Cover', href: '/towns' },
 ];
 
 const navLinks = [
