@@ -64,6 +64,11 @@ function slugsFrom(file) {
     for (const c of cities) valid.add(`/services/${s}/${c}`);
   }
   for (const c of cities) valid.add('/areas/' + c);
+  // /towns/{town} — the repair-radius pages. Slugs are read from data/towns.ts
+  // rather than hardcoded, so adding a town cannot silently break this check.
+  for (const t of read('data/towns.ts').matchAll(/^    slug: '([a-z-]+)'/gm)) {
+    valid.add('/towns/' + t[1]);
+  }
   for (const b of blog) valid.add('/blog/' + b);
 
   const dynamic = /^\/(api|admin|quote|invoice|metrics)(\/|$)/;
