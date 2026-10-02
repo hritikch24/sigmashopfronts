@@ -10,6 +10,7 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import { SITE_URL } from '@/lib/site';
+import { cityPlanning, radiusCopy } from '@/data/city-planning';
 
 const allServices = [
   { name: 'Aluminium Shopfronts', slug: 'aluminium-shopfronts', image: 'aluminium-shopfront-1.jpeg' },
@@ -127,6 +128,7 @@ export default async function CityPage({ params }: PageProps) {
   const { city: citySlug } = await params;
   const city = cities.find((c) => c.slug === citySlug);
   if (!city) notFound();
+  const planning = cityPlanning[city.slug];
 
   const siteUrl = `${SITE_URL}`;
 
@@ -241,6 +243,88 @@ export default async function CityPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* ── Planning & coverage ──────────────────────────────────────────────
+          This block is why this site's city pages read differently from any
+          other shopfront site: it opens with the thing that actually governs
+          the job — who grants consent, whether the retail core is a
+          conservation area, and whether we can realistically reach you for a
+          repair. Facts only, from data/city-planning.ts. ─────────────────── */}
+      {planning && (
+        <section className="section-padding bg-space-light" aria-labelledby="planning-heading">
+          <div className="container-max">
+            <h2 id="planning-heading" className="font-heading text-white font-bold text-2xl sm:text-3xl mb-3">
+              Shopfronts in {city.name}: what governs the job
+            </h2>
+            <p className="text-charcoal mb-9 max-w-3xl" style={{ lineHeight: 1.7 }}>
+              Before anything is fabricated, two questions decide the programme — who
+              determines consent, and what the frontage is allowed to look like. Here is
+              where {city.name} stands.
+            </p>
+
+            <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))' }}>
+              <div className="card-surface" style={{ padding: '1.6rem' }}>
+                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  Planning authority
+                </span>
+                <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
+                  {planning.authority}
+                </p>
+                <p className="text-charcoal mt-3 mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.65 }}>
+                  Replacing a shopfront usually needs planning permission, and any illuminated
+                  or projecting sign needs advertisement consent separately. We handle the
+                  drawings and the application.
+                </p>
+              </div>
+
+              <div className="card-surface" style={{ padding: '1.6rem' }}>
+                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  Heritage constraints
+                </span>
+                <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
+                  {planning.conservation ? 'Conservation area in the retail core' : 'No blanket conservation designation'}
+                </p>
+                <p className="text-charcoal mt-3 mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.65 }}>
+                  {planning.conservation
+                    ?? `We are not aware of a blanket conservation designation across ${city.name}'s main retail streets, but individual buildings may still be listed. We check before we quote.`}
+                </p>
+              </div>
+
+              <div className="card-surface" style={{ padding: '1.6rem' }}>
+                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  Repair coverage
+                </span>
+                <p className="text-white font-heading font-semibold mt-3 mb-0" style={{ fontSize: '1.05rem', lineHeight: 1.5 }}>
+                  {planning.repairRadius === 'local'
+                    ? 'Inside the Oldbury repair radius'
+                    : planning.repairRadius === 'regional'
+                      ? 'Planned repair visits'
+                      : 'Installation and project work'}
+                </p>
+                <p className="text-charcoal mt-3 mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.65 }}>
+                  {radiusCopy[planning.repairRadius]}
+                </p>
+              </div>
+            </div>
+
+            {planning.retailStreets.length > 0 && (
+              <div className="mt-9">
+                <span className="text-cyan font-mono" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  Where the work is
+                </span>
+                <p className="text-charcoal mt-3 mb-0" style={{ lineHeight: 1.8 }}>
+                  Most of what we fit in {city.name} sits on{' '}
+                  {planning.retailStreets.slice(0, -1).join(', ')}
+                  {planning.retailStreets.length > 1 ? ' and ' : ''}
+                  {planning.retailStreets.slice(-1)}
+                  {' '}— parades and centres where access, delivery windows and out-of-hours
+                  working matter as much as the specification itself.
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="section-padding">
         <div className="container-max">
