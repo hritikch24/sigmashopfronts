@@ -53,12 +53,15 @@ export const SITES = {
     origin: 'https://www.urbanshopfronts.co.uk',
     phoneDisplay: '07471 043827',
     phoneTel: '07471043827',
-    whatsapp: '447471043827',
+    whatsapp: '447903680363',
     markers: [
       'urbanshopfronts',
       '07471043827',
       '07471 043827',
       '447471043827',
+      '447903680363',
+      '07903 680363',
+      '07903680363',
     ],
   },
 };
