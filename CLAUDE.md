@@ -268,3 +268,100 @@ other. Never both.
 Expect a few weeks of fluctuation. If the city-page rewrite is also planned,
 consider doing both in one move rather than two separate disruptions.
 
+---
+
+# Update — 3 October 2026
+
+All of this sits on branch **`sigma-relaunch`**, pushed but **not merged to
+main**. Nothing below is live.
+
+## 113 fabricated customer reviews were removed
+
+The site published invented testimonials attributed to named people and named
+businesses, and they were live:
+
+| Where | Count |
+|---|---|
+| `data/cities.ts` — across all 41 city pages | 101 |
+| `app/page.tsx` | 3 |
+| `app/why-choose-us/page.tsx` | 4 |
+| `app/reviews/page.tsx` | 5 |
+| `data/testimonials.ts` — dead file, imported nowhere, deleted | 10 |
+
+**94 of the names in `data/cities.ts` also appear in the sibling sites' city
+data** — the same fictional customer praising three supposedly competing firms.
+That was both the legal problem and the clearest possible signal that the three
+brands are one operation.
+
+Publishing a consumer review that is not genuine is an offence under the
+Digital Markets, Competition and Consumers Act 2024.
+
+`/reviews` was built entirely on five invented reviews and its metadata claimed
+"Rated 5.0" and "verified customer reviews". Rather than delete an indexed URL,
+it now sets out what a buyer can actually check — the Companies House number,
+the insurance certificate, CSCS cards, written quotations — and the British
+Standards the work is specified against.
+
+**The `CityTestimonial` interface is kept and annotated.** Arrays can be
+refilled with real reviews a customer actually gave and agreed to publish.
+Never add `aggregateRating` schema without genuine underlying reviews.
+
+The owner has asked, twice, for fabricated content to be added back. The answer
+is no, and the reasoning is in the interface comment. Real case studies — town,
+shop type, what was fitted, roughly when — are the substitute and were
+requested; they have not been supplied yet.
+
+## City pages now lead with planning data
+
+`data/city-planning.ts` carries, for all 41 cities: the local planning
+authority that determines shopfront and advertisement consent, conservation or
+listed-building context for the retail core, principal retail streets, and a
+repair-coverage band.
+
+The city template opens with that **before** any service prose. The siblings
+open with generic service copy, so the pages now differ structurally rather
+than in wording. The description bodies are still ~47% shared with the
+siblings — that is the next job and it needs the owner's real jobs.
+
+**Every value in that file is verifiable. Nothing in it may be invented.**
+
+## Repair radius: 100 miles from Birmingham, two-hour REPLY
+
+Supplied directly by the owner. The copy says **reply**, not attend, because
+that is what can be kept. 21 of the 41 cities sit inside the radius; the other
+20 are installation and project work and say so plainly.
+
+## 31 town pages at `/towns/{town}`
+
+Deliberately a **separate namespace from `/areas/{city}`**. City pages are
+UK-wide installation coverage; town pages are the places we actually turn up to
+when something has broken. Different promise, different URL — and structurally
+different from the siblings.
+
+`data/towns.ts` carries real council names, conservation notes, retail streets
+and road miles from Birmingham. Measured 8-gram overlap: **0.0% against the
+sibling sites, 0.0% against Sigma's own city pages.**
+
+The local detail is the defence against this becoming the scaled-content
+pattern that cost 574 pages in August. Dudley's retail core is on a hill.
+Halesowen is mostly inside a mall so the shopfitting guide governs before the
+council does. Kidderminster's carpet-industry buildings have wide openings so a
+standard retail shutter is undersized. None of that can be templated.
+
+Sitemap 80 -> 112 URLs. Linked from header and footer so the pages are not
+orphaned.
+
+**The sanity suite reads town slugs from `data/towns.ts`**, so adding a town
+cannot silently break the internal-link check.
+
+## UI system
+
+`app/globals.css` gained: `.card-surface` lift and focus ring, `.data-row` /
+`.data-label` / `.data-value`, `.eyebrow`, `.panel-accent`, `.rise`,
+`.link-underline`. All motion is disabled under `prefers-reduced-motion` —
+it is decoration and carries no meaning.
+
+**`.link-underline` and `.btn-primary` are Sigma-only.** The sanity suite
+caught `.btn-primary` being used here when it is a sibling's class, and caught
+`.link-underline` leaking the other way into Urban. Check `app/globals.css`
+before using a utility class you remember from another repo.
