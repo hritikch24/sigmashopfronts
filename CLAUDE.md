@@ -6,6 +6,7 @@ Next.js 16 App Router · TypeScript · Tailwind v4 · Prisma + Postgres · Verce
 **Old domain:** `www.sigmashopfronts.com` — serves nothing; `proxy.ts` answers every request with a mapped 301 or a 410.
 **Legal entity:** Sigma Shopfronts and Shutter Limited, Companies House 16794487, incorporated 19 Oct 2025.
 **Phones:** 07414 779594 · 07397 066538 (WhatsApp). **Registered office:** Oldbury, B68 9LX.
+**Email:** `sales@sigmashopfronts.com` — mail stays on the old domain by the owner's choice; site notifications send from `noreply@sigmashopfronts.com`. Never let `sigmashopfronts.com` lapse.
 **Promise:** repairs within 100 road miles of Birmingham; "we reply to emergency repair calls within two hours" — a REPLY, never attendance.
 
 Cross-site state, the portfolio rules and every other site's fingerprint live in `~/Projects/seo-plan/`
@@ -69,12 +70,12 @@ against the hashed sibling snapshot, and the sanity suite.
 - `proxy.ts` is Next 16's middleware. It holds the legacy map (`lib/legacy-urls.ts`) and the admin lock.
 - `title.template` does not apply to the segment that defines it; `pageMeta()` passes `{ absolute }` for `/`.
 - Headless Chrome will not lay out narrower than 500 px; use CDP device emulation to test 390 px.
-- Private tools (`/admin`, `/metrics`, `/quote/[id]`, `/invoice/[id]`) keep the old colour tokens in
-  `app/globals.css`. Public pages use the `.public` wrapper and the new tokens.
+- Private tools (`/admin`, `/metrics`, `/quote/[id]`, `/invoice/[id]`) keep the old colour tokens and Tailwind in
+  `app/private.css`. Public pages load only `app/site.css` (no Tailwind utilities) and the `.public` wrapper.
 - `/quote/[id]` and `/invoice/[id]` links are held by customers; the old host redirects them path-preserved.
 
 ## Still owed (see `pendingFacts` and `followUps` in lib/business.ts)
 
-The new `sales@` mailbox, owner sign-off of the indicative prices and the legal pages, and Sigma's own Google
+Owner sign-off of the indicative prices and the legal pages, and Sigma's own Google
 Ads tag, GA4/GTM and IndexNow key. Real case studies (town, shop type, what was fitted, when) would strengthen
 `/jobs` — only with the client's agreement.

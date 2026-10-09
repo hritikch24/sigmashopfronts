@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-09 19:24 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-09 19:34 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
@@ -15,9 +15,9 @@ shingles, rounded **up** to one decimal.
 | Page | 8-grams | urban | grewal | safeandsecure | highstreet | all siblings | worst internal | against |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
 | `/` | 419 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.0** | `/company` |
-| `/company` | 306 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.5** | `/` |
+| `/company` | 305 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.6** | `/` |
 | `/costs` | 435 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.0** | `/shopfronts/roller-shutters` |
-| `/enquire` | 125 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.7** | `/company` |
+| `/enquire` | 124 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.7** | `/company` |
 | `/explained` | 287 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.9** | `/explained/heritage-shopfront-grants` |
 | `/explained/advertisement-consent` | 621 | 0.2 | 0.2 | 0.0 | 0.0 | **0.2** | **5.2** | `/explained` |
 | `/explained/after-an-enforcement-notice` | 455 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.5** | `/explained` |
@@ -48,7 +48,7 @@ shingles, rounded **up** to one decimal.
 | `/planning/reading` | 390 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.0** | `/planning/birmingham` |
 | `/planning/southampton` | 321 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.6** | `/planning/bristol` |
 | `/planning/york` | 460 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.9** | `/planning/bradford` |
-| `/privacy` | 379 | 0.0 | 0.0 | 0.0 | 0.6 | **0.6** | **0.3** | `/company` |
+| `/privacy` | 377 | 0.0 | 0.0 | 0.0 | 0.6 | **0.6** | **0.3** | `/company` |
 | `/questions` | 871 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.0** | `/explained/why-solid-shutters-get-refused` |
 | `/repair-radius` | 356 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.6** | `/shopfronts/emergency-repairs` |
 | `/repair-radius/bilston` | 127 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.8** | `/repair-radius/brierley-hill` |

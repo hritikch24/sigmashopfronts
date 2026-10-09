@@ -8,7 +8,7 @@ import { business } from '@/lib/business';
  */
 
 const mailHost = SITE_HOST.replace(/^www\./, '');
-const FROM = `${business.name} <noreply@${mailHost}>`;
+const FROM = `${business.name} <${business.emailFrom}>`;
 
 function client(): Resend {
   const key = process.env.RESEND_API_KEY;

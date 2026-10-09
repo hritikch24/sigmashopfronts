@@ -10,9 +10,6 @@
  * ratings, years trading, project totals, named clients, accreditations
  * beyond the ones listed under `trustBasis`.
  */
-import { SITE_HOST } from './site';
-
-const mailHost = SITE_HOST.replace(/^www\./, '');
 
 export const business = {
   name: 'Sigma Shopfronts',
@@ -29,7 +26,14 @@ export const business = {
   },
   /** WhatsApp runs on the second number. */
   whatsapp: '447397066538',
-  email: `sales@${mailHost}`,
+  /**
+   * Mail stays on the old domain by the owner's choice (10 Oct 2026): the .com
+   * keeps its mailboxes even though its website now only redirects. Keep
+   * sigmashopfronts.com registered for as long as this address is in use.
+   */
+  email: 'sales@sigmashopfronts.com',
+  /** Sender for site notifications; the .com is the domain already verified with Resend. */
+  emailFrom: 'noreply@sigmashopfronts.com',
 
   registeredOffice: {
     street: '4 Thornwood Close',
@@ -68,7 +72,6 @@ export const business = {
  * fails the build if indexing is switched on with a pending fact.
  */
 export const pendingFacts: Record<string, string> = {
-  email: `The ${business.email} mailbox has to exist before launch. It moves with the domain from the old host.`,
   prices: 'The indicative prices on /costs are the ranges the old site published. The owner should confirm them before indexing.',
   legalPages: 'The privacy notice and terms of business are drafts written for the relaunch. The owner should read and approve them.',
 };

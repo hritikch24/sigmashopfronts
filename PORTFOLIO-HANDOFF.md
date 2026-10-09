@@ -14,7 +14,7 @@ Cross-site state is kept in one place, `~/Projects/seo-plan/` (`SESSION-HANDOFF.
 
 ## Before deploying
 
-1. Owner signs off the `pendingFacts` in `lib/business.ts`; create the `sales@` mailbox on the new domain.
+1. Owner signs off the `pendingFacts` in `lib/business.ts`. Email stays `sales@sigmashopfronts.com` (decided 10 Oct 2026), so keep the .com domain and its mail records.
 2. Add `sigmashopfrontshutters.co.uk` (and `www.`) to the Vercel project; keep `sigmashopfronts.com` attached
    so `proxy.ts` can answer it with 301/410. Set `NEXT_PUBLIC_SITE_URL`.
 3. Verify the new domain as its **own** Search Console property. Do not use Change of Address
