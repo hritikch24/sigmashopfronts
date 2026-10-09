@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     apple: [{ url: '/assets/sigma-icon-180.png', sizes: '180x180' }],
   },
   manifest: '/manifest.webmanifest',
+  verification: {
+    google: tracking.googleVerification,
+    other: tracking.bingVerification ? { 'msvalidate.01': tracking.bingVerification } : undefined,
+  },
   other: {
     'geo.region': 'GB-SAW',
     'geo.placename': 'Oldbury',

@@ -65,6 +65,11 @@ On Vercel, `npm run build` runs the launch gate, `prisma db push` (without `--ac
 schema change now fails the build instead of dropping the leads table), `next build`, the originality gate
 against the hashed sibling snapshot, and the sanity suite.
 
+## Deploying
+
+Runbook, environment variables and DNS: `docs/relaunch/06-deploy.md`. Preview hosts (`*.vercel.app`) always
+get `X-Robots-Tag: noindex`; the bare new domain 301s to `www` in `proxy.ts`.
+
 ## Gotchas
 
 - `proxy.ts` is Next 16's middleware. It holds the legacy map (`lib/legacy-urls.ts`) and the admin lock.

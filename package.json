@@ -17,7 +17,8 @@
     "test:sanity": "node --no-warnings --import ./tests/ts-paths.mjs tests/sanity.test.mjs",
     "test:links": "node --no-warnings --import ./tests/ts-paths.mjs tests/links.test.mjs",
     "test:smoke": "node tests/smoke.test.mjs",
-    "test": "npm run test:contamination && npm run test:frontage && npm run test:sanity"
+    "test": "npm run test:contamination && npm run test:frontage && npm run test:sanity",
+    "indexnow": "node --no-warnings --import ./tests/ts-paths.mjs scripts/indexnow.mjs"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

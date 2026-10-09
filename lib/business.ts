@@ -88,6 +88,9 @@ export const tracking = {
   gtm: clean(process.env.NEXT_PUBLIC_SIGMA_GTM_ID, /^GTM-[A-Z0-9]+$/i),
   ga4: clean(process.env.NEXT_PUBLIC_SIGMA_GA4_ID, /^G-[A-Z0-9]+$/i),
   googleAds: clean(process.env.NEXT_PUBLIC_SIGMA_ADS_ID, /^AW-\d+$/),
+  /** Search Console HTML-tag verification (URL-prefix property). A Domain property uses a DNS TXT record instead. */
+  googleVerification: clean(process.env.NEXT_PUBLIC_SIGMA_GSC_VERIFICATION, /^[A-Za-z0-9_-]{20,100}$/),
+  bingVerification: clean(process.env.NEXT_PUBLIC_SIGMA_BING_VERIFICATION, /^[A-F0-9]{20,64}$/i),
 };
 
 function clean(raw: string | undefined, shape: RegExp): string | undefined {
