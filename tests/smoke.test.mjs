@@ -1,197 +1,35 @@
 #!/usr/bin/env node
 /**
- * Post-deploy smoke test. Hits the LIVE site over HTTPS.
- *
- *   node tests/smoke.test.mjs                    # or: npm run test:smoke
- *   BASE_URL=https://preview.example npm run test:smoke
- *
- * Run this after every deploy. It is deliberately fast (~30s) and checks the
- * things that, when broken, cost real money: pages returning errors, the
- * quote form failing, canonicals pointing at the wrong host, and the sitemap
- * shrinking.
- *
- * Exit code 0 = all good, 1 = something is broken in production.
+ * Live checks against PRODUCTION. Only meaningful once the new domain is live.
+ *   node tests/smoke.test.mjs [origin]
  */
-
-import { SITE } from './site-config.mjs';
-
-const BASE = (process.env.BASE_URL || SITE.origin).replace(/\/$/, '');
-const results = [];
-let failed = 0;
-
-function record(name, pass, detail) {
-  results.push({ name, pass, detail });
-  if (!pass) failed++;
-}
-
-async function get(path, opts = {}) {
-  const res = await fetch(BASE + path, { redirect: 'follow', ...opts });
-  const body = opts.method === 'HEAD' ? '' : await res.text();
-  return { status: res.status, body, url: res.url };
-}
-
-// ── 1. Core pages return 200 ─────────────────────────────────────────────
-const CORE_PAGES = [
-  '/', '/services', '/areas', '/about', '/contact', '/gallery',
-  '/faq', '/cost-guide', '/reviews', '/blog', '/glossary',
-  '/why-choose-us', '/instant-quote', '/terms', '/privacy-policy',
-  '/services/roller-shutters',
-  '/areas/london',
-  '/services/roller-shutters/london',
-];
-
-for (const path of CORE_PAGES) {
+const NEW = process.argv[2] ?? 'https://www.sigmashopfrontshutters.co.uk';
+const OLD = 'https://www.sigmashopfronts.com';
+const fails = [];
+const check = async (label, url, expect, opts = {}) => {
   try {
-    const { status } = await get(path);
-    record(`page ${path}`, status === 200, `HTTP ${status}`);
+    const r = await fetch(url, { redirect: 'manual', ...opts });
+    const ok = typeof expect === 'function' ? await expect(r) : r.status === expect;
+    console.log(`${ok ? '✓' : '✗'} ${label} (${r.status}${r.headers.get('location') ? ' → ' + r.headers.get('location') : ''})`);
+    if (!ok) fails.push(label);
   } catch (e) {
-    record(`page ${path}`, false, e.message);
+    console.log(`✗ ${label} (${e.message})`);
+    fails.push(label);
   }
-}
+};
 
-// ── 2. Every page self-canonicalises to this host ────────────────────────
-for (const path of ['/', '/services/roller-shutters', '/areas/london', '/instant-quote']) {
-  try {
-    const { body } = await get(path);
-    const m = body.match(/<link rel="canonical" href="([^"]+)"/);
-    const expected = BASE + (path === '/' ? '' : path);
-    record(
-      `canonical ${path}`,
-      !!m && m[1].replace(/\/$/, '') === expected.replace(/\/$/, ''),
-      m ? m[1] : 'no canonical tag'
-    );
-  } catch (e) {
-    record(`canonical ${path}`, false, e.message);
-  }
-}
+await check('home is up', `${NEW}/`, 200);
+await check('frontage check is up', `${NEW}/frontage-check`, 200);
+await check('a council page is up', `${NEW}/planning/birmingham`, 200);
+await check('admin is locked', `${NEW}/admin`, 404);
+await check('a matrix URL is gone', `${NEW}/services/roller-shutters/leeds`, 410);
+await check('old host: matrix URL gone', `${OLD}/services/roller-shutters/leeds`, 410);
+await check('old host: about → company', `${OLD}/about`, (r) => r.status === 301 && r.headers.get('location') === `${NEW}/company`);
+await check('old host: blog gone', `${OLD}/blog/what-is-lps-1175-security-rating`, 410);
+await check('own phone on home page', `${NEW}/`, async (r) => r.status === 200 && (await r.text()).includes('07414 779594'));
 
-// ── 3. No sibling branding rendered anywhere ─────────────────────────────
-{
-  const others = ['grewal', 'sigmashopfronts', 'urbanshopfronts']
-    .filter((o) => !SITE.domain.includes(o) && !SITE.shortName.toLowerCase().includes(o));
-  try {
-    const { body } = await get('/');
-    const leaks = others.filter((o) => body.toLowerCase().includes(o));
-    record('no sibling branding on homepage', leaks.length === 0, leaks.join(', ') || 'clean');
-  } catch (e) {
-    record('no sibling branding on homepage', false, e.message);
-  }
-}
-
-// ── 4. Title is not doubled ──────────────────────────────────────────────
-for (const path of ['/', '/cost-guide', '/glossary', '/terms']) {
-  try {
-    const { body } = await get(path);
-    const m = body.match(/<title>([^<]*)<\/title>/);
-    const title = m ? m[1] : '';
-    // Count occurrences of the business name in the tab title.
-    const needle = SITE.shortName.toLowerCase();
-    const count = title.toLowerCase().split(needle).length - 1;
-    record(`title ${path}`, count <= 1, count > 1 ? `brand appears ${count}× — "${title}"` : title.slice(0, 70));
-  } catch (e) {
-    record(`title ${path}`, false, e.message);
-  }
-}
-
-// ── 5. Sitemap is present, and advertises only indexable pages ───────────
-{
-  try {
-    const { status, body } = await get('/sitemap.xml');
-    const count = (body.match(/<loc>/g) || []).length;
-    record('sitemap reachable', status === 200, `HTTP ${status}`);
-    // Was 500+, back when the service x city cross-product was submitted.
-    // Those 574 pages now carry noindex, so the sitemap is the ~80 pages
-    // that are actually meant to rank. A collapse below this means the
-    // hand-written pages have gone missing, which is the real risk.
-    record('sitemap size', count >= 70, `${count} URLs (expect 70+)`);
-    // A noindexed URL in the sitemap asks Google to crawl what it is told
-    // not to index — the contradiction this change exists to remove.
-    const serviceCity = (body.match(/<loc>[^<]*\/services\/[^<\/]+\/[^<\/]+<\/loc>/g) || []).length;
-    record('sitemap excludes noindexed city pages', serviceCity === 0, `${serviceCity} present`);
-    record('sitemap host', !body.includes('grewal') || SITE.key === 'grewal', 'no foreign host');
-    // The retirement sitemap must still list them, or Google never recrawls
-    // the pages and never sees the noindex that retires them.
-    if (SITE.key === 'sigma') {
-      const r = await get('/sitemap-retire.xml');
-      const retiring = (r.body.match(/<loc>/g) || []).length;
-      record('retire sitemap serves', r.status === 200, `HTTP ${r.status}`);
-      record('retire sitemap lists the cluster', retiring >= 500, `${retiring} URLs`);
-    }
-  } catch (e) {
-    record('sitemap', false, e.message);
-  }
-}
-
-// ── 6. robots.txt points at this site's sitemap ──────────────────────────
-{
-  try {
-    const { status, body } = await get('/robots.txt');
-    record('robots.txt', status === 200 && body.includes(SITE.domain), `HTTP ${status}`);
-  } catch (e) {
-    record('robots.txt', false, e.message);
-  }
-}
-
-// ── 7. Instant estimate API works end to end ─────────────────────────────
-{
-  try {
-    // Validation path only — deliberately incomplete so no lead is created.
-    const res = await fetch(`${BASE}/api/instant-quote`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: 'smoke-test' }),
-    });
-    const data = await res.json();
-    record(
-      'instant-quote API validates',
-      res.status === 400 && data.success === false,
-      `HTTP ${res.status} — ${data.error ?? ''}`.slice(0, 80)
-    );
-  } catch (e) {
-    record('instant-quote API validates', false, e.message);
-  }
-}
-
-// ── 8. Admin surfaces stay locked ────────────────────────────────────────
-for (const path of ['/api/metrics?days=7', '/api/admin/documents?type=quote']) {
-  try {
-    const { status } = await get(path);
-    record(`locked ${path.split('?')[0]}`, status === 401, `HTTP ${status} (expect 401)`);
-  } catch (e) {
-    record(`locked ${path.split('?')[0]}`, false, e.message);
-  }
-}
-{
-  try {
-    const { status } = await get('/metrics');
-    record('locked /metrics', status === 404, `HTTP ${status} (expect 404 without key)`);
-  } catch (e) {
-    record('locked /metrics', false, e.message);
-  }
-}
-
-// ── 9. Key conversion paths present on the homepage ──────────────────────
-{
-  try {
-    const { body } = await get('/');
-    record('homepage links to /instant-quote', body.includes('href="/instant-quote"'), '');
-    record('homepage shows own phone', body.includes(SITE.phoneDisplay) || body.includes(SITE.phoneTel), SITE.phoneDisplay);
-  } catch (e) {
-    record('homepage conversion paths', false, e.message);
-  }
-}
-
-// ── Report ────────────────────────────────────────────────────────────────
-console.log(`\nSmoke — ${SITE.shortName}  ${BASE}\n`);
-for (const r of results) {
-  const mark = r.pass ? '✓' : '✗';
-  const line = `  ${mark} ${r.name}`;
-  if (r.pass) console.log(r.detail ? `${line}  —  ${r.detail}` : line);
-  else console.error(`${line}  —  ${r.detail}`);
-}
-console.log('');
-if (failed) {
-  console.error(`${failed} of ${results.length} checks FAILED.\n`);
+if (fails.length) {
+  console.error(`\n${fails.length} smoke check(s) failed`);
   process.exit(1);
 }
-console.log(`All ${results.length} checks passed.\n`);
+console.log('\nAll smoke checks passed');

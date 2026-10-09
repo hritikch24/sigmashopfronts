@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { draftingRules, serviceNotes } from '@/lib/sales-facts';
 import OpenAI from 'openai';
 import { prisma } from '@/lib/prisma';
 
@@ -57,20 +58,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const emailNumber = emails.length + 1;
 
     // Service-specific selling points
-    const serviceInsights: Record<string, string> = {
-      'Aluminium Shopfronts': 'Thermally broken aluminium frames with double glazing reduce energy bills by up to 30%. Powder-coated in any RAL colour to match branding. 10-year structural guarantee. We handle council planning if needed.',
-      'Roller Shutters': 'Insurance-approved electric roller shutters can reduce premiums by 15-20%. Quiet tubular motors, key fob or remote operation. Same-day emergency fitting available.',
-      'Security Doors': 'LPS 1175 certified steel doors — the standard insurers and police recommend. Multipoint locking, anti-drill cylinders. We fit to existing frames or supply complete.',
-      'Automatic Doors': 'DDA-compliant automatic sliding or swing doors increase footfall — studies show 12% more walk-ins. Low energy consumption, safety sensors, full maintenance packages.',
-      'Bi-Fold Doors': 'Fully retractable bi-fold systems create a seamless indoor-outdoor frontage. Ideal for cafes, restaurants, and retail. Thermally broken profiles for year-round comfort.',
-      'Shopfront Repairs': 'Same-day repair service for broken glass, damaged frames, faulty locks, and mechanisms. We carry common parts on our vans so most jobs are done in one visit.',
-      'Shutter Repair': 'Emergency shutter repair — stuck, jammed, or damaged roller shutters fixed same day. Motor replacements, slat repairs, guide rail fixes. All brands serviced.',
-      'Glass Replacement': 'Like-for-like or upgraded glass replacement — toughened, laminated, or double-glazed units. Board-up service available for emergencies. Usually fitted within 24-48 hours.',
-      'Fire Doors': 'FD30 and FD60 certified fire doors — fully compliant with Building Regulations. Essential for insurance and fire risk assessments. Supply and fit or supply only.',
-      'Emergency Callout': '24/7 emergency response — we aim to be on site within 1 hour to secure your premises after break-ins, storm damage, or vandalism. Full repairs follow.',
-    };
+    const serviceInsights = serviceNotes;
 
-    const serviceInfo = serviceInsights[lead.service] || `Professional ${lead.service.toLowerCase()} installation and service. Competitive pricing with quality workmanship guaranteed.`;
+    const serviceInfo = serviceInsights[lead.service] || '';
 
     // Email sequence strategy
     let sequenceGuidance = '';
@@ -80,28 +70,28 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 - Show you've READ their message — reference specific details they mentioned
 - Demonstrate expertise with 1-2 specific insights about their chosen service
 - Ask 2-3 smart questions that show you know the trade (dimensions, current setup, timeline, any specific concerns)
-- Mention you regularly work in their area (${lead.location})
-- Offer a free, no-obligation site survey — frame it as valuable to THEM ("lets us give you an exact quote rather than a rough estimate")
-- Create gentle urgency if natural (e.g. "our schedule fills up quickly for [month]" or "current material prices are competitive")
+- If it is a repair, say whether ${lead.location} is inside our repair radius; never claim to have worked there before
+- Offer a site survey — frame it as valuable to THEM ("lets us give you an exact quote rather than a rough estimate")
+- No invented urgency, scarcity or price movements
 - DO NOT mention price ranges — too early, makes you look cheap`;
     } else if (emailNumber === 2) {
       sequenceGuidance = `EMAIL #2 — FIRST FOLLOW-UP. Goals:
 - Reference your previous email naturally, don't say "following up" (boring)
 - Add NEW value — share a relevant insight, tip, or consideration they may not have thought of
-- Light social proof: "we recently completed a similar ${lead.service.toLowerCase()} project in [nearby area]" or "one thing our clients in ${lead.location} often ask about is..."
-- Reiterate the free site survey offer with a specific proposed date/timeframe: "I could pop by this week or next — what works for you?"
+- No social proof, past projects or client anecdotes unless they appear in the thread — do not invent them
+- Reiterate the site survey offer and ask what timing suits them
 - Slightly more direct CTA — ask a specific question that's easy to reply to`;
     } else if (emailNumber === 3) {
       sequenceGuidance = `EMAIL #3 — WARM NUDGE. Goals:
 - Keep it SHORT — 2 paragraphs max
 - Acknowledge they're probably busy
-- Offer something concrete: "I'll be in the ${lead.location} area on [day] — happy to stop by for a quick 10-minute look, no commitment"
-- Mention a relevant benefit they'd miss out on: energy savings, insurance compliance, security improvement, or increased footfall
+- Offer something concrete: a site survey at a time that suits them
+- Mention one relevant, factual consideration (for example what their council's guidance says about shutters) — no savings figures
 - Make replying effortless: "Just reply 'yes' and I'll sort the rest"`;
     } else {
       sequenceGuidance = `EMAIL #${emailNumber} — LATER FOLLOW-UP. Goals:
 - Very brief and respectful of their time
-- Offer a new angle or reason to get in touch (seasonal offer, new product, completed a nearby project)
+- Offer a genuine new angle — a question, or a relevant planning point — never an invented offer or project
 - Leave the door open: "No worries if the timing isn't right — we're here whenever you're ready"
 - Stay warm, never passive-aggressive or guilt-tripping`;
     }
@@ -149,7 +139,7 @@ Respond in JSON only:
       messages: [
         {
           role: 'system',
-          content: `You are the senior sales person at Sigma Shopfronts, a UK-wide commercial shopfront installation and repair company based in Oldbury, West Midlands. You have 15+ years of experience in the shopfront trade. You know materials, regulations, pricing factors, and what matters to business owners. You write emails that feel personal and knowledgeable — never templated. Your conversion rate is high because you focus on understanding the customer's specific situation before selling. You always offer a free site survey as the next step because you know seeing the site in person wins jobs. Phone: 07414 779594. Respond ONLY with valid JSON.`,
+          content: `You are the senior sales person at Sigma Shopfronts, a UK-wide commercial shopfront installation and repair company based in Oldbury, West Midlands. You know materials, regulations, pricing factors, and what matters to business owners. You write emails that feel personal and knowledgeable — never templated. Your conversion rate is high because you focus on understanding the customer's specific situation before selling. Offer a site survey as the next step where it makes sense. ${draftingRules} Respond ONLY with valid JSON.`,
         },
         { role: 'user', content: prompt },
       ],

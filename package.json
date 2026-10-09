@@ -4,15 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && prisma db push --skip-generate --accept-data-loss && next build",
+    "prebuild": "node --no-warnings --import ./tests/ts-paths.mjs scripts/launch-gate.mjs",
+    "build": "prisma generate && prisma db push --skip-generate && next build && npm run gate && npm run test:sanity",
+    "build:local": "next build && npm run gate",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
-    "indexnow": "node scripts/indexnow.mjs",
+    "gate": "node scripts/originality-gate.mjs",
+    "gate:snapshot": "node scripts/originality-gate.mjs --snapshot",
     "test:contamination": "node tests/contamination.test.mjs",
-    "test:sanity": "node tests/sanity.test.mjs",
+    "test:frontage": "node --no-warnings --import ./tests/ts-paths.mjs tests/frontage.test.mjs",
+    "test:sanity": "node --no-warnings --import ./tests/ts-paths.mjs tests/sanity.test.mjs",
+    "test:links": "node --no-warnings --import ./tests/ts-paths.mjs tests/links.test.mjs",
     "test:smoke": "node tests/smoke.test.mjs",
-    "test": "npm run test:contamination && npm run test:sanity"
+    "test": "npm run test:contamination && npm run test:frontage && npm run test:sanity"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

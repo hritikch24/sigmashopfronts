@@ -1,0 +1,181 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { business } from '@/lib/business';
+import { pageMeta } from '@/lib/seo';
+import { authorities, type HeritageExternalLine } from '@/data/authorities';
+import { consentLabel, shopfronts } from '@/data/shopfronts';
+import { jobs } from '@/data/jobs';
+
+export const metadata = pageMeta({
+  path: '/',
+  title: `${business.name} — shopfronts and shutters that get through planning`,
+  description:
+    'Aluminium shopfronts, roller shutters and commercial glazing fitted UK-wide, specified around what your council will accept. Repairs within 100 road miles of Birmingham; we reply to emergency calls within two hours.',
+});
+
+const LINE: Record<HeritageExternalLine, { label: string; cls: string }> = {
+  'not-acceptable': { label: 'Not acceptable', cls: 'verdict--refuse' },
+  'normally-refused': { label: 'Normally refused', cls: 'verdict--caution' },
+  'exception-only': { label: 'Named exceptions only', cls: 'verdict--caution' },
+};
+
+export default function Home() {
+  const featured = ['aluminium', 'roller-shutters', 'glass-replacement', 'automatic-doors', 'shutter-repairs', 'emergency-repairs'];
+  return (
+    <>
+      <section className="paper-grid">
+        <div className="frame split" style={{ paddingBlock: 'clamp(2.25rem, 1.5rem + 4vw, 5rem)', alignItems: 'center' }}>
+          <div>
+            <p className="sheet-label">
+              <b>Sheet 00</b> · Shopfronts, shutters, glazing
+            </p>
+            <h1 style={{ marginTop: '0.6rem', maxWidth: '18ch' }}>Shopfronts drawn for the council before they are drawn for you</h1>
+            <p className="lede measure" style={{ marginTop: '1.1rem' }}>
+              We design and fit aluminium shopfronts, roller shutters and commercial glazing across the UK, and repair them
+              within {business.repairRadiusMiles} road miles of Birmingham. Every job starts with the question that decides
+              whether it goes ahead: what will your council actually accept on that building?
+            </p>
+            <div className="acts" style={{ marginTop: '1.6rem' }}>
+              <Link href="/frontage-check" className="act act--solid">
+                Check your frontage
+              </Link>
+              <a href={`tel:${business.phones.main.tel}`} className="act act--line" data-dial="main">
+                Call {business.phones.main.display}
+              </a>
+            </div>
+            <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: 'var(--color-ink-3)' }}>{business.emergencyPromise}</p>
+          </div>
+          <figure className="plate" style={{ maxWidth: 520, justifySelf: 'end', width: '100%' }}>
+            <Image
+              src="/assets/sigma-retail-front.jpeg"
+              alt="A dark grey aluminium restaurant front we fitted, with a glazed door, fixed display glazing and a painted fascia"
+              width={1600}
+              height={1200}
+              priority
+              quality={60}
+              sizes="(min-width: 60rem) 520px, 92vw"
+            />
+            <figcaption>Dark grey aluminium front, single door, painted fascia — one of our installations.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="band band--sheet">
+        <div className="frame">
+          <div className="split split--even" style={{ alignItems: 'start' }}>
+            <div>
+              <p className="sheet-label">The question nobody else answers</p>
+              <h2 style={{ marginTop: '0.4rem' }}>What am I allowed to put here — and what will look right?</h2>
+              <p style={{ marginTop: '0.9rem' }} className="measure">
+                Give the frontage check your postcode, whether the building is listed or in a conservation area, and what you
+                want to fit. It tells you which consents you are likely to need, what that council’s own guidance says, and
+                the specification we would put in front of their planning officer. The answer comes first. If you then want
+                our view on your actual building, you can send a photo.
+              </p>
+              <div className="acts" style={{ marginTop: '1.2rem' }}>
+                <Link href="/frontage-check" className="act act--solid">
+                  Start the frontage check
+                </Link>
+                <Link href="/planning" className="act act--line">
+                  Browse councils
+                </Link>
+              </div>
+            </div>
+            <div>
+              <p className="sheet-label">External shutters on a conservation-area or listed frontage — in the council’s own words</p>
+              <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '0.75rem' }}>
+                {authorities.slice(0, 9).map((a) => (
+                  <li key={a.slug} style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
+                    <Link href={`/planning/${a.slug}`}>{a.place}</Link>
+                    <span className={`verdict ${LINE[a.heritageExternal].cls}`}>{LINE[a.heritageExternal].label}</span>
+                  </li>
+                ))}
+              </ul>
+              <p style={{ marginTop: '0.75rem', fontSize: '0.92rem' }}>
+                <Link href="/planning">All {authorities.length} councils, with sources →</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="frame">
+          <p className="sheet-label">What we fit</p>
+          <h2 style={{ marginTop: '0.4rem' }}>Shopfronts, shutters, doors and glass</h2>
+          <div className="sheets" style={{ marginTop: '1.4rem' }}>
+            {featured.map((slug) => {
+              const s = shopfronts.find((x) => x.slug === slug)!;
+              return (
+                <Link key={slug} href={`/shopfronts/${slug}`}>
+                  <span className="sheet-title">{s.name}</span>
+                  <span className="sheet-meta">
+                    {s.area === 'uk' ? 'Fitted UK-wide' : 'Repairs near Birmingham'} ·{' '}
+                    {s.consents
+                      .filter((c) => c.likelihood === 'usually' && c.consent !== 'none-usually')
+                      .map((c) => consentLabel[c.consent].toLowerCase())
+                      .join(', ') || 'consent depends on the building'}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+          <p style={{ marginTop: '1rem' }}>
+            <Link href="/shopfronts">Everything we make and fit →</Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="band band--sheet">
+        <div className="frame split">
+          <div>
+            <p className="sheet-label">Repairs</p>
+            <h2 style={{ marginTop: '0.4rem' }}>Within {business.repairRadiusMiles} road miles of Birmingham</h2>
+            <p className="measure" style={{ marginTop: '0.9rem' }}>
+              Stuck shutters, dropped doors, smashed glass. We are based in Oldbury, and we take repair work only where we can
+              actually get to you — every town within {business.repairRadiusMiles} road miles of Birmingham, not just the
+              cities. Call or message and a person replies within two hours; we then tell you honestly when we can be there.
+              Installation work goes anywhere in the UK.
+            </p>
+            <div className="acts" style={{ marginTop: '1.2rem' }}>
+              <Link href="/repair-radius" className="act act--line">
+                Towns we cover for repairs
+              </Link>
+            </div>
+          </div>
+          <div className="panel panel--ink">
+            <h3>What you can check before you hire us</h3>
+            <ul className="copy" style={{ marginTop: '0.8rem' }}>
+              {business.trustBasis.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+            <p style={{ marginTop: '0.9rem', fontSize: '0.92rem' }}>
+              <a href={business.companiesHouseUrl} rel="noopener">
+                See our Companies House record
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="frame">
+          <p className="sheet-label">Our work</p>
+          <h2 style={{ marginTop: '0.4rem' }}>Recent installations</h2>
+          <div className="plates" style={{ marginTop: '1.4rem' }}>
+            {jobs.slice(1, 4).map((j) => (
+              <figure key={j.src} className="plate">
+                <Image src={j.src} alt={j.what} width={j.w} height={j.h} sizes="(min-width: 60rem) 33vw, 100vw" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
+                <figcaption>{j.kind === 'shopfront' ? 'Shopfront' : j.kind === 'doors' ? 'Entrance doors' : j.kind === 'glazing' ? 'Glazing' : 'Glazed screens'}</figcaption>
+              </figure>
+            ))}
+          </div>
+          <p style={{ marginTop: '1rem' }}>
+            <Link href="/jobs">More of our work →</Link>
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}

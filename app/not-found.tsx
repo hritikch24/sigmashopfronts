@@ -1,36 +1,27 @@
-import type { Metadata } from 'next';
+import './site.css';
 import Link from 'next/link';
+import Masthead from '@/components/site/Masthead';
+import Colophon from '@/components/site/Colophon';
 
-export const metadata: Metadata = {
-  title: 'Page Not Found',
-  description:
-    'The page you are looking for could not be found. Browse our shopfront services or contact us for help.',
-};
+export const metadata = { title: 'Page not found', robots: { index: false, follow: true } };
 
 export default function NotFound() {
   return (
-    <section className="section-padding">
-      <div className="container-max text-center py-16">
-        <p className="text-7xl font-heading font-extrabold text-gold mb-4">404</p>
-        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
-          Page Not Found
-        </h1>
-        <p className="text-grey-600 max-w-md mx-auto mb-8 leading-relaxed">
-          Sorry, we cannot find the page you are looking for. It may have been moved or no longer
-          exists. Try one of the links below.
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <Link href="/" className="btn-gold">
-            Back to Home
-          </Link>
-          <Link href="/services" className="btn-outline">
-            View Services
-          </Link>
-          <Link href="/contact" className="btn-outline">
-            Contact Us
-          </Link>
-        </div>
-      </div>
-    </section>
+    <div className="public" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Masthead />
+      <main id="content" style={{ flex: 1 }}>
+        <section className="paper-grid">
+          <div className="frame" style={{ paddingBlock: '4rem' }}>
+            <p className="sheet-label">404</p>
+            <h1 style={{ marginTop: '0.5rem' }}>There is no page here</h1>
+            <p className="lede measure" style={{ marginTop: '1rem' }}>
+              Try the <Link href="/frontage-check">frontage check</Link>, the <Link href="/planning">council pages</Link> or the{' '}
+              <Link href="/">home page</Link>.
+            </p>
+          </div>
+        </section>
+      </main>
+      <Colophon />
+    </div>
   );
 }

@@ -1,0 +1,17 @@
+{
+  "_about": "SHA-256 of every logo and icon file as it was on main before the relaunch. tests/sanity.test.mjs fails if any changes.",
+  "files": {
+    "public/assets/sigma-appicon-192.png": "8655f4c4d9e4f6c8db9db71413d495311c500d59356acc85ce505fda16d2494c",
+    "public/assets/sigma-appicon-512.png": "3888611df171b4ec59f56f8b5ea4a3a75f9be6b0396e90112a08431d64288b26",
+    "public/assets/sigma-icon-16.png": "23e95d863b9bfea8559424cbf7aa21ff4b8a25c1b9e550a6e0deff8791c29a80",
+    "public/assets/sigma-icon-180.png": "118fa0a3b95c0f0e6d5cd3efd5ef85922fd2a9b898804c5b7c4d873544620bf6",
+    "public/assets/sigma-icon-32.png": "f751a7ed45eb1d28dc312899cd34448e304f6f9d3fc704a630bede582b9ca123",
+    "public/assets/sigma-icon-64.png": "31e9a8a9d45c4e78ae1b322a5d270a91c7ae965ea8119b3376368886f849d8ed",
+    "public/assets/sigma-logo-horizontal.png": "d9dce56d28743c39b12fd9cbe44a59c173f4c9c954fb6caae0dca6250605d1e3",
+    "public/assets/sigma-logo-light-bg.png": "3c5030f650392e6111de0c8b8bb0eb19d8fcdb8f9543699c464976286112087d",
+    "public/assets/sigma-logo-mark.png": "0d131f5f6ad4081d483ab2075c53a65e7b55fa07c42528205d7e0bf2291f7886",
+    "public/assets/sigma-logo-square-white.png": "aff22245ad9de7148ca2164951d1695589ab45cb284b3f6c7bd71a0036c119f2",
+    "public/assets/sigma-logo.png": "911d16ab33dda5232c51fd709474eca120670da3d84bcb33b89e7952bd70c8c5",
+    "public/favicon.ico": "621f60255c09f1c7967a2f41202619adcd36fe7083bfd2253755af11fadba958"
+  }
+}

@@ -1,333 +1,71 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
-import './globals.css';
+import localFont from 'next/font/local';
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ChatWidget from '@/components/ChatWidget';
-import MobileStickyBar from '@/components/MobileStickyBar';
-import StickyDesktopCTA from '@/components/StickyDesktopCTA';
-import ExitIntentPopup from '@/components/ExitIntentPopup';
-import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import Analytics from '@/components/Analytics';
-import CallTracker from '@/components/CallTracker';
-import SiteChrome from '@/components/SiteChrome';
-import { Suspense } from 'react';
 import { SITE_URL } from '@/lib/site';
+import { business, indexingOn, tracking } from '@/lib/business';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-heading',
+// Self-hosted (OFL, see app/fonts/LICENSE.md): no build-time call to Google,
+// which failed intermittently and would fail a deploy with it. `optional`:
+// a late font never re-renders the page (that late swap was setting LCP);
+// the fallbacks are metric-adjusted, so the first visit barely differs.
+const display = localFont({ src: './fonts/archivo-var.woff2', weight: '500 700', variable: '--f-display', display: 'optional', preload: false, adjustFontFallback: 'Arial' });
+const text = localFont({ src: './fonts/plex-sans-var.woff2', weight: '400 600', variable: '--f-text', display: 'optional', preload: false, adjustFontFallback: 'Arial' });
+const mono = localFont({
+  src: [
+    { path: './fonts/plex-mono-400.woff2', weight: '400' },
+    { path: './fonts/plex-mono-500.woff2', weight: '500' },
+  ],
+  variable: '--f-mono',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+  preload: false,
+  adjustFontFallback: false,
 });
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-});
-
-const siteUrl = `${SITE_URL}`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    template: '%s | Sigma Shop Fronts',
-    default: 'Sigma Shop Fronts | Professional Shopfront Installation UK',
+    template: `%s · ${business.name}`,
+    // The template never applies to the segment that defines it, so the
+    // default spells the brand out itself.
+    default: `${business.name} — shopfronts and shutters that get through planning`,
   },
   description:
-    'Affordable shopfront installation & shutter specialists across the UK. Aluminium shopfronts, roller shutters, security doors, automatic doors & emergency repairs. Competitive prices, free site surveys. Call for a free quote today.',
-  keywords: [
-    'shopfront installation UK',
-    'shopfront installers near me',
-    'shop fronts near me',
-    'cheap shopfronts',
-    'affordable shopfronts UK',
-    'shopfront fitters',
-    'aluminium shopfronts',
-    'aluminium shop front',
-    'aluminium doors',
-    'aluminium windows',
-    'roller shutters',
-    'roller shutter installation',
-    'cheap roller shutters',
-    'security doors',
-    'automatic doors',
-    'bi-fold doors',
-    'fire doors',
-    'curtain walling',
-    'glass shopfronts',
-    'glass shop front',
-    'frameless shopfronts',
-    'commercial glazing',
-    'toughened glass shopfronts',
-    'shopfront repairs',
-    'shopfront repair near me',
-    'shop front design',
-    'emergency shopfront callout',
-    '24 hour shutter repair',
-    'shop front company UK',
-    'shopfront prices UK',
-    'how much does a shopfront cost',
-    'commercial shopfronts',
-    'shop front replacement',
-    'shopfront companies UK',
-    'Sigma Shop Fronts',
-  ],
-  openGraph: {
-    type: 'website',
-    locale: 'en_GB',
-    url: siteUrl,
-    siteName: 'Sigma Shop Fronts',
-    title: 'Sigma Shop Fronts | Affordable Shopfront Installation UK',
-    description:
-      'Affordable shopfront installation & shutter specialists across the UK. Aluminium shopfronts, roller shutters, security doors, automatic doors & emergency repairs. Competitive prices, free site surveys.',
-    images: [
-      {
-        // Was pointed at sigma-hero-1.jpeg, which is 1600x1200 despite being
-        // declared 1200x630 here — so shares were cropped to a shape no one
-        // had composed for. This card is genuinely 1200x630.
-        url: `${siteUrl}/assets/sigma-og.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Sigma Shop Fronts — install, repair, transform, across the UK',
-      },
+    'Aluminium shopfronts, roller shutters and glazing fitted UK-wide, specified around what your council will accept. Repairs within 100 road miles of Birmingham.',
+  robots: indexingOn ? { index: true, follow: true } : { index: false, follow: true },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/assets/sigma-icon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/sigma-icon-16.png', sizes: '16x16', type: 'image/png' },
     ],
+    apple: [{ url: '/assets/sigma-icon-180.png', sizes: '180x180' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sigma Shop Fronts | Affordable Shopfront Installation UK',
-    description:
-      'Affordable shopfront installation & shutter specialists across the UK. Aluminium shopfronts, roller shutters, security doors & emergency repairs. Free site surveys.',
-    images: [`${siteUrl}/assets/sigma-og.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  alternates: {
-    canonical: siteUrl,
-  },
-  metadataBase: new URL(siteUrl),
-  // These were hard-coded <meta> tags in <head>, which append rather than
-  // replace: a city page emitted its own geo block and the page shipped both
-  // Oldbury and, say, London. Declared as metadata instead, so a child route's
-  // `other` overrides these by key rather than duplicating them.
+  manifest: '/manifest.webmanifest',
   other: {
-    'geo.region': 'GB',
-    'geo.placename': 'Oldbury, West Midlands, United Kingdom',
-    'geo.position': '52.4912;-2.0150',
-    'ICBM': '52.4912, -2.0150',
+    'geo.region': 'GB-SAW',
+    'geo.placename': 'Oldbury',
   },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#1a1a2e',
+  themeColor: '#0a1420',
 };
 
-// The production env var was set to the two-character string `""` — copied
-// from .env.example with its quotes. That is truthy, so the tag rendered as
-// `gtm.js?id=%22%22` and GTM never loaded. Strip quotes/whitespace and require
-// a real container id, so a malformed value disables the tag instead of
-// emitting a broken one.
-const rawGtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim().replace(/^["']|["']$/g, '');
-const gtmId = rawGtmId && /^GTM-[A-Z0-9]+$/i.test(rawGtmId) ? rawGtmId : undefined;
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en-GB"
-      className={`${plusJakartaSans.variable} ${outfit.variable} h-full scroll-smooth antialiased`}
-    >
+    <html lang="en-GB" className={`${display.variable} ${text.variable} ${mono.variable}`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "@id": `${SITE_URL}/#website`,
-              "name": "Sigma Shop Fronts",
-              "url": `${SITE_URL}`,
-              "publisher": {"@id": `${SITE_URL}/#organization`},
-              "inLanguage": "en-GB",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": {"@type": "EntryPoint", "urlTemplate": `${SITE_URL}/services?q={search_term_string}`},
-                "query-input": "required name=search_term_string"
-              }
-            }),
-          }}
-        />
-        {/* The WebSite entity above names this as its publisher, but nothing
-            ever defined it, so the reference dangled. Defining it also gives
-            Google somewhere to read the logo from, which is what populates the
-            brand image in a knowledge panel. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": `${SITE_URL}/#organization`,
-              "name": "Sigma Shop Fronts",
-              // The registered name at Companies House, which is what the
-              // terms, privacy policy and homepage certificate all state. The
-              // LocalBusiness entity on the homepage declares the same value,
-              // so the two no longer contradict each other.
-              "legalName": "Sigma Shopfronts and Shutter Limited",
-              "url": `${SITE_URL}`,
-              "logo": {
-                "@type": "ImageObject",
-                "@id": `${SITE_URL}/#logo`,
-                "url": `${SITE_URL}/assets/sigma-logo-square-white.png`,
-                "width": 1024,
-                "height": 1024,
-                "caption": "Sigma Shop Fronts"
-              },
-              "image": {"@id": `${SITE_URL}/#logo`},
-              "slogan": "Install, repair, transform",
-              "areaServed": {"@type": "Country", "name": "United Kingdom"},
-              "sameAs": ["https://www.instagram.com/sigmashopfrontsuk/"]
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SiteNavigationElement",
-              "@id": `${SITE_URL}/#navigation`,
-              "name": "Main Navigation",
-              "url": `${SITE_URL}`,
-              "hasPart": [
-                {"@type": "SiteNavigationElement", "name": "Services", "url": `${SITE_URL}/services`},
-                {"@type": "SiteNavigationElement", "name": "Areas We Cover", "url": `${SITE_URL}/areas`},
-                {"@type": "SiteNavigationElement", "name": "About Us", "url": `${SITE_URL}/about`},
-                {"@type": "SiteNavigationElement", "name": "Gallery", "url": `${SITE_URL}/gallery`},
-                {"@type": "SiteNavigationElement", "name": "Blog", "url": `${SITE_URL}/blog`},
-                {"@type": "SiteNavigationElement", "name": "Cost Guide", "url": `${SITE_URL}/cost-guide`},
-                {"@type": "SiteNavigationElement", "name": "FAQ", "url": `${SITE_URL}/faq`},
-                {"@type": "SiteNavigationElement", "name": "Reviews", "url": `${SITE_URL}/reviews`},
-                {"@type": "SiteNavigationElement", "name": "Contact", "url": `${SITE_URL}/contact`}
-              ]
-            }),
-          }}
-        />
-        <link rel="manifest" href="/manifest.json" />
-        {/* Sized PNGs rather than one large icon: the mark carries fine detail
-            that turns to mush when the browser downscales 512px to 16px, so
-            each size is rendered from the source instead. */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/sigma-icon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/sigma-icon-16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/sigma-icon-180.png" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {gtmId && (
+        {tracking.gtm && (
           <script
             dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${gtmId}');`,
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${tracking.gtm}');`,
             }}
           />
         )}
-        {/* Google Ads gtag */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16801337867" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'AW-16801337867');
-
-function gtagSendEvent(url) {
-  var callback = function () {
-    if (typeof url === 'string') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-',
-    'event_callback': callback,
-    'event_timeout': 2000,
-  });
-  gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
-  });
-  return false;
-}
-
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof url !== 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/TcCuCK3Jk7IcEIukwMs-',
-    'event_callback': callback,
-  });
-  gtag('event', 'conversion', {
-    'send_to': 'AW-16801337867/u-x7CNe428gcEIukwMs-',
-  });
-  return false;
-}`,
-          }}
-        />
       </head>
-      <body className="min-h-full flex flex-col font-body bg-obsidian text-charcoal">
-        {gtmId && (
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
-        )}
-        <SiteChrome>
-          {/* OfferBanner removed. It advertised a "Summer 2026 Offer" of a free site
-              survey plus 10% off, still running in September — a promotion whose own
-              name says it has expired reads as an unattended site. The free survey it
-              offered is already stated as standard on every page. The component is
-              kept for a future dated promotion; both sibling sites carry the same
-              file and never mounted it. */}
-          <Header />
-        </SiteChrome>
-        <main className="flex-1">{children}</main>
-        <SiteChrome>
-          <Footer />
-          <ChatWidget />
-          <MobileStickyBar />
-          <StickyDesktopCTA />
-          <FloatingWhatsApp />
-          <ExitIntentPopup />
-        </SiteChrome>
-        <Suspense fallback={null}>
-          <Analytics />
-          <CallTracker />
-        </Suspense>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

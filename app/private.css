@@ -1,0 +1,48 @@
+/*
+ * Private tools only (admin, metrics, quote and invoice documents). These keep
+ * their original Tailwind utility styling and colour tokens, unchanged.
+ */
+@import "tailwindcss";
+@source "../app/admin";
+@source "../app/metrics";
+@source "../app/quote";
+@source "../app/invoice";
+@source "../components/DocumentView.tsx";
+@source "../components/PrintButton.tsx";
+
+@theme inline {
+  --color-space: #06060e;
+  --color-space-light: #0c0c1a;
+  --color-space-mid: #111128;
+  --color-void: #0a0a14;
+  --color-obsidian: #06060e;
+  --color-obsidian-light: #0c0c1a;
+  --color-obsidian-mid: #111128;
+  --color-navy: #0a0a18;
+  --color-navy-light: #14142a;
+  --color-charcoal: #e0e6f0;
+  --color-cyan: #00e5ff;
+  --color-cyan-light: #62f0ff;
+  --color-cyan-dim: #007a8a;
+  --color-gold: #f0b429;
+  --color-gold-light: #ffd060;
+  --color-violet: #9945ff;
+  --color-violet-light: #b47cff;
+  --color-violet-dim: #5c2d91;
+  --color-grey-50: #0d0d1c;
+  --color-grey-100: #12122a;
+  --color-grey-200: #1c1c3a;
+  --color-grey-300: #2a2a50;
+  --color-grey-400: #6e7191;
+  --color-grey-500: #8b8eb0;
+  --color-grey-600: #a8abca;
+  --color-grey-700: #c0c3de;
+  --color-grey-800: #d8daf0;
+  --color-grey-900: #eef0fa;
+
+}
+
+@theme inline {
+  --font-heading: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+}

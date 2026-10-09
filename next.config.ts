@@ -1,20 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Allow images from common external sources used in the project
+  // Another lockfile higher up the tree confuses root inference.
+  turbopack: { root: process.cwd() },
+
+  // Only our own images; nothing is hot-linked from elsewhere.
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "**.googleusercontent.com",
-      },
-    ],
-    // Serve modern formats where supported
     formats: ["image/avif", "image/webp"],
+    qualities: [60, 65, 75],
   },
 
   trailingSlash: false,
@@ -32,16 +25,6 @@ const nextConfig: NextConfig = {
     },
   },
 
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'sigmashopfronts.com' }],
-        destination: 'https://www.sigmashopfronts.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
 
   // Security headers applied to every route
   async headers() {

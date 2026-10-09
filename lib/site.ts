@@ -8,7 +8,7 @@
  *
  * NEXT_PUBLIC_SITE_URL overrides it, so a preview or a staging host can run
  * the same build without emitting production canonicals. The fallback is the
- * current production origin, so nothing changes until that variable is set.
+ * production origin on the UK domain.
  *
  * Always origin-only: scheme + host, no trailing slash. Compose paths as
  * `${SITE_URL}/services` so there is never a double slash.
@@ -21,8 +21,15 @@ function normalise(raw: string | undefined, fallback: string): string {
 
 export const SITE_URL = normalise(
   process.env.NEXT_PUBLIC_SITE_URL,
-  'https://www.sigmashopfronts.com',
+  'https://www.sigmashopfrontshutters.co.uk',
 );
+
+/**
+ * Hosts that used to serve this site. They no longer serve content: `proxy.ts`
+ * answers every request on them with a mapped 301 or a 410 (see
+ * `lib/legacy-urls.ts` and docs/relaunch/01-url-inventory.md).
+ */
+export const LEGACY_HOSTS = ['sigmashopfronts.com', 'www.sigmashopfronts.com'];
 
 /** Host only, no scheme — for display text and `SITE`-style constants. */
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '');

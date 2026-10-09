@@ -1,24 +1,15 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
+
+const PRIVATE = ['/admin', '/metrics', '/quote/', '/invoice/', '/api/'];
+const AI = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot', 'Claude-SearchBot', 'Google-Extended'];
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: ['/api/', '/admin', '/metrics'] },
-      { userAgent: 'GPTBot', allow: '/' },
-      { userAgent: 'OAI-SearchBot', allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Anthropic-ai', allow: '/' },
-      { userAgent: 'ClaudeBot', allow: '/' },
-      { userAgent: 'Applebot-Extended', allow: '/' },
+      { userAgent: '*', allow: '/', disallow: PRIVATE },
+      { userAgent: AI, allow: '/', disallow: PRIVATE },
     ],
-    // sitemap-retire.xml is temporary: it exists only so Google recrawls the
-    // noindexed service x city pages and drops them. Remove both it and this
-    // line once they are out of the index.
-    sitemap: [
-      `${SITE_URL}/sitemap.xml`,
-      `${SITE_URL}/sitemap-retire.xml`,
-    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

@@ -1,3 +1,4 @@
+import '../private.css';
 export const metadata = {
   title: 'Admin | Sigma Shop Fronts',
   robots: { index: false, follow: false },

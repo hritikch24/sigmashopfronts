@@ -1,108 +1,43 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { absolute } from '@/lib/seo';
+import { indexingOn } from '@/lib/business';
+import { shopfronts } from '@/data/shopfronts';
+import { authorities } from '@/data/authorities';
+import { explainers } from '@/data/explainers';
 import { towns } from '@/data/towns';
-import { SITE_URL } from '@/lib/site';
 
-const siteUrl = `${SITE_URL}`;
-
-export const serviceSlugs = [
-  'aluminium-shopfronts',
-  'roller-shutters',
-  'security-doors',
-  'automatic-doors',
-  'bi-fold-doors',
-  'fire-doors',
-  'shopfront-repairs',
-  'emergency-callout',
-  'shutter-repair',
-  'glass-replacement',
-  'aluminium-doors',
-  'aluminium-windows',
-  'curtain-walling',
-  'glass-shopfronts',
+/**
+ * Indexable pages only. While the site is held at noindex the sitemap is empty,
+ * so it never lists a page that tells crawlers not to index it.
+ */
+export const PUBLIC_PATHS = [
+  '/',
+  '/frontage-check',
+  '/shopfronts',
+  ...shopfronts.map((s) => `/shopfronts/${s.slug}`),
+  '/planning',
+  '/planning/conservation-areas',
+  ...authorities.map((a) => `/planning/${a.slug}`),
+  '/grants',
+  '/explained',
+  ...explainers.map((e) => `/explained/${e.slug}`),
+  '/repair-radius',
+  ...towns.map((t) => `/repair-radius/${t.slug}`),
+  '/jobs',
+  '/costs',
+  '/questions',
+  '/shopfront-anatomy',
+  '/company',
+  '/enquire',
+  '/privacy',
+  '/terms-of-business',
 ];
 
-// Cities that have their own /areas/<city> page. The service x city
-// cross-product built from these is no longer submitted; see below.
-export const citySlugs = [
-  'london', 'birmingham', 'manchester', 'leeds', 'liverpool', 'bristol',
-  'sheffield', 'glasgow', 'cardiff', 'newcastle', 'nottingham', 'leicester',
-  'edinburgh', 'southampton', 'brighton', 'coventry', 'reading',
-  'wolverhampton', 'derby', 'northampton', 'luton', 'swindon',
-  'stoke-on-trent', 'plymouth', 'bradford', 'swansea', 'oxford',
-  'cambridge', 'york', 'bath', 'aberdeen', 'belfast', 'milton-keynes',
-  'middlesbrough', 'bournemouth', 'portsmouth', 'norwich', 'exeter',
-  'chester', 'gloucester', 'peterborough',
-];
-
-const blogSlugs = [
-  'how-to-maintain-commercial-roller-shutters',
-  'aluminium-shopfront-planning-permission-uk',
-  'fd30-vs-fd60-fire-door-commercial-premises',
-  'what-is-lps-1175-security-rating',
-  'emergency-shopfront-boarding-what-to-do',
-  'shopfront-installation-cost-uk-2026',
-  'best-shopfront-company-uk-how-to-choose',
-  'shopfront-design-trends-uk-2026',
-  'commercial-security-shutters-guide-uk',
-  'shopfront-regulations-building-standards-uk-2026',
-];
+// Fixed, not "now": a lastmod that changes on every build tells crawlers every
+// page changed every day.
+const LAST_CHANGED = '2026-10-09';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
-
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: siteUrl, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${siteUrl}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${siteUrl}/gallery`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${siteUrl}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${siteUrl}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${siteUrl}/areas`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${siteUrl}/cost-guide`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${siteUrl}/why-choose-us`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/reviews`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${siteUrl}/instant-quote`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${siteUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-  ];
-
-  const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
-    url: `${siteUrl}/services/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.9,
-  }));
-
-  const cityPages: MetadataRoute.Sitemap = citySlugs.map((slug) => ({
-    url: `${siteUrl}/areas/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
-
-  // The 574 service x city pages carry `robots: noindex` (see
-  // app/services/[slug]/[city]/page.tsx for why), so submitting them here
-  // would ask Google to crawl pages it is being told not to index. They stay
-  // reachable and internally linked; they are just not advertised.
-
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${siteUrl}/blog/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  const townPages: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/towns`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
-    ...towns.map((t) => ({
-      url: `${siteUrl}/towns/${t.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.75,
-    })),
-  ];
-
-  return [...townPages, ...staticPages, ...servicePages, ...cityPages, ...blogPages];
+  if (!indexingOn) return [];
+  return PUBLIC_PATHS.map((p) => ({ url: absolute(p), lastModified: LAST_CHANGED }));
 }

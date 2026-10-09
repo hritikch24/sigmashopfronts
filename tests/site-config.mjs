@@ -30,15 +30,16 @@ export const SITES = {
   },
   sigma: {
     key: 'sigma',
-    name: 'Sigma Shop Fronts',
+    name: 'Sigma Shopfronts',
     shortName: 'Sigma',
-    domain: 'www.sigmashopfronts.com',
-    origin: 'https://www.sigmashopfronts.com',
+    domain: 'www.sigmashopfrontshutters.co.uk',
+    origin: 'https://www.sigmashopfrontshutters.co.uk',
     phoneDisplay: '07414 779594',
     phoneTel: '07414779594',
     whatsapp: '447397066538',
     markers: [
       'sigmashopfronts',
+      'sigmashopfrontshutters',
       '07414779594',
       '07414 779594',
       '447397066538',
@@ -63,6 +64,24 @@ export const SITES = {
       '07903 680363',
       '07903680363',
     ],
+  },
+  safeandsecure: {
+    key: 'safeandsecure',
+    name: 'Safe & Secure Shopfront Shutters',
+    shortName: 'Safe & Secure',
+    domain: 'www.safeandsecureshopfrontshutters.co.uk',
+    origin: 'https://www.safeandsecureshopfrontshutters.co.uk',
+    markers: ['safeandsecureshopfrontshutters', 'safe & secure shopfront', 'safe and secure shopfront'],
+  },
+  highstreet: {
+    key: 'highstreet',
+    name: 'High Street Shopfronts',
+    shortName: 'High Street',
+    domain: 'www.highstreetshopfronts.co.uk',
+    origin: 'https://www.highstreetshopfronts.co.uk',
+    // Brand phrase is too close to ordinary English to scan for; the domain
+    // and the storage-key prefix are distinctive.
+    markers: ['highstreetshopfronts', 'hss.visit', 'hss_hq_pass', '#hss-'],
   },
 };
 
@@ -96,7 +115,4 @@ export const FALSE_POSITIVES = [
 ];
 
 /** Files where a sibling name may legitimately appear (design cross-references). */
-export const ALLOWED_SIBLING_MENTIONS = [
-  'components/ExitIntentPopup.tsx',
-  'tests/site-config.mjs',
-];
+export const ALLOWED_SIBLING_MENTIONS = ['tests/site-config.mjs'];

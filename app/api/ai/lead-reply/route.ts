@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { draftingRules, serviceNotes } from '@/lib/sales-facts';
 import OpenAI from "openai";
 
 /* ── Auth ─────────────────────────────────────────────────────────────── */
@@ -54,16 +55,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    const serviceInsights: Record<string, string> = {
-      'Aluminium Shopfronts': 'Thermally broken frames, double glazing, any RAL colour, 10-year guarantee.',
-      'Roller Shutters': 'Insurance-approved, can reduce premiums 15-20%. Electric with remote/key fob.',
-      'Security Doors': 'LPS 1175 certified, multipoint locking, police-recommended standard.',
-      'Automatic Doors': 'DDA-compliant, studies show 12% more walk-ins. Low energy, safety sensors.',
-      'Bi-Fold Doors': 'Fully retractable, seamless frontage. Ideal for cafes and retail.',
-      'Shopfront Repairs': 'Same-day service, common parts carried on our vans.',
-      'Shutter Repair': 'Emergency same-day. Motors, slats, guide rails — all brands.',
-      'Glass Replacement': 'Toughened, laminated, or double-glazed. Usually fitted within 24-48 hours.',
-    };
+    const serviceInsights = serviceNotes;
     const serviceInfo = serviceInsights[lead.service] || '';
 
     const prompt = `Draft a first-contact email to a potential shopfront customer who just enquired.
@@ -80,8 +72,8 @@ WRITE AN EMAIL THAT:
 1. Thanks them and references their SPECIFIC need (not generic)
 2. Shows trade knowledge — mention 1 relevant insight about ${lead.service}
 3. Asks 2-3 smart questions (dimensions? existing setup? timeline? specific concerns?)
-4. Mentions you work in ${lead.location} regularly
-5. Offers a free site survey — "gives us an exact picture so we can quote properly"
+4. Says whether ${lead.location} is inside our repair radius only if the enquiry is a repair — never claim to have worked there before
+5. Offers a site survey — "gives us an exact picture so we can quote properly"
 6. Ends with a clear next step, not vague "let me know"
 
 STYLE: British English, conversational professional — like a knowledgeable tradesman who's good with people. No corporate fluff. Short paragraphs. Sign off as Sigma Shopfronts team with phone 07414 779594.
@@ -99,7 +91,7 @@ Respond in JSON only:
       messages: [
         {
           role: "system",
-          content: "You are the senior sales person at Sigma Shopfronts, a UK-wide shopfront installation company based in Oldbury, West Midlands. 15+ years in the trade. You write emails that feel personal and knowledgeable — never templated. You focus on understanding the customer's situation before selling. Phone: 07414 779594. Respond ONLY with valid JSON.",
+          content: `You are the senior sales person at Sigma Shopfronts, a UK-wide shopfront installation company based in Oldbury, West Midlands. You write emails that feel personal and knowledgeable — never templated. You focus on understanding the customer's situation before selling. ${draftingRules} Respond ONLY with valid JSON.`,
         },
         { role: "user", content: prompt },
       ],
