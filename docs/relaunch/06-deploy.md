@@ -36,3 +36,7 @@ Existing variables (`DATABASE_URL`, `ADMIN_API_KEY`, `RESEND_API_KEY`, `TELEGRAM
 5. `npm run test:smoke`, then `npm run indexnow` (with `SIGMA_INDEXNOW_KEY` set locally), then submit
    `https://www.sigmashopfrontshutters.co.uk/sitemap.xml` in Search Console.
 6. Point any Google Ads final URLs at the new domain.
+7. In the same sitting as step 4: change Sigma's origin in `~/Projects/lead-hub/sites.mjs` and `host` in
+   `~/Projects/shopfront-metrics/sites.mjs` to `https://www.sigmashopfrontshutters.co.uk`. The old host
+   redirects `/api/*`, and fetch drops the `Authorization` header on a cross-domain redirect, so both
+   would fail silently.

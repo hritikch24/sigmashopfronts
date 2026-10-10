@@ -22,7 +22,7 @@ A planning-led shopfront site. The commercial pages exist, but the reason the si
 | `/frontage-check` | `lib/frontage.ts` (pure function) + `components/site/FrontageCheck.tsx` |
 | `/planning/[authority]` (18) | `data/authorities.ts` — every point cited to a council document, with the date read |
 | `/grants` | `grants` in `data/authorities.ts` — only verified, dated schemes, open or closed as published |
-| `/shopfronts/[service]` (14) | `data/shopfronts.ts` |
+| `/shopfronts/[service]` (18) | `data/shopfronts.ts` |
 | `/explained/[slug]` (6) | `data/explainers.ts` |
 | `/repair-radius/[town]` (31) | `data/towns.ts` |
 | `/questions`, `/costs`, `/jobs` | `data/questions.ts`, `data/costs.ts`, `data/jobs.ts` |
@@ -84,3 +84,21 @@ get `X-Robots-Tag: noindex`; the bare new domain 301s to `www` in `proxy.ts`.
 Owner sign-off of the indicative prices and the legal pages, and Sigma's own Google
 Ads tag, GA4/GTM and IndexNow key. Real case studies (town, shop type, what was fitted, when) would strengthen
 `/jobs` — only with the client's agreement.
+
+## External consumer: the lead hub
+
+`~/Projects/lead-hub` reads this site in production. It is not part of this
+repo and this repo does not know about it at runtime, but **three things here
+are now a contract**:
+
+- `GET /api/leads?status=new` — the hub's queue
+- `PATCH /api/leads/:id` with `{ status }` — how Telegram buttons write back
+- `POST /api/ai/lead-reply` — how drafts are generated
+- `ADMIN_API_KEY`, sent as `Bearer <key>nimda`
+
+The status vocabulary `new → contacted → quoted → won → lost` is shared with
+the hub's buttons. Renaming a status, changing the auth scheme or moving these
+routes breaks it **silently** — the hub just stops posting.
+
+`~/Projects/shopfront-metrics` depends on `/api/metrics` the same way. If you
+change either contract, update both and say so in the commit.
