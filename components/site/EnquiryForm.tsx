@@ -80,10 +80,10 @@ export default function EnquiryForm({
       <div className="choices choices--two">
         <div className="field">
           <label htmlFor="enq-name">Your name</label>
-          <input id="enq-name" name="name" type="text" autoComplete="name" required />
+          <input id="enq-name" name="name" type="text" autoComplete="name" />
         </div>
         <div className="field">
-          <label htmlFor="enq-phone">Phone</label>
+          <label htmlFor="enq-phone">Phone (or email below — one is enough)</label>
           <input id="enq-phone" name="phone" type="tel" autoComplete="tel" />
         </div>
         <div className="field">
@@ -92,7 +92,7 @@ export default function EnquiryForm({
         </div>
         <div className="field">
           <label htmlFor="enq-location">Town or postcode of the premises</label>
-          <input id="enq-location" name="location" type="text" defaultValue={location} required />
+          <input id="enq-location" name="location" type="text" defaultValue={location} />
         </div>
       </div>
       <div className="field">

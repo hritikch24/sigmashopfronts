@@ -18,8 +18,7 @@ export default function Colophon() {
               style={{ width: 200, height: 'auto' }}
             />
             <p>
-              Shopfronts, shutters and commercial glazing, specified around what the council will accept. Fitted
-              across the UK; repairs within {business.repairRadiusMiles} road miles of {business.repairCentre}.
+              Shopfronts, roller shutters, doors and commercial glazing. Fitted across the UK; repairs within {business.repairRadiusMiles} road miles of {business.repairCentre}.
             </p>
           </div>
           <div>

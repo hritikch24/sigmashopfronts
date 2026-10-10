@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { sendEnquiryAcknowledgement, sendEnquiryToOffice } from '@/lib/resend';
 import { sendTelegramLeadNotification } from '@/lib/telegram';
 import { clientKey, limited } from '@/lib/limit';
+import { readLine } from '@/lib/quick-line';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_PHOTO = 6 * 1024 * 1024;
@@ -24,16 +25,23 @@ export async function POST(req: NextRequest) {
   const f = (k: string, n = 500) => String(form.get(k) ?? '').trim().slice(0, n);
   if (f('website')) return NextResponse.json({ ok: true }); // honeypot
 
-  const name = f('name', 120);
-  const phone = f('phone', 40);
-  const email = f('email', 200);
-  const location = f('location', 200);
-  const service = f('service', 200) || 'General enquiry';
-  const message = f('message', 4000);
+  // The one-line box sends a single `line`; the details are read out of it.
+  const quick = f('quick') === '1';
+  const line = f('line', 1500);
+  const parsed = quick ? readLine(line) : null;
+
+  const givenName = f('name', 120);
+  const name = givenName || 'Not given';
+  const phone = parsed ? parsed.phone : f('phone', 40);
+  const email = parsed ? parsed.email : f('email', 200);
+  const location = (parsed ? parsed.postcode : f('location', 200)) || 'Not given';
+  const service = parsed ? 'One-line message' : f('service', 200) || 'General enquiry';
+  const message = parsed ? line : f('message', 4000);
   const source = f('source', 200) || 'enquire';
 
-  const missing = [!name && 'your name', !phone && !email && 'a phone number or email', !location && 'the town or postcode'].filter(Boolean);
-  if (missing.length) return NextResponse.json({ ok: false, error: `Please add ${missing.join(', ')}.` }, { status: 400 });
+  // Only a way to reply is required. Name and town help, but asking for them
+  // first loses people.
+  if (!phone && !email) return NextResponse.json({ ok: false, error: 'Please add a phone number or an email address so we can reply.' }, { status: 400 });
   if (email && !EMAIL.test(email)) return NextResponse.json({ ok: false, error: 'Please check the email address.' }, { status: 400 });
 
   let photo: { filename: string; content: Buffer } | null = null;
@@ -69,7 +77,7 @@ export async function POST(req: NextRequest) {
   await Promise.allSettled([
     sendEnquiryToOffice(notify).catch((e) => console.error('[enquire] office email', e)),
     sendTelegramLeadNotification(lead).catch((e) => console.error('[enquire] telegram', e)),
-    email ? sendEnquiryAcknowledgement(email, name).catch((e) => console.error('[enquire] ack', e)) : null,
+    email ? sendEnquiryAcknowledgement(email, givenName).catch((e) => console.error('[enquire] ack', e)) : null,
   ]);
 
   return NextResponse.json({ ok: true });

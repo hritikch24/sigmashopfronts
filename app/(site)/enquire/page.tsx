@@ -1,6 +1,8 @@
 import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import EnquiryForm from '@/components/site/EnquiryForm';
+import QuickMessage from '@/components/site/QuickMessage';
+import { whatsappLink } from '@/lib/quick-line';
 import { breadcrumbs, pageMeta } from '@/lib/seo';
 import { business } from '@/lib/business';
 
@@ -22,8 +24,18 @@ export default function Enquire() {
       />
       <section className="band band--sheet">
         <div className="frame split">
-          <div>
-            <EnquiryForm source="enquire" />
+          <div style={{ display: 'grid', gap: '2rem', alignContent: 'start' }}>
+            <div id="reach">
+              <h2 style={{ fontSize: '1.25rem' }}>Quickest: one line</h2>
+              <p style={{ margin: '0.4rem 0 0.9rem' }}>No name or form needed. Put your number or email in, and we reply.</p>
+              <QuickMessage source="enquire-line" />
+            </div>
+            <div>
+              <h2 style={{ fontSize: '1.25rem' }}>Or the full form, with a photo</h2>
+              <div style={{ marginTop: '0.9rem' }}>
+                <EnquiryForm source="enquire" />
+              </div>
+            </div>
           </div>
           <aside style={{ display: 'grid', gap: '1.25rem', alignContent: 'start' }}>
             <div className="panel panel--ink">
@@ -39,7 +51,7 @@ export default function Enquire() {
                     {business.phones.second.display}
                   </a>{' '}
                   — also on{' '}
-                  <a href={`https://wa.me/${business.whatsapp}`} data-dial="whatsapp" rel="noopener">
+                  <a href={whatsappLink(business.whatsapp)} data-dial="whatsapp" rel="noopener">
                     WhatsApp
                   </a>
                 </li>

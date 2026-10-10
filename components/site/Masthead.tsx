@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { business } from '@/lib/business';
+import { whatsappLink } from '@/lib/quick-line';
 
 const NAV = [
-  { href: '/frontage-check', label: 'Frontage check' },
   { href: '/shopfronts', label: 'Shopfronts & shutters' },
-  { href: '/planning', label: 'Planning by council' },
   { href: '/repair-radius', label: 'Repairs' },
+  { href: '/jobs', label: 'Our work' },
   { href: '/costs', label: 'Costs' },
+  { href: '/planning', label: 'Planning help' },
   { href: '/enquire', label: 'Enquire' },
 ];
 
@@ -42,6 +43,9 @@ export default function Masthead() {
           <a className="masthead__phone" href={`tel:${business.phones.main.tel}`} data-dial="main">
             {business.phones.main.display}
           </a>
+          <a className="masthead__wa" href={whatsappLink(business.whatsapp)} data-dial="whatsapp" rel="noopener">
+            WhatsApp
+          </a>
         </nav>
         <details className="masthead__menu">
           <summary>Menu</summary>
@@ -51,8 +55,14 @@ export default function Masthead() {
                 {n.label}
               </Link>
             ))}
-            <Link href="/jobs">Our work</Link>
+            <Link href="/frontage-check">Frontage check</Link>
             <Link href="/company">The company</Link>
+            <a href={`tel:${business.phones.main.tel}`} data-dial="main">
+              Call {business.phones.main.display}
+            </a>
+            <a href={whatsappLink(business.whatsapp)} data-dial="whatsapp" rel="noopener">
+              WhatsApp {business.phones.second.display}
+            </a>
           </nav>
         </details>
       </div>

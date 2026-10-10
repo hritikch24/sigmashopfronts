@@ -5,10 +5,12 @@ import { pageMeta } from '@/lib/seo';
 import { authorities, type HeritageExternalLine } from '@/data/authorities';
 import { consentLabel, shopfronts } from '@/data/shopfronts';
 import { jobs, type Job } from '@/data/jobs';
+import { whatsappLink } from '@/lib/quick-line';
+import QuickMessage from '@/components/site/QuickMessage';
 
 export const metadata = pageMeta({
   path: '/',
-  title: `${business.name} — shopfronts and shutters that get through planning`,
+  title: `${business.name} — shopfronts, roller shutters, doors and repairs`,
   description:
     'Aluminium shopfronts, roller shutters and commercial glazing fitted UK-wide, specified around what your council will accept. Repairs within 100 road miles of Birmingham; we reply to emergency calls within two hours.',
 });
@@ -37,21 +39,23 @@ export default function Home() {
             <p className="sheet-label">
               <b>Sheet 00</b> · Shopfronts, shutters, glazing
             </p>
-            <h1 style={{ marginTop: '0.6rem', maxWidth: '18ch' }}>Shopfronts drawn for the council before they are drawn for you</h1>
+            <h1 style={{ marginTop: '0.6rem', maxWidth: '20ch' }}>Shopfronts, roller shutters and doors, fitted and repaired</h1>
             <p className="lede measure" style={{ marginTop: '1.1rem' }}>
-              We design and fit aluminium shopfronts, roller shutters and commercial glazing across the UK, and repair them
-              within {business.repairRadiusMiles} road miles of Birmingham. Every job starts with the question that decides
-              whether it goes ahead: what will your council actually accept on that building?
+              New aluminium shopfronts, shutters, security doors and glass fitted anywhere in the UK. Broken shutter or smashed
+              glass within {business.repairRadiusMiles} road miles of Birmingham? Call or WhatsApp and a person answers.
             </p>
             <div className="acts" style={{ marginTop: '1.6rem' }}>
-              <Link href="/frontage-check" className="act act--solid">
-                Check your frontage
-              </Link>
-              <a href={`tel:${business.phones.main.tel}`} className="act act--line" data-dial="main">
+              <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
                 Call {business.phones.main.display}
+              </a>
+              <a href={whatsappLink(business.whatsapp)} className="act act--wa" data-dial="whatsapp" rel="noopener">
+                WhatsApp a photo
               </a>
             </div>
             <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: 'var(--color-ink-3)' }}>{business.emergencyPromise}</p>
+            <div style={{ marginTop: '1.4rem', maxWidth: '36rem' }}>
+              <QuickMessage source="home-hero" />
+            </div>
           </div>
           <figure className="plate" style={{ maxWidth: 520, justifySelf: 'end', width: '100%' }}>
             <Image
@@ -65,45 +69,6 @@ export default function Home() {
             />
             <figcaption>Dark grey aluminium front, single door, painted fascia — one of our installations.</figcaption>
           </figure>
-        </div>
-      </section>
-
-      <section className="band band--sheet">
-        <div className="frame">
-          <div className="split split--even" style={{ alignItems: 'start' }}>
-            <div>
-              <p className="sheet-label">The question nobody else answers</p>
-              <h2 style={{ marginTop: '0.4rem' }}>What am I allowed to put here — and what will look right?</h2>
-              <p style={{ marginTop: '0.9rem' }} className="measure">
-                Give the frontage check your postcode, whether the building is listed or in a conservation area, and what you
-                want to fit. It tells you which consents you are likely to need, what that council’s own guidance says, and
-                the specification we would put in front of their planning officer. The answer comes first. If you then want
-                our view on your actual building, you can send a photo.
-              </p>
-              <div className="acts" style={{ marginTop: '1.2rem' }}>
-                <Link href="/frontage-check" className="act act--solid">
-                  Start the frontage check
-                </Link>
-                <Link href="/planning" className="act act--line">
-                  Browse councils
-                </Link>
-              </div>
-            </div>
-            <div>
-              <p className="sheet-label">External shutters on a conservation-area or listed frontage — in the council’s own words</p>
-              <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '0.75rem' }}>
-                {authorities.slice(0, 9).map((a) => (
-                  <li key={a.slug} style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
-                    <Link href={`/planning/${a.slug}`}>{a.place}</Link>
-                    <span className={`verdict ${LINE[a.heritageExternal].cls}`}>{LINE[a.heritageExternal].label}</span>
-                  </li>
-                ))}
-              </ul>
-              <p style={{ marginTop: '0.75rem', fontSize: '0.92rem' }}>
-                <Link href="/planning">All {authorities.length} councils, with sources →</Link>
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -184,6 +149,45 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <section className="band band--sheet">
+        <div className="frame">
+          <div className="split split--even" style={{ alignItems: 'start' }}>
+            <div>
+              <p className="sheet-label">Planning help, if you need it</p>
+              <h2 style={{ marginTop: '0.4rem' }}>Not sure if a new shopfront needs council permission?</h2>
+              <p style={{ marginTop: '0.9rem' }} className="measure">
+                Give the frontage check your postcode, whether the building is listed or in a conservation area, and what you
+                want to fit. It tells you which consents you are likely to need, what that council’s own guidance says, and
+                the specification we would put in front of their planning officer. The answer comes first. If you then want
+                our view on your actual building, you can send a photo.
+              </p>
+              <div className="acts" style={{ marginTop: '1.2rem' }}>
+                <Link href="/frontage-check" className="act act--solid">
+                  Start the frontage check
+                </Link>
+                <Link href="/planning" className="act act--line">
+                  Browse councils
+                </Link>
+              </div>
+            </div>
+            <div>
+              <p className="sheet-label">External shutters on a conservation-area or listed frontage — in the council’s own words</p>
+              <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '0.75rem' }}>
+                {authorities.slice(0, 9).map((a) => (
+                  <li key={a.slug} style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
+                    <Link href={`/planning/${a.slug}`}>{a.place}</Link>
+                    <span className={`verdict ${LINE[a.heritageExternal].cls}`}>{LINE[a.heritageExternal].label}</span>
+                  </li>
+                ))}
+              </ul>
+              <p style={{ marginTop: '0.75rem', fontSize: '0.92rem' }}>
+                <Link href="/planning">All {authorities.length} councils, with sources →</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }

@@ -5,6 +5,7 @@ import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import { breadcrumbs, pageMeta, questions, service as serviceLd } from '@/lib/seo';
 import { business } from '@/lib/business';
+import { whatsappLink } from '@/lib/quick-line';
 import { consentLabel, shopfrontBySlug, shopfronts } from '@/data/shopfronts';
 import { costGroups } from '@/data/costs';
 
@@ -50,12 +51,26 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       />
       <PageHead trail={trail} label={<><b>{s.area === 'uk' ? 'Installed UK-wide' : `Repairs within ${business.repairRadiusMiles} road miles of Birmingham`}</b></>} title={s.name} lede={s.answer}>
         <div className="acts" style={{ marginTop: '1.4rem' }}>
-          <Link href="/frontage-check" className="act act--solid">
-            Check what your council will accept
-          </Link>
-          <a href={`tel:${business.phones.main.tel}`} className="act act--line" data-dial="main">
-            {business.phones.main.display}
+          <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
+            Call {business.phones.main.display}
           </a>
+          <a
+            href={whatsappLink(business.whatsapp, `Hello Sigma Shopfronts, I am asking about ${s.name.toLowerCase()}: `)}
+            className="act act--wa"
+            data-dial="whatsapp"
+            rel="noopener"
+          >
+            WhatsApp us
+          </a>
+          {s.area === 'uk' ? (
+            <Link href="/frontage-check" className="act act--line">
+              Check what your council will accept
+            </Link>
+          ) : (
+            <a href="#reach" className="act act--line">
+              Leave a one-line message
+            </a>
+          )}
         </div>
       </PageHead>
 
