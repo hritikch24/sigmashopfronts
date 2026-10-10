@@ -19,17 +19,23 @@ function normalise(raw: string | undefined, fallback: string): string {
   return withScheme.replace(/\/+$/, '');
 }
 
-export const SITE_URL = normalise(
-  process.env.NEXT_PUBLIC_SITE_URL,
-  'https://www.sigmashopfrontshutters.co.uk',
-);
-
 /**
  * Hosts that used to serve this site. They no longer serve content: `proxy.ts`
  * answers every request on them with a mapped 301 or a 410 (see
  * `lib/legacy-urls.ts` and docs/relaunch/01-url-inventory.md).
  */
 export const LEGACY_HOSTS = ['sigmashopfronts.com', 'www.sigmashopfronts.com'];
+
+const PRODUCTION_ORIGIN = 'https://www.sigmashopfrontshutters.co.uk';
+
+/**
+ * An environment value naming an old host is ignored: the old host redirects
+ * to SITE_URL, so SITE_URL on the old host is a redirect loop (11 Oct 2026).
+ */
+const fromEnv = normalise(process.env.NEXT_PUBLIC_SITE_URL, PRODUCTION_ORIGIN);
+export const SITE_URL = LEGACY_HOSTS.includes(fromEnv.replace(/^https?:\/\//, '').toLowerCase())
+  ? PRODUCTION_ORIGIN
+  : fromEnv;
 
 /** Host only, no scheme — for display text and `SITE`-style constants. */
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '');
