@@ -22,6 +22,8 @@ Existing variables (`DATABASE_URL`, `ADMIN_API_KEY`, `RESEND_API_KEY`, `TELEGRAM
   domain to `www` itself, so either Vercel setting works.
 - Keep `www.sigmashopfronts.com` and `sigmashopfronts.com` attached as **normal** domains, not redirect domains:
   `proxy.ts` gives them the mapped 301s and 410s. A Vercel redirect domain would blanket-redirect the 574 matrix URLs.
+- The .co.uk currently runs a WordPress site on Namecheap hosting (nameservers `dns1/dns2.namecheaphosting.com`);
+  whoever holds that Namecheap login makes the change. Its 24 old URLs are already mapped (`01-url-inventory.md`).
 - DNS on the .co.uk: the records Vercel shows (typically `A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`),
   plus the Search Console TXT record. Do not touch the .com DNS — its MX records carry `sales@sigmashopfronts.com`.
 

@@ -92,6 +92,21 @@ On the **new** host the same table applies to legacy paths: `/about` 301s to
 `/company`, and every matrix path returns 410. So a stray legacy link to the
 new domain behaves exactly like one to the old domain.
 
+## The WordPress site that held the .co.uk
+
+Before this build, `sigmashopfrontshutters.co.uk` ran a separate WordPress site (Astra/Elementor, Namecheap
+hosting). Its `wp-sitemap.xml`, read 10 October 2026, listed 24 pages on the bare domain with trailing slashes.
+`WORDPRESS_MOVED` / `WORDPRESS_GONE` in `lib/legacy-urls.ts` answer every one in a single hop: `proxy.ts` sends
+the bare domain and a trailing slash straight to the final URL (Next's own slash redirect is off for this).
+
+- **301 (19):** each to the page doing the same job, e.g. `/about-us/` → `/company`, `/bi-fold-doors/` →
+  `/shopfronts/folding-doors`, motor, servicing and repair pages → `/shopfronts/shutter-repairs`, emergency
+  pages → `/shopfronts/emergency-repairs`, electric, installation, conversion and security-shutter pages →
+  `/shopfronts/roller-shutters`.
+- **410 (4):** `/upvc-door/`, `/composite-door/`, `/house-window-installed/` (domestic work this site does not
+  offer) and `/industrial-shutters/` (no industrial page). Not redirected to a near miss — that is a soft 404.
+- **410, machinery:** `/wp-*` (sitemaps, admin, assets), `/elementor-hf/*`, `/author/*`, `/feed`, `/xmlrpc.php`.
+
 ## Paths changed from the brief, with evidence
 
 The brief pinned `/repairs`, `/repairs/[area]`, `/guides/[slug]`, `/our-work`,

@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-09 19:34 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-10 16:15 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own

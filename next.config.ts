@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   },
 
   trailingSlash: false,
+  // proxy.ts strips trailing slashes itself, so an old URL reaches its final page in one hop.
+  skipTrailingSlashRedirect: true,
 
   // Strict mode catches common bugs during development
   reactStrictMode: true,

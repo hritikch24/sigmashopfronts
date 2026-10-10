@@ -165,6 +165,21 @@ for (const c of LEGACY_CITIES) {
 for (const p of ['/about', '/contact', '/cost-guide', '/faq', '/glossary', '/privacy-policy', '/terms']) {
   if (classify(p).kind !== 'moved') bad(`kept page not mapped: ${p}`);
 }
+// Every page in the old WordPress .co.uk sitemap, as it was published (trailing slash).
+const WORDPRESS_PAGES = [
+  'about-us', 'contact-us', 'aluminium-shopfronts', 'roller-shutters', 'security-doors', 'automatic-doors', 'bi-fold-doors',
+  'fire-doors', 'shopfront-repairs', 'emergency-callout', 'roller-shutter-repair', 'emergency-shutter-repair',
+  'shutter-motor-replacement', 'electric-roller-shutters', 'emergency-roller-shutter-repairs-24-7',
+  'roller-shutter-installation', 'manual-to-electric-shutter-conversion', 'shutter-servicing-and-maintenance',
+  'industrial-shutters', 'security-shutters', 'upvc-door', 'composite-door', 'house-window-installed',
+];
+for (const w of WORDPRESS_PAGES) {
+  const o = classify(`/${w}/`);
+  if (o.kind !== 'moved' && o.kind !== 'gone') bad(`WordPress page neither moved nor gone: /${w}/`);
+}
+for (const p of ['/wp-sitemap.xml', '/elementor-hf/header/', '/author/admin/', '/feed/']) {
+  if (classify(p).kind !== 'gone') bad(`WordPress machinery not 410: ${p}`);
+}
 
 /* ── report ─────────────────────────────────────────────────────────── */
 if (problems.length) {

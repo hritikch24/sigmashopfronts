@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { classify } from '@/lib/legacy-urls';
+import { classify, stripSlash } from '@/lib/legacy-urls';
 import { LEGACY_HOSTS, SITE_HOST, SITE_URL } from '@/lib/site';
 
 const CANONICAL_HOST = SITE_HOST.toLowerCase();
@@ -32,14 +32,24 @@ export function proxy(request: NextRequest) {
   const host = (request.headers.get('host') ?? '').toLowerCase().split(':')[0];
   const legacyHost = LEGACY_HOSTS.includes(host);
   const outcome = classify(pathname);
+  const bare = stripSlash(pathname);
 
+  // The bare domain and trailing slashes (the WordPress URLs had both) go
+  // straight to the final URL in one hop, never bare → www → no slash → page.
   if (BARE_HOST && host === BARE_HOST) {
-    return NextResponse.redirect(`${SITE_URL}${pathname}${search}`, 301);
+    if (outcome.kind === 'moved') return NextResponse.redirect(`${SITE_URL}${outcome.to}`, 301);
+    if (outcome.kind === 'gone') return gone();
+    return NextResponse.redirect(`${SITE_URL}${bare}${search}`, 301);
+  }
+  if (!legacyHost && bare !== pathname) {
+    if (outcome.kind === 'moved') return NextResponse.redirect(new URL(outcome.to, request.url), 301);
+    if (outcome.kind === 'gone') return gone();
+    return NextResponse.redirect(new URL(`${bare}${search}`, request.url), 308);
   }
 
   if (legacyHost) {
     if (outcome.kind === 'moved') return NextResponse.redirect(`${SITE_URL}${outcome.to}`, 301);
-    if (outcome.kind === 'pass') return NextResponse.redirect(`${SITE_URL}${pathname}${search}`, 308);
+    if (outcome.kind === 'pass') return NextResponse.redirect(`${SITE_URL}${bare}${search}`, 308);
     return gone();
   }
 

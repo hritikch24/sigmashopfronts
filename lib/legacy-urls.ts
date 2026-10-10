@@ -52,17 +52,52 @@ function buildMoved(): Map<string, string> {
   ]);
   for (const s of shopfronts) m.set(`/services/${s.legacySlug}`, `/shopfronts/${s.slug}`);
   for (const a of authorities) if (a.legacyCity) m.set(`/areas/${a.legacyCity}`, `/planning/${a.slug}`);
+  for (const [from, to] of WORDPRESS_MOVED) m.set(from, to);
   return m;
 }
 
+/**
+ * The WordPress site that held the .co.uk before this build (its wp-sitemap,
+ * read 10 October 2026). Each page goes to the page that does the same job.
+ */
+const WORDPRESS_MOVED: [string, string][] = [
+  ['/about-us', '/company'],
+  ['/contact-us', '/enquire'],
+  ['/aluminium-shopfronts', '/shopfronts/aluminium'],
+  ['/roller-shutters', '/shopfronts/roller-shutters'],
+  ['/security-doors', '/shopfronts/security-doors'],
+  ['/automatic-doors', '/shopfronts/automatic-doors'],
+  ['/bi-fold-doors', '/shopfronts/folding-doors'],
+  ['/fire-doors', '/shopfronts/fire-doors'],
+  ['/shopfront-repairs', '/shopfronts/repairs'],
+  ['/emergency-callout', '/shopfronts/emergency-repairs'],
+  ['/emergency-shutter-repair', '/shopfronts/emergency-repairs'],
+  ['/emergency-roller-shutter-repairs-24-7', '/shopfronts/emergency-repairs'],
+  ['/roller-shutter-repair', '/shopfronts/shutter-repairs'],
+  ['/shutter-motor-replacement', '/shopfronts/shutter-repairs'],
+  ['/shutter-servicing-and-maintenance', '/shopfronts/shutter-repairs'],
+  ['/electric-roller-shutters', '/shopfronts/roller-shutters'],
+  ['/roller-shutter-installation', '/shopfronts/roller-shutters'],
+  ['/manual-to-electric-shutter-conversion', '/shopfronts/roller-shutters'],
+  ['/security-shutters', '/shopfronts/roller-shutters'],
+];
+
+/** WordPress pages for work this site does not offer: domestic doors and windows, industrial shutters. */
+export const WORDPRESS_GONE = ['/upvc-door', '/composite-door', '/house-window-installed', '/industrial-shutters'];
+
 export const MOVED = buildMoved();
 
-const GONE_EXACT = new Set(['/blog', '/reviews', '/why-choose-us', '/instant-quote', '/gallery', '/sitemap-retire.xml', '/towns']);
+const GONE_EXACT = new Set([
+  '/blog', '/reviews', '/why-choose-us', '/instant-quote', '/gallery', '/sitemap-retire.xml', '/towns',
+  ...WORDPRESS_GONE, '/feed', '/comments/feed', '/xmlrpc.php',
+]);
 
 export function isGone(path: string): boolean {
   if (GONE_EXACT.has(path)) return true;
   if (path.startsWith('/blog/')) return true;
   if (path.startsWith('/towns/')) return true;
+  // WordPress machinery: its sitemaps, theme templates, author archive, feeds, admin and assets.
+  if (/^\/(wp-|elementor-hf(\/|$)|author(\/|$))/.test(path)) return true;
   const parts = path.split('/').filter(Boolean);
   // The whole services × cities matrix, whatever the slugs.
   if (parts[0] === 'services' && parts.length === 3) return true;
@@ -81,8 +116,13 @@ export function isPassThrough(path: string): boolean {
 
 export type LegacyOutcome = { kind: 'moved'; to: string } | { kind: 'gone' } | { kind: 'pass' } | { kind: 'unknown' };
 
+/** The path without trailing slashes ("/" stays "/"). */
+export function stripSlash(path: string): string {
+  return path.length > 1 ? path.replace(/\/+$/, '') || '/' : path;
+}
+
 export function classify(path: string): LegacyOutcome {
-  const p = path.length > 1 ? path.replace(/\/+$/, '') : path;
+  const p = stripSlash(path);
   const to = MOVED.get(p);
   if (to) return { kind: 'moved', to };
   if (isGone(p)) return { kind: 'gone' };

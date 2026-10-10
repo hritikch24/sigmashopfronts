@@ -25,6 +25,10 @@ await check('admin is locked', `${NEW}/admin`, 404);
 await check('a matrix URL is gone', `${NEW}/services/roller-shutters/leeds`, 410);
 await check('old host: matrix URL gone', `${OLD}/services/roller-shutters/leeds`, 410);
 await check('old host: about → company', `${OLD}/about`, (r) => r.status === 301 && r.headers.get('location') === `${NEW}/company`);
+const BARE = NEW.replace('://www.', '://');
+await check('old WordPress page → one 301', `${BARE}/about-us/`, (r) => r.status === 301 && r.headers.get('location') === `${NEW}/company`);
+await check('old WordPress domestic page gone', `${BARE}/upvc-door/`, 410);
+await check('trailing slash → one hop', `${NEW}/costs/`, (r) => r.status === 308 && r.headers.get('location') === `${NEW}/costs`);
 await check('old host: blog gone', `${OLD}/blog/what-is-lps-1175-security-rating`, 410);
 await check('own phone on home page', `${NEW}/`, async (r) => r.status === 200 && (await r.text()).includes('07414 779594'));
 
