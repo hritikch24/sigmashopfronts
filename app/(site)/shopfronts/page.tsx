@@ -8,7 +8,7 @@ export const metadata = pageMeta({
   path: '/shopfronts',
   title: 'Shopfronts, shutters, doors and glazing',
   description:
-    'Fourteen things we make, fit and repair — each explained from the planning and compliance side: what consent it usually needs and which standards apply.',
+    `${shopfronts.length} things we make, fit and repair — shopfronts, shutters, doors and windows — each explained from the planning and compliance side: what consent it usually needs and which standards apply.`,
 });
 
 export default function ShopfrontsIndex() {

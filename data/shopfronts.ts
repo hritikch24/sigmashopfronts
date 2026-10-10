@@ -17,7 +17,8 @@ export interface ConsentLine {
 
 export interface Shopfront {
   slug: string;
-  legacySlug: string;
+  /** Its /services/{slug} path on the old .com, if it had one. */
+  legacySlug?: string;
   name: string;
   /** One line for index cards. */
   card: string;
@@ -145,7 +146,7 @@ export const shopfronts: Shopfront[] = [
       },
     ],
     photo: { src: '/assets/sigma-mall-front.jpeg', alt: 'Single-storey shop with a new dark aluminium glazed front and sliding doors, a roller shutter on the neighbouring unit', w: 1600, h: 1200 },
-    related: ['shutter-repairs', 'aluminium', 'security-doors'],
+    related: ['shutter-repairs', 'industrial-shutters', 'aluminium', 'security-doors'],
   },
   {
     slug: 'security-doors',
@@ -188,7 +189,7 @@ export const shopfronts: Shopfront[] = [
       },
     ],
     photo: { src: '/assets/sigma-commercial-entrance.jpeg', alt: 'Pair of fully glazed aluminium entrance doors with long pull handles under a glazed fanlight', w: 1024, h: 768 },
-    related: ['fire-doors', 'roller-shutters', 'aluminium-doors'],
+    related: ['fire-doors', 'roller-shutters', 'aluminium-doors', 'composite-doors'],
   },
   {
     slug: 'automatic-doors',
@@ -578,7 +579,7 @@ export const shopfronts: Shopfront[] = [
         a: 'Yes, replacement windows are controlled work. A registered competent person can self-certify some window installations; otherwise building control is notified. Ask how your installer will certify the work before it starts.',
       },
     ],
-    related: ['aluminium', 'curtain-walling', 'glass-replacement'],
+    related: ['aluminium', 'curtain-walling', 'glass-replacement', 'house-windows'],
   },
   {
     slug: 'curtain-walling',
@@ -658,6 +659,194 @@ export const shopfronts: Shopfront[] = [
       },
     ],
     related: ['aluminium', 'curtain-walling', 'glass-replacement'],
+  },
+  {
+    slug: 'industrial-shutters',
+    name: 'Industrial shutters',
+    card: 'Large steel and insulated roller doors for warehouses, workshops and loading bays.',
+    answer:
+      'Steel and insulated roller shutters for warehouses, factories, workshops and loading bays, manual or motorised, installed across the UK. They suit openings that vehicles pass through and doors that run many times a day. Each one is sized to its opening and to the wind on that site, surveyed first and quoted in writing.',
+    area: 'uk',
+    consents: [
+      { consent: 'planning', likelihood: 'rarely', why: 'A replacement shutter in an existing opening on an industrial building seldom needs permission. Forming a new opening, or a unit next to homes or in a conservation area, can.' },
+      { consent: 'building-regs', likelihood: 'sometimes', why: 'Where the building is heated, or the shutter sits in a fire-separating wall, the new door has to meet the energy or fire rules for that opening.' },
+    ],
+    sections: [
+      {
+        q: 'Why does an industrial door need a wind rating?',
+        body: [
+          'A curtain several metres wide behaves like a sail. It has to take the wind pressure on that particular site — far more on an exposed estate near the coast than in a sheltered yard — without bowing and pulling out of its guides. Doors are classified for this under BS EN 12424, and wind locks on the ends of the laths are what keep a wide curtain in its tracks.',
+        ],
+      },
+      {
+        q: 'Insulated or single-skin?',
+        body: [
+          'Single-skin steel is right for an unheated store, or an opening that only needs locking up. In a heated building an insulated lath — two steel skins with a foam core — cuts heat loss and condensation, and Approved Document L sets a limit on how much heat large vehicle doors in heated buildings may let through.',
+        ],
+      },
+      {
+        q: 'What keeps a powered industrial door safe?',
+        body: [
+          'The hazard is a heavy curtain coming down on a person or a vehicle. BS EN 12453 sets out the protection a powered door needs: limits on closing force, safety edges or photo-cells, and a way to free someone who is trapped. The Workplace (Health, Safety and Welfare) Regulations 1992 require doors in a workplace to have those features and to be maintained so they keep working, which in practice means regular servicing with a written record.',
+        ],
+      },
+    ],
+    standards: [
+      { ref: 'BS EN 13241', what: 'Product standard for industrial and commercial doors, under which the shutter’s performance is declared.' },
+      { ref: 'BS EN 12424', what: 'Classification of a door’s resistance to wind load.' },
+      { ref: 'BS EN 12453', what: 'Powered doors: closing forces, safety edges, photo-cells and release.' },
+      { ref: 'BS EN 16034', what: 'Fire-resisting performance, where the shutter is also a fire shutter.' },
+    ],
+    questions: [
+      {
+        q: 'Can you motorise an existing manual industrial shutter?',
+        a: 'Often, if the curtain, barrel and guides are in good order and the curtain is within what an add-on operator can lift. Once powered it has to meet the powered-door safety standard, so the conversion includes safety edges and a manual release, not only a motor.',
+      },
+    ],
+    photo: { src: '/assets/sigma-industrial-shutter.jpg', alt: 'Dark green steel roller shutter closed across a loading opening in a clad industrial unit, with a yellow bottom rail', w: 1000, h: 1000 },
+    related: ['roller-shutters', 'shutter-repairs', 'fire-doors'],
+  },
+  {
+    slug: 'upvc-doors',
+    name: 'uPVC doors',
+    card: 'Front, back and flat entrance doors in uPVC — for homes and the back of the shop.',
+    answer:
+      'uPVC doors for houses, flats over shops and the rear or side entrances of commercial premises, fitted across the UK. They suit openings where low upkeep and a warm, draught-free door matter more than a period look. Every door is made to measure, so we survey the opening and quote in writing.',
+    area: 'uk',
+    consents: [
+      { consent: 'planning', likelihood: 'rarely', why: 'On a house, a replacement door similar in appearance to the old one is normally permitted development. Flats, Article 4 areas and doors on a shop’s street frontage are treated differently.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Any new door on a listed building needs consent, and uPVC in place of a historic door is seldom accepted.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'A replacement door with more than half of its area glazed is building-regulations work: energy performance and safety glass.' },
+    ],
+    sections: [
+      {
+        q: 'Does a new uPVC door need planning permission?',
+        body: [
+          'For a house, usually not. Householder permitted development covers replacement doors that look similar to the ones they replace. Three cases fall outside it: flats and maisonettes, which have no householder permitted development rights; houses where the council has made an Article 4 direction, typically in a conservation area, taking the right away; and listed buildings, which need consent whatever the material.',
+          'On a commercial building the question is whether the change materially alters how the building looks. A like-for-like back door rarely does. Replacing a timber door on a period frontage with white uPVC can, and in conservation areas councils regularly refuse it.',
+        ],
+      },
+      {
+        q: 'Who signs off the building regulations?',
+        body: [
+          'A door more than half glazed is notifiable. Either the installer belongs to a competent person scheme and self-certifies the job, or the work is notified to the council’s building control before it starts. Ask which route an installer will use before you agree a price, and keep the certificate at the end — a buyer’s solicitor will ask for it when you sell.',
+        ],
+      },
+      {
+        q: 'What makes one uPVC door more secure than another?',
+        body: [
+          'The hardware and the glass, more than the plastic. Look for a multi-point lock that throws hooks or bolts into the frame at several heights, a cylinder rated TS 007 three-star or SS 312 Diamond so it resists snapping, laminated glass in any glazed panel, and a doorset tested to PAS 24.',
+        ],
+      },
+    ],
+    standards: [
+      { ref: 'BS 7412', what: 'Specification for windows and doorsets made from PVC-U hollow profiles.' },
+      { ref: 'PAS 24', what: 'Enhanced security performance of doorsets and windows.' },
+      { ref: 'TS 007 / SS 312', what: 'Ratings for lock cylinders that resist snapping and other attacks.' },
+      { ref: 'Approved Document L', what: 'Energy performance of replacement doors and windows in existing homes.' },
+    ],
+    questions: [
+      {
+        q: 'Is a uPVC door suitable for the back of a shop?',
+        a: 'For a staff, delivery or flat entrance at the rear, often yes. A main customer entrance opening hundreds of times a day wears a uPVC door out quickly; an aluminium door on a proper closer lasts far longer there.',
+      },
+    ],
+    related: ['composite-doors', 'house-windows', 'security-doors'],
+  },
+  {
+    slug: 'composite-doors',
+    name: 'Composite doors',
+    card: 'Heavy, reinforced front doors in period styles, for houses and flats over shops.',
+    answer:
+      'Composite doors — a reinforced core under a weather-resistant skin, in a range of styles and colours — fitted across the UK for houses and for flats above commercial premises. They suit a front door that should feel solid and look traditional without the upkeep of timber. Each door is made to order after a survey and quoted in writing.',
+    area: 'uk',
+    consents: [
+      { consent: 'planning', likelihood: 'rarely', why: 'A replacement front door on a house that looks similar to the old one is normally permitted development. Flats and Article 4 areas lose that right.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'A listed building needs consent for a new door, and councils usually expect timber.' },
+      { consent: 'building-regs', likelihood: 'sometimes', why: 'A door more than half glazed is notifiable, and a flat entrance door onto a shared stair or landing has to keep its fire rating.' },
+    ],
+    sections: [
+      {
+        q: 'Composite or uPVC?',
+        body: [
+          'A uPVC door is a panel set in a uPVC frame. A composite door is a thicker slab — a solid timber or foam-filled core under a glass-reinforced plastic skin — usually hung in a uPVC or aluminium frame. The composite slab is heavier, sounds and feels more like timber, and carries a woodgrain finish and deep colours better. The uPVC door costs less. Both depend on the same locks and glass for their security.',
+        ],
+      },
+      {
+        q: 'What about the front door of a flat above a shop?',
+        body: [
+          'If the flat door opens onto a shared stair or landing, its job is to hold back fire and smoke while people get out, so it should be a certified fire doorset — usually FD30S, with a self-closer and smoke seals. An ordinary composite front door is not one, however solid it looks. Fire-rated composite doorsets exist, but the whole set has to be the tested one: frame, glazing, seals and hardware.',
+          'In blocks of flats whose top storey is more than 11 metres above the ground, the Fire Safety (England) Regulations 2022 require the responsible person to make best-endeavour annual checks of flat entrance doors and quarterly checks of fire doors in the common parts.',
+        ],
+      },
+      {
+        q: 'Why does a dark composite door sometimes stick in summer?',
+        body: [
+          'In full sun a dark outer skin gets much hotter than the inner face, and the slab can bow slightly and bind at the top or bottom. Most doors settle as they cool. One that keeps catching usually needs its hinges or keeps adjusting rather than replacing.',
+        ],
+      },
+    ],
+    standards: [
+      { ref: 'PAS 24', what: 'The enhanced security test a burglar-resistant composite doorset should have passed.' },
+      { ref: 'BS 476-22 / BS EN 1634-1', what: 'Fire resistance tests for doorsets, where the door must also be a fire door.' },
+      { ref: 'Approved Document B', what: 'Fire safety, including flat entrance doors onto common parts.' },
+      { ref: 'BS EN 14351-1', what: 'Product standard under which an external doorset’s performance is declared.' },
+    ],
+    questions: [
+      {
+        q: 'Can a composite door be a fire door?',
+        a: 'Yes, when it is supplied and fitted as a certified fire doorset with the frame, glazing, seals and closer it was tested with. A fire-rated slab hung in an ordinary frame does not make a fire door.',
+      },
+    ],
+    related: ['upvc-doors', 'fire-doors', 'security-doors'],
+  },
+  {
+    slug: 'house-windows',
+    name: 'House windows',
+    card: 'Replacement double- and triple-glazed windows for homes and flats, in uPVC or aluminium.',
+    answer:
+      'Replacement double- and triple-glazed windows for houses and flats, in uPVC or aluminium, fitted across the UK. They suit homes with failed seals, rotting frames or draughts, and flats over shops where the windows belong to the same building as the shopfront. We survey every opening and quote in writing.',
+    area: 'uk',
+    consents: [
+      { consent: 'planning', likelihood: 'rarely', why: 'Replacement windows on a house that look similar to the existing ones are normally permitted development. Flats, Article 4 areas and new bay windows are the exceptions.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Listed buildings need consent, and councils frequently refuse uPVC in place of historic windows.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'A replacement window is building-regulations work: energy performance, safety glass, ventilation and, upstairs, a way out in a fire.' },
+    ],
+    sections: [
+      {
+        q: 'Do I need permission to replace my windows?',
+        body: [
+          'On a house, normally not, provided the new windows look similar to the old — that is the test the Planning Portal gives. A new bay window counts as an extension. Upstairs windows in a side wall must be obscure-glazed and either fixed shut or opening only more than 1.7 metres above the floor.',
+          'Flats and maisonettes have no householder permitted development rights, so a change of material or style there can need planning permission, although councils generally accept a genuine like-for-like replacement without one. In a conservation area, check for an Article 4 direction first: councils use them precisely to stop timber sashes being swapped for uPVC.',
+        ],
+      },
+      {
+        q: 'What does building control check on a new window?',
+        body: [
+          'Four things. Energy performance, under Approved Document L. Safety glass in critical locations — low panes, and glass in or beside doors — under Approved Document K. Ventilation: under Approved Document F a replacement window should not leave the room less ventilated than before, which usually means trickle vents. And escape: an upstairs window that served as an emergency exit must still open wide enough, under Approved Document B.',
+          'The work is either self-certified by an installer registered with a competent person scheme or notified to building control. Ask which before you agree a price, and keep the certificate.',
+        ],
+      },
+      {
+        q: 'Should the windows above a shop match the shopfront?',
+        body: [
+          'From the street, the upper windows and the shopfront are seen as one building. Shopfront guides commonly ask that a new front relate to the floors above it, and the same logic runs the other way. Picking a frame colour and glazing pattern that sit with the shopfront costs almost nothing extra and makes the building look deliberate rather than patched.',
+        ],
+      },
+    ],
+    standards: [
+      { ref: 'Approved Document L', what: 'Thermal performance of replacement windows in homes.' },
+      { ref: 'Approved Document F', what: 'Background ventilation when windows are replaced.' },
+      { ref: 'Approved Document K', what: 'Safety glass in critical locations.' },
+      { ref: 'BS 6375', what: 'Performance of windows and doors: weathertightness, operation and strength.' },
+    ],
+    questions: [
+      {
+        q: 'Double or triple glazing?',
+        a: 'A well-specified double-glazed window meets the current standard for replacements. Triple glazing adds warmth and quiet beside a busy road, at the cost of weight and price, so it earns its keep on noisy or north-facing rooms.',
+      },
+    ],
+    related: ['upvc-doors', 'composite-doors', 'aluminium-windows'],
   },
 ];
 

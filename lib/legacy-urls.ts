@@ -21,7 +21,7 @@ export const LEGACY_CITIES = [
   'chester', 'gloucester', 'peterborough',
 ] as const;
 
-export const LEGACY_SERVICES = shopfronts.map((s) => s.legacySlug);
+export const LEGACY_SERVICES = shopfronts.flatMap((s) => (s.legacySlug ? [s.legacySlug] : []));
 
 export const LEGACY_BLOG = [
   'how-to-maintain-commercial-roller-shutters',
@@ -50,7 +50,7 @@ function buildMoved(): Map<string, string> {
     ['/services', '/shopfronts'],
     ['/areas', '/planning'],
   ]);
-  for (const s of shopfronts) m.set(`/services/${s.legacySlug}`, `/shopfronts/${s.slug}`);
+  for (const s of shopfronts) if (s.legacySlug) m.set(`/services/${s.legacySlug}`, `/shopfronts/${s.slug}`);
   for (const a of authorities) if (a.legacyCity) m.set(`/areas/${a.legacyCity}`, `/planning/${a.slug}`);
   for (const [from, to] of WORDPRESS_MOVED) m.set(from, to);
   return m;
@@ -80,16 +80,17 @@ const WORDPRESS_MOVED: [string, string][] = [
   ['/roller-shutter-installation', '/shopfronts/roller-shutters'],
   ['/manual-to-electric-shutter-conversion', '/shopfronts/roller-shutters'],
   ['/security-shutters', '/shopfronts/roller-shutters'],
+  ['/industrial-shutters', '/shopfronts/industrial-shutters'],
+  ['/upvc-door', '/shopfronts/upvc-doors'],
+  ['/composite-door', '/shopfronts/composite-doors'],
+  ['/house-window-installed', '/shopfronts/house-windows'],
 ];
-
-/** WordPress pages for work this site does not offer: domestic doors and windows, industrial shutters. */
-export const WORDPRESS_GONE = ['/upvc-door', '/composite-door', '/house-window-installed', '/industrial-shutters'];
 
 export const MOVED = buildMoved();
 
 const GONE_EXACT = new Set([
   '/blog', '/reviews', '/why-choose-us', '/instant-quote', '/gallery', '/sitemap-retire.xml', '/towns',
-  ...WORDPRESS_GONE, '/feed', '/comments/feed', '/xmlrpc.php',
+  '/feed', '/comments/feed', '/xmlrpc.php',
 ]);
 
 export function isGone(path: string): boolean {

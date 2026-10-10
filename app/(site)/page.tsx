@@ -4,7 +4,7 @@ import { business } from '@/lib/business';
 import { pageMeta } from '@/lib/seo';
 import { authorities, type HeritageExternalLine } from '@/data/authorities';
 import { consentLabel, shopfronts } from '@/data/shopfronts';
-import { jobs } from '@/data/jobs';
+import { jobs, type Job } from '@/data/jobs';
 
 export const metadata = pageMeta({
   path: '/',
@@ -12,6 +12,14 @@ export const metadata = pageMeta({
   description:
     'Aluminium shopfronts, roller shutters and commercial glazing fitted UK-wide, specified around what your council will accept. Repairs within 100 road miles of Birmingham; we reply to emergency calls within two hours.',
 });
+
+const KIND: Record<Job['kind'], string> = {
+  shopfront: 'Shopfront',
+  doors: 'Entrance doors',
+  glazing: 'Glazing',
+  screens: 'Glazed screens',
+  shutters: 'Roller shutters',
+};
 
 const LINE: Record<HeritageExternalLine, { label: string; cls: string }> = {
   'not-acceptable': { label: 'Not acceptable', cls: 'verdict--refuse' },
@@ -162,12 +170,12 @@ export default function Home() {
       <section className="band">
         <div className="frame">
           <p className="sheet-label">Our work</p>
-          <h2 style={{ marginTop: '0.4rem' }}>Recent installations</h2>
+          <h2 style={{ marginTop: '0.4rem' }}>Shopfronts, doors and shutters we have fitted</h2>
           <div className="plates" style={{ marginTop: '1.4rem' }}>
-            {jobs.slice(1, 4).map((j) => (
+            {jobs.filter((j) => j.home).map((j) => (
               <figure key={j.src} className="plate">
-                <Image src={j.src} alt={j.what} width={j.w} height={j.h} sizes="(min-width: 60rem) 33vw, 100vw" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
-                <figcaption>{j.kind === 'shopfront' ? 'Shopfront' : j.kind === 'doors' ? 'Entrance doors' : j.kind === 'glazing' ? 'Glazing' : 'Glazed screens'}</figcaption>
+                <Image src={j.src} alt={j.what} width={j.w} height={j.h} quality={65} sizes="(min-width: 60rem) 33vw, (min-width: 40rem) 50vw, 100vw" style={{ aspectRatio: '4 / 3', objectFit: 'cover' }} />
+                <figcaption>{KIND[j.kind]}</figcaption>
               </figure>
             ))}
           </div>

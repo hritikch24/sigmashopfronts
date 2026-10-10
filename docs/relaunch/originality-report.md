@@ -1,20 +1,20 @@
 # Originality report
 
-Generated 2026-10-10 16:15 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-10 17:14 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
 shingles, rounded **up** to one decimal.
 
-- Pages measured: **85**
+- Pages measured: **89**
 - Worst page against the siblings (all four combined): **1.0%**
-- Worst page against any other page on this site: **15.2%**
+- Worst page against any other page on this site: **14.5%**
 - Worst whole page including header and footer, against the siblings: **0.8%**
 - Result: **PASS**
 
 | Page | 8-grams | urban | grewal | safeandsecure | highstreet | all siblings | worst internal | against |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| `/` | 419 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.0** | `/company` |
+| `/` | 429 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **6.8** | `/company` |
 | `/company` | 305 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.6** | `/` |
 | `/costs` | 435 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.0** | `/shopfronts/roller-shutters` |
 | `/enquire` | 124 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.7** | `/company` |
@@ -27,7 +27,7 @@ shingles, rounded **up** to one decimal.
 | `/explained/why-solid-shutters-get-refused` | 486 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.3** | `/explained` |
 | `/frontage-check` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.0** | `/` |
 | `/grants` | 252 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
-| `/jobs` | 240 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
+| `/jobs` | 327 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.0** | `/shopfronts/industrial-shutters` |
 | `/planning` | 604 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.4** | `/planning/leicester` |
 | `/planning/birmingham` | 549 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.3** | `/planning/gloucester` |
 | `/planning/bournemouth-christchurch-and-poole` | 361 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.0** | `/planning/bradford` |
@@ -83,19 +83,23 @@ shingles, rounded **up** to one decimal.
 | `/repair-radius/willenhall` | 112 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **8.1** | `/repair-radius/walsall` |
 | `/repair-radius/worcester` | 137 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.2** | `/repair-radius/bromsgrove` |
 | `/shopfront-anatomy` | 389 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
-| `/shopfronts` | 278 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **15.2** | `/shopfronts/repairs` |
+| `/shopfronts` | 341 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.4** | `/shopfronts/house-windows` |
 | `/shopfronts/aluminium` | 731 | 0.5 | 0.5 | 0.0 | 0.0 | **0.5** | **6.2** | `/shopfronts/folding-doors` |
 | `/shopfronts/aluminium-doors` | 405 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.4** | `/shopfronts/automatic-doors` |
-| `/shopfronts/aluminium-windows` | 370 | 0.3 | 0.3 | 0.0 | 0.0 | **0.3** | **14.1** | `/shopfronts/frameless-glass` |
+| `/shopfronts/aluminium-windows` | 386 | 0.3 | 0.3 | 0.0 | 0.0 | **0.3** | **13.5** | `/shopfronts/frameless-glass` |
 | `/shopfronts/automatic-doors` | 520 | 0.4 | 0.4 | 0.0 | 0.0 | **0.4** | **8.1** | `/shopfronts/aluminium-doors` |
+| `/shopfronts/composite-doors` | 589 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.0** | `/shopfronts` |
 | `/shopfronts/curtain-walling` | 325 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.0** | `/shopfronts/folding-doors` |
 | `/shopfronts/emergency-repairs` | 435 | 0.0 | 0.0 | 0.5 | 0.5 | **1.0** | **9.0** | `/shopfronts/repairs` |
 | `/shopfronts/fire-doors` | 415 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.8** | `/shopfronts/automatic-doors` |
 | `/shopfronts/folding-doors` | 474 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.5** | `/shopfronts/aluminium` |
 | `/shopfronts/frameless-glass` | 360 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **14.5** | `/shopfronts/aluminium-windows` |
 | `/shopfronts/glass-replacement` | 458 | 0.0 | 0.0 | 0.7 | 0.0 | **0.7** | **8.1** | `/shopfronts/folding-doors` |
+| `/shopfronts/house-windows` | 588 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.2** | `/shopfronts` |
+| `/shopfronts/industrial-shutters` | 557 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.6** | `/shopfronts/security-doors` |
 | `/shopfronts/repairs` | 394 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.7** | `/shopfronts` |
-| `/shopfronts/roller-shutters` | 697 | 0.3 | 0.3 | 0.0 | 0.0 | **0.3** | **5.6** | `/costs` |
-| `/shopfronts/security-doors` | 504 | 0.2 | 0.2 | 0.0 | 0.0 | **0.2** | **6.6** | `/shopfronts/aluminium` |
+| `/shopfronts/roller-shutters` | 711 | 0.3 | 0.3 | 0.0 | 0.0 | **0.3** | **5.5** | `/costs` |
+| `/shopfronts/security-doors` | 519 | 0.2 | 0.2 | 0.0 | 0.0 | **0.2** | **7.0** | `/shopfronts` |
 | `/shopfronts/shutter-repairs` | 449 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.0** | `/shopfronts` |
+| `/shopfronts/upvc-doors` | 564 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **5.9** | `/shopfronts` |
 | `/terms-of-business` | 209 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |

@@ -96,15 +96,19 @@ new domain behaves exactly like one to the old domain.
 
 Before this build, `sigmashopfrontshutters.co.uk` ran a separate WordPress site (Astra/Elementor, Namecheap
 hosting). Its `wp-sitemap.xml`, read 10 October 2026, listed 24 pages on the bare domain with trailing slashes.
-`WORDPRESS_MOVED` / `WORDPRESS_GONE` in `lib/legacy-urls.ts` answer every one in a single hop: `proxy.ts` sends
+`WORDPRESS_MOVED` in `lib/legacy-urls.ts` answer every one in a single hop: `proxy.ts` sends
 the bare domain and a trailing slash straight to the final URL (Next's own slash redirect is off for this).
 
-- **301 (19):** each to the page doing the same job, e.g. `/about-us/` → `/company`, `/bi-fold-doors/` →
+- **301 (23):** each to the page doing the same job, e.g. `/about-us/` → `/company`, `/bi-fold-doors/` →
   `/shopfronts/folding-doors`, motor, servicing and repair pages → `/shopfronts/shutter-repairs`, emergency
   pages → `/shopfronts/emergency-repairs`, electric, installation, conversion and security-shutter pages →
-  `/shopfronts/roller-shutters`.
-- **410 (4):** `/upvc-door/`, `/composite-door/`, `/house-window-installed/` (domestic work this site does not
-  offer) and `/industrial-shutters/` (no industrial page). Not redirected to a near miss — that is a soft 404.
+  `/shopfronts/roller-shutters`. Four services had no page here until 10 October 2026 and got one, written new:
+  `/upvc-door/` → `/shopfronts/upvc-doors`, `/composite-door/` → `/shopfronts/composite-doors`,
+  `/house-window-installed/` → `/shopfronts/house-windows`, `/industrial-shutters/` → `/shopfronts/industrial-shutters`.
+- **Photos:** of the WordPress site's 44 images, five are genuine site photographs and are now on `/jobs`
+  (`sigma-parade-sliding-front`, `sigma-shutter-over-entrance`, `sigma-shutter-repair`, `sigma-industrial-shutter`,
+  `sigma-glazing-install`). The rest are stock, manufacturer or rendered images — two carry Getty/iStock metadata,
+  three are stock portrait headshots — and are not used: presenting them as our work would be a fabricated claim.
 - **410, machinery:** `/wp-*` (sitemaps, admin, assets), `/elementor-hf/*`, `/author/*`, `/feed`, `/xmlrpc.php`.
 
 ## Paths changed from the brief, with evidence

@@ -7,7 +7,7 @@ import { jobs, videos } from '@/data/jobs';
 export const metadata = pageMeta({
   path: '/jobs',
   title: 'Our work',
-  description: 'Photographs and video of shopfronts, entrance doors, automatic doors and glazed screens we have fitted. Captions describe what is in the picture and nothing more.',
+  description: 'Photographs and video of shopfronts, entrance doors, automatic doors, roller shutters and glazed screens we have fitted. Captions describe what is in the picture and nothing more.',
 });
 
 export default function Jobs() {
