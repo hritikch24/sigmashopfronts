@@ -9,7 +9,17 @@ import { readLine, whatsappLink } from '@/lib/quick-line';
  * email, where the shop is and what is wrong, in any order; we show what we
  * picked up before they send, so nobody is left wondering whether it worked.
  */
-export default function QuickMessage({ source, tone = 'paper' }: { source: string; tone?: 'paper' | 'ink' }) {
+export default function QuickMessage({
+  source,
+  tone = 'paper',
+  label = 'Write it in one line: your number or email, the postcode, and what you need',
+  placeholder = '07123 456789, B69 4RJ, shutter jammed half-open on our takeaway',
+}: {
+  source: string;
+  tone?: 'paper' | 'ink';
+  label?: string;
+  placeholder?: string;
+}) {
   const [line, setLine] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -65,7 +75,7 @@ export default function QuickMessage({ source, tone = 'paper' }: { source: strin
         </label>
       </div>
       <label htmlFor={`quick-${source}`} className="quick__label">
-        Write it in one line: your number or email, the postcode, and what you need
+        {label}
       </label>
       <div className="quick__row">
         <textarea
@@ -78,7 +88,7 @@ export default function QuickMessage({ source, tone = 'paper' }: { source: strin
             setLine(e.target.value);
             if (state === 'error') setState('idle');
           }}
-          placeholder="07123 456789, B69 4RJ, shutter jammed half-open on our takeaway"
+          placeholder={placeholder}
         />
         <button type="submit" className="act act--solid" disabled={state === 'sending'}>
           {state === 'sending' ? 'Sending…' : 'Send'}

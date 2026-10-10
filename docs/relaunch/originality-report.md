@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-10 19:43 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-10 20:00 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
@@ -14,10 +14,10 @@ shingles, rounded **up** to one decimal.
 
 | Page | 8-grams | urban | grewal | safeandsecure | highstreet | all siblings | worst internal | against |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| `/` | 430 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **6.3** | `/company` |
-| `/company` | 305 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **8.9** | `/` |
+| `/` | 417 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.0** | `/enquire` |
+| `/company` | 305 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.3** | `/enquire` |
 | `/costs` | 435 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.0** | `/shopfronts/roller-shutters` |
-| `/enquire` | 173 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **8.1** | `/` |
+| `/enquire` | 173 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.1** | `/company` |
 | `/explained` | 287 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.9** | `/explained/heritage-shopfront-grants` |
 | `/explained/advertisement-consent` | 621 | 0.2 | 0.2 | 0.0 | 0.0 | **0.2** | **5.2** | `/explained` |
 | `/explained/after-an-enforcement-notice` | 455 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.5** | `/explained` |
@@ -25,7 +25,7 @@ shingles, rounded **up** to one decimal.
 | `/explained/heritage-shopfront-grants` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.5** | `/explained` |
 | `/explained/listed-building-consent` | 375 | 0.6 | 0.6 | 0.0 | 0.0 | **0.6** | **8.8** | `/explained` |
 | `/explained/why-solid-shutters-get-refused` | 486 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.3** | `/explained` |
-| `/frontage-check` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.6** | `/` |
+| `/frontage-check` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.9** | `/planning/birmingham` |
 | `/grants` | 252 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
 | `/jobs` | 327 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.0** | `/shopfronts/industrial-shutters` |
 | `/planning` | 604 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.4** | `/planning/leicester` |
