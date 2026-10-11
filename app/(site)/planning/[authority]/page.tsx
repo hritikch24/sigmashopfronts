@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
-import { breadcrumbs, pageMeta } from '@/lib/seo';
+import { breadcrumbs, pageMeta, service } from '@/lib/seo';
+import { whatsappLink } from '@/lib/quick-line';
+import { towns } from '@/data/towns';
 import { business } from '@/lib/business';
 import { authorities, authorityBySlug, docStatusLabel, type Authority, type Point } from '@/data/authorities';
 
@@ -50,6 +52,7 @@ export default async function AuthorityPage({ params }: { params: Promise<{ auth
   const a = authorityBySlug.get(authority);
   if (!a) notFound();
   const path = `/planning/${a.slug}`;
+  const repairTown = towns.find((t) => t.council === a.council);
   const trail = [
     { name: 'Planning', path: '/planning' },
     { name: a.place, path },
@@ -57,8 +60,21 @@ export default async function AuthorityPage({ params }: { params: Promise<{ auth
 
   return (
     <>
-      <JsonLd data={breadcrumbs(path, trail)} />
-      <PageHead trail={trail} label={<><b>{a.council}</b></>} title={`Shopfronts and shutters in ${a.place}`} lede={a.headline} />
+      <JsonLd data={[breadcrumbs(path, trail), service(path, `Shopfronts and shutters in ${a.place}`, a.headline, 'uk', a.place)]} />
+      <PageHead trail={trail} label={<><b>{a.council}</b></>} title={`Shopfronts and shutters in ${a.place}`} lede={a.headline}>
+        <div className="acts" style={{ marginTop: '1.4rem' }}>
+          <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
+            Call {business.phones.main.display}
+          </a>
+          <a href={whatsappLink(business.whatsapp, `Hello Sigma Shopfronts, I am asking about a shopfront in ${a.place}. Postcode: `)} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            WhatsApp a photo
+          </a>
+          <Link href={`/frontage-check?council=${a.slug}`} className="act act--line">
+            Check your frontage
+          </Link>
+        </div>
+        <p style={{ marginTop: '0.8rem', fontSize: '0.95rem', color: 'var(--color-ink-3)' }}>{business.freeQuote}.</p>
+      </PageHead>
 
       <section className="band band--sheet">
         <div className="frame">
@@ -86,9 +102,15 @@ export default async function AuthorityPage({ params }: { params: Promise<{ auth
             <div>
               <dt>Our repairs</dt>
               <dd>
-                {a.repairs === 'inside'
-                  ? `Inside our ${business.repairRadiusMiles}-mile repair radius`
-                  : 'Installation work only'}
+                {a.repairs === 'inside' ? (
+                  repairTown ? (
+                    <Link href={`/repair-radius/${repairTown.slug}`}>Repairs in {repairTown.name}, same-day for emergencies</Link>
+                  ) : (
+                    `Inside our ${business.repairRadiusMiles}-mile repair radius`
+                  )
+                ) : (
+                  'Installation work only'
+                )}
               </dd>
             </div>
           </dl>

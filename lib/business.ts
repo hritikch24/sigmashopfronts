@@ -51,7 +51,14 @@ export const business = {
    */
   repairRadiusMiles: 100,
   repairCentre: 'Birmingham',
-  emergencyPromise: 'We reply to emergency repair calls within two hours.',
+  emergencyPromise: 'We reply to emergency repair calls within two hours and come out the same day.',
+  /**
+   * Confirmed by the owner on 11 October 2026: quotations and site visits are
+   * free, and emergency repairs get a same-day call-out. NOT confirmed: 24/7
+   * cover or any guarantee — do not add either until the owner says so.
+   */
+  freeQuote: 'Free quotation and free site visit',
+  sameDay: 'Same-day call-outs for emergency repairs',
   installArea: 'England, Scotland, Wales and Northern Ireland',
 
   /** What a customer can actually check. This is the whole trust story. */
@@ -59,7 +66,8 @@ export const business = {
     'Registered at Companies House, number 16794487',
     'Insured — ask for the certificate alongside your quotation',
     'Fitters carry CSCS cards',
-    'A written quotation before any work starts',
+    'A free site visit to look at the job and measure up',
+    'A free written quotation before any work starts',
     'Work specified against the relevant British Standards',
   ],
 

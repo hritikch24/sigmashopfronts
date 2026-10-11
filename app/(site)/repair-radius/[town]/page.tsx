@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
-import { breadcrumbs, pageMeta } from '@/lib/seo';
+import { breadcrumbs, pageMeta, service } from '@/lib/seo';
+import { whatsappLink } from '@/lib/quick-line';
 import { business } from '@/lib/business';
 import { townBySlug, towns } from '@/data/towns';
 import { authorities } from '@/data/authorities';
@@ -36,10 +37,24 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
   const ours = authorities.find((a) => a.council === t.council);
   return (
     <>
-      <JsonLd data={breadcrumbs(path, trail)} />
-      <PageHead trail={trail} label={<><b>{t.miles} road miles</b> from Birmingham</>} title={`Repairs in ${t.name}`} lede={t.note} />
+      <JsonLd
+        data={[
+          breadcrumbs(path, trail),
+          service(path, `Shopfront, shutter and door repairs in ${t.name}`, t.note.split('. ')[0] + '.', 'repair-radius', t.name),
+        ]}
+      />
+      <PageHead trail={trail} label={<><b>{t.miles} road miles</b> from Birmingham</>} title={`Repairs in ${t.name}`} lede={t.note}>
+        <div className="acts" style={{ marginTop: '1.4rem' }}>
+          <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
+            Call {business.phones.main.display}
+          </a>
+          <a href={whatsappLink(business.whatsapp, `Hello Sigma Shopfronts, I need a repair in ${t.name}. Postcode: `)} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            WhatsApp a photo
+          </a>
+        </div>
+      </PageHead>
       <section className="band band--sheet">
-        <div className="frame split">
+        <div className="frame">
           <div>
             <dl className="titleblock">
               <div>
@@ -72,18 +87,6 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
                 ))}
               </p>
             )}
-          </div>
-          <div className="panel panel--ink">
-            <h2 style={{ fontSize: '1.25rem' }}>Something failed in {t.name}?</h2>
-            <p style={{ marginTop: '0.6rem' }}>{business.emergencyPromise}</p>
-            <div className="acts" style={{ marginTop: '1rem' }}>
-              <a href={`tel:${business.phones.main.tel}`} className="act act--onink" data-dial="main">
-                {business.phones.main.display}
-              </a>
-              <a href={`https://wa.me/${business.whatsapp}`} className="act act--onink" data-dial="whatsapp" rel="noopener">
-                WhatsApp
-              </a>
-            </div>
           </div>
         </div>
       </section>

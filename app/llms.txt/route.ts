@@ -3,6 +3,7 @@ import { business } from '@/lib/business';
 import { authorities } from '@/data/authorities';
 import { shopfronts } from '@/data/shopfronts';
 import { explainers } from '@/data/explainers';
+import { towns } from '@/data/towns';
 
 export const dynamic = 'force-static';
 
@@ -15,6 +16,12 @@ export function GET() {
 
 Phone: ${business.phones.main.display} or ${business.phones.second.display} (WhatsApp). Email: ${business.email}.
 
+## Terms a customer can rely on
+- ${business.freeQuote}.
+- ${business.sameDay}, within ${business.repairRadiusMiles} road miles of ${business.repairCentre}.
+- ${business.emergencyPromise}
+- A written quotation before any work starts.
+
 ## What is distinctive here
 - [Frontage check](${SITE_URL}/frontage-check): likely consents and a suitable specification for a shopfront job, using the council's own published guidance where held. Installer guidance, not a planning decision.
 - [Shopfront rules by council](${SITE_URL}/planning): what ${authorities.length} UK councils' documents say about shopfronts, shutters and signs, each point cited with the date it was read.
@@ -24,6 +31,9 @@ ${authorities.map((a) => `- [${a.place} — ${a.council}](${SITE_URL}/planning/$
 
 ## Services
 ${shopfronts.map((s) => `- [${s.name}](${SITE_URL}/shopfronts/${s.slug}): ${s.card}`).join('\n')}
+
+## Repairs by town (within ${business.repairRadiusMiles} road miles of ${business.repairCentre})
+${[...towns].sort((a, b) => a.miles - b.miles).map((t) => `- [${t.name}, ${t.county}](${SITE_URL}/repair-radius/${t.slug}): about ${t.miles} road miles; ${t.council}.`).join('\n')}
 
 ## Guides
 ${explainers.map((e) => `- [${e.title}](${SITE_URL}/explained/${e.slug}): ${e.summary}`).join('\n')}

@@ -7,7 +7,7 @@ Next.js 16 App Router · TypeScript · Tailwind v4 · Prisma + Postgres · Verce
 **Legal entity:** Sigma Shopfronts and Shutter Limited, Companies House 16794487, incorporated 19 Oct 2025.
 **Phones:** 07414 779594 · 07397 066538 (WhatsApp). **Registered office:** Oldbury, B68 9LX.
 **Email:** `sales@sigmashopfronts.com` — mail stays on the old domain by the owner's choice; site notifications send from `noreply@sigmashopfronts.com`. Never let `sigmashopfronts.com` lapse.
-**Promise:** repairs within 100 road miles of Birmingham; "we reply to emergency repair calls within two hours" — a REPLY, never attendance.
+**Promise:** repairs within 100 road miles of Birmingham; "we reply to emergency repair calls within two hours and come out the same day". Free quotation and free site visit. All three confirmed by the owner on 11 Oct 2026 (`lib/business.ts`). **Not** confirmed: 24/7 cover, guarantees — the sanity suite still rejects both.
 
 Cross-site state, the portfolio rules and every other site's fingerprint live in `~/Projects/seo-plan/`
 (`PORTFOLIO-RULES.md`, `portfolio-registry.json`, `SESSION-HANDOFF.md`). Read them before changing anything here.
@@ -20,11 +20,11 @@ A planning-led shopfront site. The commercial pages exist, but the reason the si
 | Path | Built from |
 |---|---|
 | `/frontage-check` | `lib/frontage.ts` (pure function) + `components/site/FrontageCheck.tsx` |
-| `/planning/[authority]` (18) | `data/authorities.ts` — every point cited to a council document, with the date read |
+| `/planning/[authority]` (19) | `data/authorities.ts` — every point cited to a council document, with the date read |
 | `/grants` | `grants` in `data/authorities.ts` — only verified, dated schemes, open or closed as published |
 | `/shopfronts/[service]` (18) | `data/shopfronts.ts` |
 | `/explained/[slug]` (6) | `data/explainers.ts` |
-| `/repair-radius/[town]` (31) | `data/towns.ts` |
+| `/repair-radius/[town]` (34) | `data/towns.ts` |
 | `/questions`, `/costs`, `/jobs` | `data/questions.ts`, `data/costs.ts`, `data/jobs.ts` |
 
 All business facts: `lib/business.ts`. All metadata and JSON-LD: `lib/seo.ts`. Nothing else writes a canonical,

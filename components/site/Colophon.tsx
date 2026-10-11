@@ -39,6 +39,7 @@ export default function Colophon() {
                 <a href={`mailto:${business.email}`}>{business.email}</a>
               </li>
               <li>{business.emergencyPromise}</li>
+              <li>{business.freeQuote}.</li>
             </ul>
           </div>
           <div>

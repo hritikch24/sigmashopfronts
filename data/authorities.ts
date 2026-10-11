@@ -86,6 +86,7 @@ export interface Authority {
 }
 
 const CHECKED = '2026-10-09';
+const SHEFFIELD_CHECKED = '2026-10-11';
 
 export const authorities: Authority[] = [
   {
@@ -552,6 +553,56 @@ export const authorities: Authority[] = [
     ],
     ourAdvice:
       'The Crime Impact Statement is the step that will be new to most shopkeepers. Start collecting crime reference numbers and dates now, and note what you have already tried, because the guide asks why other measures were unsuitable or did not work.',
+  },
+  {
+    slug: 'sheffield',
+    council: 'Sheffield City Council',
+    place: 'Sheffield',
+    legacyCity: 'sheffield',
+    nation: 'england',
+    repairs: 'inside',
+    retailStreets: ['Fargate', 'The Moor', 'Division Street', 'London Road', 'Ecclesall Road', 'Meadowhall'],
+    headline:
+      'Sheffield’s draft shopfront policy says standard roller shutters should be avoided on prominent shopping streets as well as in conservation areas; the fallback is a shutter behind the glass, or a lattice or perforated one.',
+    intro: [
+      'Sheffield still decides applications on its 2009 Core Strategy and the saved policies of its 1998 Unitary Development Plan. The new Sheffield Plan was submitted for examination in October 2023 and its main modifications went out for consultation from March to May 2026; until the council adopts it, its shopfront policy, DE5, is a draft. It is still the clearest statement of what Sheffield wants from a shopfront, and the shutter wording is unchanged in the main modifications version.',
+      'The part to notice is the reach. Most councils keep their shutter rules for heritage streets. Sheffield’s draft also covers prominent street frontages and busy pedestrian routes, so a unit on a main shopping street can be caught whether or not it sits in one of the city’s 38 conservation areas.',
+    ],
+    documents: [
+      {
+        id: 'shp2',
+        title: 'Sheffield Plan Part 2: Development Management Policies and Implementation — main modifications consultation version',
+        date: 'March 2026 (draft, not yet adopted)',
+        status: 'draft',
+        url: 'https://haveyoursay.sheffield.gov.uk/47120/widgets/145770/documents/102403',
+        checked: SHEFFIELD_CHECKED,
+      },
+      {
+        id: 'udp',
+        title: 'Sheffield Unitary Development Plan — Built Environment chapter (saved policies)',
+        date: 'Adopted March 1998',
+        status: 'local-plan-policy',
+        url: 'https://www.sheffield.gov.uk/sites/default/files/2022-07/03-udp-built-environment.pdf',
+        checked: SHEFFIELD_CHECKED,
+      },
+    ],
+    heritageExternal: 'normally-refused',
+    shutters: [
+      { text: 'On prominent street frontages, including busy pedestrian routes, and within conservation areas, standard roller shutters should be avoided.', doc: 'shp2', ref: 'Policy DE5' },
+      { text: 'Where that is not practicable, the shutter should be fitted behind the glazing, or be an open lattice or a colour-coated perforated, pierced or punched type.', doc: 'shp2', ref: 'Policy DE5' },
+      { text: 'Where possible the shutter box goes inside the building so the fascia sits flush with the elevation, and the guide rails sit behind the pilasters.', doc: 'shp2', ref: 'Policy DE5 (f) and (g)' },
+    ],
+    heritage: [
+      { text: 'New and replacement shopfronts should keep existing traditional features such as stall risers, transoms and pilasters.', doc: 'shp2', ref: 'Policy DE5 (c)' },
+      { text: 'A new front should respond to the whole building, upper floors included, and to the character of the street.', doc: 'shp2', ref: 'Policy DE5 (a) and (b)' },
+    ],
+    signage: [
+      { text: 'Under the adopted plan, a fully internally illuminated fascia sign is acceptable only outside conservation areas and areas of special character, and only if it does not affect the setting of a listed building.', doc: 'udp', ref: 'Policy BE13 (c)' },
+      { text: 'The draft plan says fully internally illuminated fascias will generally not be acceptable in conservation areas and other sensitive places where they would look out of keeping, distract from important architectural features or add to clutter.', doc: 'shp2', ref: 'Policy DE7 (k)' },
+      { text: 'The fascia should be in proportion to the shopfront, the building and the buildings either side.', doc: 'shp2', ref: 'Policy DE5 (d)' },
+    ],
+    ourAdvice:
+      'Sheffield is about 86 road miles from Birmingham, inside our repair radius. For a new front on a main street, treat DE5 as if it were already adopted: put the shutter behind the glass or choose a colour-coated perforated curtain from the start, with the box inside the building and the guides behind the pilasters, and use externally lit or halo-lit letters rather than a lit box fascia. Designing to the draft now costs nothing extra and avoids a redesign if the officer applies it.',
   },
   {
     slug: 'reading',

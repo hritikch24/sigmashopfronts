@@ -89,6 +89,10 @@ export function organisation(): Json {
     // GeoCircle (straight-line radius) would overstate, so it is described
     // in words on the repair Service instead.
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    makesOffer: [
+      { '@type': 'Offer', name: 'Free quotation and site visit', price: '0', priceCurrency: 'GBP' },
+      { '@type': 'Offer', name: `Same-day call-out for emergency repairs within ${business.repairRadiusMiles} road miles of ${business.repairCentre}` },
+    ],
     // Only profiles that exist and were fetched before shipping. See
     // tests/sameas.test.mjs, which re-checks each one.
     sameAs: [business.instagram],
@@ -121,7 +125,7 @@ export function breadcrumbs(path: string, trail: { name: string; path: string }[
   };
 }
 
-export function service(path: string, name: string, description: string, area: 'uk' | 'repair-radius'): Json {
+export function service(path: string, name: string, description: string, area: 'uk' | 'repair-radius', place?: string): Json {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -130,8 +134,9 @@ export function service(path: string, name: string, description: string, area: '
     description,
     provider: { '@id': ORG_ID },
     url: absolute(path),
-    areaServed:
-      area === 'uk'
+    areaServed: place
+      ? { '@type': 'City', name: place }
+      : area === 'uk'
         ? { '@type': 'Country', name: 'United Kingdom' }
         : { '@type': 'AdministrativeArea', name: `Within ${business.repairRadiusMiles} road miles of ${business.repairCentre}` },
   };

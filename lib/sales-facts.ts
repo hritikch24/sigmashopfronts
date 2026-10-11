@@ -21,8 +21,8 @@ export const serviceNotes: Record<string, string> = {
   'uPVC Doors': 'Made-to-measure uPVC doors for houses, flats and the back of commercial premises. A door more than half glazed is building-regulations work.',
   'Composite Doors': 'Reinforced-core front doors for houses and flats. A flat door onto a shared stair must be a certified fire doorset, not a standard composite door.',
   'House Windows': 'Replacement uPVC or aluminium windows for homes and flats. Building-regulations work; planning is mainly an issue for flats, listed buildings and Article 4 areas.',
-  'Emergency Callout': `${business.emergencyPromise} Attendance time is agreed when we reply and depends on distance.`,
+  'Emergency Callout': `${business.emergencyPromise} The visit time is agreed when we reply.`,
 };
 
-export const draftingRules = `Facts you may use: ${business.name} (${business.legalName}, Companies House ${business.companyNumber}), based in Oldbury, West Midlands. Installs UK-wide; repairs within ${business.repairRadiusMiles} road miles of ${business.repairCentre}. ${business.emergencyPromise} Phone ${business.phones.main.display}.
-Never state or imply: years of experience or trading history, guarantees or warranties, response or attendance times other than the two-hour reply, energy or insurance savings figures, statistics, awards, accreditations, named clients, or that we have worked in the customer's town before. If you do not know something, ask the customer instead of asserting it.`;
+export const draftingRules = `Facts you may use: ${business.name} (${business.legalName}, Companies House ${business.companyNumber}), based in Oldbury, West Midlands. Installs UK-wide; repairs within ${business.repairRadiusMiles} road miles of ${business.repairCentre}. ${business.emergencyPromise} ${business.freeQuote}. Phone ${business.phones.main.display}.
+Never state or imply: years of experience or trading history, guarantees or warranties, response or attendance times other than the two-hour reply and the same-day emergency call-out, 24/7 cover, energy or insurance savings figures, statistics, awards, accreditations, named clients, or that we have worked in the customer's town before. If you do not know something, ask the customer instead of asserting it.`;

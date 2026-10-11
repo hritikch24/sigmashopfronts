@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   path: '/',
   title: `${business.name} — shopfronts, roller shutters, doors and repairs`,
   description:
-    'Aluminium shopfronts, roller shutters, doors and commercial glazing fitted UK-wide, and repaired within 100 road miles of Birmingham. Call, WhatsApp a photo, or leave one line; we reply to emergency repair calls within two hours.',
+    'Aluminium shopfronts, roller shutters, doors and glazing fitted UK-wide and repaired within 100 road miles of Birmingham, Sheffield included. Free quotation and site visit; same-day call-outs for emergency repairs.',
 });
 
 /** Our own job photos, one per thing people most often ask us for. */
@@ -41,7 +41,8 @@ export default function Home() {
               <ul className="ticks">
                 <li>Registered company {business.companyNumber}</li>
                 <li>Insured</li>
-                <li>Written quotation before any work</li>
+                <li>Free quotation and site visit</li>
+                <li>Same-day emergency call-outs</li>
               </ul>
             </div>
             <figure className="plate hero__photo">
@@ -115,12 +116,12 @@ export default function Home() {
             <li>
               <strong>A person replies</strong>
               <span>
-                Emergency repair calls get a reply within two hours, with an honest time we can be there. For new work
-                we come back with any questions about the opening, the glass and the shutter.
+                Emergency repair calls get a reply within two hours and someone comes out the same day. For new work we
+                arrange a free visit to look at the opening and measure up.
               </span>
             </li>
             <li>
-              <strong>A written quotation, then the work</strong>
+              <strong>A free written quotation, then the work</strong>
               <span>The price is in writing before anything starts. Nothing is fitted until you agree it.</span>
             </li>
           </ol>
@@ -168,13 +169,15 @@ export default function Home() {
               <h3>Do you cover my area?</h3>
               <p>
                 New installations: anywhere in England, Scotland, Wales and Northern Ireland. Repairs: any town within{' '}
-                {business.repairRadiusMiles} road miles of {business.repairCentre}.
+                {business.repairRadiusMiles} road miles of {business.repairCentre}, as far as{' '}
+                <Link href="/repair-radius/sheffield">Sheffield</Link>, <Link href="/repair-radius/rotherham">Rotherham</Link> and{' '}
+                <Link href="/repair-radius/chesterfield">Chesterfield</Link>.
               </p>
               <Link href="/repair-radius">Towns we cover for repairs →</Link>
             </div>
             <div>
               <h3>What will it cost?</h3>
-              <p>It depends on the width, the glass and the shutter. Our cost page gives typical ranges so you know before you ring.</p>
+              <p>It depends on the width, the glass and the shutter. The visit and the quotation are free, and our cost page gives typical ranges so you know before you ring.</p>
               <Link href="/costs">Typical prices →</Link>
             </div>
             <div>

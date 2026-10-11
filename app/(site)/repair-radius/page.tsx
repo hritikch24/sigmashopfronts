@@ -6,7 +6,7 @@ import { business } from '@/lib/business';
 import { towns } from '@/data/towns';
 
 const path = '/repair-radius';
-const lede = `We repair shopfronts, shutters, doors and glass at premises within ${business.repairRadiusMiles} road miles of Birmingham — every town in between, not just the cities. ${business.emergencyPromise} Then we tell you honestly when we can be there.`;
+const lede = `We repair shopfronts, shutters, doors and glass at premises within ${business.repairRadiusMiles} road miles of Birmingham — every town in between, not just the cities. ${business.emergencyPromise} Quotations and site visits are free.`;
 
 export const metadata = pageMeta({
   path,

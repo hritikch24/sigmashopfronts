@@ -100,7 +100,8 @@ for (const [path, html] of pages) {
     [/\b(hundreds|thousands|\d{2,})\s+(of\s+)?(happy\s+)?(customers|clients|projects|installations|shopfronts fitted)/i, 'project/customer count'],
     [/\b(5|five)[- ]star\b|★/i, 'star rating'],
     [/\baward[- ]winning\b|\baccredited\b|\bapproved installer\b/i, 'accreditation claim'],
-    [/24\/7|24[- ]hours? a day|round[- ]the[- ]clock|same[- ]day (repair|service|attendance|fitting)/i, 'round-the-clock / same-day claim'],
+    // Same-day emergency call-outs were confirmed by the owner on 11 Oct 2026; round-the-clock cover was not.
+    [/24\/7|24[- ]hours? a day|round[- ]the[- ]clock/i, 'round-the-clock claim'],
     [/\b(attend|arrive|on site|be with you)\s+within\s+(two|2)\s+hours?/i, 'attendance promise (the promise is a reply)'],
     [/\bguarantee(d)?\b/i, 'guarantee'],
   ];

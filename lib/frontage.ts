@@ -289,6 +289,7 @@ const DISTRICTS: Record<string, string> = {
   york: 'york',
   leeds: 'leeds',
   bradford: 'bradford',
+  sheffield: 'sheffield',
   reading: 'reading',
   southampton: 'southampton',
   'brighton and hove': 'brighton-and-hove',

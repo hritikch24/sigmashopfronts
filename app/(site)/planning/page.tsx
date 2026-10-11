@@ -79,8 +79,7 @@ export default function PlanningIndex() {
               does not get a page — a page that guesses at policy is worse than none.
             </p>
             <p>
-              That leaves out places we work in, including Manchester, Liverpool, Sheffield, Wolverhampton, Stoke-on-Trent and
-              Cardiff. The frontage check still works for them: it tells you plainly that we hold no data for that council and
+              That leaves out places we work in, including Manchester, Liverpool, Wolverhampton, Stoke-on-Trent and Cardiff. The frontage check still works for them: it tells you plainly that we hold no data for that council and
               what the national rules suggest.
             </p>
           </div>

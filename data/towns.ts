@@ -264,6 +264,30 @@ export const towns: Town[] = [
     note: 'Burton’s brewing industry still shapes the commercial stock — large industrial frontages and loading openings alongside a conventional town-centre retail core. Coopers Square is landlord-governed; the High Street and Station Street are ordinary planning. The brewery-related units are where the interesting shutter work is: wide openings, heavy use, and specifications that have to account for vehicle movement rather than footfall.',
     near: ['lichfield', 'tamworth'],
   },
+  {
+    slug: 'chesterfield', name: 'Chesterfield', council: 'Chesterfield Borough Council',
+    county: 'Derbyshire', miles: 73,
+    retail: ['Market Place', 'Low Pavement', 'Vicar Lane', 'Knifesmithgate'],
+    conservation: 'The Chesterfield Town Centre Conservation Area was designated in 1976 and extended in 1982, and the council publishes an Article 4 Direction for it, so some changes that would elsewhere need no application do need one here.',
+    note: 'We cover Chesterfield for shutter, door and glass repairs, with same-day call-outs for emergencies. The centre is a conservation area built around an open-air market that dates back to at least 1165, so the fronts on the Market Place and Low Pavement are seen up close by a lot of people. On those streets a repair is like-for-like by default; a replacement front is checked against the Article 4 Direction before anything is ordered.',
+    near: ['sheffield', 'rotherham'],
+  },
+  {
+    slug: 'sheffield', name: 'Sheffield', council: 'Sheffield City Council',
+    county: 'South Yorkshire', miles: 86,
+    retail: ['Fargate', 'The Moor', 'Division Street', 'London Road', 'Abbeydale Road', 'Ecclesall Road', 'Meadowhall'],
+    conservation: 'Sheffield has 38 conservation areas. The City Centre and Kelham Island areas went under review in 2025, with extensions proposed around Castlegate, Fitzalan Square, Norfolk Street and West Street.',
+    note: 'We cover Sheffield for shutter, door and glass repairs, with same-day call-outs for emergencies. The work runs from the pedestrianised city-centre streets of Fargate and The Moor to the long independent strips of London Road, Abbeydale Road and Ecclesall Road, where food shops and convenience stores pull their shutters down every night and cannot open without them. Sheffield’s draft shopfront policy reaches busy shopping streets as well as conservation areas, so when a shutter on a main road needs replacing rather than repairing, we specify it with that policy in mind.',
+    near: ['rotherham', 'chesterfield'],
+  },
+  {
+    slug: 'rotherham', name: 'Rotherham', council: 'Rotherham Metropolitan Borough Council',
+    county: 'South Yorkshire', miles: 88,
+    retail: ['College Street', 'Effingham Street', 'High Street', 'All Saints Square', 'Parkgate Shopping'],
+    conservation: 'The Rotherham Town Centre Conservation Area, designated in 1995, takes in the Grade I listed Minster and Rotherham Bridge.',
+    note: 'We cover Rotherham for shutter, door and glass repairs, with same-day call-outs for emergencies. The older centre around College Street, Effingham Street and High Street sits in the town centre conservation area, where the council has been renewing the streets themselves, so a new front there is judged against the street as well as the building. Out at Parkgate and the trading estates the work is wider openings and shutters that go up and down all day.',
+    near: ['sheffield', 'chesterfield'],
+  },
 ];
 
 /** Lookup by slug. */

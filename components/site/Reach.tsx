@@ -19,7 +19,7 @@ export default function Reach() {
         <div>
           <h2 id="reach-title">Talk to a person at Sigma</h2>
           <p>
-            Ring, WhatsApp a photo, or leave one line below. {business.emergencyPromise}
+            Ring, WhatsApp a photo, or leave one line below. {business.emergencyPromise} {business.freeQuote}.
           </p>
           <div className="acts" style={{ marginTop: '1rem' }}>
             <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
