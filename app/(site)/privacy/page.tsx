@@ -48,8 +48,8 @@ export default function Privacy() {
           </p>
           <h2>How long we keep it</h2>
           <p>
-            Enquiries that lead to work are kept with the job records for as long as we need them for the work, guarantees,
-            accounts and legal claims. We delete enquiries that do not lead to work once they are no longer needed to deal
+            Enquiries that lead to work are kept with the job records for as long as we need them for the work, our
+            accounts and any legal claims. We delete enquiries that do not lead to work once they are no longer needed to deal
             with your request. Visit records contain no names, contact details or IP addresses.
           </p>
           <h2>Your rights</h2>

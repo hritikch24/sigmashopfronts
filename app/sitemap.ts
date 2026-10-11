@@ -35,7 +35,7 @@ export const PUBLIC_PATHS = [
 
 // Fixed, not "now": a lastmod that changes on every build tells crawlers every
 // page changed every day.
-const LAST_CHANGED = '2026-10-09';
+const LAST_CHANGED = '2026-10-11';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!indexingOn) return [];

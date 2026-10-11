@@ -79,10 +79,9 @@ export const business = {
  * is `pending`, the site must stay `noindex` — `scripts/launch-gate.mjs`
  * fails the build if indexing is switched on with a pending fact.
  */
-export const pendingFacts: Record<string, string> = {
-  prices: 'The indicative prices on /costs are the ranges the old site published. The owner should confirm them before indexing.',
-  legalPages: 'The privacy notice and terms of business are drafts written for the relaunch. The owner should read and approve them.',
-};
+// Cleared 11 Oct 2026: the owner confirmed the indicative prices on /costs and
+// approved the privacy notice and terms of business as published.
+export const pendingFacts: Record<string, string> = {};
 
 /** Not blockers for indexing, but owed before ads run again. */
 export const followUps: Record<string, string> = {

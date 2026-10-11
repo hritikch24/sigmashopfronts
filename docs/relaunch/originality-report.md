@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-11 07:12 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-11 07:25 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
@@ -49,7 +49,7 @@ shingles, rounded **up** to one decimal.
 | `/planning/sheffield` | 707 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **6.7** | `/planning/derby` |
 | `/planning/southampton` | 336 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **14.0** | `/planning/bristol` |
 | `/planning/york` | 475 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.2** | `/planning/bradford` |
-| `/privacy` | 377 | 0.0 | 0.0 | 0.0 | 0.6 | **0.6** | **0.3** | `/company` |
+| `/privacy` | 378 | 0.0 | 0.0 | 0.0 | 0.6 | **0.6** | **0.3** | `/company` |
 | `/questions` | 868 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.0** | `/explained/why-solid-shutters-get-refused` |
 | `/repair-radius` | 364 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.2** | `/` |
 | `/repair-radius/bilston` | 117 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.8** | `/repair-radius/brierley-hill` |

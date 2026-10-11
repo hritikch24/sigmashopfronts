@@ -81,8 +81,8 @@ get `X-Robots-Tag: noindex`; the bare new domain 301s to `www` in `proxy.ts`.
 
 ## Still owed (see `pendingFacts` and `followUps` in lib/business.ts)
 
-Owner sign-off of the indicative prices and the legal pages, and Sigma's own Google
-Ads tag, GA4/GTM and IndexNow key. Real case studies (town, shop type, what was fitted, when) would strengthen
+Indexing went on 11 Oct 2026 (prices and legal pages approved; `pendingFacts` is empty).
+Still owed: Sigma's own Google Ads tag, GA4/GTM and IndexNow key. Real case studies (town, shop type, what was fitted, when) would strengthen
 `/jobs` — only with the client's agreement.
 
 ## External consumer: the lead hub
