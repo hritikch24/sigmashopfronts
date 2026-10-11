@@ -97,7 +97,7 @@ export default function EnquiryForm({
       </div>
       <div className="field">
         <label htmlFor="enq-service">What it is about</label>
-        <input id="enq-service" name="service" type="text" defaultValue={service} placeholder="e.g. new shopfront, shutter stuck, broken glass" />
+        <input id="enq-service" name="service" type="text" defaultValue={service} placeholder="e.g. shutter stuck" />
       </div>
       <div className="field">
         <label htmlFor="enq-message">Anything we should know</label>

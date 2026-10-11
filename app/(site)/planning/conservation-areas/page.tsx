@@ -17,7 +17,7 @@ export default function ConservationAreas() {
   return (
     <>
       <JsonLd data={[breadcrumbs(path, trail), article(path, 'Shopfronts in conservation areas', summary, '2026-10-09')]} />
-      <PageHead trail={trail} label={<><b>Sheet 02a</b> · The rules, explained</>} title="Shopfronts in conservation areas" lede={summary} />
+      <PageHead trail={trail} title="Shopfronts in conservation areas" lede={summary} />
       <section className="band band--sheet">
         <div className="frame copy measure">
           <h2>What the designation does</h2>

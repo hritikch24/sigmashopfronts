@@ -18,7 +18,6 @@ export default function Company() {
       <JsonLd data={breadcrumbs('/company', [{ name: 'The company', path: '/company' }])} />
       <PageHead
         trail={[{ name: 'The company', path: '/company' }]}
-        label={<><b>Sheet 11</b> · The company</>}
         title="Who you would be dealing with"
         lede={`${business.name} is the trading name of ${business.legalName}, a private limited company registered in England. We make and fit shopfronts, shutters, doors and commercial glazing, and repair them within ${business.repairRadiusMiles} road miles of Birmingham.`}
       />

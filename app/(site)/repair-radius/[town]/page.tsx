@@ -56,7 +56,7 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
       <section className="band band--sheet">
         <div className="frame">
           <div>
-            <dl className="titleblock">
+            <dl className="titleblock titleblock--two">
               <div>
                 <dt>Planning authority</dt>
                 <dd>{ours ? <Link href={`/planning/${ours.slug}`}>{t.council}</Link> : t.council}</dd>
@@ -65,13 +65,13 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
                 <dt>County</dt>
                 <dd>{t.county}</dd>
               </div>
-              <div>
+              <div className="titleblock__wide">
                 <dt>Retail streets and centres</dt>
                 <dd>{t.retail.join(', ')}</dd>
               </div>
             </dl>
             {t.conservation && (
-              <p className="note" style={{ marginTop: '1.25rem' }}>
+              <p className="note" style={{ marginTop: '1.25rem', maxWidth: '44rem' }}>
                 <strong>Heritage: </strong>
                 {t.conservation}
               </p>

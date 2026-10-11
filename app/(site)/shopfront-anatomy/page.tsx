@@ -27,7 +27,7 @@ export default function Anatomy() {
   return (
     <>
       <JsonLd data={[breadcrumbs(path, [{ name: 'Parts of a shopfront', path }]), article(path, 'Parts of a shopfront, named', summary, '2026-10-09')]} />
-      <PageHead trail={[{ name: 'Parts of a shopfront', path }]} label={<><b>Sheet 12</b> · Elevation</>} title="Parts of a shopfront, named" lede={summary} />
+      <PageHead trail={[{ name: 'Parts of a shopfront', path }]} title="Parts of a shopfront, named" lede={summary} />
       <section className="band band--sheet">
         <div className="frame">
           <figure className="plate" style={{ padding: 'clamp(0.75rem, 2vw, 1.5rem)' }}>

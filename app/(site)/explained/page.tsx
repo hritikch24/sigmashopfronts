@@ -16,7 +16,6 @@ export default function ExplainedIndex() {
       <JsonLd data={breadcrumbs('/explained', [{ name: 'Explained', path: '/explained' }])} />
       <PageHead
         trail={[{ name: 'Explained', path: '/explained' }]}
-        label={<><b>Sheet 04</b> · Consent, explained</>}
         title="The consent side of a shopfront job"
         lede="Six guides to the parts of a shopfront project that cause the delays, the refusals and the enforcement letters. Written by installers who deal with them, and clear about where you need a planning professional instead."
       />

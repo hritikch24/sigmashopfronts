@@ -40,6 +40,93 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
     { name: s.name, path },
   ];
 
+  // What a customer asks first is the price; consents and standards follow the
+  // explanation. Without a price table the consents take the top slot instead.
+  const pricesBlock = costs && (
+    <div>
+      <h2>Indicative prices</h2>
+      <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
+        {costs.lines.map((l) => (
+          <li key={l.item}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+              <strong>{l.item}</strong>
+              <span style={{ fontFamily: 'var(--font-mono)' }}>{l.range}</span>
+            </div>
+            <span style={{ color: 'var(--color-ink-3)', fontSize: '0.92rem' }}>{l.note}</span>
+          </li>
+        ))}
+      </ul>
+      <p style={{ marginTop: '0.8rem', fontSize: '0.92rem' }}>
+        Supply and fit, before survey. <Link href="/costs">How prices are built up</Link>.
+      </p>
+      <p className="price-next">
+        <strong>Your exact price:</strong> we visit, measure and quote in writing, free.{' '}
+        <a
+          href={whatsappLink(business.whatsapp, `Hello Sigma Shopfronts, I would like a price for ${s.name.toLowerCase()}. Photo attached. Postcode: `)}
+          data-dial="whatsapp"
+          rel="noopener"
+        >
+          Send a photo on WhatsApp
+        </a>
+      </p>
+    </div>
+  );
+  const photoBlock = s.photo && (
+    <figure className="plate" style={{ alignSelf: 'start' }}>
+      <Image src={s.photo.src} alt={s.photo.alt} width={s.photo.w} height={s.photo.h} sizes="(min-width: 60rem) 36vw, 100vw" />
+      <figcaption>{s.photo.alt}.</figcaption>
+    </figure>
+  );
+  const consentsBlock = (
+    <div>
+      <h2>Consents this work tends to involve</h2>
+      <ul className="rows rows--keyed" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
+        {s.consents.map((c) => (
+          <li key={c.consent}>
+            <div>
+              <strong>{consentLabel[c.consent]}</strong>
+              <div style={{ marginTop: '0.35rem' }}>
+                {c.consent === 'none-usually' ? (
+                  <span className="verdict verdict--unknown">Typical case — confirm</span>
+                ) : (
+                  <span className={`verdict ${LIKELY[c.likelihood].cls}`}>{LIKELY[c.likelihood].label}</span>
+                )}
+              </div>
+            </div>
+            <p>{c.why}</p>
+          </li>
+        ))}
+      </ul>
+      <p className="note" style={{ marginTop: '1rem', fontSize: '0.95rem' }}>
+        An installer’s general guide; <Link href="/planning">your council</Link> decides.
+      </p>
+    </div>
+  );
+  const standardsBlock = (
+    <div>
+      <h2>Standards and regulations</h2>
+      <div className="table-wrap" style={{ marginTop: '1rem' }}>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Reference</th>
+              <th scope="col">What it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {s.standards.map((r) => (
+              <tr key={r.ref}>
+                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', whiteSpace: 'nowrap' }}>{r.ref}</td>
+                <td>{r.what}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+  const lead = pricesBlock ?? consentsBlock;
+
   return (
     <>
       <JsonLd
@@ -75,36 +162,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       </PageHead>
 
       <section className="band band--sheet">
-        <div className="frame split">
-          <div>
-            <h2>Consents this work tends to involve</h2>
-            <ul className="rows rows--keyed" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
-              {s.consents.map((c) => (
-                <li key={c.consent}>
-                  <div>
-                    <strong>{consentLabel[c.consent]}</strong>
-                    <div style={{ marginTop: '0.35rem' }}>
-                      {c.consent === 'none-usually' ? (
-                        <span className="verdict verdict--unknown">Typical case — confirm</span>
-                      ) : (
-                        <span className={`verdict ${LIKELY[c.likelihood].cls}`}>{LIKELY[c.likelihood].label}</span>
-                      )}
-                    </div>
-                  </div>
-                  <p>{c.why}</p>
-                </li>
-              ))}
-            </ul>
-            <p className="note" style={{ marginTop: '1rem', fontSize: '0.95rem' }}>
-              An installer’s general guide; <Link href="/planning">your council</Link> decides.
-            </p>
-          </div>
-          {s.photo && (
-            <figure className="plate" style={{ alignSelf: 'start' }}>
-              <Image src={s.photo.src} alt={s.photo.alt} width={s.photo.w} height={s.photo.h} sizes="(min-width: 60rem) 36vw, 100vw" />
-              <figcaption>{s.photo.alt}.</figcaption>
-            </figure>
-          )}
+        <div className={photoBlock ? 'frame split' : 'frame'}>
+          {lead}
+          {photoBlock}
         </div>
       </section>
 
@@ -124,47 +184,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       </section>
 
       <section className="band band--sheet">
-        <div className="frame split">
-          <div>
-            <h2>Standards and regulations</h2>
-            <div className="table-wrap" style={{ marginTop: '1rem' }}>
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Reference</th>
-                    <th scope="col">What it covers</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {s.standards.map((r) => (
-                    <tr key={r.ref}>
-                      <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', whiteSpace: 'nowrap' }}>{r.ref}</td>
-                      <td>{r.what}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          {costs && (
-            <div>
-              <h2>Indicative prices</h2>
-              <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
-                {costs.lines.map((l) => (
-                  <li key={l.item}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
-                      <strong>{l.item}</strong>
-                      <span style={{ fontFamily: 'var(--font-mono)' }}>{l.range}</span>
-                    </div>
-                    <span style={{ color: 'var(--color-ink-3)', fontSize: '0.92rem' }}>{l.note}</span>
-                  </li>
-                ))}
-              </ul>
-              <p style={{ marginTop: '0.8rem', fontSize: '0.92rem' }}>
-                Supply and fit, before survey. <Link href="/costs">How prices are built up</Link>.
-              </p>
-            </div>
-          )}
+        <div className={pricesBlock ? 'frame split' : 'frame'}>
+          {pricesBlock && consentsBlock}
+          {standardsBlock}
         </div>
       </section>
 

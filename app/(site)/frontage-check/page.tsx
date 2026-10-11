@@ -36,7 +36,7 @@ export default function FrontageCheckPage() {
           },
         ]}
       />
-      <PageHead trail={[{ name: 'Frontage check', path }]} label={<><b>Sheet 06</b> · The frontage check</>} title="What am I allowed to put here — and what will look right?" lede={lede} />
+      <PageHead trail={[{ name: 'Frontage check', path }]} title="What am I allowed to put here — and what will look right?" lede={lede} />
       <section className="band band--sheet">
         <div className="frame split">
           <div>

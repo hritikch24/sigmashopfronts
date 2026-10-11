@@ -17,7 +17,6 @@ export default function Questions() {
       <JsonLd data={[breadcrumbs('/questions', [{ name: 'Questions', path: '/questions' }]), questions('/questions', all)]} />
       <PageHead
         trail={[{ name: 'Questions', path: '/questions' }]}
-        label={<><b>Sheet 10</b> · Questions</>}
         title="Questions people ask before a shopfront job"
         lede="Mostly about consent — because that is where shopfront jobs go wrong. General answers; your council has the final word."
       />

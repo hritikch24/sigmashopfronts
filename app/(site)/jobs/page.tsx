@@ -3,6 +3,8 @@ import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import { breadcrumbs, pageMeta } from '@/lib/seo';
 import { jobs, videos } from '@/data/jobs';
+import { business } from '@/lib/business';
+import { whatsappLink } from '@/lib/quick-line';
 
 export const metadata = pageMeta({
   path: '/jobs',
@@ -16,10 +18,15 @@ export default function Jobs() {
       <JsonLd data={breadcrumbs('/jobs', [{ name: 'Our work', path: '/jobs' }])} />
       <PageHead
         trail={[{ name: 'Our work', path: '/jobs' }]}
-        label={<><b>Sheet 07</b> · Our work</>}
         title="Work we have fitted"
         lede="Our own photographs, captioned with what you can see. We name the town, the business and what we fitted only once a client has agreed to it — so for now the pictures speak for themselves."
-      />
+      >
+        <div className="acts" style={{ marginTop: '1.4rem' }}>
+          <a href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I saw your work and would like something similar. Photo of my frontage attached. Postcode: ')} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            Want one like these? WhatsApp us your frontage
+          </a>
+        </div>
+      </PageHead>
       <section className="band band--sheet">
         <div className="frame">
           <div className="plates">

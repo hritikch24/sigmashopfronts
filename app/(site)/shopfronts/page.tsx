@@ -19,7 +19,6 @@ export default function ShopfrontsIndex() {
       <JsonLd data={breadcrumbs('/shopfronts', [{ name: 'Shopfronts', path: '/shopfronts' }])} />
       <PageHead
         trail={[{ name: 'Shopfronts', path: '/shopfronts' }]}
-        label={<><b>Sheet 01</b> · What we fit</>}
         title="Shopfronts, shutters, doors and glazing"
         lede="Each page below opens with the practical answer, then the part most installers skip: which consents the work usually triggers, and which standards it has to meet."
       />

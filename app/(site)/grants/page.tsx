@@ -19,7 +19,6 @@ export default function Grants() {
       <JsonLd data={breadcrumbs('/grants', [{ name: 'Grants', path: '/grants' }])} />
       <PageHead
         trail={[{ name: 'Grants', path: '/grants' }]}
-        label={<><b>Sheet 03</b> · Heritage and shopfront grants</>}
         title="Shopfront grants we can verify"
         lede="Shopfront grants are local, short-lived and often fully allocated within months. We list a scheme only when we can point to it on the council’s own website, and we say when we checked and whether it was open."
       />

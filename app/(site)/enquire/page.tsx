@@ -18,10 +18,18 @@ export default function Enquire() {
       <JsonLd data={breadcrumbs('/enquire', [{ name: 'Enquire', path: '/enquire' }])} />
       <PageHead
         trail={[{ name: 'Enquire', path: '/enquire' }]}
-        label={<><b>Sheet 09</b> · Enquire</>}
         title="Tell us about the frontage"
         lede={`For a repair, the phone is fastest. For new work, a photo and the address tell us most of what we need for a first answer. ${business.emergencyPromise}`}
-      />
+      >
+        <div className="acts" style={{ marginTop: '1.4rem' }}>
+          <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
+            Call {business.phones.main.display}
+          </a>
+          <a href={whatsappLink(business.whatsapp)} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            WhatsApp {business.phones.second.display}
+          </a>
+        </div>
+      </PageHead>
       <section className="band band--sheet">
         <div className="frame split">
           <div style={{ display: 'grid', gap: '2rem', alignContent: 'start' }}>
@@ -38,27 +46,19 @@ export default function Enquire() {
             </div>
           </div>
           <aside style={{ display: 'grid', gap: '1.25rem', alignContent: 'start' }}>
-            <div className="panel panel--ink">
-              <h2 style={{ fontSize: '1.2rem' }}>Phone and WhatsApp</h2>
+            <div className="panel">
+              <h2 style={{ fontSize: '1.2rem' }}>What happens next</h2>
               <ul className="copy" style={{ marginTop: '0.7rem' }}>
-                <li>
-                  <a href={`tel:${business.phones.main.tel}`} data-dial="main">
-                    {business.phones.main.display}
-                  </a>
-                </li>
-                <li>
-                  <a href={`tel:${business.phones.second.tel}`} data-dial="second">
-                    {business.phones.second.display}
-                  </a>{' '}
-                  — also on{' '}
-                  <a href={whatsappLink(business.whatsapp)} data-dial="whatsapp" rel="noopener">
-                    WhatsApp
-                  </a>
-                </li>
-                <li>
-                  <a href={`mailto:${business.email}`}>{business.email}</a>
-                </li>
+                <li>A person at Sigma replies, not an automated system.</li>
+                <li>{business.freeQuote}, in writing before any work.</li>
+                <li>{business.sameDay}.</li>
               </ul>
+            </div>
+            <div className="panel">
+              <h2 style={{ fontSize: '1.2rem' }}>Rather email?</h2>
+              <p style={{ marginTop: '0.5rem' }}>
+                <a href={`mailto:${business.email}`}>{business.email}</a>
+              </p>
             </div>
             <div className="panel">
               <h2 style={{ fontSize: '1.2rem' }}>Where we work</h2>

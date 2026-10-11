@@ -3,6 +3,8 @@ import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import { breadcrumbs, pageMeta } from '@/lib/seo';
 import { costGroups } from '@/data/costs';
+import { business } from '@/lib/business';
+import { whatsappLink } from '@/lib/quick-line';
 
 export const metadata = pageMeta({
   path: '/costs',
@@ -17,10 +19,22 @@ export default function Costs() {
       <JsonLd data={breadcrumbs('/costs', [{ name: 'Costs', path: '/costs' }])} />
       <PageHead
         trail={[{ name: 'Costs', path: '/costs' }]}
-        label={<><b>Sheet 08</b> · Costs</>}
         title="What it costs"
         lede="Indicative supply-and-fit ranges before a survey. They are a starting point for a budget, not a quotation: your price comes in writing once we have measured the opening and know what the council will accept."
-      />
+      >
+        <p className="price-next measure">
+          <strong>The visit to measure and the written quotation cost nothing.</strong> Send a photo of the opening and the
+          postcode and we will tell you which line below your job sits on.
+        </p>
+        <div className="acts" style={{ marginTop: '1rem' }}>
+          <a href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I would like a price. Photo attached. Postcode: ')} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            WhatsApp a photo for a price
+          </a>
+          <a href={`tel:${business.phones.main.tel}`} className="act act--line" data-dial="main">
+            Call {business.phones.main.display}
+          </a>
+        </div>
+      </PageHead>
       <section className="band band--sheet">
         <div className="frame" style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 22rem), 1fr))' }}>
           {Object.values(costGroups).map((g) => (

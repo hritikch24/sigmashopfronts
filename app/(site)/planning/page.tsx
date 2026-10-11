@@ -24,7 +24,6 @@ export default function PlanningIndex() {
       <JsonLd data={breadcrumbs('/planning', [{ name: 'Planning', path: '/planning' }])} />
       <PageHead
         trail={[{ name: 'Planning', path: '/planning' }]}
-        label={<><b>Sheet 02</b> · Planning by council</>}
         title="Shopfront rules, council by council"
         lede="Councils genuinely differ on shopfronts — different documents, different conservation areas, different tolerance of shutters. Each page below is built from that council’s own published guidance, with every point referenced so you can check it."
       />

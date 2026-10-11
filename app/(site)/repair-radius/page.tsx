@@ -24,7 +24,7 @@ export default function RepairRadius() {
           service(path, 'Shopfront, shutter and glazing repairs', lede, 'repair-radius'),
         ]}
       />
-      <PageHead trail={[{ name: 'Repair radius', path }]} label={<><b>Sheet 05</b> · Repairs</>} title={`Repairs within ${business.repairRadiusMiles} road miles of Birmingham`} lede={lede}>
+      <PageHead trail={[{ name: 'Repair radius', path }]} title={`Repairs within ${business.repairRadiusMiles} road miles of Birmingham`} lede={lede}>
         <div className="acts" style={{ marginTop: '1.4rem' }}>
           <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
             Call {business.phones.main.display}
