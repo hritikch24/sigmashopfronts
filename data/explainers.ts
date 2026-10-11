@@ -160,7 +160,7 @@ export const explainers: Explainer[] = [
       { t: 'h2', text: 'How the process usually runs' },
       { t: 'ol', items: [
         'Expression of interest: a short form to check the property and project are eligible.',
-        'Full application: drawings, quotations and often a heritage statement.',
+        'Full application: drawings, quotes and often a heritage statement.',
         'Design agreed with the council, which may ask for changes before it will fund.',
         'Planning, advertisement and listed building consents obtained as needed.',
         'Grant offer, then work, then a claim with invoices and photographs.',

@@ -18,7 +18,7 @@ export default function Questions() {
       <PageHead
         trail={[{ name: 'Questions', path: '/questions' }]}
         title="Questions people ask before a shopfront job"
-        lede="Mostly about consent — because that is where shopfront jobs go wrong. General answers; your council has the final word."
+        lede="Mostly about council permission, because that is where shopfront jobs most often go wrong. These are general answers. Your council has the final word."
       />
       <section className="band band--sheet">
         <div className="frame measure">

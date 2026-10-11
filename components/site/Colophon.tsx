@@ -43,25 +43,25 @@ export default function Colophon() {
             </ul>
           </div>
           <div>
-            <h2>The firm</h2>
+            <h2>Sigma</h2>
             <ul style={{ marginTop: '0.8rem' }}>
               <li><Link href="/shopfronts">What we fit</Link></li>
-              <li><Link href="/repair-radius">Repair radius</Link></li>
+              <li><Link href="/repair-radius">Repair area</Link></li>
               <li><Link href="/jobs">Our work</Link></li>
               <li><Link href="/costs">Costs</Link></li>
               <li><Link href="/questions">Questions</Link></li>
               <li><Link href="/company">The company</Link></li>
-              <li><Link href="/enquire">Enquire</Link></li>
+              <li><Link href="/enquire">Contact us</Link></li>
             </ul>
           </div>
           <div>
-            <h2>Planning</h2>
+            <h2>Council permission</h2>
             <ul style={{ marginTop: '0.8rem' }}>
-              <li><Link href="/frontage-check">Frontage check</Link></li>
+              <li><Link href="/frontage-check">Do I need permission?</Link></li>
               <li><Link href="/planning">Shopfront rules by council</Link></li>
               <li><Link href="/planning/conservation-areas">Conservation areas</Link></li>
               <li><Link href="/grants">Shopfront grants</Link></li>
-              <li><Link href="/explained">Consent, explained</Link></li>
+              <li><Link href="/explained">Permission, explained</Link></li>
               <li><Link href="/shopfront-anatomy">Parts of a shopfront</Link></li>
             </ul>
           </div>

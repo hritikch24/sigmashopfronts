@@ -51,6 +51,15 @@ a robots directive or a schema.org object.
 8. **Launch hidden.** Indexing is off unless `SIGMA_INDEXING=on`. The prebuild launch gate fails if it is on
    while `pendingFacts` in `lib/business.ts` is not empty. While held, the sitemap is empty.
 
+## Plain English
+
+Many customers are shop owners and staff who speak English as a second language. Write so they understand on
+first reading: short sentences (the sanity suite fails any over 32 words on customer pages), everyday words
+("quote" not "quotation", "shop" not "premises" or "frontage", "typical prices" not "indicative"), and explain
+a trade word the first time it appears ("laminated glass (it holds together when broken)"). English only — no
+translated pages. Council policy wording on `/planning` and `/explained` stays accurate to the source, but the
+sentences around it follow the same rule.
+
 ## Commands
 
 ```bash

@@ -8,18 +8,18 @@ import { business } from '@/lib/business';
 
 export const metadata = pageMeta({
   path: '/enquire',
-  title: 'Enquire',
+  title: 'Contact us',
   description: `Call ${business.phones.main.display}, WhatsApp ${business.phones.second.display} or send the form. ${business.emergencyPromise}`,
 });
 
 export default function Enquire() {
   return (
     <>
-      <JsonLd data={breadcrumbs('/enquire', [{ name: 'Enquire', path: '/enquire' }])} />
+      <JsonLd data={breadcrumbs('/enquire', [{ name: 'Contact us', path: '/enquire' }])} />
       <PageHead
-        trail={[{ name: 'Enquire', path: '/enquire' }]}
-        title="Tell us about the frontage"
-        lede={`For a repair, the phone is fastest. For new work, a photo and the address tell us most of what we need for a first answer. ${business.emergencyPromise}`}
+        trail={[{ name: 'Contact us', path: '/enquire' }]}
+        title="Tell us what you need"
+        lede={`For a repair, calling is fastest. For new work, send a photo and the address. That tells us most of what we need. ${business.emergencyPromise}`}
       >
         <div className="acts" style={{ marginTop: '1.4rem' }}>
           <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">

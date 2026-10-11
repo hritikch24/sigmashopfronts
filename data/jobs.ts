@@ -15,7 +15,7 @@ export interface Job {
 }
 
 export const jobs: Job[] = [
-  { src: '/assets/sigma-retail-front.jpeg', w: 1600, h: 1200, kind: 'shopfront', what: 'Restaurant frontage: dark grey aluminium front with a single glazed entrance door, fixed display glazing and a painted fascia sign above.' },
+  { src: '/assets/sigma-retail-front.jpeg', w: 1600, h: 1200, kind: 'shopfront', what: 'Restaurant front: dark grey aluminium with a single glazed entrance door, fixed display glazing and a painted fascia sign above.' },
   { src: '/assets/sigma-mall-front.jpeg', w: 1600, h: 1200, kind: 'shopfront', home: true, what: 'Single-storey retail unit with a new dark aluminium front and a pair of sliding glazed doors, between existing neighbouring units.' },
   { src: '/assets/sigma-parade-sliding-front.jpg', w: 1000, h: 680, kind: 'shopfront', home: true, what: 'Shop unit in a brick parade: dark aluminium front with sliding glazed entrance doors between fixed display panes.' },
   { src: '/assets/sigma-modern-front.jpeg', w: 1600, h: 1200, kind: 'shopfront', what: 'A new aluminium shopfront frame and entrance door going in, with the site still taped off.' },

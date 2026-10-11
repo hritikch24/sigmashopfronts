@@ -256,7 +256,7 @@ export function checkFrontage(input: FrontageInput): FrontageResult {
   /* ── Next step and sources ──────────────────────────────────────────── */
 
   const nextStep = known
-    ? `Confirm with ${councilLabel} before ordering anything. Their guidance is linked below; a pre-application enquiry gets you a written view on your drawings.`
+    ? `Confirm with ${councilLabel} before ordering anything. Their guidance is linked below. You can send them your drawings before you apply, and they reply in writing.`
     : `Confirm with ${councilLabel} before ordering anything. We do not hold their shopfront guidance, so look for it on their planning pages or ask for pre-application advice.`;
 
   return {

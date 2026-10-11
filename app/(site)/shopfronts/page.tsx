@@ -19,8 +19,8 @@ export default function ShopfrontsIndex() {
       <JsonLd data={breadcrumbs('/shopfronts', [{ name: 'Shopfronts', path: '/shopfronts' }])} />
       <PageHead
         trail={[{ name: 'Shopfronts', path: '/shopfronts' }]}
-        title="Shopfronts, shutters, doors and glazing"
-        lede="Each page below opens with the practical answer, then the part most installers skip: which consents the work usually triggers, and which standards it has to meet."
+        title="Shopfronts, shutters, doors and glass"
+        lede="Each page gives you a straight answer and typical prices first. Then it tells you if you are likely to need council permission, and which safety standards apply."
       />
       <section className="band">
         <div className="frame">

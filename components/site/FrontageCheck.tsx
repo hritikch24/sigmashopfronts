@@ -236,7 +236,7 @@ export default function FrontageCheck() {
           )}
 
           <div>
-            <h2>Part one — consent you are likely to need</h2>
+            <h2>Part one — permission you are likely to need</h2>
             <ul className="rows rows--keyed" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
               {result.consents.map((c) => (
                 <li key={c.name}>
@@ -280,7 +280,7 @@ export default function FrontageCheck() {
           <div>
             <h2>Part two — what would suit the building</h2>
             <p style={{ marginTop: '0.4rem', color: 'var(--color-ink-3)', fontSize: '0.95rem' }}>
-              Our specification advice as installers. Not council policy.
+              What we would fit, as installers. This is not council policy.
             </p>
             <div style={{ display: 'grid', gap: '1.25rem', marginTop: '1rem' }}>
               {result.spec.map((s) => (
@@ -340,9 +340,9 @@ export default function FrontageCheck() {
           </div>
 
           <div className="panel">
-            <h2 style={{ fontSize: '1.35rem' }}>Want our view on your actual frontage?</h2>
+            <h2 style={{ fontSize: '1.35rem' }}>Want our view on your shop?</h2>
             <p style={{ marginTop: '0.4rem' }} className="measure">
-              Send us a photo and we will tell you what we would specify for that building — no obligation. Your answers above
+              Send us a photo and we will tell you what we would fit on that building. There is no obligation. Your answers above
               are sent with it, so you will not have to repeat yourself.
             </p>
             <div style={{ marginTop: '1.25rem' }}>
@@ -351,7 +351,7 @@ export default function FrontageCheck() {
                 service={wants.map((w) => WANTS.find((x) => x.v === w)?.label).join(', ')}
                 location={postcode}
                 summary={summary}
-                photoPrompt="Stand across the street and get the whole frontage in, fascia to pavement."
+                photoPrompt="Stand across the street and get the whole shop front in, from the sign down to the pavement."
               />
             </div>
           </div>

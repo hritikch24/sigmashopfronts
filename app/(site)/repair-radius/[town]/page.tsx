@@ -31,7 +31,7 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
   if (!t) notFound();
   const path = `/repair-radius/${t.slug}`;
   const trail = [
-    { name: 'Repair radius', path: '/repair-radius' },
+    { name: 'Repair area', path: '/repair-radius' },
     { name: t.name, path },
   ];
   const ours = authorities.find((a) => a.council === t.council);
@@ -58,7 +58,7 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
           <div>
             <dl className="titleblock titleblock--two">
               <div>
-                <dt>Planning authority</dt>
+                <dt>Council</dt>
                 <dd>{ours ? <Link href={`/planning/${ours.slug}`}>{t.council}</Link> : t.council}</dd>
               </div>
               <div>
@@ -66,13 +66,13 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
                 <dd>{t.county}</dd>
               </div>
               <div className="titleblock__wide">
-                <dt>Retail streets and centres</dt>
+                <dt>Main shopping streets</dt>
                 <dd>{t.retail.join(', ')}</dd>
               </div>
             </dl>
             {t.conservation && (
               <p className="note" style={{ marginTop: '1.25rem', maxWidth: '44rem' }}>
-                <strong>Heritage: </strong>
+                <strong>Old and protected buildings: </strong>
                 {t.conservation}
               </p>
             )}

@@ -90,7 +90,7 @@ export function organisation(): Json {
     // in words on the repair Service instead.
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
     makesOffer: [
-      { '@type': 'Offer', name: 'Free quotation and site visit', price: '0', priceCurrency: 'GBP' },
+      { '@type': 'Offer', name: 'Free quote and site visit', price: '0', priceCurrency: 'GBP' },
       { '@type': 'Offer', name: `Same-day call-out for emergency repairs within ${business.repairRadiusMiles} road miles of ${business.repairCentre}` },
     ],
     // Only profiles that exist and were fetched before shipping. See

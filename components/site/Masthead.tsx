@@ -9,7 +9,7 @@ const NAV = [
   { href: '/jobs', label: 'Our work' },
   { href: '/costs', label: 'Costs' },
   { href: '/planning', label: 'Planning help' },
-  { href: '/enquire', label: 'Enquire' },
+  { href: '/enquire', label: 'Contact us' },
 ];
 
 /**
@@ -55,7 +55,7 @@ export default function Masthead() {
                 {n.label}
               </Link>
             ))}
-            <Link href="/frontage-check">Frontage check</Link>
+            <Link href="/frontage-check">Do I need permission?</Link>
             <Link href="/company">The company</Link>
             <a href={`tel:${business.phones.main.tel}`} data-dial="main">
               Call {business.phones.main.display}

@@ -184,8 +184,8 @@ export default async function AuthorityPage({ params }: { params: Promise<{ auth
             ))}
           </ul>
           <p className="note" style={{ marginTop: '1.2rem' }}>
-            Policies change. Before you order anything, confirm with {a.council} — a pre-application enquiry gets you a written
-            view on your drawings.
+            Council rules change. Before you order anything, check with {a.council}. You can send them your drawings before
+            you apply (a “pre-application enquiry”), and they reply in writing.
           </p>
         </div>
       </section>

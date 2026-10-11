@@ -19,11 +19,11 @@ export default function Jobs() {
       <PageHead
         trail={[{ name: 'Our work', path: '/jobs' }]}
         title="Work we have fitted"
-        lede="Our own photographs, captioned with what you can see. We name the town, the business and what we fitted only once a client has agreed to it — so for now the pictures speak for themselves."
+        lede="Our own photos of jobs we have done. We only name a business or a town when the owner agrees, so for now the photos speak for themselves."
       >
         <div className="acts" style={{ marginTop: '1.4rem' }}>
-          <a href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I saw your work and would like something similar. Photo of my frontage attached. Postcode: ')} className="act act--wa" data-dial="whatsapp" rel="noopener">
-            Want one like these? WhatsApp us your frontage
+          <a href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I saw your work and would like something similar. Photo of my shop attached. Postcode: ')} className="act act--wa" data-dial="whatsapp" rel="noopener">
+            Want one like these? WhatsApp us a photo of your shop
           </a>
         </div>
       </PageHead>

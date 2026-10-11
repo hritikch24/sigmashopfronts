@@ -57,18 +57,18 @@ export const business = {
    * free, and emergency repairs get a same-day call-out. NOT confirmed: 24/7
    * cover or any guarantee — do not add either until the owner says so.
    */
-  freeQuote: 'Free quotation and free site visit',
+  freeQuote: 'Free quote and free site visit',
   sameDay: 'Same-day call-outs for emergency repairs',
   installArea: 'England, Scotland, Wales and Northern Ireland',
 
   /** What a customer can actually check. This is the whole trust story. */
   trustBasis: [
     'Registered at Companies House, number 16794487',
-    'Insured — ask for the certificate alongside your quotation',
+    'Insured — ask for the certificate with your quote',
     'Fitters carry CSCS cards',
     'A free site visit to look at the job and measure up',
-    'A free written quotation before any work starts',
-    'Work specified against the relevant British Standards',
+    'A free written quote before any work starts',
+    'Products chosen to meet the right British Standards',
   ],
 
   instagram: 'https://www.instagram.com/sigmashopfrontsuk/',

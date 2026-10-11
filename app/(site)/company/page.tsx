@@ -19,7 +19,7 @@ export default function Company() {
       <PageHead
         trail={[{ name: 'The company', path: '/company' }]}
         title="Who you would be dealing with"
-        lede={`${business.name} is the trading name of ${business.legalName}, a private limited company registered in England. We make and fit shopfronts, shutters, doors and commercial glazing, and repair them within ${business.repairRadiusMiles} road miles of Birmingham.`}
+        lede={`${business.name} is the trading name of ${business.legalName}, a limited company registered in England. We make and fit shopfronts, shutters, doors and glass, and we repair them within ${business.repairRadiusMiles} road miles of Birmingham.`}
       />
       <section className="band band--sheet">
         <div className="frame">
@@ -37,7 +37,7 @@ export default function Company() {
               </dd>
             </div>
             <div>
-              <dt>Incorporated</dt>
+              <dt>Company started</dt>
               <dd>{incorporated}</dd>
             </div>
             <div>
@@ -62,28 +62,28 @@ export default function Company() {
       <section className="band">
         <div className="frame split">
           <div className="copy measure">
-            <h2>How we approach a job</h2>
+            <h2>How we work</h2>
             <p>
-              Most shopfront problems we are called about were decided before anyone picked up a tool: a solid shutter on a
-              street where the council will not have one, an illuminated box sign in a conservation area, a new front that
-              stripped out the pilasters the planning officer wanted kept. So we start with the setting — who decides, what
-              their guidance says, whether the building is listed — and draw something that can be approved before we price it.
+              Many shopfront problems start before any work begins. A solid shutter goes up on a street where the council
+              does not allow one. A light-up box sign goes on a protected street. Old features the council wanted kept get
+              taken out. So before we give a price, we check who decides, what their rules say and whether the building is
+              listed. Then we draw something the council is likely to accept.
             </p>
             <p>
-              That is also why this website spends more words on councils than on aluminium. The{' '}
-              <Link href="/frontage-check">frontage check</Link> and the <Link href="/planning">council pages</Link> are the
-              same reading we do for every job, made public.
+              That is why this website has so much on councils. The{' '}
+              <Link href="/frontage-check">permission check</Link> and the <Link href="/planning">council pages</Link> are the
+              same checks we do for every job, shared with you.
             </p>
-            <h2>What we are not</h2>
+            <h2>What we do not do</h2>
             <p>
-              We are installers, not planning consultants or architects. We prepare shopfront drawings and explain what the
-              guidance says; for a contested application, an appeal or a complex listed building, we will tell you to bring in
-              a planning professional.
+              We fit shopfronts. We are not planning consultants or architects. We make shopfront drawings and explain the
+              council rules. If your application is refused, goes to appeal or is on a difficult listed building, we will tell
+              you to use a planning expert.
             </p>
             <h2>Where we work</h2>
             <p>
-              Installations anywhere in the UK. Repairs within {business.repairRadiusMiles} road miles of Birmingham, because
-              that is where we can actually reach people when something fails. {business.emergencyPromise}
+              New shopfronts anywhere in the UK. Repairs within {business.repairRadiusMiles} road miles of Birmingham, because
+              that is how far we can reach you quickly when something breaks. {business.emergencyPromise}
             </p>
           </div>
           <div className="panel panel--ink" style={{ alignSelf: 'start' }}>

@@ -44,7 +44,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   // explanation. Without a price table the consents take the top slot instead.
   const pricesBlock = costs && (
     <div>
-      <h2>Indicative prices</h2>
+      <h2>Typical prices</h2>
       <ul className="rows" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
         {costs.lines.map((l) => (
           <li key={l.item}>
@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
         ))}
       </ul>
       <p style={{ marginTop: '0.8rem', fontSize: '0.92rem' }}>
-        Supply and fit, before survey. <Link href="/costs">How prices are built up</Link>.
+        Includes fitting. Your final price comes after we measure. <Link href="/costs">What changes the price</Link>.
       </p>
       <p className="price-next">
         <strong>Your exact price:</strong> we visit, measure and quote in writing, free.{' '}
@@ -79,7 +79,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   );
   const consentsBlock = (
     <div>
-      <h2>Consents this work tends to involve</h2>
+      <h2>Do you need council permission?</h2>
       <ul className="rows rows--keyed" style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
         {s.consents.map((c) => (
           <li key={c.consent}>
@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
               <strong>{consentLabel[c.consent]}</strong>
               <div style={{ marginTop: '0.35rem' }}>
                 {c.consent === 'none-usually' ? (
-                  <span className="verdict verdict--unknown">Typical case — confirm</span>
+                  <span className="verdict verdict--unknown">Usually not — check</span>
                 ) : (
                   <span className={`verdict ${LIKELY[c.likelihood].cls}`}>{LIKELY[c.likelihood].label}</span>
                 )}
@@ -98,18 +98,18 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
         ))}
       </ul>
       <p className="note" style={{ marginTop: '1rem', fontSize: '0.95rem' }}>
-        An installer’s general guide; <Link href="/planning">your council</Link> decides.
+        This is our general guide. <Link href="/planning">Your council</Link> makes the final decision.
       </p>
     </div>
   );
   const standardsBlock = (
     <div>
-      <h2>Standards and regulations</h2>
+      <h2>Safety standards</h2>
       <div className="table-wrap" style={{ marginTop: '1rem' }}>
         <table>
           <thead>
             <tr>
-              <th scope="col">Reference</th>
+              <th scope="col">Standard</th>
               <th scope="col">What it covers</th>
             </tr>
           </thead>
@@ -136,7 +136,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           questions(path, s.questions),
         ]}
       />
-      <PageHead trail={trail} label={<><b>{s.area === 'uk' ? 'Installed UK-wide' : `Repairs within ${business.repairRadiusMiles} road miles of Birmingham`}</b></>} title={s.name} lede={s.answer}>
+      <PageHead trail={trail} label={<><b>{s.area === 'uk' ? 'Fitted anywhere in the UK' : `Repairs within ${business.repairRadiusMiles} road miles of Birmingham`}</b></>} title={s.name} lede={s.answer}>
         <div className="acts" style={{ marginTop: '1.4rem' }}>
           <a href={`tel:${business.phones.main.tel}`} className="act act--solid" data-dial="main">
             Call {business.phones.main.display}

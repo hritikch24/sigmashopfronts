@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   path: '/',
   title: `${business.name} — shopfronts, roller shutters, doors and repairs`,
   description:
-    'Aluminium shopfronts, roller shutters, doors and glazing fitted UK-wide and repaired within 100 road miles of Birmingham, Sheffield included. Free quotation and site visit; same-day call-outs for emergency repairs.',
+    'Aluminium shopfronts, roller shutters, doors and glazing fitted UK-wide and repaired within 100 road miles of Birmingham, Sheffield included. Free quote and site visit; same-day call-outs for emergency repairs.',
 });
 
 /** Our own job photos, one per thing people most often ask us for. */
@@ -41,7 +41,7 @@ export default function Home() {
               <ul className="ticks">
                 <li>Registered company {business.companyNumber}</li>
                 <li>Insured</li>
-                <li>Free quotation and site visit</li>
+                <li>Free quote and site visit</li>
                 <li>Same-day emergency call-outs</li>
               </ul>
             </div>
@@ -71,7 +71,7 @@ export default function Home() {
                   Call {business.phones.main.display}
                 </a>
                 <a
-                  href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, something is broken at my premises. Postcode: ')}
+                  href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, something is broken at my shop. Postcode: ')}
                   className="act act--wa"
                   data-dial="whatsapp"
                   rel="noopener"
@@ -90,9 +90,9 @@ export default function Home() {
                 placeholder="07123 456789, LS1 4AP, new front and shutter for a café"
               />
               <p className="fork__small">
-                Have photos of the frontage?{' '}
+                Have photos of your shop?{' '}
                 <a
-                  href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I would like a quotation for new work. Photos attached. Postcode: ')}
+                  href={whatsappLink(business.whatsapp, 'Hello Sigma Shopfronts, I would like a quote for new work. Photos attached. Postcode: ')}
                   data-dial="whatsapp"
                   rel="noopener"
                 >
@@ -111,7 +111,7 @@ export default function Home() {
           <ol className="steps">
             <li>
               <strong>You send a photo or ring</strong>
-              <span>A photo of the whole frontage and the postcode tell us most of what we need.</span>
+              <span>A photo of the whole shop front and your postcode tell us most of what we need.</span>
             </li>
             <li>
               <strong>A person replies</strong>
@@ -121,7 +121,7 @@ export default function Home() {
               </span>
             </li>
             <li>
-              <strong>A free written quotation, then the work</strong>
+              <strong>A free written quote, then the work</strong>
               <span>The price is in writing before anything starts. Nothing is fitted until you agree it.</span>
             </li>
           </ol>
@@ -163,7 +163,7 @@ export default function Home() {
 
       <section className="band band--sheet">
         <div className="frame">
-          <h2>Before you ask</h2>
+          <h2>Common questions</h2>
           <div className="answers">
             <div>
               <h3>Do you cover my area?</h3>
@@ -177,22 +177,22 @@ export default function Home() {
             </div>
             <div>
               <h3>What will it cost?</h3>
-              <p>It depends on the width, the glass and the shutter. The visit and the quotation are free, and our cost page gives typical ranges so you know before you ring.</p>
-              <Link href="/costs">Typical prices →</Link>
+              <p>It depends on the width, the glass and the shutter. The visit and the quote are free. Our prices page shows typical prices, so you know before you call.</p>
+              <Link href="/costs">See typical prices →</Link>
             </div>
             <div>
               <h3>Do I need permission from the council?</h3>
               <p>
-                Often, for a new shopfront, sign or outside shutter; rarely, for a like-for-like repair. A free check tells you
-                in a minute, no details asked.
+                Often yes for a new shopfront, sign or outside shutter. Usually not for a repair that keeps the same look. Our
+                free check tells you in a minute, and asks for no details.
               </p>
-              <Link href="/frontage-check">Check your frontage →</Link>
+              <Link href="/frontage-check">Do I need permission? Free check →</Link>
             </div>
             <div>
               <h3>Who are you?</h3>
               <p>
                 {business.legalName}, based in Oldbury. Our fitters carry CSCS cards; ask for our insurance certificate
-                with your quotation.
+                with your quote.
               </p>
               <a href={business.companiesHouseUrl} rel="noopener">
                 Our Companies House record →

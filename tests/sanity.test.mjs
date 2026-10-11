@@ -107,6 +107,21 @@ for (const [path, html] of pages) {
   ];
   for (const [re, what] of FABRICATION) if (re.test(t)) bad(`${path}: ${what} — "${t.match(re)[0]}"`);
 
+  /* 6b. plain English where customers read: many speak English as a second language */
+  if (/^\/($|shopfronts|repair-radius|costs|enquire|company|questions|jobs)/.test(path)) {
+    const main = (html.match(/<main[\s\S]*?<\/main>/)?.[0] ?? '')
+      .replace(/<script[\s\S]*?<\/script>/g, ' ')
+      .replace(/<\/(p|li|h[1-6]|dd|dt|summary|figcaption|td|th|div|span|strong|a|label|button)>/g, '. ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&[a-z#0-9]+;/g, ' ');
+    const HARD = /\b(quotations?|indicative|premises|frontages?|enquiry|enquiries|specification|utilis\w*|commenc\w*|prior to|in order to|duty cycle)\b/i;
+    if (HARD.test(main)) bad(`${path}: hard word "${main.match(HARD)[0]}" — use an everyday word (CLAUDE.md, Plain English)`);
+    for (const s of main.split(/[.!?:;]+\s/)) {
+      const n = s.trim().split(/\s+/).length;
+      if (n > 32) bad(`${path}: ${n}-word sentence — split it: "${s.trim().slice(0, 80)}…"`);
+    }
+  }
+
   /* 7. JSON-LD parses; no ratings; only our own sameAs */
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     let ld;

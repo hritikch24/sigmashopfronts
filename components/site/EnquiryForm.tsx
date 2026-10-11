@@ -91,7 +91,7 @@ export default function EnquiryForm({
           <input id="enq-email" name="email" type="email" autoComplete="email" />
         </div>
         <div className="field">
-          <label htmlFor="enq-location">Town or postcode of the premises</label>
+          <label htmlFor="enq-location">Town or postcode of the shop</label>
           <input id="enq-location" name="location" type="text" defaultValue={location} />
         </div>
       </div>
@@ -104,12 +104,12 @@ export default function EnquiryForm({
         <textarea id="enq-message" name="message" />
       </div>
       <div className="field">
-        <label htmlFor="enq-photo">Photo of the frontage (optional)</label>
-        <span className="field-hint">{photoPrompt ?? 'A straight-on photo of the whole frontage helps us more than a close-up.'}</span>
+        <label htmlFor="enq-photo">Photo of the shop front (optional)</label>
+        <span className="field-hint">{photoPrompt ?? 'A photo of the whole shop front, taken straight on, helps more than a close-up.'}</span>
         <input id="enq-photo" name="photo" type="file" accept="image/*" />
       </div>
       <p className="field-hint">
-        We use these details only to reply to this enquiry. See our <a href="/privacy">privacy notice</a>.
+        We only use these details to reply to you. See our <a href="/privacy">privacy notice</a>.
       </p>
       {state === 'error' && (
         <p className="note note--warn" role="alert">
@@ -118,7 +118,7 @@ export default function EnquiryForm({
       )}
       <div>
         <button type="submit" className="act act--solid" disabled={state === 'sending'}>
-          {state === 'sending' ? 'Sending…' : 'Send enquiry'}
+          {state === 'sending' ? 'Sending…' : 'Send message'}
         </button>
       </div>
     </form>

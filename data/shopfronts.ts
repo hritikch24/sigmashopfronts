@@ -2,6 +2,10 @@
  * What we make and fit, written from the side no one else writes it from:
  * what the council, building control and the standards will make of it.
  *
+ * Written in plain English for shop owners, many of whom speak English as a
+ * second language: short sentences, everyday words, and any trade word
+ * explained the first time it appears (see "Plain English" in CLAUDE.md).
+ *
  * Technical references (BS EN numbers, LPS 1175, FD ratings, Approved
  * Documents) are shared industry facts. Every sentence around them is ours.
  * Prices come only from `data/costs.ts`, never typed in here.
@@ -24,7 +28,7 @@ export interface Shopfront {
   card: string;
   /** 2–3 sentences: what it is, who it suits, price band, where we cover. */
   answer: string;
-  /** Key into data/costs.ts groups, if we publish indicative prices for it. */
+  /** Key into data/costs.ts groups, if we publish typical prices for it. */
   costGroup?: string;
   area: 'uk' | 'repair-radius';
   consents: ConsentLine[];
@@ -41,53 +45,53 @@ export const shopfronts: Shopfront[] = [
     slug: 'aluminium',
     legacySlug: 'aluminium-shopfronts',
     name: 'Aluminium shopfronts',
-    card: 'Framed glazed fronts in powder-coated aluminium, proportioned to the building they sit in.',
+    card: 'Glass shopfronts in strong, painted aluminium frames, made to suit the building.',
     answer:
-      'A complete glazed front — frame, doors, glass, fascia zone and stallriser — made in powder-coated aluminium and fitted across the UK. It suits most retail and food units; our indicative range for a single bay up to about four metres wide is £2,000–£5,000. A new front almost always needs planning permission, so we draw it to suit the council before we quote it to suit you.',
+      'A complete new shop front in painted aluminium: frame, doors, glass, the sign board area and the low panel under the window. We fit them anywhere in the UK. They suit most shops, cafés and takeaways. A single front up to about four metres wide typically costs £2,000–£5,000. A new front almost always needs planning permission, so we design it to suit the council before we give you a price.',
     costGroup: 'shopfronts',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'usually', why: 'Replacing a shopfront changes how the building looks from the street, which is development needing permission.' },
-      { consent: 'advert', likelihood: 'often', why: 'The new fascia sign is a separate consent. Illuminated lettering, or any sign in a conservation area, makes it more likely.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Required on any listed building, inside or out, before work starts.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'Safety glazing, level access and means of escape all apply to a new entrance.' },
+      { consent: 'planning', likelihood: 'usually', why: 'A new shopfront changes how the building looks from the street, so it usually needs permission.' },
+      { consent: 'advert', likelihood: 'often', why: 'The new sign needs its own permission. You are more likely to need it for a light-up sign, or any sign in a conservation area.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed for any change to a listed building, inside or out, before work starts.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'A new entrance must have safety glass, step-free access and a safe way out.' },
     ],
     sections: [
       {
         q: 'Will the council accept aluminium on an older building?',
         body: [
-          'Often, yes — the objection is rarely to the metal itself. What gets a scheme refused is proportion: a single sheet of glass from pavement to fascia, a fascia twice the depth of the original, and the pilasters and stallriser stripped out. An aluminium front that keeps those lines usually reads as a shopfront, not a hole in the building.',
-          'On a listed building, or where a council’s guidance asks for timber, ask before you specify. Several of the council documents we track expect historic shopfronts to be repaired rather than replaced at all.',
+          'Often, yes. Councils rarely object to the metal itself. They object to the shape. Councils often refuse a front with one big sheet of glass from the pavement to the sign. They also refuse a sign board twice as deep as the old one, or a front with the old side columns and low panel taken out. An aluminium front that keeps those parts usually looks like a proper shopfront.',
+          'On a listed building, or where the council asks for wood, ask the council before you choose. Some councils want old shopfronts repaired, not replaced at all.',
         ],
       },
       {
         q: 'What makes an aluminium front look right on a high street?',
         body: [
-          'Three things: a stallriser of a sensible height, so the glass does not start at the pavement; a fascia sized to the building rather than the brand guidelines; and frame profiles slim enough that the glass, not the metal, is what you see. Glazing bars that line up with the windows above help a frontage sit in a terrace.',
-          'Colour does more than people expect. A recessed, dark finish — anthracite, a deep green or a near-black — lets the front sit back into an old façade. Bright white and silver anodised push it forward.',
+          'Three things. A low panel under the window, so the glass does not start at the pavement. A sign board sized to the building, not to the brand’s rules. And slim frames, so you see the glass more than the metal. Glass bars that line up with the windows above also help the shop fit in with its neighbours.',
+          'Colour matters more than people expect. A dark colour, like dark grey, deep green or near-black, sits well on an old building. Bright white and silver stand out more.',
         ],
       },
       {
-        q: 'How is security handled without a shutter?',
+        q: 'How do I keep the shop secure without a shutter?',
         body: [
-          'Laminated glass in the frame, a solid stallriser and a properly specified lock do most of the work, and they are what many councils now ask for first. If a shutter is still wanted, plan the box into the fascia at the drawing stage — retrofitting one to a new front is where most bad shopfronts come from.',
+          'Laminated glass (glass that holds together when it breaks), a solid low panel and a good lock do most of the work. Many councils now ask for these before they will consider a shutter. If you still want a shutter, plan where its box goes at the drawing stage. Adding a shutter to a new front later is where most bad-looking shopfronts come from.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document K', what: 'Safety glazing in critical locations — low-level glass and glass in and beside doors.' },
-      { ref: 'Approved Document M', what: 'Access to and use of the building, including entrance thresholds and door widths.' },
+      { ref: 'Approved Document K', what: 'Safety glass in risky places: low glass, and glass in or next to doors.' },
+      { ref: 'Approved Document M', what: 'Getting into and using the building, including door steps and door widths.' },
       { ref: 'BS EN 12150 / BS EN 14449', what: 'Toughened and laminated safety glass.' },
-      { ref: 'BS EN 356', what: 'Classes of glass resistance to manual attack, used when laminated glass is doing a security job.' },
+      { ref: 'BS EN 356', what: 'How well glass resists someone trying to break it, when laminated glass is used for security.' },
     ],
     questions: [
       {
         q: 'Do I need planning permission to replace a shopfront?',
-        a: 'Usually yes, because a new shopfront changes the appearance of the building. Like-for-like repair generally does not. Your council confirms either way; our frontage check gives you a first indication.',
+        a: 'Usually yes, because a new shopfront changes how the building looks. A repair that keeps the same look usually does not. Your council gives the final answer. Our free permission check gives you a first idea.',
       },
       {
         q: 'Can you make an aluminium shopfront look traditional?',
-        a: 'It can be proportioned traditionally — stallriser, pilasters, a fascia sized to the building, glazing bars that line up with the floors above — and finished in a dark heritage colour. Whether that satisfies a particular council on a particular building is their decision, so we show them the drawing early.',
+        a: 'Yes. We can give it a traditional shape: a low panel, side columns, a sign board that suits the building and glass bars that line up with the floors above. We can also paint it a dark heritage colour. Whether a council accepts it on your building is their decision, so we show them the drawing early.',
       },
     ],
     photo: { src: '/assets/sigma-retail-front.jpeg', alt: 'Dark grey aluminium shopfront with a glazed entrance door, fixed glazing and a painted fascia above', w: 1600, h: 1200 },
@@ -97,52 +101,52 @@ export const shopfronts: Shopfront[] = [
     slug: 'roller-shutters',
     legacySlug: 'roller-shutters',
     name: 'Roller shutters and grilles',
-    card: 'Internal, lattice and vision shutters chosen for the street they face, not just the risk.',
+    card: 'Shutters and grilles chosen for your street, so the council is more likely to say yes.',
     answer:
-      'Steel or aluminium shutters and grilles, manual or motorised, fitted across the UK. Solid external shutters are the single most common reason a shopfront application is refused, so we start from internal and open-lattice designs and only go solid where the setting allows it. Indicative prices run from £800–£1,500 for a manual shutter to £1,200–£2,500 motorised.',
+      'Steel or aluminium shutters and grilles, pulled by hand or electric, fitted anywhere in the UK. Solid shutters on the outside are the most common reason councils refuse a shopfront plan. So we start with shutters inside the glass, or open grilles you can see through, and only fit solid ones where the street allows it. Typical prices are £800–£1,500 for a hand-pulled shutter and £1,200–£2,500 for an electric one.',
     costGroup: 'shutters',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'usually', why: 'An external shutter, its box and guides change the look of the frontage. Internal shutters behind the glass often avoid this.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Any shutter on a listed building, including an internal one fixed to historic fabric.' },
-      { consent: 'building-regs', likelihood: 'rarely', why: 'Mostly where a shutter closes off an escape route or forms part of a fire separation.' },
+      { consent: 'planning', likelihood: 'usually', why: 'A shutter on the outside, with its box and side tracks, changes the look of the shop. A shutter inside, behind the glass, often does not need it.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed for any shutter on a listed building, even one fixed inside to old parts of the building.' },
+      { consent: 'building-regs', likelihood: 'rarely', why: 'Mostly when a shutter closes off a fire exit or is part of a fire wall.' },
     ],
     sections: [
       {
-        q: 'Why do solid shutters get refused?',
+        q: 'Why do councils refuse solid shutters?',
         body: [
-          'A street of closed solid shutters is dead after six o’clock: nothing to look at, no light on the pavement and nowhere for anyone to see in. Councils link that to fear of crime and graffiti, and most of the shopfront guides we track either rule solid external shutters out in conservation areas or accept them only in narrow exceptions.',
-          'Perforated or “pinhole” shutters do not get you round this. Several councils say plainly that they look almost solid once they are down.',
+          'A street of closed solid shutters looks dead after six o’clock. There is nothing to look at, no light on the pavement and no way to see inside. Councils link this to fear of crime and to graffiti. Most of the council guides we follow either ban solid outside shutters in conservation areas or allow them only in rare cases.',
+          'Shutters with small holes (perforated shutters) do not get round this. Several councils say clearly that they look almost solid when they are down.',
         ],
       },
       {
-        q: 'Which shutter types are easiest to get approved?',
+        q: 'Which shutters are easiest to get approved?',
         body: [
-          'Roughly from easiest to hardest: an internal lattice grille behind the glass; a removable mesh grille; an external lattice or brick-bond grille; a punched or polycarbonate “vision” shutter; a perforated shutter; a solid one. Where the box goes matters as much as the curtain — behind the fascia, never hung on the face of the building.',
-          'Colour is the cheap win. A shutter powder-coated to match the shopfront reads as part of it; bare galvanised steel reads as an afterthought, and some councils name it as unacceptable.',
+          'From easiest to hardest: an open grille inside, behind the glass; a mesh grille you can take down; an open grille on the outside; a shutter with clear see-through panels; a shutter with small holes; and a solid shutter. Where the box goes matters too. It should sit behind the sign board, not be fixed on the front of the building.',
+          'Colour is an easy win. A shutter painted to match the shopfront looks like part of it. Bare grey metal looks like an afterthought, and some councils say it is not acceptable.',
         ],
       },
       {
-        q: 'Manual or motorised?',
+        q: 'Hand-pulled or electric?',
         body: [
-          'Manual spring-balanced shutters suit narrow openings used once a day. Wider or heavier curtains, or a shutter someone lifts several times a day, should be motorised. Powered shutters have to meet the safety-in-use standard for powered doors, which covers safety edges and safe stopping — not optional extras.',
+          'Hand-pulled shutters suit narrow openings that are opened once a day. Wider or heavier shutters, or ones you open several times a day, should be electric. Electric shutters must meet a safety standard. It covers safety edges that stop the shutter if something is in the way, and safe stopping. These are required, not extras.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 13241', what: 'Product standard for industrial, commercial and garage doors and gates, including shutters.' },
-      { ref: 'BS EN 12453', what: 'Safety in use of power-operated doors: forces, safety edges and stopping.' },
-      { ref: 'LPS 1175', what: 'Loss Prevention Standard for intruder-resistant products. Older grades run SR1–SR8; Issue 8 uses ratings such as B3 or C5, where the letter is the tool category and the number the minutes of resistance.' },
-      { ref: 'BS EN 16034', what: 'Fire-resistance characteristics, used with BS EN 13241 for fire shutters.' },
+      { ref: 'BS EN 13241', what: 'The main product standard for shutters, and for commercial, industrial and garage doors.' },
+      { ref: 'BS EN 12453', what: 'Safety of electric doors and shutters: closing force, safety edges and stopping.' },
+      { ref: 'LPS 1175', what: 'A security test against break-ins. Older grades go from SR1 to SR8. The newer Issue 8 uses grades like B3 or C5: the letter is the type of tools used, the number is how many minutes it held out.' },
+      { ref: 'BS EN 16034', what: 'Fire resistance, used with BS EN 13241 for fire shutters.' },
     ],
     questions: [
       {
         q: 'Do I need planning permission for a roller shutter?',
-        a: 'For an external shutter, usually yes, because the shutter, box and guides change how the shopfront looks. An internal shutter fitted behind the glass often does not, though on a listed building listed building consent can still apply.',
+        a: 'For a shutter on the outside, usually yes, because the shutter, box and tracks change how the shop looks. A shutter inside, behind the glass, often does not. On a listed building you may still need listed building consent.',
       },
       {
-        q: 'Are perforated shutters treated differently from solid ones?',
-        a: 'Not by much. Several councils class perforated and pinhole shutters with solid ones because from the street they look closed. Lattice, brick-bond and clear polycarbonate shutters are the types councils tend to name as acceptable.',
+        q: 'Do councils treat shutters with small holes differently from solid ones?',
+        a: 'Not much. Several councils treat shutters with small holes the same as solid ones, because from the street they look closed. Open grilles, brick-pattern grilles and clear see-through shutters are the types councils most often accept.',
       },
     ],
     photo: { src: '/assets/sigma-mall-front.jpeg', alt: 'Single-storey shop with a new dark aluminium glazed front and sliding doors, a roller shutter on the neighbouring unit', w: 1600, h: 1200 },
@@ -152,40 +156,40 @@ export const shopfronts: Shopfront[] = [
     slug: 'security-doors',
     legacySlug: 'security-doors',
     name: 'Security doors',
-    card: 'Steel doorsets for rear, side and service entrances, rated to a recognised attack standard.',
+    card: 'Strong steel doors for back, side and delivery entrances, tested against break-ins.',
     answer:
-      'Steel and steel-faced doorsets for back doors, stock rooms, plant rooms and side entrances, fitted across the UK. They suit premises where the vulnerable door is not on the shop window. Indicative prices start at £800–£1,500 for a standard steel door, rising with the security rating.',
+      'Steel doors for back doors, stock rooms, plant rooms and side entrances, fitted anywhere in the UK. They suit shops and businesses where the weak door is at the back or side, not at the front window. Typical prices start at £800–£1,500 for a standard steel door, and go up with the security grade.',
     costGroup: 'doors',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'sometimes', why: 'A rear service door rarely needs it. A new door on a front or prominent side elevation, or in a conservation area, may.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Replacing a historic door or its frame on a listed building.' },
-      { consent: 'building-regs', likelihood: 'often', why: 'If the door is on an escape route its hardware must let people out without a key.' },
+      { consent: 'planning', likelihood: 'sometimes', why: 'A back door rarely needs it. A new door at the front, on a side people can see, or in a conservation area may need it.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed to replace an old door or its frame on a listed building.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'If the door is a fire exit, people must be able to open it from inside without a key.' },
     ],
     sections: [
       {
-        q: 'What does an LPS 1175 rating actually tell you?',
+        q: 'What does an LPS 1175 rating tell you?',
         body: [
-          'It tells you how long a tested doorset resisted a defined attack with a defined tool kit — not that it cannot be opened. A rating is only worth having if the whole set was tested together: leaf, frame, hinges, locks and fixings. A strong door in a weak frame is not a rated door.',
-          'Ask for the certificate and check the product on it matches what is being fitted. Insurers sometimes specify the rating; when they do, they will want the paperwork too.',
+          'It tells you how long a door held out in a test against a set attack with set tools. It does not mean the door can never be opened. The rating only counts if the whole door was tested together: door, frame, hinges, locks and fixings. A strong door in a weak frame is not a rated door.',
+          'Ask for the certificate, and check that the product on it is the one being fitted. Sometimes your insurer asks for a certain rating. If so, they will want the paperwork too.',
         ],
       },
       {
         q: 'Can a security door also be a fire exit?',
         body: [
-          'Yes, and it often has to be. A door on an escape route needs hardware that opens from inside in one action without a key — emergency exit devices for staff-only routes, panic bars where the public may use it. Security comes from the outside face and the frame, not from locking people in.',
+          'Yes, and it often has to be. A fire exit door must open from inside in one move, without a key. Staff-only exits use an emergency handle. Exits the public may use need a push bar. The security comes from the outside face and the frame, not from locking people in.',
         ],
       },
     ],
     standards: [
-      { ref: 'LPS 1175', what: 'Intruder resistance — security rating of the complete doorset.' },
-      { ref: 'BS EN 1627', what: 'Burglar resistance classes RC1–RC6 for doors, windows and shutters.' },
-      { ref: 'BS EN 179 / BS EN 1125', what: 'Emergency exit devices (staff-only routes) and panic exit devices (public routes).' },
+      { ref: 'LPS 1175', what: 'Security grade of the whole door against break-ins.' },
+      { ref: 'BS EN 1627', what: 'Break-in resistance grades RC1 to RC6 for doors, windows and shutters.' },
+      { ref: 'BS EN 179 / BS EN 1125', what: 'Emergency exit handles (staff only) and push bars (public exits).' },
     ],
     questions: [
       {
         q: 'Does a steel back door need planning permission?',
-        a: 'Usually not when it replaces an existing rear door in the same opening. It may if the door faces the street, changes the opening, or the building is listed or in a conservation area — ask the council if any of those apply.',
+        a: 'Usually not, if it replaces a back door in the same opening. It may if the door faces the street, the opening changes, or the building is listed or in a conservation area. If any of those apply, ask the council.',
       },
     ],
     photo: { src: '/assets/sigma-commercial-entrance.jpeg', alt: 'Pair of fully glazed aluminium entrance doors with long pull handles under a glazed fanlight', w: 1024, h: 768 },
@@ -195,45 +199,45 @@ export const shopfronts: Shopfront[] = [
     slug: 'automatic-doors',
     legacySlug: 'automatic-doors',
     name: 'Automatic doors',
-    card: 'Sliding and swing entrances that open on approach, with the safety standards they need.',
+    card: 'Sliding and swing doors that open by themselves, fitted to the safety standards.',
     answer:
-      'Powered sliding and swing doors for shop and office entrances, installed across the UK. They suit busy entrances, food stores where staff carry stock, and any business making its entrance easier to use. Indicative prices: £3,000–£6,000 for a bi-parting sliding door; £1,500–£3,000 to add an operator to a suitable existing door.',
+      'Electric sliding and swing doors for shop and office entrances, fitted anywhere in the UK. They suit busy entrances, food shops where staff carry stock in and out, and any business that wants an easier way in. Typical prices are £3,000–£6,000 for a sliding door where two doors slide apart, and £1,500–£3,000 to add a motor to a suitable door you already have.',
     costGroup: 'automatic',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'sometimes', why: 'Swapping a door for an automatic one within the same frontage often needs nothing new; a changed frontage or a visible operator box on a sensitive building can.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Fixing an operator or track to historic fabric.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'A new entrance must keep level access, clear width and a safe escape route if the power fails.' },
+      { consent: 'planning', likelihood: 'sometimes', why: 'Changing a door to an automatic one in the same shopfront often needs nothing new. A changed shopfront, or a motor box people can see on a protected building, can need it.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed if the motor or track is fixed to old parts of a listed building.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'A new entrance must stay step-free, wide enough, and safe to get out of if the power fails.' },
     ],
     sections: [
       {
         q: 'What happens to an automatic door in a fire or a power cut?',
         body: [
-          'If the door is on an escape route it must still let people out. Sliding doors on escape routes are usually specified with break-out leaves or fail-safe opening, so the set can be pushed open or opens itself when power or the alarm signal is lost. That choice belongs on the drawing, not on site.',
+          'If the door is a fire exit, people must still be able to get out. Sliding doors on fire exits usually have panels you can push open, or they open by themselves when the power or fire alarm signal is lost. This is decided on the drawing, not on the day of fitting.',
         ],
       },
       {
         q: 'Does an automatic door help with the Equality Act?',
         body: [
-          'It is one of the clearest reasonable adjustments a shop can make to its entrance, especially with a step-free threshold. It does not replace the other access points — width, threshold height, the ironmongery on any manual leaf — which building control will look at anyway.',
+          'Yes. It is one of the clearest changes a shop can make to help disabled customers get in, especially with no step at the door. But it does not replace the other checks: door width, step height and the handles on any door you open by hand. Building control will look at those anyway.',
         ],
       },
       {
-        q: 'Inside or at the street line?',
+        q: 'Do you fit them inside too?',
         body: [
-          'Not every powered door is a shop entrance. We also fit them inside premises, such as a sliding door into a chilled drinks room, where staff and customers are going through all day and a manual door gets left open. The safety standards are the same; planning usually has nothing to say about an internal door.',
+          'Yes. Not every automatic door is a shop entrance. We also fit them inside, for example a sliding door into a cold drinks room. Staff and customers go through it all day, and a normal door gets left open. The safety standards are the same. Planning rules usually do not cover a door inside the shop.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 16005', what: 'Safety in use of power-operated pedestrian doorsets.' },
-      { ref: 'BS 7036-0', what: 'Code of practice for safety at powered doors for pedestrian use.' },
-      { ref: 'Approved Document M', what: 'Effective clear widths and level thresholds at entrances.' },
+      { ref: 'BS EN 16005', what: 'Safety of electric doors that people walk through.' },
+      { ref: 'BS 7036-0', what: 'Guidance on safety at electric doors for people on foot.' },
+      { ref: 'Approved Document M', what: 'Door widths and step-free entrances.' },
     ],
     questions: [
       {
         q: 'Do automatic doors need servicing?',
-        a: 'Yes. Sensors and safety settings drift, and the safety standard for powered pedestrian doors expects them to be maintained and checked. Ask whoever fits yours what the service interval is and what is checked.',
+        a: 'Yes. Sensors and safety settings change over time, and the safety standard expects the doors to be checked and looked after. Ask whoever fits yours how often it should be serviced and what gets checked.',
       },
     ],
     photo: { src: '/assets/automatic-door-sigma.jpeg', alt: 'Automatic sliding glass door in a dark aluminium frame opening into a shop with drinks shelving', w: 480, h: 848 },
@@ -243,45 +247,45 @@ export const shopfronts: Shopfront[] = [
     slug: 'folding-doors',
     legacySlug: 'bi-fold-doors',
     name: 'Folding glazed doors',
-    card: 'Bi-fold fronts that open a café or restaurant to the street, and still lock up properly.',
+    card: 'Folding glass doors that open a café or restaurant to the street, and still lock up properly.',
     answer:
-      'Multi-panel aluminium folding doors that open most of a frontage, fitted across the UK. They suit cafés, bars and restaurants that trade onto the pavement in good weather. Indicative prices run from £3,000–£5,000 for three panels to £8,000–£14,000 for an eight-panel run.',
+      'Aluminium folding doors with several glass panels that open up most of the shop front. We fit them anywhere in the UK. They suit cafés, bars and restaurants that open onto the pavement in good weather. Typical prices are £3,000–£5,000 for three panels, up to £8,000–£14,000 for eight panels.',
     costGroup: 'folding',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'usually', why: 'Opening up a frontage changes its appearance, and a café spilling onto the street can raise questions beyond design.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Almost certain to be needed — and hard to get — on a listed shopfront.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'Escape routes, safety glazing and thresholds all apply.' },
+      { consent: 'planning', likelihood: 'usually', why: 'Opening up the front changes how it looks. A café opening onto the street can also raise other questions for the council.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Almost always needed on a listed shopfront, and hard to get.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'Fire exits, safety glass and door steps all have rules.' },
     ],
     sections: [
       {
-        q: 'Will a council allow bi-folds on a traditional frontage?',
+        q: 'Will a council allow folding doors on an old-style shopfront?',
         body: [
-          'It depends heavily on the building. On a modern unit they are often uncontroversial. On a traditional front the problem is that a folding system replaces the stallriser, pilasters and fixed glazing with a stack of frames, and when the doors are shut the proportions are rarely those of a shopfront. Show the council the closed elevation, not just the summer photo.',
+          'It depends a lot on the building. On a modern shop they are often fine. On an old-style front, folding doors replace the low panel, side columns and fixed glass with a row of frames. When the doors are shut, it rarely looks like a proper shopfront. Show the council a drawing of the doors closed, not only a summer photo.',
         ],
       },
       {
         q: 'Can folding doors be a fire exit?',
         body: [
-          'A folding set is a poor primary escape door: the leaves have to be unlocked and folded in sequence. Keep a conventional door within the run, or elsewhere, as the escape route.',
+          'They make a poor main fire exit, because each panel has to be unlocked and folded in order. Keep a normal door as the fire exit, either in the same front or somewhere else.',
         ],
       },
       {
-        q: 'Do I need anything from the council to put tables outside?',
+        q: 'Do I need permission from the council to put tables outside?',
         body: [
-          'Planning for the doors and permission for tables on the pavement are different things. Furniture on the public highway usually needs a pavement or street café licence from the council — check that before the doors are designed around it.',
+          'Permission for the doors and permission for tables on the pavement are two different things. Tables and chairs on the pavement usually need a pavement licence from the council. Check this before you design the doors around it.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document K', what: 'Safety glazing in doors and side panels.' },
-      { ref: 'Approved Document B', what: 'Fire safety, including escape doors and routes.' },
-      { ref: 'BS EN 14351-1', what: 'Product standard for windows and external pedestrian doorsets.' },
+      { ref: 'Approved Document K', what: 'Safety glass in doors and side panels.' },
+      { ref: 'Approved Document B', what: 'Fire safety, including fire exit doors and routes.' },
+      { ref: 'BS EN 14351-1', what: 'Product standard for windows and outside doors.' },
     ],
     questions: [
       {
-        q: 'How secure are bi-fold doors when closed?',
-        a: 'A good commercial system with multi-point locking, laminated glass and secure intermediate locks is reasonable. They are not a shutter; on a high-risk site, plan an internal grille or roller into the design from the start.',
+        q: 'How secure are folding doors when closed?',
+        a: 'A good commercial set, with locks at several points, laminated glass and secure locks between panels, is reasonably secure. But it is not a shutter. On a high-risk shop, plan a grille or shutter inside from the start.',
       },
     ],
     related: ['aluminium', 'frameless-glass', 'roller-shutters'],
@@ -290,39 +294,39 @@ export const shopfronts: Shopfront[] = [
     slug: 'fire-doors',
     legacySlug: 'fire-doors',
     name: 'Fire doors',
-    card: 'Certified doorsets for stairs, plant rooms and escape routes, fitted so the rating holds.',
+    card: 'Certified fire doors for stairs, plant rooms and fire exits, fitted so the rating still counts.',
     answer:
-      'Certified fire-resisting doorsets — FD30, FD60 and above — for commercial premises across the UK. They suit stair enclosures, plant and bin stores, kitchens and any door your fire risk assessment marks. Indicative prices: £400–£800 for an FD30 single leaf, £600–£1,200 for FD60.',
+      'Certified fire doors, such as FD30 and FD60, for shops and businesses anywhere in the UK. They suit stairways, plant rooms, bin stores, kitchens and any door your fire risk assessment says must be a fire door. Typical prices are £400–£800 for an FD30 single door and £600–£1,200 for FD60.',
     costGroup: 'fire',
     area: 'uk',
     consents: [
-      { consent: 'building-regs', likelihood: 'often', why: 'New fire separations and escape routes are building-regulations work.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Upgrading or replacing historic internal doors in a listed building.' },
-      { consent: 'none-usually', likelihood: 'usually', why: 'Planning rarely applies to internal fire doors.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'New fire walls and fire exit routes come under building regulations.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed to upgrade or replace old inside doors in a listed building.' },
+      { consent: 'none-usually', likelihood: 'usually', why: 'Planning rules rarely cover fire doors inside the building.' },
     ],
     sections: [
       {
         q: 'Who is responsible for the fire doors in a shop?',
         body: [
-          'The responsible person under the Regulatory Reform (Fire Safety) Order 2005 — usually the employer, or whoever controls the premises. Your fire risk assessment should say which doors are fire doors and how they are checked. We fit and repair them; the assessment is a separate job.',
+          'The “responsible person” under the Regulatory Reform (Fire Safety) Order 2005. This is usually the employer, or whoever is in charge of the building. Your fire risk assessment should list which doors are fire doors and how they are checked. We fit and repair fire doors. The fire risk assessment is a separate job.',
         ],
       },
       {
         q: 'What do FD30 and FD60 mean?',
         body: [
-          'The number is the minutes of fire integrity the doorset achieved in test. An “S” after it — FD30S — means it also has smoke seals. The rating belongs to the whole set: leaf, frame, intumescent seals, hinges, closer and glazing. Swap a hinge for a cheaper one, or cut in a vision panel on site, and you no longer have the rated door.',
+          'The number is how many minutes the door held back fire in a test. An “S” after it, as in FD30S, means it also has smoke seals. The rating belongs to the whole door set: door, frame, fire seals, hinges, closer and glass. If you swap a hinge for a cheaper one, or cut a window into the door on site, it is no longer a rated fire door.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS 476-22 / BS EN 1634-1', what: 'Fire-resistance tests behind FD and E/EI ratings.' },
-      { ref: 'Approved Document B', what: 'Where fire doors are required and how they must perform.' },
-      { ref: 'Regulatory Reform (Fire Safety) Order 2005', what: 'Duties of the responsible person for non-domestic premises.' },
+      { ref: 'BS 476-22 / BS EN 1634-1', what: 'The fire tests behind FD and E/EI ratings.' },
+      { ref: 'Approved Document B', what: 'Where fire doors are needed and how they must work.' },
+      { ref: 'Regulatory Reform (Fire Safety) Order 2005', what: 'What the responsible person must do in shops, offices and other non-home buildings.' },
     ],
     questions: [
       {
-        q: 'Can you repair a fire door or does it need replacing?',
-        a: 'Many faults — gaps, damaged seals, a closer that no longer closes, hinges — can be repaired to keep the rating, using parts that match the certification. Damage to the leaf itself often means replacement.',
+        q: 'Can you repair a fire door, or does it need replacing?',
+        a: 'Many faults can be repaired and keep the rating, using parts that match the certificate. These include gaps, damaged seals, a closer that no longer shuts the door, and worn hinges. If the door itself is damaged, it often needs replacing.',
       },
     ],
     related: ['security-doors', 'repairs', 'aluminium-doors'],
@@ -331,36 +335,36 @@ export const shopfronts: Shopfront[] = [
     slug: 'repairs',
     legacySlug: 'shopfront-repairs',
     name: 'Shopfront repairs',
-    card: 'Doors that drop, locks that stick, frames that leak — fixed within 100 road miles of Birmingham.',
+    card: 'Doors that drop, locks that stick, frames that leak: fixed within 100 road miles of Birmingham.',
     answer:
-      'Repairs to aluminium and glazed shopfronts: dropped and dragging doors, worn floor springs and closers, failed locks, leaking frames and damaged panels. We cover premises within 100 road miles of Birmingham. Most repairs are priced after we have seen the fault, and the quote comes in writing before any work.',
+      'Repairs to aluminium and glass shopfronts: doors that have dropped or drag on the floor, worn door closers, broken locks, leaking frames and damaged panels. We cover shops and businesses within 100 road miles of Birmingham. We usually price a repair after we have seen the fault, and you get the price in writing before any work.',
     area: 'repair-radius',
     consents: [
-      { consent: 'none-usually', likelihood: 'usually', why: 'Like-for-like repairs generally need no planning permission.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Repairs that affect the character of a listed building can still need consent — replacing original glass or joinery, for instance.' },
+      { consent: 'none-usually', likelihood: 'usually', why: 'A repair that keeps the same look usually needs no planning permission.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Some repairs to a listed building still need consent, for example replacing old glass or old woodwork.' },
     ],
     sections: [
       {
-        q: 'Is it worth repairing an old shopfront rather than replacing it?',
+        q: 'Is it worth repairing an old shopfront instead of replacing it?',
         body: [
-          'Often, and the council may prefer it. Some of the shopfront guides we track will not support removing a historic shopfront in a conservation area unless it is shown that repair cannot be done. A front that is structurally sound but has a failed floor spring or a dropped door is a repair, not a rebuild.',
+          'Often, yes, and the council may prefer it. Some councils will not let you remove an old shopfront in a conservation area unless you show it cannot be repaired. If the front is solid but a door closer has failed or a door has dropped, that is a repair, not a new front.',
         ],
       },
       {
-        q: 'What usually goes wrong with an aluminium shopfront door?',
+        q: 'What usually goes wrong with an aluminium shop door?',
         body: [
-          'The floor spring or overhead closer wears and the door slams or will not latch; the top pivot works loose and the door drops and drags; the lock’s cylinder or keep goes out of line; seals perish and the frame starts to whistle and leak. Most are a single visit once the part is identified.',
+          'The closer in the floor or above the door wears out, so the door slams or will not shut. The top hinge point works loose, so the door drops and drags. The lock goes out of line. Or the rubber seals wear out, and the frame starts to whistle and leak. Most of these are fixed in one visit once we know which part is needed.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document K', what: 'Replacement glass in critical locations must be safety glass.' },
-      { ref: 'BS EN 1154', what: 'Controlled door closing devices — the standard for closers and floor springs.' },
+      { ref: 'Approved Document K', what: 'New glass in risky places must be safety glass.' },
+      { ref: 'BS EN 1154', what: 'The standard for door closers, including closers in the floor.' },
     ],
     questions: [
       {
-        q: 'Do you repair shopfronts you did not install?',
-        a: 'Yes. Most repair calls are to fronts fitted by someone else, often years ago. A photograph of the fault and of any maker’s label on the frame or closer helps us bring the right part.',
+        q: 'Do you repair shopfronts you did not fit?',
+        a: 'Yes. Most repair calls are for fronts fitted by someone else, often years ago. A photo of the fault, and of any maker’s label on the frame or closer, helps us bring the right part.',
       },
     ],
     photo: { src: '/assets/sigma-front-wide.jpeg', alt: 'Black-framed internal glazed screen with a glazed door, set in a newly fitted office', w: 1600, h: 1200 },
@@ -370,42 +374,42 @@ export const shopfronts: Shopfront[] = [
     slug: 'emergency-repairs',
     legacySlug: 'emergency-callout',
     name: 'Emergency repairs',
-    card: 'Break-ins, smashed glass and shutters stuck shut — a reply within two hours.',
+    card: 'Break-ins, smashed glass and stuck shutters: a reply within two hours, out the same day.',
     answer:
-      'Making a shopfront safe and secure after a break-in, an accident or a failed shutter, within 100 road miles of Birmingham. We reply to emergency repair calls within two hours, then agree with you what can be done and when. Typical first steps are boarding, temporary glazing, or getting a jammed shutter open or locked.',
+      'Making your shop safe and secure after a break-in, an accident or a broken shutter, within 100 road miles of Birmingham. We reply to emergency repair calls within two hours and come out the same day. When we reply, we agree with you what we can do and when. The first job is usually boarding up, fitting temporary glass, or getting a stuck shutter open or locked.',
     area: 'repair-radius',
     consents: [
-      { consent: 'none-usually', likelihood: 'usually', why: 'Temporary boarding to make premises safe does not need permission.' },
-      { consent: 'listed', likelihood: 'rarely', why: 'Fixing boards to historic joinery should be done with care; the permanent repair may need consent.' },
+      { consent: 'none-usually', likelihood: 'usually', why: 'Boarding up to make a shop safe does not need permission.' },
+      { consent: 'listed', likelihood: 'rarely', why: 'Take care fixing boards to old woodwork. The permanent repair may need consent.' },
     ],
     sections: [
       {
-        q: 'What exactly does the two-hour promise mean?',
+        q: 'What does the two-hour promise mean?',
         body: [
-          'It means a person replies to you within two hours of your call or message — not that a van arrives within two hours. Once we have spoken we tell you honestly when we can be there and what we can do on that visit. Further from Birmingham, a closer contractor may reach you sooner, and we will say so.',
+          'It means a person replies to you within two hours of your call or message. It does not mean a van arrives within two hours. When we speak, we tell you honestly what time we can be there that day and what we can do on that visit.',
         ],
       },
       {
         q: 'What should I do before anyone arrives?',
         body: [
-          'Keep people away from broken glass. If there has been a break-in, report it to the police and get a crime reference number — your insurer will want it, and so will a council if you later apply for an external shutter. Photograph the damage before anything is moved.',
+          'Keep people away from broken glass. If there has been a break-in, report it to the police and get a crime reference number. Your insurer will want it. So will the council, if you later apply for a shutter on the outside. Take photos of the damage before anything is moved.',
         ],
       },
       {
-        q: 'Is the permanent repair the same job?',
+        q: 'Is the permanent repair the same visit?',
         body: [
-          'Not always. Toughened glass cannot be cut once it is made, so a replacement pane is made to measure and takes days; the first visit makes the front secure and the second fits the glass. A smash is also a natural moment to switch to laminated glass, which many councils prefer to a shutter.',
+          'Not always. Toughened glass cannot be cut after it is made, so a new pane has to be made to size, which takes a few days. On the first visit we make the shop secure. On the second visit we fit the glass. A smashed window is also a good time to change to laminated glass, which many councils prefer to a shutter.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 12150', what: 'Toughened safety glass — made to size, cannot be cut afterwards.' },
+      { ref: 'BS EN 12150', what: 'Toughened safety glass: made to size, cannot be cut afterwards.' },
       { ref: 'BS EN 14449', what: 'Laminated glass, which holds together when broken.' },
     ],
     questions: [
       {
         q: 'How quickly will someone get to me?',
-        a: 'We reply to emergency repair calls within two hours. When we can attend depends on where you are and what else is in hand, and we tell you that when we reply rather than promising a time we cannot keep.',
+        a: 'We reply to emergency repair calls within two hours and come out the same day. The time we arrive depends on where you are. We tell you that time when we reply, so you are not left waiting.',
       },
     ],
     related: ['glass-replacement', 'shutter-repairs', 'repairs'],
@@ -414,42 +418,42 @@ export const shopfronts: Shopfront[] = [
     slug: 'shutter-repairs',
     legacySlug: 'shutter-repair',
     name: 'Shutter repairs',
-    card: 'Stuck, noisy and off-track shutters repaired within 100 road miles of Birmingham.',
+    card: 'Stuck, noisy and broken shutters repaired within 100 road miles of Birmingham.',
     answer:
-      'Repairs to manual and motorised roller shutters and grilles: jammed curtains, broken springs, failed motors and limits, bent guides and damaged laths. We cover premises within 100 road miles of Birmingham and reply to emergency calls within two hours. Repairs are quoted in writing once the fault is found.',
+      'Repairs to hand-pulled and electric roller shutters and grilles: stuck shutters, broken springs, failed motors, bent side tracks and damaged slats. We cover shops and businesses within 100 road miles of Birmingham. We reply to emergency calls within two hours and come out the same day. Once we find the fault, you get the price in writing.',
     area: 'repair-radius',
     consents: [
-      { consent: 'none-usually', likelihood: 'usually', why: 'Repairing an existing, lawful shutter like-for-like generally needs nothing from the council.' },
-      { consent: 'planning', likelihood: 'sometimes', why: 'Replacing a shutter with a different one can. Some councils now treat a replacement external shutter as a fresh application.' },
+      { consent: 'none-usually', likelihood: 'usually', why: 'Repairing a shutter that was approved, and keeping the same look, usually needs nothing from the council.' },
+      { consent: 'planning', likelihood: 'sometimes', why: 'Changing to a different shutter can. Some councils now treat a new outside shutter as a new application, even when it replaces an old one.' },
     ],
     sections: [
       {
         q: 'Should I repair the shutter or replace it?',
         body: [
-          'If the box, axle and guides are sound, a repair is almost always cheaper. Replacement makes sense when the curtain is badly damaged, the motor and spring are both gone, or the shutter is the wrong type for the street. One thing to know before replacing: some councils now ask for the same justification for a replacement external shutter as for a new one — Bradford’s 2026 guide, for example, asks for a Crime Impact Statement.',
+          'If the box, the roller and the side tracks are in good shape, a repair is almost always cheaper. Replacing makes sense when the shutter itself is badly damaged, when both the motor and the spring have gone, or when it is the wrong type for the street. One thing to know first: some councils now want the same reasons for a replacement outside shutter as for a new one. Bradford’s 2026 guide, for example, asks for a Crime Impact Statement.',
         ],
       },
       {
-        q: 'Was my existing shutter put in with permission?',
+        q: 'Did my shutter have permission when it was fitted?',
         body: [
-          'Worth checking before you spend money on it. Councils do take enforcement action over external roller shutters fitted without consent — Sheffield’s published register of enforcement notices for 2022–2026 includes several requiring shutters and their boxes to be removed. If yours was never approved, a like-for-like repair keeps the problem; a switch to an internal or lattice design may resolve it.',
+          'Check this before you spend money on it. Councils do take action over outside shutters fitted without permission. Sheffield’s published list of enforcement notices for 2022–2026 includes several that made owners remove shutters and their boxes. If yours never had permission, repairing it keeps the problem. Changing to a shutter inside, or an open grille, may solve it.',
         ],
       },
       {
-        q: 'Why does my motorised shutter stop halfway?',
+        q: 'Why does my electric shutter stop halfway?',
         body: [
-          'Usually the limit settings have drifted, a safety edge is reading an obstruction, or the motor’s thermal cut-out has tripped from repeated cycling. Do not keep pressing the button — it can overheat the motor or drop the curtain out of its guides.',
+          'Usually the stop settings have moved, a safety edge thinks something is in the way, or the motor has overheated from being used again and again. Do not keep pressing the button. It can burn out the motor or pull the shutter out of its tracks.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 12453', what: 'Safety in use of powered doors and shutters — what must be checked after a repair.' },
-      { ref: 'BS EN 13241', what: 'Product standard the shutter was supplied under.' },
+      { ref: 'BS EN 12453', what: 'Safety of electric doors and shutters: what must be checked after a repair.' },
+      { ref: 'BS EN 13241', what: 'The product standard the shutter was sold under.' },
     ],
     questions: [
       {
         q: 'Can you repair a shutter another company fitted?',
-        a: 'Yes. A photo of the motor label and the end of the box helps us bring compatible parts on the first visit.',
+        a: 'Yes. A photo of the label on the motor, and of the end of the shutter box, helps us bring the right parts on the first visit.',
       },
     ],
     related: ['roller-shutters', 'emergency-repairs', 'repairs'],
@@ -458,44 +462,44 @@ export const shopfronts: Shopfront[] = [
     slug: 'glass-replacement',
     legacySlug: 'glass-replacement',
     name: 'Shopfront glass replacement',
-    card: 'Broken panes replaced with the right safety glass — and the chance to upgrade to laminated.',
+    card: 'Broken glass replaced with the right safety glass, and a chance to upgrade to laminated.',
     answer:
-      'Replacing broken or failed shopfront glass, from a single door pane to a full display window, within 100 road miles of Birmingham. Glass in shopfront doors and low-level panes has to be safety glass, and replacing it is the cheapest point at which to move to laminated. The price depends on size, type and access, and is quoted after measuring.',
+      'Replacing broken or misted shopfront glass, from one door pane to a full shop window, within 100 road miles of Birmingham. Glass in shop doors and low panes must be safety glass. A replacement is also the cheapest time to change to laminated glass. The price depends on size, glass type and access, and we give it after measuring.',
     area: 'repair-radius',
     consents: [
-      { consent: 'none-usually', likelihood: 'usually', why: 'Like-for-like glass needs no planning permission.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Replacing historic glass, or adding film or etched lettering, on a listed building.' },
-      { consent: 'building-regs', likelihood: 'often', why: 'Glass in critical locations must meet the safety-glazing rules even when only one pane is replaced.' },
+      { consent: 'none-usually', likelihood: 'usually', why: 'Replacing glass with the same kind needs no planning permission.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed on a listed building to replace old glass, or to add window film or etched lettering.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'Glass in risky places must meet the safety glass rules, even if you replace only one pane.' },
     ],
     sections: [
       {
-        q: 'Toughened or laminated?',
+        q: 'Toughened or laminated glass?',
         body: [
-          'Toughened glass is strong but, when it does break, it shatters into small pieces and leaves an open hole. Laminated glass cracks but stays in the frame, held by its interlayer — which is why councils keep recommending it in place of shutters. Laminated security glazing is classified by its resistance to manual attack; ask which class you are being quoted.',
+          'Toughened glass is strong. But when it breaks, it falls into small pieces and leaves an open hole. Laminated glass cracks but stays in the frame, held together by a layer inside it. That is why councils keep suggesting it instead of shutters. Laminated security glass is graded by how well it resists attack, so ask which grade you are being offered.',
         ],
       },
       {
         q: 'Where must the glass be safety glass?',
         body: [
-          'In the critical locations the building regulations define: from floor level up to 800 mm in walls and screens, and up to 1500 mm in a door or in a side panel within 300 mm of a door’s edge. In a shopfront that covers most of the glazing.',
+          'In the risky places set out in building regulations. In walls and screens, that is from the floor up to 800 mm. In a door, or a side panel within 300 mm of a door’s edge, it is up to 1500 mm. In a shopfront, that covers most of the glass.',
         ],
       },
       {
-        q: 'Why can’t you cut a toughened pane on the day?',
+        q: 'Why can’t you cut toughened glass on the day?',
         body: [
-          'Toughened glass is made to final size and then heat-treated; cut it afterwards and it shatters. That is why a replacement usually means a make-safe first visit and a fitting visit a few days later.',
+          'Toughened glass is cut to its final size first and then heated to make it strong. If you cut it after that, it shatters. That is why a replacement usually means one visit to make the shop safe, and a second visit a few days later to fit the glass.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document K', what: 'Protection from impact: critical locations for safety glazing.' },
-      { ref: 'BS EN 12600', what: 'Pendulum impact classification for safety glass.' },
-      { ref: 'BS EN 356', what: 'Resistance of security glazing to manual attack (classes P1A–P8B).' },
+      { ref: 'Approved Document K', what: 'Protection from impact: the risky places where safety glass is needed.' },
+      { ref: 'BS EN 12600', what: 'Impact test grades for safety glass.' },
+      { ref: 'BS EN 356', what: 'How well security glass resists attack (grades P1A to P8B).' },
     ],
     questions: [
       {
         q: 'Will laminated glass stop a break-in?',
-        a: 'It slows one down and keeps the opening closed after an impact, which is why many councils prefer it to an external shutter. Higher attack-resistance classes resist longer. It is not a vault door; on a high-risk shop it is often combined with an internal grille.',
+        a: 'It slows a break-in down and keeps the window closed after it is hit. That is why many councils prefer it to a shutter on the outside. Higher grades hold out for longer. It is not a safe door, so on a high-risk shop it is often used with a grille inside.',
       },
     ],
     related: ['emergency-repairs', 'aluminium', 'frameless-glass'],
@@ -504,38 +508,38 @@ export const shopfronts: Shopfront[] = [
     slug: 'aluminium-doors',
     legacySlug: 'aluminium-doors',
     name: 'Aluminium entrance doors',
-    card: 'Commercial entrance doors on floor springs or closers, with level thresholds.',
+    card: 'Strong shop entrance doors with smooth closers and no step at the door.',
     answer:
-      'Aluminium entrance doors for shops, offices and communal entrances, fitted across the UK. They suit an existing shopfront that is sound but whose door has had its day, as well as new fronts. A replacement door in a suitable frame is usually a short job; the price depends on size, glazing and hardware and is quoted in writing.',
+      'Aluminium entrance doors for shops, offices and shared entrances, fitted anywhere in the UK. They suit a shopfront that is still in good shape but has a worn-out door, as well as new fronts. Fitting a new door in a good frame is usually a quick job. The price depends on size, glass and handles, and you get it in writing.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'sometimes', why: 'Replacing a door within an existing front in the same style rarely needs it; changing the opening or the look on a sensitive building can.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Any change to a historic entrance on a listed building.' },
-      { consent: 'building-regs', likelihood: 'often', why: 'Clear width, threshold and safety glazing on a public entrance.' },
+      { consent: 'planning', likelihood: 'sometimes', why: 'A new door in the same style, in the same front, rarely needs it. Changing the opening or the look on a protected building can.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed for any change to an old entrance on a listed building.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'A public entrance has rules on door width, the step and safety glass.' },
     ],
     sections: [
       {
-        q: 'Floor spring or overhead closer?',
+        q: 'Closer in the floor or above the door?',
         body: [
-          'A floor spring hides the closer in the floor and gives the cleanest look, which suits heritage settings and frameless doors; it needs a pit cut in the floor. An overhead closer is easier to fit to an existing door and to service. Both are rated by their power size, which must match the door’s width and weight.',
+          'A closer in the floor is hidden and gives the cleanest look. It suits old buildings and all-glass doors, but we have to cut a hole in the floor for it. A closer above the door is easier to fit to an existing door and easier to service. Both come in power sizes, which must match the door’s width and weight.',
         ],
       },
       {
-        q: 'What makes an entrance door accessible?',
+        q: 'What makes an entrance door easy for everyone to use?',
         body: [
-          'A level threshold, enough clear width once the door is open, an opening force a wheelchair user or parent with a buggy can manage, and handles at a usable height. A heavy glazed door on a strong closer fails the third test more often than any other.',
+          'No step at the door. Enough space to get through when the door is open. A door light enough for a wheelchair user, or a parent with a pushchair, to open. And handles at a height people can reach. A heavy glass door on a strong closer fails the third test more often than any other.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 1154', what: 'Controlled door closing devices — closers and floor springs.' },
-      { ref: 'Approved Document M', what: 'Entrance widths, thresholds and opening forces.' },
-      { ref: 'BS EN 14351-1', what: 'Product standard for external pedestrian doorsets.' },
+      { ref: 'BS EN 1154', what: 'Door closers, including closers in the floor.' },
+      { ref: 'Approved Document M', what: 'Entrance widths, steps and how hard a door is to open.' },
+      { ref: 'BS EN 14351-1', what: 'Product standard for outside doors.' },
     ],
     questions: [
       {
         q: 'Can you replace just the door and keep the shopfront?',
-        a: 'Usually, if the frame is sound and square. We check the frame and the floor at the survey; a door hung in a twisted frame will drop again however good it is.',
+        a: 'Usually, if the frame is in good shape and straight. We check the frame and the floor when we visit. A door hung in a bent frame will drop again, however good the door is.',
       },
     ],
     photo: { src: '/assets/sigma-modern-front.jpeg', alt: 'Shopfront under construction: a new dark aluminium frame with a glazed door, protective tape on the floor', w: 1600, h: 1200 },
@@ -545,38 +549,38 @@ export const shopfronts: Shopfront[] = [
     slug: 'aluminium-windows',
     legacySlug: 'aluminium-windows',
     name: 'Commercial aluminium windows',
-    card: 'Windows for the floors above the shop, chosen to match the street as well as the U-value.',
+    card: 'Windows for the floors above the shop, chosen to suit the street and keep the heat in.',
     answer:
-      'Aluminium windows for commercial buildings and the upper floors above shops, fitted across the UK. They suit offices, flats over shops and mixed-use buildings where the existing windows have failed. Prices depend on size, opening type and glazing, and are quoted after a survey.',
+      'Aluminium windows for business buildings and the floors above shops, fitted anywhere in the UK. They suit offices, flats over shops and buildings with both, where the old windows have failed. The price depends on size, how the windows open and the glass. We give it after a site visit.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'often', why: 'A change in material, glazing pattern or opening style on a commercial building often needs permission, and more often in a conservation area.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Replacing historic windows on a listed building, which councils frequently resist.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'Replacement windows are controlled work: energy performance, safety glazing and, in some rooms, escape and ventilation.' },
+      { consent: 'planning', likelihood: 'often', why: 'Changing the material, the glass pattern or the way windows open on a business building often needs permission, more so in a conservation area.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Needed to replace old windows on a listed building, and councils often say no.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'New windows have rules on keeping heat in, safety glass and, in some rooms, fresh air and a way out in a fire.' },
     ],
     sections: [
       {
-        q: 'Why do upper-floor windows matter on a shopfront job?',
+        q: 'Why do the upstairs windows matter on a shopfront job?',
         body: [
-          'Because the street reads the building as one thing. A shopfront that lines up with the windows above sits in its terrace; a new front under a row of mismatched upper windows looks bolted on. Councils assessing a shopfront often look up.',
+          'Because from the street, people see the building as one thing. A shopfront that lines up with the windows above fits in with its neighbours. A new front under a row of mismatched windows looks stuck on. Councils checking a shopfront often look at the floors above too.',
         ],
       },
       {
-        q: 'Does an Article 4 direction affect commercial windows?',
+        q: 'Does an Article 4 direction affect business windows?',
         body: [
-          'Article 4 directions remove permitted development rights, and they are most often used for houses. A commercial building has fewer such rights to begin with, so window changes on it usually need permission anyway. Flats above shops are where it gets complicated — check the council’s Article 4 map for your street.',
+          'An Article 4 direction is a council rule that takes away some changes you could normally make without permission. It is mostly used for houses. A business building has fewer of these rights anyway, so changing its windows usually needs permission already. Flats above shops are where it gets complicated. Check the council’s Article 4 map for your street.',
         ],
       },
     ],
     standards: [
       { ref: 'BS EN 14351-1', what: 'Product standard for windows.' },
-      { ref: 'Approved Document L', what: 'Conservation of fuel and power for replacement windows.' },
-      { ref: 'Approved Document K', what: 'Safety glazing in critical locations.' },
+      { ref: 'Approved Document L', what: 'Keeping heat in, for replacement windows.' },
+      { ref: 'Approved Document K', what: 'Safety glass in risky places.' },
     ],
     questions: [
       {
-        q: 'Do replacement windows on a shop need building control?',
-        a: 'Yes, replacement windows are controlled work. A registered competent person can self-certify some window installations; otherwise building control is notified. Ask how your installer will certify the work before it starts.',
+        q: 'Do new windows on a shop need building control?',
+        a: 'Yes, new windows come under building regulations. Some registered installers can sign off their own work. If not, building control must be told. Ask your installer how the work will be signed off before it starts.',
       },
     ],
     related: ['aluminium', 'curtain-walling', 'glass-replacement', 'house-windows'],
@@ -585,37 +589,37 @@ export const shopfronts: Shopfront[] = [
     slug: 'curtain-walling',
     legacySlug: 'curtain-walling',
     name: 'Curtain walling',
-    card: 'Stick-system glazed façades for new commercial buildings and major refits.',
+    card: 'Full glass walls for new business buildings and big refits.',
     answer:
-      'Glazed aluminium curtain walling for showrooms, offices and new commercial frontages, installed across the UK. It suits new-build and full-height glazed elevations rather than a single shop unit. Every scheme is designed and priced individually from drawings.',
+      'Aluminium and glass walls, called curtain walling, for showrooms, offices and new business buildings, fitted anywhere in the UK. It suits new buildings and walls of glass over more than one floor, not a single shop. We design and price every job separately from the drawings.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'usually', why: 'A new or re-clad façade is a major change to a building’s appearance.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'Structure, fire performance of the external wall, energy and safety glazing.' },
+      { consent: 'planning', likelihood: 'usually', why: 'A new or re-covered outside wall is a big change to how a building looks.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'Strength, fire safety of the outside wall, keeping heat in and safety glass all have rules.' },
     ],
     sections: [
       {
         q: 'Is curtain walling right for a shop?',
         body: [
-          'Seldom for an individual unit in a traditional street, where a shopfront system with a fascia and stallriser fits better. It comes into its own on new buildings, car showrooms and corner sites designed as glass from the outset.',
+          'Rarely for one shop on an old street. A shopfront with a sign board and a low panel under the window fits there better. Curtain walling is best on new buildings, car showrooms and corner buildings that were designed to be glass from the start.',
         ],
       },
       {
         q: 'Who designs it?',
         body: [
-          'Curtain walling is engineered: wind loads, deflection, movement joints and fixings to the structure are calculated, not assumed. On larger schemes the system supplier’s engineers and the project’s structural engineer sign it off; our part is fabrication and installation to that design.',
+          'Curtain walling has to be worked out by engineers. Wind, bending, movement and fixings are all calculated. On bigger jobs, the system maker’s engineers and the project’s structural engineer approve it. Our part is to make it and fit it to that design.',
         ],
       },
     ],
     standards: [
       { ref: 'BS EN 13830', what: 'Product standard for curtain walling.' },
-      { ref: 'Approved Document B', what: 'Fire performance of external walls.' },
+      { ref: 'Approved Document B', what: 'Fire safety of outside walls.' },
       { ref: 'CWCT Standard for systemised building envelopes', what: 'Industry test and performance standard.' },
     ],
     questions: [
       {
-        q: 'What is the difference between curtain walling and a shopfront system?',
-        a: 'A shopfront system spans a single storey within a structural opening. Curtain walling hangs off the building’s structure across several storeys and is designed for wind load and movement over that height.',
+        q: 'What is the difference between curtain walling and a shopfront?',
+        a: 'A shopfront fills one opening on one floor. Curtain walling hangs on the building’s frame across several floors. It is designed to handle wind and movement over that height.',
       },
     ],
     related: ['aluminium', 'frameless-glass', 'aluminium-windows'],
@@ -624,38 +628,38 @@ export const shopfronts: Shopfront[] = [
     slug: 'frameless-glass',
     legacySlug: 'glass-shopfronts',
     name: 'Frameless glass fronts',
-    card: 'Structural glass with patch fittings, for settings where the view in is the point.',
+    card: 'All-glass fronts with almost no frame, for shops where the view inside is the point.',
     answer:
-      'Toughened and laminated glass fronts with minimal or no visible framing, patch-fitted doors and glass fins, installed across the UK. They suit modern buildings, showrooms and interiors. On a traditional street they are a harder sell to the council; we will say so before you commit.',
+      'Glass shopfronts with little or no frame showing, with glass doors and glass supports, fitted anywhere in the UK. They suit modern buildings, showrooms and inside shopping centres. On an old-style street the council is less likely to agree. We will tell you that before you decide.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'usually', why: 'A new glass front is a change in appearance — often a dramatic one.' },
-      { consent: 'advert', likelihood: 'often', why: 'Lettering on the glass, or a sign above it, can need advertisement consent.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'Safety glazing throughout and manifestation so the glass is visible.' },
+      { consent: 'planning', likelihood: 'usually', why: 'A new glass front changes how the building looks, often a lot.' },
+      { consent: 'advert', likelihood: 'often', why: 'Lettering on the glass, or a sign above it, can need sign permission.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'All the glass must be safety glass, with markings so people can see it.' },
     ],
     sections: [
       {
-        q: 'Will a conservation officer accept a frameless front?',
+        q: 'Will the council accept an all-glass front?',
         body: [
-          'On a traditional building, not often. Frameless glass removes exactly the elements — stallriser, pilasters, fascia, glazing bars — that conservation guidance asks to be kept. On a modern building, or inside a shopping centre, it is frequently the best answer.',
+          'On an old building, not often. All-glass fronts remove the parts that council heritage rules ask you to keep: the low panel, side columns, sign board and glass bars. On a modern building, or inside a shopping centre, it is often the best choice.',
         ],
       },
       {
-        q: 'Why the dots or bands on frameless glass?',
+        q: 'Why are there dots or strips on glass fronts?',
         body: [
-          'That is manifestation: markings that make large areas of glass visible so people do not walk into them. The building regulations expect it on glazed doors and screens people could mistake for an opening, at two heights — roughly 850–1000 mm and 1400–1600 mm from the floor.',
+          'They are markings that help people see large glass so they do not walk into it. Building regulations expect them on glass doors and glass walls that people could mistake for an open space. They go at two heights: about 850–1000 mm and 1400–1600 mm from the floor.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document K', what: 'Safety glazing and manifestation of glazing.' },
+      { ref: 'Approved Document K', what: 'Safety glass, and markings on glass.' },
       { ref: 'BS EN 12150 / BS EN 14449', what: 'Toughened and laminated glass.' },
-      { ref: 'BS 6180', what: 'Barriers in and about buildings, where glass acts as a barrier.' },
+      { ref: 'BS 6180', what: 'Barriers in and around buildings, where glass acts as a barrier.' },
     ],
     questions: [
       {
-        q: 'How do you secure a frameless glass front at night?',
-        a: 'Laminated glass and good patch locks first. If more is needed, an internal grille or shutter behind the glass keeps the clean look outside; an external shutter box on a frameless front is very hard to hide.',
+        q: 'How do you secure an all-glass front at night?',
+        a: 'Start with laminated glass and good locks on the glass doors. If you need more, a grille or shutter inside, behind the glass, keeps the clean look from outside. A shutter box on the outside of an all-glass front is very hard to hide.',
       },
     ],
     related: ['aluminium', 'curtain-walling', 'glass-replacement'],
@@ -663,44 +667,44 @@ export const shopfronts: Shopfront[] = [
   {
     slug: 'industrial-shutters',
     name: 'Industrial shutters',
-    card: 'Large steel and insulated roller doors for warehouses, workshops and loading bays.',
+    card: 'Big steel and insulated roller doors for warehouses, workshops and loading bays.',
     answer:
-      'Steel and insulated roller shutters for warehouses, factories, workshops and loading bays, manual or motorised, installed across the UK. They suit openings that vehicles pass through and doors that run many times a day. Each one is sized to its opening and to the wind on that site, surveyed first and quoted in writing.',
+      'Steel and insulated roller shutters for warehouses, factories, workshops and loading bays, pulled by hand or electric, fitted anywhere in the UK. They suit openings that vans and lorries drive through, and doors that open many times a day. We size each one to its opening and to the wind on your site. We visit first, and then give you the price in writing.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'rarely', why: 'A replacement shutter in an existing opening on an industrial building seldom needs permission. Forming a new opening, or a unit next to homes or in a conservation area, can.' },
-      { consent: 'building-regs', likelihood: 'sometimes', why: 'Where the building is heated, or the shutter sits in a fire-separating wall, the new door has to meet the energy or fire rules for that opening.' },
+      { consent: 'planning', likelihood: 'rarely', why: 'A new shutter in an existing opening on an industrial building rarely needs permission. Making a new opening, or working on a unit next to homes or in a conservation area, can.' },
+      { consent: 'building-regs', likelihood: 'sometimes', why: 'If the building is heated, or the shutter is in a fire wall, the new door must meet the heat or fire rules.' },
     ],
     sections: [
       {
         q: 'Why does an industrial door need a wind rating?',
         body: [
-          'A curtain several metres wide behaves like a sail. It has to take the wind pressure on that particular site — far more on an exposed estate near the coast than in a sheltered yard — without bowing and pulling out of its guides. Doors are classified for this under BS EN 12424, and wind locks on the ends of the laths are what keep a wide curtain in its tracks.',
+          'A shutter several metres wide catches the wind like a sail. It has to hold against the wind on your site without bending and pulling out of its tracks. An open estate near the coast gets far more wind than a sheltered yard. Doors are graded for this under BS EN 12424. Wind locks on the ends of the slats keep a wide shutter in its tracks.',
         ],
       },
       {
         q: 'Insulated or single-skin?',
         body: [
-          'Single-skin steel is right for an unheated store, or an opening that only needs locking up. In a heated building an insulated lath — two steel skins with a foam core — cuts heat loss and condensation, and Approved Document L sets a limit on how much heat large vehicle doors in heated buildings may let through.',
+          'A single layer of steel is fine for an unheated store, or an opening that only needs locking. In a heated building, insulated slats (two layers of steel with foam between) cut heat loss and damp. Approved Document L limits how much heat a large vehicle door in a heated building can let out.',
         ],
       },
       {
-        q: 'What keeps a powered industrial door safe?',
+        q: 'What keeps an electric industrial door safe?',
         body: [
-          'The hazard is a heavy curtain coming down on a person or a vehicle. BS EN 12453 sets out the protection a powered door needs: limits on closing force, safety edges or photo-cells, and a way to free someone who is trapped. The Workplace (Health, Safety and Welfare) Regulations 1992 require doors in a workplace to have those features and to be maintained so they keep working, which in practice means regular servicing with a written record.',
+          'The danger is a heavy shutter coming down on a person or a vehicle. BS EN 12453 sets the safety features an electric door needs: limits on closing force, safety edges or light sensors, and a way to free someone who is trapped. The Workplace (Health, Safety and Welfare) Regulations 1992 say doors at work must have these features and be kept working. In practice that means regular servicing, with a written record.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS EN 13241', what: 'Product standard for industrial and commercial doors, under which the shutter’s performance is declared.' },
-      { ref: 'BS EN 12424', what: 'Classification of a door’s resistance to wind load.' },
-      { ref: 'BS EN 12453', what: 'Powered doors: closing forces, safety edges, photo-cells and release.' },
-      { ref: 'BS EN 16034', what: 'Fire-resisting performance, where the shutter is also a fire shutter.' },
+      { ref: 'BS EN 13241', what: 'Product standard for industrial and commercial doors, which says how the shutter performs.' },
+      { ref: 'BS EN 12424', what: 'Grades for how much wind a door can take.' },
+      { ref: 'BS EN 12453', what: 'Electric doors: closing force, safety edges, light sensors and release.' },
+      { ref: 'BS EN 16034', what: 'Fire resistance, where the shutter is also a fire shutter.' },
     ],
     questions: [
       {
-        q: 'Can you motorise an existing manual industrial shutter?',
-        a: 'Often, if the curtain, barrel and guides are in good order and the curtain is within what an add-on operator can lift. Once powered it has to meet the powered-door safety standard, so the conversion includes safety edges and a manual release, not only a motor.',
+        q: 'Can you make a hand-pulled industrial shutter electric?',
+        a: 'Often, if the shutter, roller and tracks are in good shape and the shutter is not too heavy for an add-on motor. Once it is electric, it must meet the safety standard for electric doors. So the job includes safety edges and a manual release, not only a motor.',
       },
     ],
     photo: { src: '/assets/sigma-industrial-shutter.jpg', alt: 'Dark green steel roller shutter closed across a loading opening in a clad industrial unit, with a yellow bottom rail', w: 1000, h: 1000 },
@@ -709,46 +713,46 @@ export const shopfronts: Shopfront[] = [
   {
     slug: 'upvc-doors',
     name: 'uPVC doors',
-    card: 'Front, back and flat entrance doors in uPVC — for homes and the back of the shop.',
+    card: 'Front, back and flat doors in uPVC, for homes and the back of the shop.',
     answer:
-      'uPVC doors for houses, flats over shops and the rear or side entrances of commercial premises, fitted across the UK. They suit openings where low upkeep and a warm, draught-free door matter more than a period look. Every door is made to measure, so we survey the opening and quote in writing.',
+      'uPVC doors for houses, flats over shops, and the back or side doors of shops and businesses, fitted anywhere in the UK. They suit doors where low upkeep and a warm, draught-free door matter more than an old-fashioned look. Every door is made to measure, so we measure the opening first and give you the price in writing.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'rarely', why: 'On a house, a replacement door similar in appearance to the old one is normally permitted development. Flats, Article 4 areas and doors on a shop’s street frontage are treated differently.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Any new door on a listed building needs consent, and uPVC in place of a historic door is seldom accepted.' },
-      { consent: 'building-regs', likelihood: 'often', why: 'A replacement door with more than half of its area glazed is building-regulations work: energy performance and safety glass.' },
+      { consent: 'planning', likelihood: 'rarely', why: 'On a house, a new door that looks like the old one is normally allowed without permission. Flats, Article 4 areas and doors on the street side of a shop have different rules.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Any new door on a listed building needs consent, and uPVC in place of an old door is rarely accepted.' },
+      { consent: 'building-regs', likelihood: 'often', why: 'A new door that is more than half glass comes under building regulations: keeping heat in and safety glass.' },
     ],
     sections: [
       {
         q: 'Does a new uPVC door need planning permission?',
         body: [
-          'For a house, usually not. Householder permitted development covers replacement doors that look similar to the ones they replace. Three cases fall outside it: flats and maisonettes, which have no householder permitted development rights; houses where the council has made an Article 4 direction, typically in a conservation area, taking the right away; and listed buildings, which need consent whatever the material.',
-          'On a commercial building the question is whether the change materially alters how the building looks. A like-for-like back door rarely does. Replacing a timber door on a period frontage with white uPVC can, and in conservation areas councils regularly refuse it.',
+          'For a house, usually not. You can normally replace a door with one that looks like the old one without permission. There are three exceptions. Flats do not have these rights. Some houses, usually in conservation areas, lose them because the council has made an Article 4 direction. And listed buildings need consent whatever the material.',
+          'On a business building, the question is whether the change makes the building look different. Replacing a back door with a similar one rarely does. Replacing an old wooden door at the front with white uPVC can, and councils often refuse this in conservation areas.',
         ],
       },
       {
         q: 'Who signs off the building regulations?',
         body: [
-          'A door more than half glazed is notifiable. Either the installer belongs to a competent person scheme and self-certifies the job, or the work is notified to the council’s building control before it starts. Ask which route an installer will use before you agree a price, and keep the certificate at the end — a buyer’s solicitor will ask for it when you sell.',
+          'If a door is more than half glass, the work must be signed off. Either the installer is a member of an approved scheme and signs off their own work, or the council’s building control is told before work starts. Ask which way your installer will do it before you agree a price. Keep the certificate at the end. A solicitor will ask for it if you sell.',
         ],
       },
       {
         q: 'What makes one uPVC door more secure than another?',
         body: [
-          'The hardware and the glass, more than the plastic. Look for a multi-point lock that throws hooks or bolts into the frame at several heights, a cylinder rated TS 007 three-star or SS 312 Diamond so it resists snapping, laminated glass in any glazed panel, and a doorset tested to PAS 24.',
+          'The locks and the glass, more than the plastic. Look for a lock that locks into the frame at several points. Look for a lock barrel rated TS 007 three-star or SS 312 Diamond, so it resists snapping. Use laminated glass in any glass panel. And choose a door tested to PAS 24.',
         ],
       },
     ],
     standards: [
-      { ref: 'BS 7412', what: 'Specification for windows and doorsets made from PVC-U hollow profiles.' },
-      { ref: 'PAS 24', what: 'Enhanced security performance of doorsets and windows.' },
-      { ref: 'TS 007 / SS 312', what: 'Ratings for lock cylinders that resist snapping and other attacks.' },
-      { ref: 'Approved Document L', what: 'Energy performance of replacement doors and windows in existing homes.' },
+      { ref: 'BS 7412', what: 'Standard for uPVC windows and doors.' },
+      { ref: 'PAS 24', what: 'Security test for doors and windows.' },
+      { ref: 'TS 007 / SS 312', what: 'Grades for lock barrels that resist snapping and other attacks.' },
+      { ref: 'Approved Document L', what: 'Keeping heat in, for new doors and windows in homes.' },
     ],
     questions: [
       {
-        q: 'Is a uPVC door suitable for the back of a shop?',
-        a: 'For a staff, delivery or flat entrance at the rear, often yes. A main customer entrance opening hundreds of times a day wears a uPVC door out quickly; an aluminium door on a proper closer lasts far longer there.',
+        q: 'Is a uPVC door good for the back of a shop?',
+        a: 'For a staff, delivery or flat door at the back, often yes. A main customer door that opens hundreds of times a day wears uPVC out quickly. An aluminium door on a proper closer lasts much longer there.',
       },
     ],
     related: ['composite-doors', 'house-windows', 'security-doors'],
@@ -756,46 +760,46 @@ export const shopfronts: Shopfront[] = [
   {
     slug: 'composite-doors',
     name: 'Composite doors',
-    card: 'Heavy, reinforced front doors in period styles, for houses and flats over shops.',
+    card: 'Heavy, strong front doors in traditional styles, for houses and flats over shops.',
     answer:
-      'Composite doors — a reinforced core under a weather-resistant skin, in a range of styles and colours — fitted across the UK for houses and for flats above commercial premises. They suit a front door that should feel solid and look traditional without the upkeep of timber. Each door is made to order after a survey and quoted in writing.',
+      'Composite doors have a strong core covered by a weatherproof outer layer, in many styles and colours. We fit them anywhere in the UK, for houses and for flats above shops. They suit a front door that should feel solid and look traditional, without the upkeep of wood. Each door is made to order after we measure, and you get the price in writing.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'rarely', why: 'A replacement front door on a house that looks similar to the old one is normally permitted development. Flats and Article 4 areas lose that right.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'A listed building needs consent for a new door, and councils usually expect timber.' },
-      { consent: 'building-regs', likelihood: 'sometimes', why: 'A door more than half glazed is notifiable, and a flat entrance door onto a shared stair or landing has to keep its fire rating.' },
+      { consent: 'planning', likelihood: 'rarely', why: 'On a house, a new front door that looks like the old one is normally allowed without permission. Flats and Article 4 areas lose that right.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'A listed building needs consent for a new door, and councils usually expect wood.' },
+      { consent: 'building-regs', likelihood: 'sometimes', why: 'A door that is more than half glass must be signed off. A flat door onto a shared stair or landing must stay a fire door.' },
     ],
     sections: [
       {
         q: 'Composite or uPVC?',
         body: [
-          'A uPVC door is a panel set in a uPVC frame. A composite door is a thicker slab — a solid timber or foam-filled core under a glass-reinforced plastic skin — usually hung in a uPVC or aluminium frame. The composite slab is heavier, sounds and feels more like timber, and carries a woodgrain finish and deep colours better. The uPVC door costs less. Both depend on the same locks and glass for their security.',
+          'A uPVC door is a panel in a uPVC frame. A composite door is a thicker, heavier door with a solid wood or foam core and a tough plastic outer layer. It usually hangs in a uPVC or aluminium frame. A composite door feels more like wood and takes wood-grain finishes and deep colours better. A uPVC door costs less. Both rely on the same locks and glass for security.',
         ],
       },
       {
         q: 'What about the front door of a flat above a shop?',
         body: [
-          'If the flat door opens onto a shared stair or landing, its job is to hold back fire and smoke while people get out, so it should be a certified fire doorset — usually FD30S, with a self-closer and smoke seals. An ordinary composite front door is not one, however solid it looks. Fire-rated composite doorsets exist, but the whole set has to be the tested one: frame, glazing, seals and hardware.',
-          'In blocks of flats whose top storey is more than 11 metres above the ground, the Fire Safety (England) Regulations 2022 require the responsible person to make best-endeavour annual checks of flat entrance doors and quarterly checks of fire doors in the common parts.',
+          'If the flat door opens onto a shared stair or landing, its job is to hold back fire and smoke while people get out. So it should be a certified fire door, usually FD30S, with a closer and smoke seals. A normal composite front door is not a fire door, however solid it looks. Fire-rated composite doors do exist, but the whole set must be the one that was tested: frame, glass, seals and handles.',
+          'In blocks of flats where the top floor is more than 11 metres above the ground, the Fire Safety (England) Regulations 2022 apply. The responsible person must try to check flat front doors every year, and fire doors in shared areas every three months.',
         ],
       },
       {
         q: 'Why does a dark composite door sometimes stick in summer?',
         body: [
-          'In full sun a dark outer skin gets much hotter than the inner face, and the slab can bow slightly and bind at the top or bottom. Most doors settle as they cool. One that keeps catching usually needs its hinges or keeps adjusting rather than replacing.',
+          'In full sun, a dark outer layer gets much hotter than the inside. The door can bend slightly and catch at the top or bottom. Most doors go back to normal as they cool. If one keeps catching, the hinges or lock usually need adjusting, not a new door.',
         ],
       },
     ],
     standards: [
-      { ref: 'PAS 24', what: 'The enhanced security test a burglar-resistant composite doorset should have passed.' },
-      { ref: 'BS 476-22 / BS EN 1634-1', what: 'Fire resistance tests for doorsets, where the door must also be a fire door.' },
-      { ref: 'Approved Document B', what: 'Fire safety, including flat entrance doors onto common parts.' },
-      { ref: 'BS EN 14351-1', what: 'Product standard under which an external doorset’s performance is declared.' },
+      { ref: 'PAS 24', what: 'The security test a break-in-resistant composite door should have passed.' },
+      { ref: 'BS 476-22 / BS EN 1634-1', what: 'Fire tests for doors, where the door must also be a fire door.' },
+      { ref: 'Approved Document B', what: 'Fire safety, including flat front doors onto shared areas.' },
+      { ref: 'BS EN 14351-1', what: 'Product standard that says how an outside door performs.' },
     ],
     questions: [
       {
         q: 'Can a composite door be a fire door?',
-        a: 'Yes, when it is supplied and fitted as a certified fire doorset with the frame, glazing, seals and closer it was tested with. A fire-rated slab hung in an ordinary frame does not make a fire door.',
+        a: 'Yes, if it is supplied and fitted as a certified fire door set, with the frame, glass, seals and closer it was tested with. A fire-rated door hung in an ordinary frame is not a fire door.',
       },
     ],
     related: ['upvc-doors', 'fire-doors', 'security-doors'],
@@ -803,47 +807,47 @@ export const shopfronts: Shopfront[] = [
   {
     slug: 'house-windows',
     name: 'House windows',
-    card: 'Replacement double- and triple-glazed windows for homes and flats, in uPVC or aluminium.',
+    card: 'New double- and triple-glazed windows for homes and flats, in uPVC or aluminium.',
     answer:
-      'Replacement double- and triple-glazed windows for houses and flats, in uPVC or aluminium, fitted across the UK. They suit homes with failed seals, rotting frames or draughts, and flats over shops where the windows belong to the same building as the shopfront. We survey every opening and quote in writing.',
+      'New double- and triple-glazed windows for houses and flats, in uPVC or aluminium, fitted anywhere in the UK. They suit homes with misted glass, rotting frames or draughts. They also suit flats over shops, where the windows are part of the same building as the shopfront. We measure every window and give you the price in writing.',
     area: 'uk',
     consents: [
-      { consent: 'planning', likelihood: 'rarely', why: 'Replacement windows on a house that look similar to the existing ones are normally permitted development. Flats, Article 4 areas and new bay windows are the exceptions.' },
-      { consent: 'listed', likelihood: 'sometimes', why: 'Listed buildings need consent, and councils frequently refuse uPVC in place of historic windows.' },
-      { consent: 'building-regs', likelihood: 'usually', why: 'A replacement window is building-regulations work: energy performance, safety glass, ventilation and, upstairs, a way out in a fire.' },
+      { consent: 'planning', likelihood: 'rarely', why: 'On a house, new windows that look like the old ones are normally allowed without permission. Flats, Article 4 areas and new bay windows are the exceptions.' },
+      { consent: 'listed', likelihood: 'sometimes', why: 'Listed buildings need consent, and councils often refuse uPVC in place of old windows.' },
+      { consent: 'building-regs', likelihood: 'usually', why: 'New windows come under building regulations: keeping heat in, safety glass, fresh air and, upstairs, a way out in a fire.' },
     ],
     sections: [
       {
         q: 'Do I need permission to replace my windows?',
         body: [
-          'On a house, normally not, provided the new windows look similar to the old — that is the test the Planning Portal gives. A new bay window counts as an extension. Upstairs windows in a side wall must be obscure-glazed and either fixed shut or opening only more than 1.7 metres above the floor.',
-          'Flats and maisonettes have no householder permitted development rights, so a change of material or style there can need planning permission, although councils generally accept a genuine like-for-like replacement without one. In a conservation area, check for an Article 4 direction first: councils use them precisely to stop timber sashes being swapped for uPVC.',
+          'On a house, normally not, as long as the new windows look like the old ones. That is the test the Planning Portal gives. A new bay window counts as an extension. Upstairs windows in a side wall must have frosted glass, and must either not open or open only above 1.7 metres from the floor.',
+          'Flats do not have the same rights as houses, so a change of material or style can need planning permission. Councils usually accept a true like-for-like replacement without it. In a conservation area, check for an Article 4 direction first. Councils use them to stop old wooden sash windows being swapped for uPVC.',
         ],
       },
       {
         q: 'What does building control check on a new window?',
         body: [
-          'Four things. Energy performance, under Approved Document L. Safety glass in critical locations — low panes, and glass in or beside doors — under Approved Document K. Ventilation: under Approved Document F a replacement window should not leave the room less ventilated than before, which usually means trickle vents. And escape: an upstairs window that served as an emergency exit must still open wide enough, under Approved Document B.',
-          'The work is either self-certified by an installer registered with a competent person scheme or notified to building control. Ask which before you agree a price, and keep the certificate.',
+          'Four things. Keeping heat in, under Approved Document L. Safety glass in risky places, such as low panes and glass in or next to doors, under Approved Document K. Fresh air: under Approved Document F, a new window should not leave the room with less air than before, which usually means small vents in the frame. And a way out: under Approved Document B, an upstairs window used as a fire escape must still open wide enough.',
+          'Either an installer in an approved scheme signs off the work, or building control is told. Ask which before you agree a price, and keep the certificate.',
         ],
       },
       {
         q: 'Should the windows above a shop match the shopfront?',
         body: [
-          'From the street, the upper windows and the shopfront are seen as one building. Shopfront guides commonly ask that a new front relate to the floors above it, and the same logic runs the other way. Picking a frame colour and glazing pattern that sit with the shopfront costs almost nothing extra and makes the building look deliberate rather than patched.',
+          'From the street, the upstairs windows and the shopfront are seen as one building. Council shopfront guides often ask that a new front suits the floors above, and the same idea works the other way. Choosing a frame colour and glass pattern that go with the shopfront costs almost nothing extra. It makes the building look planned, not patched.',
         ],
       },
     ],
     standards: [
-      { ref: 'Approved Document L', what: 'Thermal performance of replacement windows in homes.' },
-      { ref: 'Approved Document F', what: 'Background ventilation when windows are replaced.' },
-      { ref: 'Approved Document K', what: 'Safety glass in critical locations.' },
-      { ref: 'BS 6375', what: 'Performance of windows and doors: weathertightness, operation and strength.' },
+      { ref: 'Approved Document L', what: 'Keeping heat in, for new windows in homes.' },
+      { ref: 'Approved Document F', what: 'Fresh air when windows are replaced.' },
+      { ref: 'Approved Document K', what: 'Safety glass in risky places.' },
+      { ref: 'BS 6375', what: 'How windows and doors perform: keeping weather out, opening and strength.' },
     ],
     questions: [
       {
         q: 'Double or triple glazing?',
-        a: 'A well-specified double-glazed window meets the current standard for replacements. Triple glazing adds warmth and quiet beside a busy road, at the cost of weight and price, so it earns its keep on noisy or north-facing rooms.',
+        a: 'A good double-glazed window meets the current standard for new windows. Triple glazing is warmer and quieter next to a busy road, but heavier and dearer. It is worth it for noisy or north-facing rooms.',
       },
     ],
     related: ['upvc-doors', 'composite-doors', 'aluminium-windows'],
@@ -854,8 +858,8 @@ export const shopfrontBySlug = new Map(shopfronts.map((s) => [s.slug, s]));
 
 export const consentLabel: Record<Consent, string> = {
   planning: 'Planning permission',
-  advert: 'Advertisement consent',
+  advert: 'Sign permission (advertisement consent)',
   listed: 'Listed building consent',
   'building-regs': 'Building regulations',
-  'none-usually': 'Often nothing new from the council',
+  'none-usually': 'Usually nothing from the council',
 };

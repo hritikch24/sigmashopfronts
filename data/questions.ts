@@ -12,36 +12,36 @@ export interface QA {
 
 export const questionGroups: { title: string; items: QA[] }[] = [
   {
-    title: 'Permission and consent',
+    title: 'Council permission',
     items: [
       {
         q: 'Do I need planning permission to replace my shopfront?',
-        a: 'In most cases, yes. A new shopfront changes how the building looks from the street, which counts as development. Repairing the existing front like-for-like usually does not. The council has the final word; ask them before you order anything.',
-        more: { href: '/frontage-check', label: 'Run the frontage check' },
+        a: 'In most cases, yes. A new shopfront changes how the building looks from the street, so the council counts it as development. Repairing the front you have, and keeping the same look, usually does not need permission. The council has the final word, so ask them before you order anything.',
+        more: { href: '/frontage-check', label: 'Use the free permission check' },
       },
       {
-        q: 'Is advertisement consent the same thing as planning permission?',
-        a: 'No. It is a separate consent under separate regulations, and a new shopfront often needs both. Some signs have “deemed consent” within strict size and height limits; illuminated signs in a conservation area are outside the deemed-consent class for internally lit signs, so assume you will need to apply.',
-        more: { href: '/explained/advertisement-consent', label: 'Advertisement consent, explained' },
+        q: 'Is sign permission the same as planning permission?',
+        a: 'No. Sign permission (called advertisement consent) is separate, under different rules, and a new shopfront often needs both. Some signs are allowed without applying, if they stay within strict size and height limits. But a sign lit from inside, in a conservation area, is not one of them, so expect to apply.',
+        more: { href: '/explained/advertisement-consent', label: 'Sign permission, explained' },
       },
       {
         q: 'My building is listed. What changes?',
-        a: 'You need listed building consent for any work that affects the building’s character — inside or out, including signs, shutters, alarm boxes and even some repairs. Carrying out such work without consent is a criminal offence, not just a planning breach.',
+        a: 'You need listed building consent for any work that changes the building’s character, inside or out. That includes signs, shutters, alarm boxes and even some repairs. Doing this work without consent is a crime, not just a planning problem.',
         more: { href: '/explained/listed-building-consent', label: 'Listed building consent for shopfronts' },
       },
       {
         q: 'How do I find out whether my shop is in a conservation area?',
-        a: 'Your council publishes a map or list of its conservation areas, usually on its planning or heritage pages. Many also publish an appraisal for each area describing what makes it special, which is worth reading before you design anything.',
+        a: 'Your council publishes a map or list of its conservation areas, usually on its planning or heritage pages. Many also publish a report on each area that explains what makes it special. It is worth reading before you design anything.',
         more: { href: '/planning/conservation-areas', label: 'What a conservation area changes' },
       },
       {
         q: 'What is an Article 4 direction and does it apply to shops?',
-        a: 'It is a council order that removes some permitted development rights in a defined area, so work that would normally go ahead without an application needs one. They are used most on houses, but some cover commercial premises or flats above shops. The council keeps a list and map.',
+        a: 'It is a council rule for a set area. It means some work that normally needs no permission does need it there. They are used mostly for houses, but some cover shops, businesses or flats above shops. The council keeps a list and a map.',
         more: { href: '/explained/article-4-directions', label: 'Article 4 directions, explained' },
       },
       {
         q: 'Do I need building regulations approval for a new shopfront?',
-        a: 'Usually. A new shopfront involves safety glazing, the entrance threshold and door width, and often an escape route — all building regulations matters, handled by building control rather than the planning department.',
+        a: 'Usually. A new shopfront involves safety glass, the step at the door, the door width and often a fire exit. These are all building regulations matters. They are handled by building control, not the planning department.',
       },
     ],
   },
@@ -50,17 +50,17 @@ export const questionGroups: { title: string; items: QA[] }[] = [
     items: [
       {
         q: 'Why do councils refuse solid roller shutters?',
-        a: 'A street of closed solid shutters is blank and dark at night, and councils link that to fear of crime and graffiti. Of the council documents we track, every one rules out or restricts solid external shutters in conservation areas, and several restrict them everywhere.',
+        a: 'A street of closed solid shutters is blank and dark at night. Councils link that to fear of crime and to graffiti. Every council guide we follow bans or limits solid outside shutters in conservation areas, and several limit them everywhere.',
         more: { href: '/explained/why-solid-shutters-get-refused', label: 'Why solid shutters get refused' },
       },
       {
         q: 'What security will a council usually accept instead?',
-        a: 'The common order of preference is laminated or toughened glass first, then an internal grille behind the window, then an external open-lattice or demountable grille. The details differ by council, which is why we keep them council by council.',
+        a: 'Most councils prefer, in this order: strong glass first, then a grille inside behind the window, then an open grille on the outside or one you can take down. The details are different for each council, so we keep them council by council.',
         more: { href: '/planning', label: 'Shopfront rules by council' },
       },
       {
         q: 'Does a replacement shutter need permission if the old one did?',
-        a: 'Often, yes — and a replacement is assessed against today’s policy, not the policy that applied when the old one went in. Some councils now ask for crime evidence even for a like-for-like replacement.',
+        a: 'Often, yes. A replacement is judged against today’s rules, not the rules when the old one went in. Some councils now ask for evidence of crime, even when the new shutter matches the old one.',
       },
     ],
   },
@@ -69,12 +69,12 @@ export const questionGroups: { title: string; items: QA[] }[] = [
     items: [
       {
         q: 'What happens if I install a shutter or shopfront without permission?',
-        a: 'The council can ask you to apply retrospectively, and if it would not have approved the work, it can serve an enforcement notice requiring it to be removed or changed. Councils do use these powers for shutters and shopfronts — their registers of enforcement notices are public.',
+        a: 'The council can ask you to apply after the work is done. If it would not have approved the work, it can send an enforcement notice telling you to remove or change it. Councils do this for shutters and shopfronts, and their lists of enforcement notices are public.',
         more: { href: '/explained/after-an-enforcement-notice', label: 'What to do after an enforcement notice' },
       },
       {
         q: 'Can I appeal an enforcement notice?',
-        a: 'In England, yes, to the Planning Inspectorate, and the notice is held while the appeal is decided. The deadline is strict: the appeal must be received before the date the notice takes effect, and that date is stated on the notice.',
+        a: 'In England, yes, to the Planning Inspectorate. The notice is paused while the appeal is decided. The deadline is strict: your appeal must arrive before the date the notice takes effect. That date is written on the notice.',
         more: { href: '/explained/after-an-enforcement-notice', label: 'Enforcement notices, step by step' },
       },
     ],
@@ -84,12 +84,12 @@ export const questionGroups: { title: string; items: QA[] }[] = [
     items: [
       {
         q: 'Are there grants for shopfront improvements?',
-        a: 'Sometimes, usually run by a council for a particular town centre or conservation area, for a limited period, and often already allocated. We list only schemes we can point to on the council’s own website, with the date we checked and whether they were open.',
-        more: { href: '/grants', label: 'Shopfront grants we can verify' },
+        a: 'Sometimes. They are usually run by a council for one town centre or conservation area, for a short time, and the money is often already given out. We only list grants we can show on the council’s own website, with the date we checked and whether they were open.',
+        more: { href: '/grants', label: 'Shopfront grants we have checked' },
       },
       {
         q: 'Do grants come with design conditions?',
-        a: 'Almost always. Heritage shopfront grants typically pay towards restoring traditional features and expect the design to follow the council’s guidance, so the cheapest specification is rarely the one that gets funded.',
+        a: 'Almost always. Heritage shopfront grants usually pay towards bringing back traditional features, and the design must follow the council’s guidance. So the cheapest option is rarely the one that gets the grant.',
         more: { href: '/explained/heritage-shopfront-grants', label: 'Applying for a heritage grant' },
       },
     ],
@@ -99,17 +99,17 @@ export const questionGroups: { title: string; items: QA[] }[] = [
     items: [
       {
         q: 'Where do you work?',
-        a: 'We install shopfronts, shutters and glazing across the UK. Repairs are limited to premises within 100 road miles of Birmingham, and we reply to emergency repair calls within two hours.',
-        more: { href: '/repair-radius', label: 'The repair radius' },
+        a: 'We fit shopfronts, shutters and glass anywhere in the UK. We do repairs for shops and businesses within 100 road miles of Birmingham. We reply to emergency repair calls within two hours and come out the same day.',
+        more: { href: '/repair-radius', label: 'Towns we cover for repairs' },
       },
       {
         q: 'Will you deal with the planning application?',
-        a: 'We draw what we propose to fit and can prepare the shopfront drawings an application needs. We are installers, not planning consultants: for a complex or contentious case — a listed building, an enforcement appeal — a planning consultant or architect is the right person to lead it.',
+        a: 'We draw what we plan to fit, and we can make the shopfront drawings an application needs. But we fit shopfronts; we are not planning consultants. For a difficult case, like a listed building or an enforcement appeal, a planning consultant or architect should lead it.',
       },
       {
-        q: 'Is the frontage check a planning decision?',
-        a: 'No. It is guidance from an installer, drawn from council documents we have read and cited. Only the council can tell you whether you need consent and whether you will get it.',
-        more: { href: '/frontage-check', label: 'Use the frontage check' },
+        q: 'Is your permission check a council decision?',
+        a: 'No. It is guidance from an installer, based on council documents we have read and linked to. Only the council can tell you if you need permission and if you will get it.',
+        more: { href: '/frontage-check', label: 'Use the permission check' },
       },
     ],
   },
