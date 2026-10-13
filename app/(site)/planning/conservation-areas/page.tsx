@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/site/Link';
 import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import { article, breadcrumbs, pageMeta } from '@/lib/seo';

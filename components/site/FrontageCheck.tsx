@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/site/Link';
 import { authorities, type Nation } from '@/data/authorities';
 import { checkFrontage, type FrontageResult, type Status, type Want } from '@/lib/frontage';
 import EnquiryForm from './EnquiryForm';

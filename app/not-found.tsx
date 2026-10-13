@@ -1,5 +1,5 @@
 import './site.css';
-import Link from 'next/link';
+import Link from '@/components/site/Link';
 import Masthead from '@/components/site/Masthead';
 import Colophon from '@/components/site/Colophon';
 

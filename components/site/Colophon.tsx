@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/site/Link';
 import { business } from '@/lib/business';
 
 export default function Colophon() {
