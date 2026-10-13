@@ -8,7 +8,7 @@ import QuickMessage from '@/components/site/QuickMessage';
 
 export const metadata = pageMeta({
   path: '/',
-  title: `${business.name} — shopfronts, roller shutters, doors and repairs`,
+  title: `${business.name} — shopfronts, shutters and repairs`,
   description:
     'Aluminium shopfronts, roller shutters, doors and glazing fitted UK-wide and repaired within 100 road miles of Birmingham, Sheffield included. Free quote and site visit; same-day call-outs for emergency repairs.',
 });

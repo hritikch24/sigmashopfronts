@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ authority
   const { authority } = await params;
   const a = authorityBySlug.get(authority);
   if (!a) return {};
-  return pageMeta({ path: `/planning/${a.slug}`, title: `Shopfronts and shutters in ${a.place}: what ${a.council} says`, description: a.headline });
+  return pageMeta({ path: `/planning/${a.slug}`, title: `${a.place} shopfront and shutter rules`, description: a.headline });
 }
 
 const NATION: Record<Authority['nation'], string> = {

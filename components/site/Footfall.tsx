@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { measure } from '@/lib/measure';
 
 /**
  * First-party visit and phone-tap counting for the owner's own dashboard.
@@ -63,6 +64,8 @@ export default function Footfall() {
         device: device(),
         sessionId: sessionId(),
       });
+      const line = a.dataset.dial ?? '';
+      measure(line === 'whatsapp' ? 'whatsapp_click' : 'call_click', { line, page: window.location.pathname });
     }
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);

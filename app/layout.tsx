@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s · ${business.name}`,
     // The template never applies to the segment that defines it, so the
     // default spells the brand out itself.
-    default: `${business.name} — shopfronts and shutters that get through planning`,
+    default: `${business.name} — shopfronts and shutters`,
   },
   description:
     'Aluminium shopfronts, roller shutters and glazing fitted UK-wide, specified around what your council will accept. Repairs within 100 road miles of Birmingham.',

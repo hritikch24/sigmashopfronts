@@ -85,7 +85,7 @@ export const pendingFacts: Record<string, string> = {};
 
 /** Not blockers for indexing, but owed before ads run again. */
 export const followUps: Record<string, string> = {
-  googleAdsTag: 'Sigma needs its own Google Ads conversion tag (NEXT_PUBLIC_SIGMA_ADS_ID). The old one was shared with another firm and has been removed.',
+  googleAdsTag: 'Ads conversions come from Sigma\'s own GA4 property (NEXT_PUBLIC_SIGMA_GA4_ID): call_click, whatsapp_click and generate_lead are key events imported into Google Ads. Never set NEXT_PUBLIC_SIGMA_ADS_ID to the Ads account\'s AW- tag: that account is shared with another firm, so its tag would tie the two sites together.',
   analytics: 'A new GA4 property and GTM container for the new domain, if wanted (NEXT_PUBLIC_SIGMA_GA4_ID / NEXT_PUBLIC_SIGMA_GTM_ID).',
   indexNow: 'A new IndexNow key for the new domain (SIGMA_INDEXNOW_KEY). The old key file was removed.',
 };

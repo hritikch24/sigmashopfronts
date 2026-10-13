@@ -1,6 +1,6 @@
 import PageHead from '@/components/site/PageHead';
 import { pageMeta } from '@/lib/seo';
-import { business } from '@/lib/business';
+import { business, tracking } from '@/lib/business';
 
 export const metadata = pageMeta({
   path: '/privacy',
@@ -40,6 +40,22 @@ export default function Privacy() {
               interest in knowing how the site is used.
             </li>
           </ul>
+          {tracking.ga4 && (
+            <>
+              <h2 id="adverts">Measuring our adverts</h2>
+              <p>
+                We use Google Analytics to see which Google adverts lead to a call, a WhatsApp message or an enquiry. It
+                records the page, the advert you came from and the button you pressed. It never receives your name, phone
+                number, email or message.
+              </p>
+              <p>
+                Google only sets its cookies if you press Yes on the cookie question. If you press No, or do not answer,
+                Google receives a count without cookies. You can change your answer by clearing this site&rsquo;s data in your
+                browser. The lawful basis is your consent; for counts without cookies it is our legitimate interest in knowing
+                which adverts work.
+              </p>
+            </>
+          )}
           <h2>Who else handles it</h2>
           <p>
             Our website host and database provider store the data; our email provider sends and delivers enquiry emails; and

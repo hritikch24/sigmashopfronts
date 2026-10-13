@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { business } from '@/lib/business';
+import { measure } from '@/lib/measure';
 
 /**
  * One enquiry form for the whole site. A photo is optional; large phone photos
@@ -54,6 +55,7 @@ export default function EnquiryForm({
       const r = await fetch('/api/enquire', { method: 'POST', body: fd });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || !j.ok) throw new Error(j.error || 'Something went wrong.');
+      measure('generate_lead', { form: source });
       setState('sent');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');

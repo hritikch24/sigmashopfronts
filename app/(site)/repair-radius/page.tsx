@@ -11,7 +11,7 @@ const lede = `We repair shopfronts, shutters, doors and glass for shops and busi
 
 export const metadata = pageMeta({
   path,
-  title: `Shopfront and shutter repairs within ${business.repairRadiusMiles} miles of Birmingham`,
+  title: `Repairs within ${business.repairRadiusMiles} miles of Birmingham`,
   description: lede,
 });
 

@@ -11,9 +11,9 @@ const lede =
 
 export const metadata = pageMeta({
   path,
-  title: 'Frontage check: what am I allowed to put on my shop?',
+  title: 'Shopfront planning check: what can I fit?',
   description:
-    'Free shopfront planning check. Likely consents for signs, shutters, glazing and awnings, what your council’s own guidance says, and the specification an installer would put forward. No contact details needed.',
+    'Free shopfront planning check: the consents your signs, shutters and glass are likely to need, and what your council says. No contact details needed.',
 });
 
 export default function FrontageCheckPage() {

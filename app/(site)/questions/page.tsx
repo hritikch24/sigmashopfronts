@@ -6,7 +6,7 @@ import { questionGroups } from '@/data/questions';
 
 export const metadata = pageMeta({
   path: '/questions',
-  title: 'Questions about shopfront consent, shutters, enforcement and grants',
+  title: 'Shopfront planning and shutter questions',
   description: 'Straight answers on planning permission, advertisement consent, listed buildings, conservation areas, shutter refusals, enforcement notices and shopfront grants.',
 });
 

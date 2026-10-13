@@ -28,15 +28,43 @@ interface PageMetaInput {
   image?: string;
 }
 
+/** Google shows about 60 characters of a title and about 155 of a description. */
+export const TITLE_MAX = 60;
+export const DESCRIPTION_MAX = 155;
+const TITLE_SUFFIX = ` · ${business.name}`;
+
+/**
+ * Keeps whole sentences up to the limit, so the snippet never ends mid-word.
+ * A first sentence that is already too long is cut at a word with an ellipsis.
+ */
+export function fitDescription(text: string, max = DESCRIPTION_MAX): string {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+  // A sentence ends at . ! or ? (plus any closing quote or bracket) before a capital.
+  const sentences = clean.split(/(?<=[.!?][”"’')\]]*)\s+(?=[A-Z0-9“"‘(])/);
+  let out = '';
+  for (const sentence of sentences) {
+    const next = out ? `${out} ${sentence}` : sentence;
+    if (next.length > max) break;
+    out = next;
+  }
+  // Whole sentences, unless that leaves a stub much shorter than Google would show.
+  if (out.length >= 100) return out;
+  const cut = clean.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s,;:—–-]+$/, '')}…`;
+}
+
 export function pageMeta({ path, title, description, noindex, image }: PageMetaInput): Metadata {
   const url = absolute(path);
   const index = indexingOn && !noindex;
   const og = image ?? '/assets/sigma-og.png';
+  const desc = fitDescription(description);
+  // The home page carries the brand in its own title; elsewhere the layout's
+  // template appends it, unless that would push the title past what Google shows.
+  const ownTitle = path === '/' || `${title}${TITLE_SUFFIX}`.length > TITLE_MAX;
   return {
-    // The home page carries the brand in its own title; elsewhere the layout's
-    // template appends it.
-    title: path === '/' ? { absolute: title } : title,
-    description,
+    title: ownTitle ? { absolute: title } : title,
+    description: desc,
     alternates: { canonical: url },
     robots: index
       ? { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 }
@@ -47,10 +75,10 @@ export function pageMeta({ path, title, description, noindex, image }: PageMetaI
       url,
       siteName: business.name,
       title,
-      description,
+      description: desc,
       images: [{ url: og, width: 1200, height: 630, alt: `${business.name} — install, repair, transform` }],
     },
-    twitter: { card: 'summary_large_image', title, description, images: [og] },
+    twitter: { card: 'summary_large_image', title, description: desc, images: [og] },
   };
 }
 

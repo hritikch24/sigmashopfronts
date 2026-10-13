@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { authorities, type Nation } from '@/data/authorities';
 import { checkFrontage, type FrontageResult, type Status, type Want } from '@/lib/frontage';
 import EnquiryForm from './EnquiryForm';
+import { measure } from '@/lib/measure';
 
 const STATUS: { v: Status; label: string; hint: string }[] = [
   { v: 'listed', label: 'Listed building', hint: 'On the national list, any grade' },
@@ -95,6 +96,7 @@ export default function FrontageCheck() {
       wants,
     });
     setResult(res);
+    measure('frontage_check', { council: res.known ? res.councilLabel : 'not held' });
     requestAnimationFrame(() => document.getElementById('answer')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
 

@@ -727,3 +727,31 @@ ul.copy > li::before { content: ''; position: absolute; left: 0.15rem; top: 0.75
   .acts > .act { flex: 1 1 100%; }
   .paper-grid { background-image: none; }
 }
+
+/* Cookie question for Google's ad measurement (only when a GA4 ID is set). */
+.consent {
+  position: fixed;
+  inset-inline: 0.75rem;
+  bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: 0.9rem 1rem;
+  background: var(--color-sheet);
+  color: var(--color-ink);
+  border: 1px solid var(--color-rule-strong);
+  box-shadow: 0 6px 18px rgba(10, 20, 32, 0.18);
+}
+.consent p { margin: 0 0 0.65rem; }
+.consent__actions { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.consent button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--color-cobalt);
+  background: var(--color-cobalt);
+  color: #fff;
+  cursor: pointer;
+}
+.consent button.consent__no { background: var(--color-sheet); color: var(--color-cobalt); }
+@media (min-width: 64rem) { .consent { bottom: 1.25rem; inset-inline: 1.25rem auto; } }

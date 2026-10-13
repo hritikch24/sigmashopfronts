@@ -7,7 +7,7 @@ const path = '/planning/conservation-areas';
 const summary =
   'A conservation area does not ban change, but it shifts the question from “is this allowed?” to “does this preserve or enhance the area?”. For a shopfront that usually means keeping traditional elements, avoiding external shutters and lighting signs from outside.';
 
-export const metadata = pageMeta({ path, title: 'Shopfronts in conservation areas: what actually changes', description: summary });
+export const metadata = pageMeta({ path, title: 'Shopfronts in conservation areas', description: summary });
 
 export default function ConservationAreas() {
   const trail = [

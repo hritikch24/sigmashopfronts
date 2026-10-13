@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   path: '/costs',
   title: 'What shopfronts, shutters and doors cost',
   description:
-    'Indicative supply-and-fit ranges for aluminium shopfronts, roller shutters, security, automatic, folding and fire doors — and the planning decisions that move the price more than the hardware does.',
+    'Typical supply-and-fit prices for aluminium shopfronts, roller shutters and shop doors, and the planning choices that change the price most.',
 });
 
 export default function Costs() {

@@ -270,7 +270,7 @@ export function checkFrontage(input: FrontageInput): FrontageResult {
     nextStep,
     sources: a ? a.documents.map((d) => ({ title: d.title, date: d.date, url: d.url })) : [],
     disclaimer:
-      'This is guidance from a shopfront installer, based on the council documents cited. It is not planning advice and not a planning decision. Only the council can confirm what consent you need. Indicative only — confirm with your council.',
+      'This is guidance from a shopfront installer, based on the council documents cited. It is not planning advice and not a planning decision. Only the council can confirm what consent you need. Use it as a guide and check with your council.',
   };
 }
 

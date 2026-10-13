@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { business } from '@/lib/business';
 import { readLine, whatsappLink } from '@/lib/quick-line';
+import { measure } from '@/lib/measure';
 
 /**
  * The shortest way to reach us: one box. The customer types their number or
@@ -44,6 +45,7 @@ export default function QuickMessage({
       const r = await fetch('/api/enquire', { method: 'POST', body: fd });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || !j.ok) throw new Error(j.error || 'Something went wrong.');
+      measure('generate_lead', { form: 'quick' });
       setState('sent');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');

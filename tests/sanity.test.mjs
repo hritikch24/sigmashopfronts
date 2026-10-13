@@ -79,6 +79,10 @@ for (const [path, html] of pages) {
   if (!title) bad(`${path}: no <title>`);
   if ((title.match(/Sigma Shopfronts/g) ?? []).length > 1) bad(`${path}: brand doubled in title "${title}"`);
   if (!desc) bad(`${path}: no meta description`);
+  // What Google shows before it cuts the snippet off (lib/seo.ts trims to fit).
+  const shown = (s) => s.replace(/&amp;/g, '&').replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"');
+  if (shown(title).length > 60) bad(`${path}: title ${shown(title).length} chars (max 60) "${title}"`);
+  if (shown(desc).length > 160) bad(`${path}: description ${shown(desc).length} chars (max 160)`);
   if (titles.has(title)) bad(`${path}: duplicate title with ${titles.get(title)}`);
   if (descriptions.has(desc)) bad(`${path}: duplicate description with ${descriptions.get(desc)}`);
   titles.set(title, path);
