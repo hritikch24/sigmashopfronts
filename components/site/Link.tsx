@@ -1,12 +1,41 @@
+'use client';
+
 import NextLink from 'next/link';
-import type { ComponentProps } from 'react';
+import { useRouter } from 'next/navigation';
+import type { ComponentProps, MouseEvent, TouchEvent } from 'react';
 
 /**
- * next/link without background prefetch. Every page here is static and
- * served from the CDN, so a click is already fast; prefetching each link in
- * view only multiplied ISR reads and origin transfer (a home-page view pulled
- * ~37 payloads). Pass prefetch explicitly to opt back in for one link.
+ * next/link that prefetches on intent, not on sight.
+ *
+ * The default prefetched every link the moment it scrolled into view: a
+ * home-page view pulled ~37 page payloads, which multiplied ISR reads and
+ * origin transfer on the Vercel plan. Here a page is fetched only when the
+ * visitor hovers or touches its link, which still lands before the click
+ * completes, so navigation feels the same.
+ *
+ * Crawlers are unaffected: the server HTML is the same plain <a href>.
+ * Pass prefetch explicitly to opt one link back into viewport prefetch.
  */
-export default function Link(props: ComponentProps<typeof NextLink>) {
-  return <NextLink prefetch={false} {...props} />;
+export default function Link({ prefetch, onMouseEnter, onTouchStart, ...props }: ComponentProps<typeof NextLink>) {
+  const router = useRouter();
+  const href = typeof props.href === 'string' ? props.href : null;
+
+  function warm() {
+    if (href && href.startsWith('/') && !href.startsWith('//')) router.prefetch(href);
+  }
+
+  return (
+    <NextLink
+      {...props}
+      prefetch={prefetch ?? false}
+      onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => {
+        onMouseEnter?.(e);
+        warm();
+      }}
+      onTouchStart={(e: TouchEvent<HTMLAnchorElement>) => {
+        onTouchStart?.(e);
+        warm();
+      }}
+    />
+  );
 }
