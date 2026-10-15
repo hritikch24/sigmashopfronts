@@ -149,7 +149,7 @@ export const garageRepairs: GaragePage = {
     },
     {
       q: 'How much does a garage door repair cost?',
-      a: 'It depends on the part that has failed and the type of door. We have not put typical garage door prices on this site yet. Send a photo and we will give you a price before we visit.',
+      a: 'It depends on the part that has failed and the type of door. We have not put typical garage door prices on this site yet. Send a photo, and you get a price before we visit.',
     },
     {
       q: 'My remote has stopped working. Can you program a new one?',
@@ -258,7 +258,7 @@ export const garageInstallation: GaragePage = {
     },
     {
       q: 'How much does a new garage door cost?',
-      a: 'It depends on the type, the size, insulation and whether it is electric. We have not put typical garage door prices on this site yet. Send a photo and rough sizes, and we will give you a guide price before we visit.',
+      a: 'It depends on the type, the size, insulation and whether it is electric. We have not put typical garage door prices on this site yet. Send a photo and rough sizes. You get a guide price before we visit.',
     },
     {
       q: 'Can you fit a garage door to a business unit?',
