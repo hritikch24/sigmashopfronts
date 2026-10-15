@@ -101,7 +101,7 @@ model Customer {
 
 model Document {
   id              String    @id @default(cuid())
-  type            String    // "quote" | "invoice"
+  type            String    // "quote" | "invoice" | "proforma" | "auto-quote"
   number          String    @unique
   customerId      String?   @map("customer_id")
   customer        Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)

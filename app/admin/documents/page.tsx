@@ -2,12 +2,17 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { SITE_URL } from '@/lib/site';
+import QuickBuild from './QuickBuild';
+import type { Draft, DocType } from '@/lib/document-parse';
 
 interface LineItem {
   description: string;
   qty: number;
   unitPrice: number;
-  /** Either/or alternative — priced on its own, never added to the total. */
+  /**
+   * Marks this line as an either/or alternative rather than an addition.
+   * Priced on its own, never added to the total.
+   */
   isOption?: boolean;
 }
 
@@ -79,6 +84,21 @@ const INVOICE_STATUSES = [
   { value: 'cancelled', label: 'Cancelled', color: 'bg-slate-100 text-slate-500' },
 ];
 
+const PROFORMA_STATUSES = [
+  { value: 'sent', label: 'Sent', color: 'bg-blue-100 text-blue-700' },
+  { value: 'paid', label: 'Paid', color: 'bg-emerald-100 text-emerald-700' },
+  { value: 'invoiced', label: 'Invoiced', color: 'bg-violet-100 text-violet-700' },
+  { value: 'cancelled', label: 'Cancelled', color: 'bg-slate-100 text-slate-500' },
+];
+
+type Tab = DocType | 'auto-quote';
+
+/** What each document type is called on screen. */
+const LABEL: Record<DocType, string> = { quote: 'Quote', invoice: 'Invoice', proforma: 'Proforma' };
+const PLURAL: Record<DocType, string> = { quote: 'quotes', invoice: 'invoices', proforma: 'proforma invoices' };
+/** Invoices and proformas both ask for payment: quantities, due dates and deposits. */
+const billing = (t: string) => t === 'invoice' || t === 'proforma';
+
 const AUTO_STATUSES = [
   { value: 'auto', label: 'New', color: 'bg-amber-100 text-amber-700' },
   { value: 'contacted', label: 'Contacted', color: 'bg-blue-100 text-blue-700' },
@@ -86,9 +106,12 @@ const AUTO_STATUSES = [
   { value: 'dead', label: 'Not proceeding', color: 'bg-slate-100 text-slate-500' },
 ];
 
+function statusesFor(type: string) {
+  return type === 'invoice' ? INVOICE_STATUSES : type === 'proforma' ? PROFORMA_STATUSES : type === 'auto-quote' ? AUTO_STATUSES : QUOTE_STATUSES;
+}
+
 function statusMeta(type: string, val: string) {
-  const list =
-    type === 'invoice' ? INVOICE_STATUSES : type === 'auto-quote' ? AUTO_STATUSES : QUOTE_STATUSES;
+  const list = statusesFor(type);
   return list.find((s) => s.value === val) || { value: val, label: val, color: 'bg-slate-100 text-slate-500' };
 }
 
@@ -119,7 +142,7 @@ function emptyForm() {
 export default function DocumentsAdminPage() {
   const [apiKey, setApiKey] = useState('');
   const [authed, setAuthed] = useState(false);
-  const [tab, setTab] = useState<'quote' | 'invoice' | 'auto-quote'>('quote');
+  const [tab, setTab] = useState<Tab>('quote');
   const [documents, setDocuments] = useState<Doc[]>([]);
   const [customers, setCustomers] = useState<CustomerLite[]>([]);
   const [loading, setLoading] = useState(false);
@@ -210,6 +233,72 @@ export default function DocumentsAdminPage() {
     setShowForm(true);
   }
 
+  /** Quick create saved a document: show the usual "created" screen on its tab. */
+  function quickCreated(doc: unknown, type: DocType) {
+    setEditingDocId(null);
+    setCreatedDoc(doc as Doc);
+    setShowForm(true);
+    if (type === tab) fetchDocuments();
+    else setTab(type);
+  }
+
+  /** Quick create → the full form, filled with what was understood, every field editable. */
+  function quickEditAll(d: Draft) {
+    const inDays = (n?: number) => (n ? new Date(Date.now() + n * 86400000).toISOString().split('T')[0] : '');
+    setTab(d.type);
+    setForm({
+      ...emptyForm(),
+      customerName: d.customerName || '',
+      customerEmail: d.customerEmail || '',
+      customerPhone: d.customerPhone || '',
+      customerAddress: d.customerAddress || '',
+      lineItems: d.lineItems.length ? d.lineItems.map((li) => ({ ...li })) : [{ description: '', qty: 1, unitPrice: 0 }],
+      vatEnabled: d.vatRate > 0,
+      vatRate: d.vatRate || 20,
+      notes: d.notes || '',
+      depositPercent: d.depositPercent ? String(d.depositPercent) : '',
+      validUntil: d.type === 'quote' ? inDays(d.validForDays) : '',
+      dueDate: billing(d.type) ? inDays(d.dueInDays) : '',
+      projectReference: d.projectReference || '',
+      scope: d.scope || '',
+      leadTime: d.leadTime || '',
+    });
+    setEditingDocId(null);
+    setCreatedDoc(null);
+    setError('');
+    setShowForm(true);
+  }
+
+  /**
+   * Quote → proforma, proforma → invoice. Opens the new document's form filled
+   * from the old one, so it can be checked before it is created. Either/or
+   * lines on a quote come across ticked off: choose the one the customer took.
+   */
+  function convertDoc(doc: Doc, to: DocType) {
+    setTab(to);
+    setForm({
+      ...emptyForm(),
+      customerName: doc.customerName,
+      customerEmail: doc.customerEmail || '',
+      customerPhone: doc.customerPhone || '',
+      customerAddress: doc.customerAddress || '',
+      lineItems: doc.lineItems.length ? doc.lineItems.map((li) => ({ description: li.description, qty: li.qty, unitPrice: li.unitPrice })) : [{ description: '', qty: 1, unitPrice: 0 }],
+      vatEnabled: doc.vatRate > 0,
+      vatRate: doc.vatRate || 20,
+      notes: doc.notes || '',
+      depositPercent: doc.depositPercent ? String(doc.depositPercent) : '',
+      projectReference: (doc.meta as { projectReference?: string } | null | undefined)?.projectReference || '',
+    });
+    if (doc.lineItems.some((li) => li.isOption)) {
+      setError(`${doc.number} has either/or options. Remove the ones the customer did not choose before creating the ${LABEL[to].toLowerCase()}.`);
+    } else {
+      setError('');
+    }
+    setEditingDocId(null);
+    setCreatedDoc(null);
+    setShowForm(true);
+  }
+
   function pickCustomer(id: string) {
     const c = customers.find((x) => x.id === id);
     if (!c) { setForm({ ...form, customerId: '' }); return; }
@@ -255,10 +344,10 @@ export default function DocumentsAdminPage() {
       lineItems: validItems,
       vatRate: form.vatEnabled ? form.vatRate : 0,
       notes: form.notes || null,
-      depositPercent: tab === 'invoice' && form.depositPercent ? Number(form.depositPercent) : null,
+      depositPercent: billing(tab) && form.depositPercent ? Number(form.depositPercent) : null,
       issueDate: form.issueDate || null,
       validUntil: tab === 'quote' && form.validUntil ? form.validUntil : null,
-      dueDate: tab === 'invoice' && form.dueDate ? form.dueDate : null,
+      dueDate: billing(tab) && form.dueDate ? form.dueDate : null,
       meta: tab === 'quote'
         ? {
             projectReference: form.projectReference.trim() || undefined,
@@ -322,7 +411,7 @@ export default function DocumentsAdminPage() {
       const what = doc.meta?.inputs?.serviceName || 'your enquiry';
       msg = `Hi ${first}, thanks for using our instant estimate for ${what} (ref ${doc.number}). Your guide price was £${lo} – £${hi}. I'd like to arrange a free site survey so we can confirm an exact fixed price — when suits you? — Sigma Shop Fronts`;
     } else {
-      const label = doc.type === 'invoice' ? 'invoice' : 'quote';
+      const label = doc.type === 'proforma' ? 'proforma invoice' : doc.type === 'invoice' ? 'invoice' : 'quote';
       msg = `Hi ${first}, here's your ${label} ${doc.number} from Sigma Shop Fronts:\n${linkFor(doc)}`;
     }
     const phone = doc.customerPhone.replace(/[\s\-()]/g, '').replace(/^0/, '44');
@@ -345,9 +434,9 @@ export default function DocumentsAdminPage() {
     );
   }
 
-  const statusList =
-    tab === 'invoice' ? INVOICE_STATUSES : tab === 'auto-quote' ? AUTO_STATUSES : QUOTE_STATUSES;
+  const statusList = statusesFor(tab);
   const isAuto = tab === 'auto-quote';
+  const docTab: DocType = isAuto ? 'quote' : (tab as DocType);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -379,6 +468,10 @@ export default function DocumentsAdminPage() {
               className={'px-4 py-2 text-sm font-semibold rounded-md transition-colors ' + (tab === 'invoice' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-800')}>
               Invoices
             </button>
+            <button onClick={() => setTab('proforma')}
+              className={'px-4 py-2 text-sm font-semibold rounded-md transition-colors ' + (tab === 'proforma' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-800')}>
+              Proforma
+            </button>
             <button onClick={() => setTab('auto-quote')}
               className={'px-4 py-2 text-sm font-semibold rounded-md transition-colors ' + (isAuto ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-800')}>
               Auto-Gen
@@ -388,10 +481,12 @@ export default function DocumentsAdminPage() {
           <button onClick={openCreate}
             className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-800/90 transition-colors">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12h14" /></svg>
-            New {tab === 'quote' ? 'Quote' : 'Invoice'}
+            New {LABEL[docTab]}
           </button>
           )}
         </div>
+
+        {!isAuto && <QuickBuild tab={docTab} headers={makeHeaders} onCreated={quickCreated} onEditAll={quickEditAll} />}
 
         <div className="bg-white rounded-2xl border border-slate-200/60 overflow-hidden">
           {loading ? (
@@ -399,7 +494,7 @@ export default function DocumentsAdminPage() {
           ) : documents.length === 0 ? (
             <div className="py-20 text-center">
               <p className="text-slate-400 text-sm">
-                No {isAuto ? 'auto-generated estimates' : tab === 'quote' ? 'quotes' : 'invoices'} yet
+                No {isAuto ? 'auto-generated estimates' : PLURAL[docTab]} yet
               </p>
               {isAuto ? (
                 <p className="mt-2 text-xs text-slate-400">
@@ -507,6 +602,18 @@ export default function DocumentsAdminPage() {
                             </button>
                             </>
                             )}
+                            {doc.type === 'quote' && (
+                              <button onClick={() => convertDoc(doc, 'proforma')} title="Make a proforma invoice from this quote"
+                                className="px-2 py-1 rounded text-[11px] font-semibold text-violet-700 hover:bg-violet-50 transition-colors whitespace-nowrap">
+                                → Proforma
+                              </button>
+                            )}
+                            {doc.type === 'proforma' && (
+                              <button onClick={() => convertDoc(doc, 'invoice')} title="Make the invoice from this proforma"
+                                className="px-2 py-1 rounded text-[11px] font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors whitespace-nowrap">
+                                → Invoice
+                              </button>
+                            )}
                             {doc.customerPhone && (
                               <button onClick={() => sendWhatsApp(doc)} title="Send via WhatsApp"
                                 className="p-1.5 rounded hover:bg-green-50 text-slate-400 hover:text-green-600 transition-colors">
@@ -550,13 +657,13 @@ export default function DocumentsAdminPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-heading font-bold text-slate-800">{editingDocId ? 'Edit' : 'New'} {tab === 'quote' ? 'Quote' : 'Invoice'}</h2>
+                  <h2 className="text-lg font-heading font-bold text-slate-800">{editingDocId ? 'Edit' : 'New'} {LABEL[docTab]}</h2>
                   <button type="button" onClick={() => setShowForm(false)} className="text-slate-400 hover:text-slate-800 text-xl">&times;</button>
                 </div>
 
                 {editingDocId && (
                   <div>
-                    <label className="block text-xs font-medium text-slate-500 mb-1">{tab === 'quote' ? 'Quote' : 'Invoice'} Number</label>
+                    <label className="block text-xs font-medium text-slate-500 mb-1">{LABEL[docTab]} Number</label>
                     <input value={form.number} onChange={(e) => setForm({ ...form, number: e.target.value })}
                       className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none" />
                   </div>
@@ -650,9 +757,10 @@ export default function DocumentsAdminPage() {
                   <div className="space-y-2">
                     {form.lineItems.map((li, idx) => (
                       <div key={idx} className="flex gap-2 items-start">
-                        <input placeholder={tab === 'quote' ? 'e.g. Straight Shopfront' : 'Description'} value={li.description} onChange={(e) => updateLineItem(idx, { description: e.target.value })}
-                          className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none" />
-                        {tab === 'invoice' && (
+                        <textarea rows={li.description.includes('\n') ? Math.min(6, li.description.split('\n').length) : 1}
+                          placeholder={tab === 'quote' ? 'e.g. Straight Shopfront' : 'Description (new line for each bullet)'} value={li.description} onChange={(e) => updateLineItem(idx, { description: e.target.value })}
+                          className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none resize-y" />
+                        {billing(tab) && (
                           <input type="number" min="0" step="1" placeholder="Qty" value={li.qty} onChange={(e) => updateLineItem(idx, { qty: Number(e.target.value) })}
                             className="w-16 px-2 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/40 outline-none" />
                         )}
@@ -694,7 +802,7 @@ export default function DocumentsAdminPage() {
                     <input type="checkbox" checked={form.vatEnabled} onChange={(e) => setForm({ ...form, vatEnabled: e.target.checked })} />
                     {tab === 'quote' ? 'Include VAT (20%)' : 'Add VAT'}
                   </label>
-                  {form.vatEnabled && tab === 'invoice' && (
+                  {form.vatEnabled && billing(tab) && (
                     <div className="flex items-center gap-1">
                       <input type="number" min="0" max="100" step="0.5" value={form.vatRate} onChange={(e) => setForm({ ...form, vatRate: Number(e.target.value) })}
                         className="w-16 px-2 py-1 border border-slate-200 rounded text-sm text-right" />
@@ -703,7 +811,7 @@ export default function DocumentsAdminPage() {
                   )}
                 </div>
 
-                {tab === 'invoice' && (
+                {billing(tab) && (
                   <div className="text-right space-y-1 text-sm">
                     <p className="text-slate-500">Subtotal: <span className="text-slate-700 font-medium">£{subtotal.toFixed(2)}</span></p>
                     {form.vatEnabled && <p className="text-slate-500">VAT ({form.vatRate}%): <span className="text-slate-700 font-medium">£{vatAmount.toFixed(2)}</span></p>}
@@ -752,7 +860,7 @@ export default function DocumentsAdminPage() {
                   </button>
                   <button type="submit"
                     className="flex-1 py-2.5 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-800/90 transition-colors">
-                    {editingDocId ? 'Update' : 'Create'} {tab === 'quote' ? 'Quote' : 'Invoice'}
+                    {editingDocId ? 'Update' : 'Create'} {LABEL[docTab]}
                   </button>
                 </div>
               </form>

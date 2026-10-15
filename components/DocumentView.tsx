@@ -63,10 +63,13 @@ function SpecLines({ text }: { text: string }) {
 
 export default function DocumentView({ doc }: { doc: DocumentData }) {
   const isInvoice = doc.type === 'invoice';
+  const isProforma = doc.type === 'proforma';
+  /** Invoices and proformas both ask for payment. */
+  const isBill = isInvoice || isProforma;
   const meta = doc.meta || {};
-  const title = isInvoice ? 'INVOICE' : 'QUOTATION';
+  const title = isProforma ? 'PROFORMA INVOICE' : isInvoice ? 'INVOICE' : 'QUOTATION';
   const vat = doc.vatRate > 0;
-  const deposit = isInvoice && doc.depositPercent && doc.depositPercent > 0 ? (doc.total * doc.depositPercent) / 100 : null;
+  const deposit = isBill && doc.depositPercent && doc.depositPercent > 0 ? (doc.total * doc.depositPercent) / 100 : null;
   const balance = deposit !== null ? doc.total - deposit : null;
 
   // Option lines are alternatives to each other, not additions. They stay out
@@ -90,11 +93,19 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
     ? Math.max(1, Math.round((new Date(doc.validUntil).getTime() - new Date(displayDate).getTime()) / 86400000))
     : null;
 
-  const intro = isInvoice
+  const intro = isProforma
+    ? 'Please find below our proforma invoice for the work at the above premises. Paying the amount shown, or the deposit if one is listed, confirms your order.'
+    : isInvoice
     ? 'Thank you for your business. Please find below our invoice for the works carried out at the above premises.'
     : 'Thank you for your enquiry. We are pleased to submit our quotation for the supply and installation works at the above premises as per your request.';
 
-  const terms: string[] = isInvoice
+  const terms: string[] = isProforma
+    ? [
+        vat ? 'This is a proforma invoice, not a VAT invoice. We send the VAT invoice once you have paid.' : 'This is a proforma invoice. We send the invoice once you have paid.',
+        deposit !== null ? `A deposit of ${doc.depositPercent}% confirms the order. The balance is due as agreed.` : 'Paying the total confirms the order.',
+        'Please use the proforma number as the payment reference.',
+      ]
+    : isInvoice
     ? [
         vat ? 'Prices are inclusive of 20% VAT where shown.' : 'No VAT has been applied to this invoice.',
         deposit !== null ? `A deposit of ${doc.depositPercent}% is required to confirm the order.` : 'Payment is due upon completion unless otherwise agreed.',
@@ -110,10 +121,10 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
       ];
 
   const detailRows = [
-    [isInvoice ? 'Invoice No.' : 'Quote No.', doc.number],
+    [isProforma ? 'Proforma No.' : isInvoice ? 'Invoice No.' : 'Quote No.', doc.number],
     ['Date', fmt(displayDate)],
-    ...(!isInvoice && doc.validUntil ? [['Valid Until', fmt(doc.validUntil)]] : []),
-    ...(isInvoice && doc.dueDate ? [['Payment Due', fmt(doc.dueDate)]] : []),
+    ...(!isBill && doc.validUntil ? [['Valid Until', fmt(doc.validUntil)]] : []),
+    ...(isBill && doc.dueDate ? [['Payment Due', fmt(doc.dueDate)]] : []),
     ...(meta.projectReference ? [['Reference', meta.projectReference]] : []),
   ];
 
@@ -123,7 +134,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
         {/* Action bar */}
         <div className="no-print flex items-center justify-between mb-5">
           <p style={{ color: '#8b8eb0', fontSize: 13, fontFamily: 'var(--font-heading)' }}>
-            {isInvoice ? 'Invoice' : 'Quotation'} &middot; {doc.number}
+            {isProforma ? 'Proforma invoice' : isInvoice ? 'Invoice' : 'Quotation'} &middot; {doc.number}
           </p>
           <PrintButton />
         </div>
@@ -161,7 +172,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 32 }}>
               <div>
                 <p style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: C.textMuted, marginBottom: 8 }}>
-                  {isInvoice ? 'Billed To' : 'Quote For'}
+                  {isProforma ? 'Invoice To' : isInvoice ? 'Billed To' : 'Quote For'}
                 </p>
                 <div style={{ padding: '14px 16px', borderLeft: `3px solid ${C.accent}`, background: C.rowAlt, borderRadius: '0 6px 6px 0' }}>
                   <p style={{ fontWeight: 700, color: C.brand, fontSize: 15, marginBottom: 2 }}>{doc.customerName}</p>
@@ -189,7 +200,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
 
             <p style={{ fontSize: 13, color: C.textMuted, marginBottom: 28, lineHeight: 1.7 }}>{intro}</p>
 
-            {!isInvoice && meta.scope && (
+            {!isBill && meta.scope && (
               <div style={{ marginBottom: 24 }}>
                 <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Scope of Work</p>
                 <ul style={{ paddingLeft: 20, margin: 0, lineHeight: 1.8 }}>
@@ -198,14 +209,14 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
               </div>
             )}
 
-            {!isInvoice && meta.specifications && (
+            {!isBill && meta.specifications && (
               <div style={{ marginBottom: 28 }}>
                 <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Specifications</p>
                 <SpecLines text={meta.specifications} />
               </div>
             )}
 
-            {!isInvoice && meta.photoDrawing && (
+            {!isBill && meta.photoDrawing && (
               <div style={{ marginBottom: 28 }}>
                 <p style={{ fontWeight: 700, color: C.brand, fontSize: 13, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Photo / Drawing</p>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -229,7 +240,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
                   <tr key={idx} style={{ background: idx % 2 === 1 ? C.rowAlt : C.paper, borderBottom: `1px solid ${C.borderAlt}` }}>
                     <td style={{ padding: '12px 14px', fontWeight: 700, color: C.brand, fontSize: 14 }}>{idx + 1}</td>
                     <td style={{ padding: '12px 14px' }}>
-                      <p style={{ fontWeight: 600, color: C.brand, fontSize: 14, margin: 0 }}>{li.description}</p>
+                      <p style={{ fontWeight: 600, color: C.brand, fontSize: 14, margin: 0, whiteSpace: 'pre-line' }}>{li.description}</p>
                     </td>
                     <td style={{ padding: '12px 14px', textAlign: 'center', color: C.textMuted }}>{li.qty}</td>
                     <td style={{ padding: '12px 14px', textAlign: 'right', color: C.textMuted }}>{gbp(li.unitPrice)}</td>
@@ -259,7 +270,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
                             </span>
                           </td>
                           <td style={{ padding: '12px 14px' }}>
-                            <p style={{ fontWeight: 600, color: C.brand, fontSize: 14, margin: 0 }}>{li.description}</p>
+                            <p style={{ fontWeight: 600, color: C.brand, fontSize: 14, margin: 0, whiteSpace: 'pre-line' }}>{li.description}</p>
                             {li.qty > 1 && (
                               <p style={{ fontSize: 12, color: C.textMuted, margin: '2px 0 0' }}>
                                 {li.qty} × {gbp(li.unitPrice)}
@@ -282,7 +293,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
               </div>
             )}
 
-            {!isInvoice && meta.leadTime && (
+            {!isBill && meta.leadTime && (
               <p style={{ margin: '16px 0 24px', fontWeight: 600, color: C.brand, fontSize: 13 }}>
                 Lead Time: <span style={{ fontWeight: 400, color: C.text }}>{meta.leadTime}</span>
               </p>
@@ -353,7 +364,7 @@ export default function DocumentView({ doc }: { doc: DocumentData }) {
 
             {/* Closing */}
             <p style={{ textAlign: 'center', fontSize: 16, fontWeight: 600, color: C.brand, fontStyle: 'italic', marginBottom: 4, fontFamily: 'Georgia, serif' }}>
-              {isInvoice ? 'Thank you for your business.' : 'Thank you for the opportunity to quote.'}
+              {isBill ? 'Thank you for your business.' : 'Thank you for the opportunity to quote.'}
             </p>
             <p style={{ textAlign: 'center', fontSize: 12, color: C.textMuted }}>We look forward to working with you.</p>
           </div>

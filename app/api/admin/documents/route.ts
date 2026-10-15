@@ -45,7 +45,7 @@ function computeTotals(lineItems: LineItem[], vatRate: number) {
 }
 
 async function nextNumber(type: string): Promise<string> {
-  const prefix = type === 'invoice' ? 'INV' : 'Q';
+  const prefix = type === 'invoice' ? 'INV' : type === 'proforma' ? 'PF' : 'Q';
   const year = new Date().getFullYear();
   const pattern = `${prefix}-${year}-%`;
 
@@ -97,8 +97,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       lineItems, vatRate, notes, meta, depositPercent, issueDate, validUntil, dueDate,
     } = body;
 
-    if (type !== 'quote' && type !== 'invoice') {
-      return NextResponse.json({ error: 'Type must be "quote" or "invoice".' }, { status: 400 });
+    if (type !== 'quote' && type !== 'invoice' && type !== 'proforma') {
+      return NextResponse.json({ error: 'Type must be "quote", "invoice" or "proforma".' }, { status: 400 });
     }
     if (!customerName || !Array.isArray(lineItems) || lineItems.length === 0) {
       return NextResponse.json({ error: 'Customer name and at least one line item are required.' }, { status: 400 });
