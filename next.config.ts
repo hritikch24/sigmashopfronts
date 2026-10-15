@@ -49,6 +49,13 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Speak-to-create on /admin/documents records from the microphone. Public
+        // pages keep it blocked; this later entry overrides the one above for
+        // admin pages only.
+        source: '/admin/:path*',
+        headers: [{ key: 'Permissions-Policy', value: 'camera=(), microphone=(self), geolocation=()' }],
+      },
+      {
         source: "/assets/:path*",
         headers: [
           {
