@@ -8,9 +8,9 @@ import QuickMessage from '@/components/site/QuickMessage';
 
 export const metadata = pageMeta({
   path: '/',
-  title: `${business.name} — shopfronts, shutters and repairs`,
+  title: `Shopfront fitters in Birmingham — ${business.name}`,
   description:
-    'Aluminium shopfronts, roller shutters, doors and glazing fitted UK-wide and repaired within 100 road miles of Birmingham, Sheffield included. Free quote and site visit; same-day call-outs for emergency repairs.',
+    'Shopfront fitters for Birmingham, based in Oldbury. Shopfronts, roller shutters, doors and glass fitted UK-wide, repairs within 100 road miles. Free quote.',
 });
 
 /** Our own job photos, one per thing people most often ask us for. */
