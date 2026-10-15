@@ -4,9 +4,11 @@ import { sendEnquiryAcknowledgement, sendEnquiryToOffice } from '@/lib/resend';
 import { sendTelegramLeadNotification } from '@/lib/telegram';
 import { clientKey, limited } from '@/lib/limit';
 import { readLine } from '@/lib/quick-line';
+import { DOOR_TYPES, SERVICE_TYPES, TIMINGS, cleanPath, pick } from '@/lib/enquiry-options';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_PHOTO = 6 * 1024 * 1024;
+const MAX_PHOTOS = 3;
 
 /**
  * Enquiries from /enquire and from the offer at the end of the frontage
@@ -35,8 +37,18 @@ export async function POST(req: NextRequest) {
   const phone = parsed ? parsed.phone : f('phone', 40);
   const email = parsed ? parsed.email : f('email', 200);
   const location = (parsed ? parsed.postcode : f('location', 200)) || 'Not given';
-  const service = parsed ? 'One-line message' : f('service', 200) || 'General enquiry';
-  const message = parsed ? line : f('message', 4000);
+  // Fixed choices only: anything else is dropped, never stored.
+  const serviceType = pick(SERVICE_TYPES, f('serviceType', 40));
+  const doorType = pick(DOOR_TYPES, f('doorType', 40));
+  const timing = pick(TIMINGS, f('timing', 40));
+  const landingPage = cleanPath(f('landing', 160));
+  const service = parsed ? 'One-line message' : f('service', 200) || (serviceType ? SERVICE_TYPES[serviceType] : 'General enquiry');
+  const details = [
+    serviceType && `Needs: ${SERVICE_TYPES[serviceType]}`,
+    doorType && `Door type: ${DOOR_TYPES[doorType]}`,
+    timing && `When: ${TIMINGS[timing]}`,
+  ].filter(Boolean);
+  const message = parsed ? line : [f('message', 4000), details.length ? `\n${details.join('\n')}` : ''].join('').trim();
   const source = f('source', 200) || 'enquire';
 
   // Only a way to reply is required. Name and town help, but asking for them
@@ -44,14 +56,15 @@ export async function POST(req: NextRequest) {
   if (!phone && !email) return NextResponse.json({ ok: false, error: 'Please add a phone number or an email address so we can reply.' }, { status: 400 });
   if (email && !EMAIL.test(email)) return NextResponse.json({ ok: false, error: 'Please check the email address.' }, { status: 400 });
 
-  let photo: { filename: string; content: Buffer } | null = null;
-  const file = form.get('photo');
-  if (file && typeof file === 'object' && 'arrayBuffer' in file && file.size > 0) {
-    if (file.size > MAX_PHOTO) return NextResponse.json({ ok: false, error: 'The photo is too large — please send one under 6 MB.' }, { status: 400 });
+  const photos: { filename: string; content: Buffer }[] = [];
+  const files = form.getAll('photo').filter((v): v is File => typeof v === 'object' && 'arrayBuffer' in v && v.size > 0);
+  if (files.length > MAX_PHOTOS) return NextResponse.json({ ok: false, error: `Please send up to ${MAX_PHOTOS} photos.` }, { status: 400 });
+  for (const [i, file] of files.entries()) {
+    if (file.size > MAX_PHOTO) return NextResponse.json({ ok: false, error: 'A photo is too large — please send each one under 6 MB.' }, { status: 400 });
     if (!/^image\/(jpeg|png|webp|heic|heif)$/.test(file.type)) {
-      return NextResponse.json({ ok: false, error: 'Please send the photo as a JPEG, PNG, WebP or HEIC image.' }, { status: 400 });
+      return NextResponse.json({ ok: false, error: 'Please send photos as JPEG, PNG, WebP or HEIC images.' }, { status: 400 });
     }
-    photo = { filename: `frontage.${file.type.split('/')[1]}`, content: Buffer.from(await file.arrayBuffer()) };
+    photos.push({ filename: `photo-${i + 1}.${file.type.split('/')[1]}`, content: Buffer.from(await file.arrayBuffer()) });
   }
 
   let lead;
@@ -63,8 +76,13 @@ export async function POST(req: NextRequest) {
         phone,
         location,
         service,
-        message: [message, photo ? '[photo attached to the office email]' : ''].filter(Boolean).join('\n') || undefined,
+        message:
+          [message, photos.length ? `[${photos.length === 1 ? 'photo' : `${photos.length} photos`} attached to the office email]` : '']
+            .filter(Boolean)
+            .join('\n') || undefined,
         source,
+        serviceType,
+        landingPage,
         sessionId: f('sessionId', 100) || undefined,
       },
     });
@@ -73,7 +91,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'We could not save your enquiry. Please call or WhatsApp us.' }, { status: 500 });
   }
 
-  const notify = { ...lead, photo };
+  const notify = { ...lead, photos };
   await Promise.allSettled([
     sendEnquiryToOffice(notify).catch((e) => console.error('[enquire] office email', e)),
     sendTelegramLeadNotification(lead).catch((e) => console.error('[enquire] telegram', e)),

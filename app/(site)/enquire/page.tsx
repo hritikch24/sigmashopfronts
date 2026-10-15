@@ -4,7 +4,7 @@ import EnquiryForm from '@/components/site/EnquiryForm';
 import QuickMessage from '@/components/site/QuickMessage';
 import { whatsappLink } from '@/lib/quick-line';
 import { breadcrumbs, pageMeta } from '@/lib/seo';
-import { business } from '@/lib/business';
+import { business, garageLive } from '@/lib/business';
 
 export const metadata = pageMeta({
   path: '/enquire',
@@ -41,7 +41,7 @@ export default function Enquire() {
             <div>
               <h2 style={{ fontSize: '1.25rem' }}>Or the full form, with a photo</h2>
               <div style={{ marginTop: '0.9rem' }}>
-                <EnquiryForm source="enquire" />
+                <EnquiryForm source="enquire" garage={garageLive} />
               </div>
             </div>
           </div>

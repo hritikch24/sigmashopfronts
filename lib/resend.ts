@@ -29,7 +29,9 @@ export interface EnquiryMail {
   message?: string | null;
   source?: string | null;
   createdAt: Date;
-  photo?: { filename: string; content: Buffer } | null;
+  photos?: { filename: string; content: Buffer }[];
+  serviceType?: string | null;
+  landingPage?: string | null;
 }
 
 export async function sendEnquiryToOffice(e: EnquiryMail): Promise<void> {
@@ -40,6 +42,7 @@ export async function sendEnquiryToOffice(e: EnquiryMail): Promise<void> {
     ['Where', e.location],
     ['What', e.service],
     ['Came from', e.source ?? '—'],
+    ['Page', e.landingPage ?? '—'],
     ['Received', e.createdAt.toLocaleString('en-GB', { timeZone: 'Europe/London', dateStyle: 'full', timeStyle: 'short' })],
   ];
   const html = `
@@ -49,7 +52,7 @@ export async function sendEnquiryToOffice(e: EnquiryMail): Promise<void> {
     ${rows.map(([k, v]) => `<tr><td style="padding:8px 0;color:#56636f;width:30%;border-bottom:1px solid #d3dae2">${k}</td><td style="padding:8px 0;border-bottom:1px solid #d3dae2">${esc(v)}</td></tr>`).join('')}
   </table>
   ${e.message ? `<p style="white-space:pre-wrap;font-size:14px;margin-top:16px">${esc(e.message)}</p>` : ''}
-  ${e.photo ? '<p style="font-size:13px;color:#56636f">Photo of the frontage attached.</p>' : ''}
+  ${e.photos?.length ? `<p style="font-size:13px;color:#56636f">${e.photos.length === 1 ? 'Photo' : `${e.photos.length} photos`} attached.</p>` : ''}
   <p style="font-size:12px;color:#56636f">Lead ${esc(e.id)}</p>
 </div>`;
   const { error } = await client().emails.send({
@@ -58,7 +61,7 @@ export async function sendEnquiryToOffice(e: EnquiryMail): Promise<void> {
     replyTo: e.email,
     subject: `Enquiry: ${e.service} — ${e.location}`,
     html,
-    attachments: e.photo ? [{ filename: e.photo.filename, content: e.photo.content }] : undefined,
+    attachments: e.photos?.length ? e.photos.map((p) => ({ filename: p.filename, content: p.content })) : undefined,
   });
   if (error) throw new Error(`Office notification failed: ${error.message}`);
 }

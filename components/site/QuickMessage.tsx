@@ -38,6 +38,7 @@ export default function QuickMessage({
     setError('');
     const fd = new FormData(e.currentTarget);
     fd.set('quick', '1');
+    fd.set('landing', window.location.pathname);
     try {
       fd.set('sessionId', sessionStorage.getItem('sigma.visit') ?? '');
     } catch {}

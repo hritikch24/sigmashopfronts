@@ -3,6 +3,7 @@ import PageHead from '@/components/site/PageHead';
 import JsonLd from '@/components/site/JsonLd';
 import { breadcrumbs, pageMeta } from '@/lib/seo';
 import { shopfronts } from '@/data/shopfronts';
+import { garageDoors } from '@/lib/business';
 
 export const metadata = pageMeta({
   path: '/shopfronts',
@@ -32,6 +33,12 @@ export default function ShopfrontsIndex() {
                 <span className="sheet-meta">{s.card}</span>
               </Link>
             ))}
+            {garageDoors.published && (
+              <Link href="/garage-door-installation">
+                <span className="sheet-title">Garage doors</span>
+                <span className="sheet-meta">New and replacement garage doors, made to measure.</span>
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -45,6 +52,12 @@ export default function ShopfrontsIndex() {
                 <span className="sheet-meta">{s.card}</span>
               </Link>
             ))}
+            {garageDoors.published && (
+              <Link href="/garage-door-repairs">
+                <span className="sheet-title">Garage door repairs</span>
+                <span className="sheet-meta">Springs, cables, motors and remotes on garage doors.</span>
+              </Link>
+            )}
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-13 20:00 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-15 11:32 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
@@ -14,10 +14,10 @@ shingles, rounded **up** to one decimal.
 
 | Page | 8-grams | urban | grewal | safeandsecure | highstreet | all siblings | worst internal | against |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| `/` | 451 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **2.3** | `/enquire` |
+| `/` | 435 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.9** | `/company` |
 | `/company` | 318 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **3.8** | `/enquire` |
 | `/costs` | 507 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **9.1** | `/shopfronts/roller-shutters` |
-| `/enquire` | 203 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **6.0** | `/company` |
+| `/enquire` | 120 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.0** | `/company` |
 | `/explained` | 283 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.1** | `/explained/heritage-shopfront-grants` |
 | `/explained/advertisement-consent` | 621 | 0.2 | 0.2 | 0.0 | 0.0 | **0.2** | **5.2** | `/explained` |
 | `/explained/after-an-enforcement-notice` | 455 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.5** | `/explained` |
@@ -25,7 +25,7 @@ shingles, rounded **up** to one decimal.
 | `/explained/heritage-shopfront-grants` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.5** | `/explained` |
 | `/explained/listed-building-consent` | 375 | 0.6 | 0.6 | 0.0 | 0.0 | **0.6** | **8.8** | `/explained` |
 | `/explained/why-solid-shutters-get-refused` | 486 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.3** | `/explained` |
-| `/frontage-check` | 354 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.9** | `/planning/birmingham` |
+| `/frontage-check` | 166 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.9** | `/planning/birmingham` |
 | `/grants` | 246 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
 | `/jobs` | 326 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.0** | `/shopfronts/industrial-shutters` |
 | `/planning` | 630 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **3.1** | `/planning/sheffield` |

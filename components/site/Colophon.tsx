@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from '@/components/site/Link';
-import { business } from '@/lib/business';
+import { business, garageDoors } from '@/lib/business';
 
 export default function Colophon() {
   const o = business.registeredOffice;
@@ -46,6 +46,7 @@ export default function Colophon() {
             <h2>Sigma</h2>
             <ul style={{ marginTop: '0.8rem' }}>
               <li><Link href="/shopfronts">What we fit</Link></li>
+              {garageDoors.published && <li><Link href="/garage-door-repairs">Garage door repairs</Link></li>}
               <li><Link href="/repair-radius">Repair area</Link></li>
               <li><Link href="/jobs">Our work</Link></li>
               <li><Link href="/costs">Costs</Link></li>

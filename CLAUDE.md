@@ -114,3 +114,26 @@ routes breaks it **silently** — the hub just stops posting.
 
 `~/Projects/shopfront-metrics` depends on `/api/metrics` the same way. If you
 change either contract, update both and say so in the commit.
+
+## Garage doors — drafted 15 Oct 2026, NOT published
+
+`/garage-door-repairs` and `/garage-door-installation` (data in `data/garage-doors.ts`, page in
+`components/site/GaragePage.tsx`). Held behind `garageDoors.published` in `lib/business.ts`: until it is true both
+routes prerender as a 404 (noindex), stay out of the sitemap, `llms.txt`, footer and `/shopfronts`, and the form
+does not offer garage choices. The owner has not confirmed Sigma does garage doors at all; `garageDoors.owed` lists
+every question. Set `SIGMA_GARAGE_DRAFT=on` on a **preview** deployment to let the owner read the drafts (ignored
+on production). No servicing page: servicing is a section of the repairs page until it is a confirmed, priced
+service. No `/garage-door-replacement`, `/new-garage-doors` or `/garage-door-fitters`: replacement is part of
+installation.
+
+Related routes asked for in the same brief already exist and were **not** duplicated: shopfront repairs and
+commercial door repairs → `/shopfronts/repairs`; roller shutter repairs → `/shopfronts/shutter-repairs`; roller
+shutter installation → `/shopfronts/roller-shutters`; glass → `/shopfronts/glass-replacement`. The flat paths
+`/shopfront-repairs` and `/roller-shutter-installation` are already one-hop 301s from the WordPress map. Signs,
+window graphics and respraying appear nowhere on this site as services and are unconfirmed; no pages.
+
+Enquiries: the form now has optional `serviceType`, `timing` and (garage pages) `doorType` choices, up to three
+photos, and sends the page path. Leads gain two nullable columns, `service_type` and `landing_page` (applied by
+`prisma db push` on deploy). The GA4 `generate_lead` event carries `service_type` — a fixed key, never anything
+typed. The sanity suite and the originality gate skip routes that prerender as 404; the gate leaves `<form>`
+markup out of the per-page comparison (still counted in the whole-page check).

@@ -16,7 +16,9 @@
  *
  * Header and footer sit outside <main> and are identical on every page by
  * design, so they are excluded from (b); they are still compared with the
- * siblings through the whole-page check at the end.
+ * siblings through the whole-page check at the end. Enquiry forms inside
+ * <main> are the same interface on every page that carries one, so they are
+ * left out of (a) and (b) the same way, and kept in the whole-page check.
  *
  * Sibling copy comes from the sibling repos on this machine when they are
  * present (read-only). On a build server they are not, so the gate falls back
@@ -185,13 +187,23 @@ function visibleText(html) {
 }
 
 const pages = [];
+function statusOf(html) {
+  try {
+    return JSON.parse(readFileSync(html.replace(/\.html$/, '.meta'), 'utf8')).status ?? 200;
+  } catch {
+    return 200;
+  }
+}
+
 for (const f of walk(APP)) {
   if (!f.endsWith('.html')) continue;
   const rel = relative(APP, f).replace(/\\/g, '/').replace(/\.html$/, '');
   if (/^(_not-found|_global-error|404|500)$/.test(rel)) continue;
+  // A route held back with notFound() prerenders as a 404, not a page.
+  if (statusOf(f) === 404) continue;
   if (/^(admin|metrics|quote|invoice)(\/|$)/.test(rel)) continue;
   const html = readFileSync(f, 'utf8');
-  const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
+  const main = (html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '').replace(/<form[\s\S]*?<\/form>/gi, ' ');
   const path = rel === 'index' ? '/' : `/${rel}`;
   pages.push({ path, main: shingles(visibleText(main)), whole: shingles(visibleText(html)) });
 }

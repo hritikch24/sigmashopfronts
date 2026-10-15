@@ -83,6 +83,46 @@ export const business = {
 // approved the privacy notice and terms of business as published.
 export const pendingFacts: Record<string, string> = {};
 
+/**
+ * Garage doors: pages drafted 15 Oct 2026 at /garage-door-repairs and
+ * /garage-door-installation. The owner has NOT confirmed that Sigma does this
+ * work. Until `published` is true both pages return 404, are left out of the
+ * sitemap and llms.txt, and nothing links to them.
+ *
+ * To publish: get every answer in `owed` from the owner, strike any door type
+ * the owner does not do from the two lists, then set `published: true`. Do not
+ * publish with a guessed answer. These facts are separate from `pendingFacts`
+ * on purpose: an unanswered garage question must not take the whole site out
+ * of the index.
+ */
+export const garageDoors = {
+  published: false,
+  /** Door types Sigma repairs. Each one shown on the repairs page. Strike any the owner does not do. */
+  repairTypes: ['roller', 'sectional', 'up-and-over', 'side-hinged'] as GarageDoorType[],
+  /** Door types Sigma supplies and fits. Strike any the owner does not do. */
+  installTypes: ['roller', 'sectional', 'up-and-over', 'side-hinged'] as GarageDoorType[],
+  /** Adding a motor to an existing manual door. False hides that section. */
+  automation: true,
+  owed: {
+    offered: 'Does Sigma repair garage doors, fit new ones, or both? Homes, businesses or both?',
+    types: 'Which door types: roller, sectional, up-and-over, side-hinged? Electric motors and remotes?',
+    automation: 'Does Sigma add a motor to an existing manual garage door?',
+    who: 'Who does the work: Sigma fitters, or a partner firm? If a partner, the page must say so.',
+    area: 'Is the garage door repair area the same 100 road miles from Birmingham? Is installation UK-wide?',
+    emergency: 'Does the two-hour reply and same-day call-out also apply to garage doors?',
+    supplier: 'Who makes the doors Sigma fits? Name a maker only if Sigma buys from them direct.',
+    prices: 'Typical prices: a spring, a cable, a motor; a new single and double door, fitted.',
+    servicing: 'Is garage door servicing a separate paid service? If so, what is checked and what does it cost?',
+    photos: 'Photos of garage doors Sigma has repaired or fitted, with the town and month.',
+  },
+};
+
+export type GarageDoorType = 'roller' | 'sectional' | 'up-and-over' | 'side-hinged';
+
+/** Lets the owner read the drafts on a preview deployment. Never on production. */
+export const garageDraftPreview = process.env.SIGMA_GARAGE_DRAFT === 'on' && process.env.VERCEL_ENV !== 'production';
+export const garageLive = garageDoors.published || garageDraftPreview;
+
 /** Not blockers for indexing, but owed before ads run again. */
 export const followUps: Record<string, string> = {
   googleAdsTag: 'Ads conversions come from Sigma\'s own GA4 property (NEXT_PUBLIC_SIGMA_GA4_ID): call_click, whatsapp_click and generate_lead are key events imported into Google Ads. Never set NEXT_PUBLIC_SIGMA_ADS_ID to the Ads account\'s AW- tag: that account is shared with another firm, so its tag would tie the two sites together.',

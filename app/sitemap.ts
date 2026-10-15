@@ -1,10 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { absolute } from '@/lib/seo';
-import { indexingOn } from '@/lib/business';
+import { garageDoors, garageLive, indexingOn } from '@/lib/business';
 import { shopfronts } from '@/data/shopfronts';
 import { authorities } from '@/data/authorities';
 import { explainers } from '@/data/explainers';
 import { towns } from '@/data/towns';
+
+const GARAGE_PATHS = ['/garage-door-repairs', '/garage-door-installation'];
 
 /**
  * Indexable pages only. While the site is held at noindex the sitemap is empty,
@@ -31,6 +33,8 @@ export const PUBLIC_PATHS = [
   '/enquire',
   '/privacy',
   '/terms-of-business',
+  // Built only once confirmed, or as a draft on a preview (see garageDoors).
+  ...(garageLive ? GARAGE_PATHS : []),
 ];
 
 // Fixed, not "now": a lastmod that changes on every build tells crawlers every
@@ -39,5 +43,8 @@ const LAST_CHANGED = '2026-10-14';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!indexingOn) return [];
-  return PUBLIC_PATHS.map((p) => ({ url: absolute(p), lastModified: LAST_CHANGED }));
+  return PUBLIC_PATHS.filter((p) => garageDoors.published || !GARAGE_PATHS.includes(p)).map((p) => ({
+    url: absolute(p),
+    lastModified: LAST_CHANGED,
+  }));
 }

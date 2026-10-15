@@ -38,6 +38,10 @@ model Lead {
   service   String
   message   String?
   source    String?
+  /// A key from lib/enquiry-options.ts (e.g. "garage-repair"); null for one-line messages and older leads.
+  serviceType String? @map("service_type")
+  /// The page path the form was sent from, without any query string.
+  landingPage String? @map("landing_page")
   sessionId String?  @map("session_id")
   status    String   @default("new")
   createdAt DateTime @default(now())

@@ -34,11 +34,24 @@ if (!existsSync(APP)) {
 }
 
 /* ── load built public pages ────────────────────────────────────────── */
+function statusOf(html) {
+  try {
+    return JSON.parse(readFileSync(html.replace(/\.html$/, '.meta'), 'utf8')).status ?? 200;
+  } catch {
+    return 200;
+  }
+}
 const pages = new Map();
+const held = new Set();
 for (const f of walk(APP)) {
   if (!f.endsWith('.html')) continue;
   const rel = relative(APP, f).replace(/\.html$/, '');
   if (/^(_not-found|_global-error|404|500|admin|metrics)/.test(rel)) continue;
+  // A route held back with notFound() (the garage door drafts) prerenders as a 404, not a page.
+  if (statusOf(f) === 404) {
+    held.add(rel === 'index' ? '/' : `/${rel}`);
+    continue;
+  }
   pages.set(rel === 'index' ? '/' : `/${rel}`, readFileSync(f, 'utf8'));
 }
 
@@ -112,7 +125,7 @@ for (const [path, html] of pages) {
   for (const [re, what] of FABRICATION) if (re.test(t)) bad(`${path}: ${what} — "${t.match(re)[0]}"`);
 
   /* 6b. plain English where customers read: many speak English as a second language */
-  if (/^\/($|shopfronts|repair-radius|costs|enquire|company|questions|jobs)/.test(path)) {
+  if (/^\/($|shopfronts|garage-door|repair-radius|costs|enquire|company|questions|jobs)/.test(path)) {
     const main = (html.match(/<main[\s\S]*?<\/main>/)?.[0] ?? '')
       .replace(/<script[\s\S]*?<\/script>/g, ' ')
       .replace(/<\/(p|li|h[1-6]|dd|dt|summary|figcaption|td|th|div|span|strong|a|label|button)>/g, '. ')

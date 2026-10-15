@@ -1,5 +1,6 @@
 import { SITE_URL } from '@/lib/site';
-import { business } from '@/lib/business';
+import { business, garageDoors } from '@/lib/business';
+import { garagePages } from '@/data/garage-doors';
 import { authorities } from '@/data/authorities';
 import { shopfronts } from '@/data/shopfronts';
 import { explainers } from '@/data/explainers';
@@ -30,7 +31,7 @@ Phone: ${business.phones.main.display} or ${business.phones.second.display} (Wha
 ${authorities.map((a) => `- [${a.place} — ${a.council}](${SITE_URL}/planning/${a.slug}): ${a.headline}`).join('\n')}
 
 ## Services
-${shopfronts.map((s) => `- [${s.name}](${SITE_URL}/shopfronts/${s.slug}): ${s.card}`).join('\n')}
+${shopfronts.map((s) => `- [${s.name}](${SITE_URL}/shopfronts/${s.slug}): ${s.card}`).join('\n')}${garageDoors.published ? `\n${garagePages.map((g) => `- [${g.name}](${SITE_URL}${g.path}): ${g.title.split(': ')[1]}`).join('\n')}` : ''}
 
 ## Repairs by town (within ${business.repairRadiusMiles} road miles of ${business.repairCentre})
 ${[...towns].sort((a, b) => a.miles - b.miles).map((t) => `- [${t.name}, ${t.county}](${SITE_URL}/repair-radius/${t.slug}): about ${t.miles} road miles; ${t.council}.`).join('\n')}
