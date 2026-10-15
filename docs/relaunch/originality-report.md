@@ -1,6 +1,6 @@
 # Originality report
 
-Generated 2026-10-15 11:32 UTC by `scripts/originality-gate.mjs`.
+Generated 2026-10-15 11:50 UTC by `scripts/originality-gate.mjs`.
 
 Method: 8-word shingles of the visible text inside `<main>` on every prerendered public page.
 Sibling copy source: sibling repos (live). Limit: **20%**. Figures are percentages of the page's own
@@ -29,26 +29,26 @@ shingles, rounded **up** to one decimal.
 | `/grants` | 246 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **0.0** | `—` |
 | `/jobs` | 326 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **4.0** | `/shopfronts/industrial-shutters` |
 | `/planning` | 630 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **3.1** | `/planning/sheffield` |
-| `/planning/birmingham` | 573 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.0** | `/planning/plymouth` |
-| `/planning/bournemouth-christchurch-and-poole` | 383 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.9** | `/planning/bradford` |
-| `/planning/bradford` | 492 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.6** | `/planning/edinburgh` |
-| `/planning/brighton-and-hove` | 440 | 0.0 | 0.3 | 0.0 | 0.0 | **0.3** | **13.5** | `/planning/gloucester` |
-| `/planning/bristol` | 438 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.4** | `/planning/southampton` |
-| `/planning/cheshire-west-and-chester` | 441 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.3** | `/planning/coventry` |
+| `/planning/birmingham` | 573 | 0.0 | 0.0 | 0.0 | 0.2 | **0.2** | **10.0** | `/planning/plymouth` |
+| `/planning/bournemouth-christchurch-and-poole` | 383 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **13.9** | `/planning/bradford` |
+| `/planning/bradford` | 492 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **11.6** | `/planning/edinburgh` |
+| `/planning/brighton-and-hove` | 440 | 0.0 | 0.3 | 0.0 | 0.3 | **0.5** | **13.5** | `/planning/gloucester` |
+| `/planning/bristol` | 438 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **12.4** | `/planning/southampton` |
+| `/planning/cheshire-west-and-chester` | 441 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **12.3** | `/planning/coventry` |
 | `/planning/conservation-areas` | 436 | 0.7 | 0.7 | 0.0 | 0.0 | **0.7** | **0.7** | `/planning/gloucester` |
-| `/planning/coventry` | 535 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **10.5** | `/planning/gloucester` |
-| `/planning/derby` | 399 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.6** | `/planning/sheffield` |
-| `/planning/edinburgh` | 456 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **12.5** | `/planning/bradford` |
-| `/planning/gloucester` | 425 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.9** | `/planning/brighton-and-hove` |
-| `/planning/leeds` | 395 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.5** | `/planning/bristol` |
-| `/planning/leicester` | 479 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.5** | `/planning/nottingham` |
-| `/planning/nottingham` | 476 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.6** | `/planning/leicester` |
-| `/planning/oxford` | 465 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.7** | `/planning/coventry` |
-| `/planning/plymouth` | 391 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **14.6** | `/planning/birmingham` |
-| `/planning/reading` | 412 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **13.6** | `/planning/birmingham` |
-| `/planning/sheffield` | 714 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **7.6** | `/planning/derby` |
-| `/planning/southampton` | 343 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **15.8** | `/planning/bristol` |
-| `/planning/york` | 482 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **11.5** | `/planning/bradford` |
+| `/planning/coventry` | 535 | 0.0 | 0.0 | 0.0 | 0.2 | **0.2** | **10.5** | `/planning/gloucester` |
+| `/planning/derby` | 399 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **13.6** | `/planning/sheffield` |
+| `/planning/edinburgh` | 456 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **12.5** | `/planning/bradford` |
+| `/planning/gloucester` | 425 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **13.9** | `/planning/brighton-and-hove` |
+| `/planning/leeds` | 395 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **13.5** | `/planning/bristol` |
+| `/planning/leicester` | 479 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **11.5** | `/planning/nottingham` |
+| `/planning/nottingham` | 476 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **11.6** | `/planning/leicester` |
+| `/planning/oxford` | 465 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **11.7** | `/planning/coventry` |
+| `/planning/plymouth` | 391 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **14.6** | `/planning/birmingham` |
+| `/planning/reading` | 412 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **13.6** | `/planning/birmingham` |
+| `/planning/sheffield` | 714 | 0.0 | 0.0 | 0.0 | 0.2 | **0.2** | **7.6** | `/planning/derby` |
+| `/planning/southampton` | 343 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **15.8** | `/planning/bristol` |
+| `/planning/york` | 482 | 0.0 | 0.0 | 0.0 | 0.3 | **0.3** | **11.5** | `/planning/bradford` |
 | `/privacy` | 378 | 0.0 | 0.0 | 0.0 | 0.6 | **0.6** | **0.3** | `/company` |
 | `/questions` | 898 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **1.6** | `/shopfronts/emergency-repairs` |
 | `/repair-radius` | 331 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | **3.4** | `/questions` |
