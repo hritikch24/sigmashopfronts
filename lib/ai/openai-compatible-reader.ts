@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { GROQ_MODEL, groqExtras } from './groq-model';
 
 /**
  * Groq, xAI (Grok) and OpenAI (ChatGPT) all speak the OpenAI chat API, so
@@ -15,7 +16,7 @@ export interface CompatProvider {
 }
 
 export const COMPAT_PROVIDERS: CompatProvider[] = [
-  { name: 'groq', keyEnv: 'GROQ_API_KEY', baseURL: 'https://api.groq.com/openai/v1', model: 'llama-3.3-70b-versatile', jsonMode: true },
+  { name: 'groq', keyEnv: 'GROQ_API_KEY', baseURL: 'https://api.groq.com/openai/v1', model: GROQ_MODEL, jsonMode: true },
   { name: 'grok', keyEnv: 'XAI_API_KEY', baseURL: 'https://api.x.ai/v1', model: process.env.XAI_MODEL || 'grok-3-mini', jsonMode: true },
   { name: 'openai', keyEnv: 'OPENAI_API_KEY', model: process.env.OPENAI_MODEL || 'gpt-4o-mini', jsonMode: true },
 ];
@@ -24,17 +25,28 @@ export async function readWithCompat(p: CompatProvider, system: string, text: st
   const apiKey = process.env[p.keyEnv];
   if (!apiKey) return null;
   try {
-    const client = new OpenAI({ apiKey, baseURL: p.baseURL, timeout: 9_000, maxRetries: 0 });
-    const res = await client.chat.completions.create({
-      model: p.model,
-      temperature: 0,
-      max_tokens: 1200,
-      ...(p.jsonMode ? { response_format: { type: 'json_object' as const } } : {}),
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: text },
-      ],
-    });
+    const client = new OpenAI({ apiKey, baseURL: p.baseURL, timeout: 15_000, maxRetries: 0 });
+    const ask = (json: boolean) =>
+      client.chat.completions.create({
+        model: p.model,
+        temperature: 0,
+        max_tokens: 2000,
+        ...(p.name === 'groq' ? groqExtras : {}),
+        ...(json ? { response_format: { type: 'json_object' as const } } : {}),
+        messages: [
+          { role: 'system', content: system },
+          { role: 'user', content: text },
+        ],
+      });
+    let res;
+    try {
+      res = await ask(p.jsonMode);
+    } catch (err) {
+      // A model that rejects JSON mode still answers in JSON when asked to;
+      // parseJson below copes with any prose around it.
+      if (!p.jsonMode || (err as { status?: number }).status !== 400) throw err;
+      res = await ask(false);
+    }
     return parseJson(res.choices[0]?.message?.content);
   } catch (err) {
     console.error(`[documents/parse] ${p.name} failed:`, err instanceof Error ? err.message : err);
